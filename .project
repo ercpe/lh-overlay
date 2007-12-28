@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>0850-portage-overlay</name>
+	<name>dev-util</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 	</buildSpec>
 	<natures>
+		<nature>net.sf.geclipse.ide.projectmanager.EbuildNature</nature>
 	</natures>
 </projectDescription>
