@@ -9,6 +9,7 @@ LICENSE="GPL"
 KEYWORDS="~x86"
 DESCRIPTION="GEclipse is a ebuild-editor for Eclipse"
 SRC_URI="mirror://sourceforge/geclipse/${PN}-1.0.0_rc1.tar.gz"
-HOMEPAGE=""
+HOMEPAGE="http://sourceforge.net/projects/geclipse/"
 IUSE=""
 
+src
