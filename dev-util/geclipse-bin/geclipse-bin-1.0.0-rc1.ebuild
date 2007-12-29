@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
+inherit eutils
 
 SLOT="0"
 LICENSE="GPL"
@@ -12,3 +12,5 @@ SRC_URI="mirror://sourceforge/geclipse/${PN}-1.0.0_rc1.tar.gz"
 HOMEPAGE="http://sourceforge.net/projects/geclipse/"
 IUSE=""
 
+DEPEND = "${RDEPEND}"
+RDEPEND = ""
