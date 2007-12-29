@@ -1,0 +1,33 @@
+# ChangeLog for sci-chemistry/cns
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/cns/ChangeLog,v 1.7 2007/06/22 07:01:13 dberkholz Exp $
+
+*cns-1.2 (22 Jun 2007)
+
+  22 Jun 2007; Donnie Berkholz <dberkholz@gentoo.org>; cns-1.1.ebuild,
+  +cns-1.2.ebuild:
+  (#162740) Bump.
+
+  15 Mar 2007; Danny van Dyk <kugelfang@gentoo.org> cns-1.1.ebuild:
+  QA: Removed illegal use of ${ROOT}. Bug #168043
+
+  20 Sep 2006; Donnie Berkholz <dberkholz@gentoo.org>; metadata.xml:
+  (#148281) Change herd to sci-chemistry from sci.
+
+  05 Aug 2006; Donnie Berkholz <dberkholz@gentoo.org>; metadata.xml:
+  Remove myself as maintainer, anyone feel free to work on this, although I'll
+  continue to do so as well.
+
+  09 Jul 2006; Donnie Berkholz <dberkholz@gentoo.org>; cns-1.1.ebuild:
+  x86/ppc stable.
+
+  07 Jul 2006; Donnie Berkholz <spyderous@gentoo.org>; metadata.xml:
+  Update to my new email address.
+
+*cns-1.1 (10 Jun 2006)
+
+  10 Jun 2006; Donnie Berkholz <dberkholz@gentoo.org>;
+  +files/1.1-time-length-10.patch, +metadata.xml, +cns-1.1.ebuild:
+  Add CNS, an important package in X-ray crystallography and nuclear magnetic
+  resonance (NMR).
+

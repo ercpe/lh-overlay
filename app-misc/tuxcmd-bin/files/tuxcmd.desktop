@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Tux Commander
+Comment=A two panel file manager
+Exec=/opt/tuxcmd/tuxcmd
+Icon=/opt/tuxcmd/24754-tuxcmd.png
+Terminal=false
+MultipleArgs=false
+Type=Application
+DocPath=/opt/tuxcmd/README
+Categories=Application;Utility;
+StartupNotify=true

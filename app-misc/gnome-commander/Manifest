@@ -1,0 +1,8 @@
+DIST gnome-commander-1.2.4.tar.bz2 1738704 RMD160 3c6039ccca9af0d66b966b793ea9fcd9cbf5abeb SHA1 689d20ac1858e3970224ed721ecc8e0903c2ea33 SHA256 a99cd22fc528e70e2a54aa3d1f0cefa04b416eee28a9b2c27bb973509c0459bf
+EBUILD gnome-commander-1.2.4.ebuild 1222 RMD160 cc62233672032f92cb59d23867dc65df5e5fa0b3 SHA1 32da0388c4d36f1ff6c5cdf1e2ccc197b1e71e46 SHA256 437d5f5cb8b19b1ed36b1495a289eee65aa31eb4af471fca542b4b13ef18b0cd
+MD5 713d5a1c7152e61fdb4813407a545561 gnome-commander-1.2.4.ebuild 1222
+RMD160 cc62233672032f92cb59d23867dc65df5e5fa0b3 gnome-commander-1.2.4.ebuild 1222
+SHA256 437d5f5cb8b19b1ed36b1495a289eee65aa31eb4af471fca542b4b13ef18b0cd gnome-commander-1.2.4.ebuild 1222
+MD5 21e41e98e45b94303e7880c90e92516a files/digest-gnome-commander-1.2.4 271
+RMD160 3b4d7a63c63c3b00ce687bdbaa8d082f10bf6edd files/digest-gnome-commander-1.2.4 271
+SHA256 029c1f2ca53f1e5975c14096c385aaa10d2008d5ae0538b2530490aa55c0359c files/digest-gnome-commander-1.2.4 271
