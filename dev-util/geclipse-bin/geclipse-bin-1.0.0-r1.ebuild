@@ -19,5 +19,6 @@ DEPEND="${RDEPEND}"
 src_install(){
 	insinto /usr/lib/eclipse-3.2/plugins/
 	doins net.sf*
-	dodoc doc/userguide.pdf
+	insinto /usr/share/doc/${P}
+	doins doc/userguide.pdf
 }
