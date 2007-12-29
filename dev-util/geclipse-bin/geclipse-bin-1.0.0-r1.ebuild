@@ -5,9 +5,9 @@
 inherit eutils
 
 DESCRIPTION="GEclipse is a ebuild-editor for Eclipse"
-SRC_URI="mirror://sourceforge/geclipse/net.sf.geclipse-1.0.0_rc1.tar.gz"
+SRC_URI="mirror://sourceforge/geclipse/net.sf.geclipse_1.0.0_rc1.tar.gz"
 HOMEPAGE="http://sourceforge.net/projects/geclipse/"
-
+RESTRICT="primaryuri"
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="~x86"
