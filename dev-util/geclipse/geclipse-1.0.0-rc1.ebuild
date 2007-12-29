@@ -12,4 +12,3 @@ SRC_URI="mirror://sourceforge/geclipse/${PN}-1.0.0_rc1.tar.gz"
 HOMEPAGE="http://sourceforge.net/projects/geclipse/"
 IUSE=""
 
-src
