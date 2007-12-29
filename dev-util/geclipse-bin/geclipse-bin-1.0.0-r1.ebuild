@@ -13,5 +13,11 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="dev-util/eclipse-sdk"
 DEPEND="${RDEPEND}"
+
+src_install(){
+	insinto /usr/lib/eclipse-3.2/plugins/
+	doins net.sf*
+	dodoc doc/userguide.pdf
+}
