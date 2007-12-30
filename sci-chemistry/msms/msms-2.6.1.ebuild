@@ -2,11 +2,11 @@ inherit eutils
 
 DESCRIPTION="This allows you to run msms as a standalone application. A wrapped version of the library comes with MGLTools"
 SRC_URI="http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL2.6.1/msms_i86Linux2_2.6.1.tar.gz"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
+HOMEPAGE="http://mgltools.scripps.edu"
 RESTRICT="primaryuri"
 LICENSE="academical free"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="~x86"
 IUSE=""
 
 RDEPEND=""
