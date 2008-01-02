@@ -26,8 +26,8 @@ src_install() {
 
 	if use lighttpd
 	then
-		insinto $PLUGIN_DIR
-		doins lighttpd_*
+		exeinto $PLUGIN_DIR
+		doexe lighttpd_*
 
 		einfo "To use the lighttpd plugins add (or extend an already existing section) named [lighttpd_*] in your /etc/munin/plugin-conf.d/munin-node"
 		einfo "The resulting section should look like this:"
@@ -49,8 +49,8 @@ src_install() {
 
 	if use mysql
 	then
-		insinto $PLUGIN_DIR;
-		doins mysql_*
+		exeinto $PLUGIN_DIR;
+		doexe mysql_*
 		
 		einfo "To use the mysql plugins, create a mysql-user with the following rights:  PROCESS, REFERENCES, SHOW DATABASES"
 		einfo "and a config-file with the following content:"
@@ -68,8 +68,8 @@ src_install() {
 	
 	if use postfix
 	then
-		insinto $PLUGIN_DIR;
-		doins postfix_*
+		exeinto $PLUGIN_DIR;
+		doexe postfix_*
 		
 		einfo "Add a section to /etc/munin/plugin-conf.d/munin-node:"
 		einfo "  [postfix_mailfiltered]"
@@ -79,8 +79,8 @@ src_install() {
 	
 	if use proftpd
 	then
-		insinto $PLUGIN_DIR;
-		doins proftpd_*
+		exeinto $PLUGIN_DIR;
+		doexe proftpd_*
 		
 		einfo "Add a section to /etc/munin/plugin-conf.d/munin-node:"
 		einfo "  [proftpd_*]"
@@ -90,8 +90,8 @@ src_install() {
 	
 	if use spamassassin
 	then
-		insinto $PLUGIN_DIR;
-		doins spamassassin
+		exeinto $PLUGIN_DIR;
+		doexe spamassassin
 
 		einfo "Add a section to /etc/munin/plugin-conf.d/munin-node like this:"
 		einfo "  [spam*]"
@@ -103,8 +103,8 @@ src_install() {
 	
 	if use ntp
 	then
-		insinto $PLUGIN_DIR;
-		doins ntpdate_
+		exeinto $PLUGIN_DIR;
+		doexe ntpdate_
 
 		einfo "Create a symlink /etc/munin/plugins/ pointing to ${PLUGIN_DIR}/ntpdate_ named ntpdate_<your-ntp-server>"
 		einfo "For the german ntp-server of Physikalisch-Technische Universität Braunschweig the link would look like this:"
