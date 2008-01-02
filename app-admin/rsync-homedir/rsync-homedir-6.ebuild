@@ -8,12 +8,12 @@ SLOT="0"
 LICENSE="as-is"
 KEYWORDS="~x86"
 DESCRIPTION="Automatic Ebuild Index Script"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/overlay-index/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/rsync-homedir/${P}.tar.bz2"
 HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
 IUSE=""
 RESTRICT="primaryuri"
 src_install(){
-	exeinto /usr/lib/overlay-index
-	doexe mkindex.sh
-	dosym /usr/lib/overlay-index/mkindex.sh /usr/bin/mkindex
+	exeinto /usr/lib/rsync-homedir
+	doexe rsync-homedir.sh
+	dosym /usr/lib/rsync-homedir/rsync-homedir.sh /usr/bin/rsync-homedir
 }
