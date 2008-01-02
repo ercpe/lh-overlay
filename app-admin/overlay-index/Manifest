@@ -1,0 +1,8 @@
+DIST overlay-index-0.1_rc2.tar.bz2 1228 RMD160 593bdb11b8f71a0f6e37b4b3337e10ee0b6da6fc SHA1 2642f87b04a3a739a1c060ae9481922f18c9c97c SHA256 7696f240486c449de81150a724ed7b0e4f0ed8a796677dda7fe9ab0f6b138b75
+EBUILD overlay-index-0.1_rc2.ebuild 514 RMD160 c0243ebd9f68f4a90787a14e1230d8aac9345e97 SHA1 5f94fceedc425570871461f3c2fab27b5b2c29ff SHA256 cb8ad502c2c498803e7f4678c315d75f4ffdf16c4d5d4f82428114ff671f5b66
+MD5 5eaba4b1fa9fb0e9b009e45ce56108d0 overlay-index-0.1_rc2.ebuild 514
+RMD160 c0243ebd9f68f4a90787a14e1230d8aac9345e97 overlay-index-0.1_rc2.ebuild 514
+SHA256 cb8ad502c2c498803e7f4678c315d75f4ffdf16c4d5d4f82428114ff671f5b66 overlay-index-0.1_rc2.ebuild 514
+MD5 19129905340da84ee02913c3fd3daa65 files/digest-overlay-index-0.1_rc2 262
+RMD160 c44a7ebe4da626f48a2d661aabd4bca8ed4b683f files/digest-overlay-index-0.1_rc2 262
+SHA256 dd8cfb84180347eb150c144efa5413fa63b61a68b8153a928d451c117bf45947 files/digest-overlay-index-0.1_rc2 262
