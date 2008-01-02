@@ -12,6 +12,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/overlay-index/$
 HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
 IUSE=""
 RESTRICT="primaryuri"
+
 src_install(){
 	exeinto /usr/lib/overlay-index
 	doexe mkindex.sh
