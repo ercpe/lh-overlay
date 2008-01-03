@@ -6,7 +6,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/net-firewall/walloffire/$
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 amd64"
 # IUSE="symlink"
 
 RDEPEND=">=net-firewall/iptables-1.3.8"
