@@ -13,5 +13,6 @@
 	</buildSpec>
 	<natures>
 		<nature>net.sf.geclipse.ide.projectmanager.EbuildNature</nature>
+		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
 </projectDescription>
