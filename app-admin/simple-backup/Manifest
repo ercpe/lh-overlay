@@ -1,0 +1,8 @@
+DIST simple-backup-0.1.tar.bz2 2374 RMD160 e44b325fefd81343ca65028ceb4f9d908b55cfcf SHA1 afb2d7a9916683a64b6ff276a9a28316299d218a SHA256 004bff596e02bad6ffcfdb93f0863f806b0add49c621bc685b39dc7f0612a029
+EBUILD simple-backup-0.1.ebuild 661 RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc4f6 SHA1 b3132f41fd7bbc526e63d62a0789ed33d2f18a1c SHA256 4e22cd7e36594cef9b3608b7fb2bfa5df6f37da33c091231b78ce58ee19418fc
+MD5 cd1283dda3c1b8e8bbbd4ff3529a6745 simple-backup-0.1.ebuild 661
+RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc4f6 simple-backup-0.1.ebuild 661
+SHA256 4e22cd7e36594cef9b3608b7fb2bfa5df6f37da33c091231b78ce58ee19418fc simple-backup-0.1.ebuild 661
+MD5 ea9478aaec5b536cf7d11f12291177cd files/digest-simple-backup-0.1 250
+RMD160 014f001466fd5bfb9d700fce3017e373e4980d8b files/digest-simple-backup-0.1 250
+SHA256 e30c18595078d09c7b5bab04b34893926a2773b3f97b13a5557ace930638e4ec files/digest-simple-backup-0.1 250
