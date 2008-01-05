@@ -9,10 +9,10 @@ EBUILD simple-backup-0.2.ebuild 661 RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc
 MD5 cd1283dda3c1b8e8bbbd4ff3529a6745 simple-backup-0.2.ebuild 661
 RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc4f6 simple-backup-0.2.ebuild 661
 SHA256 4e22cd7e36594cef9b3608b7fb2bfa5df6f37da33c091231b78ce58ee19418fc simple-backup-0.2.ebuild 661
-EBUILD simple-backup-0.3.ebuild 661 RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc4f6 SHA1 b3132f41fd7bbc526e63d62a0789ed33d2f18a1c SHA256 4e22cd7e36594cef9b3608b7fb2bfa5df6f37da33c091231b78ce58ee19418fc
-MD5 cd1283dda3c1b8e8bbbd4ff3529a6745 simple-backup-0.3.ebuild 661
-RMD160 4ab915d2a55ad3dea8f08caf6744d0e464bfc4f6 simple-backup-0.3.ebuild 661
-SHA256 4e22cd7e36594cef9b3608b7fb2bfa5df6f37da33c091231b78ce58ee19418fc simple-backup-0.3.ebuild 661
+EBUILD simple-backup-0.3.ebuild 668 RMD160 debfc4b8f80b11a7e7dfa15b6ac2f9cb3556c980 SHA1 6faf596285acb48e6aeb6f82a7d6d167406e822d SHA256 50bb7e0013a73097109bef2cf6bb946011af7e0148edb7929f4643a9687d58ba
+MD5 87cef73d476381b94a2c97e8887b6b27 simple-backup-0.3.ebuild 668
+RMD160 debfc4b8f80b11a7e7dfa15b6ac2f9cb3556c980 simple-backup-0.3.ebuild 668
+SHA256 50bb7e0013a73097109bef2cf6bb946011af7e0148edb7929f4643a9687d58ba simple-backup-0.3.ebuild 668
 MD5 c8e91a40a1d978212691e913c415dfb3 files/digest-simple-backup-0.1 250
 RMD160 55f8dd1bf07d4f05711454c52b464b44a9fff590 files/digest-simple-backup-0.1 250
 SHA256 cf76d2addba237990eabcfc6803124bd1c6bc73a548da61bdd864996d266f271 files/digest-simple-backup-0.1 250
