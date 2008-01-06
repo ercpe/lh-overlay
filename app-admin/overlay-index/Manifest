@@ -1,5 +1,6 @@
 DIST overlay-index-0.1_rc2.tar.bz2 1228 RMD160 593bdb11b8f71a0f6e37b4b3337e10ee0b6da6fc SHA1 2642f87b04a3a739a1c060ae9481922f18c9c97c SHA256 7696f240486c449de81150a724ed7b0e4f0ed8a796677dda7fe9ab0f6b138b75
 DIST overlay-index-0.1_rc3.tar.bz2 1228 RMD160 593bdb11b8f71a0f6e37b4b3337e10ee0b6da6fc SHA1 2642f87b04a3a739a1c060ae9481922f18c9c97c SHA256 7696f240486c449de81150a724ed7b0e4f0ed8a796677dda7fe9ab0f6b138b75
+DIST overlay-index-0.1_rc4.tar.bz2 1304 RMD160 0f8cf04512f8ac95df7dfcbb659025184690b671 SHA1 c218182e7474939abde209d22939e7a3ce4fb183 SHA256 ad9943a033af4b542219281ca1256ba50bce0cbb9b7d7aa1678282e04371d199
 EBUILD overlay-index-0.1_rc2.ebuild 536 RMD160 8e89898d1a41a2846be791163db2e5034d1191f2 SHA1 7f895d358e23ac87442930d35a3926d684a547eb SHA256 dd6dcdcd06b573087e5e6e18293fd852059c8516f4b7e0bf56b573a0ef297e71
 MD5 708514a6d3bdca18b0fea1743974cfe0 overlay-index-0.1_rc2.ebuild 536
 RMD160 8e89898d1a41a2846be791163db2e5034d1191f2 overlay-index-0.1_rc2.ebuild 536
@@ -8,9 +9,16 @@ EBUILD overlay-index-0.1_rc3.ebuild 543 RMD160 c01ba16b089240081d45f3daddb133ce6
 MD5 816c286568b413fbf3f945dba40c80ac overlay-index-0.1_rc3.ebuild 543
 RMD160 c01ba16b089240081d45f3daddb133ce6fce0bb9 overlay-index-0.1_rc3.ebuild 543
 SHA256 baf30ab495d423efacd73b9ddc51f7f513f8df56f02b1758038fe93ffd8d3f41 overlay-index-0.1_rc3.ebuild 543
+EBUILD overlay-index-0.1_rc4.ebuild 605 RMD160 3a64eb6d48a3e9bf733462915db63447c1679639 SHA1 2528df2aad0806997e3f1d7af0697894384ac869 SHA256 d46f1e69a38e4bba1c1f44983f11cae1e23580de6195f220e85a69bb6832462b
+MD5 8489703e80e0c60a7050707faa873383 overlay-index-0.1_rc4.ebuild 605
+RMD160 3a64eb6d48a3e9bf733462915db63447c1679639 overlay-index-0.1_rc4.ebuild 605
+SHA256 d46f1e69a38e4bba1c1f44983f11cae1e23580de6195f220e85a69bb6832462b overlay-index-0.1_rc4.ebuild 605
 MD5 19129905340da84ee02913c3fd3daa65 files/digest-overlay-index-0.1_rc2 262
 RMD160 c44a7ebe4da626f48a2d661aabd4bca8ed4b683f files/digest-overlay-index-0.1_rc2 262
 SHA256 dd8cfb84180347eb150c144efa5413fa63b61a68b8153a928d451c117bf45947 files/digest-overlay-index-0.1_rc2 262
 MD5 2ded5a531765e51087effee5e97d187e files/digest-overlay-index-0.1_rc3 262
 RMD160 4d13087452c0d6b661339be430a4a6c3d0ebbf2d files/digest-overlay-index-0.1_rc3 262
 SHA256 07fecb78db5ce03186575ac6be3722ae43dd6a94882440ef779394132cc6d1ab files/digest-overlay-index-0.1_rc3 262
+MD5 42f739b4e77d940216a0f8b68e4b488f files/digest-overlay-index-0.1_rc4 262
+RMD160 ea1c4969702357c8598ab09a2c0dd57962c2e11c files/digest-overlay-index-0.1_rc4 262
+SHA256 c775257d2cfeeb3db3fcf45ad9a1e7358f1e7d6d1926f6fdbd44667bc47abec2 files/digest-overlay-index-0.1_rc4 262
