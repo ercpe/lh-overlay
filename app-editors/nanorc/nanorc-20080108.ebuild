@@ -19,6 +19,6 @@ src_install() {
 
 pkg_postinst(){
 	einfo "php.nanorc added"
-	einfo "echo '/usr/share/nano/php.nanorc'>>/etc/nanorc"
+	einfo "echo 'include /usr/share/nano/php.nanorc'>>/etc/nanorc"
 }
 
