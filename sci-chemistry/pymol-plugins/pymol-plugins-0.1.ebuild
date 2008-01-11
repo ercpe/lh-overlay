@@ -52,8 +52,14 @@ src_unpack(){
 	if use rtools;then
 		unpack rTools_0.7.2.zip
 		cd rTools
+		for i in `find .`
+		do
+        	if [[ -f $i ]
+	        then
+    	            sed  -i 's/.$//' $
+        	fi
+		done
 		epatch "${FILESDIR}"/rtools-0.7.2.patch
-sed 's/.$//'
 	fi
 }
 
