@@ -14,7 +14,8 @@ SLOT="0"
 KEYWORDS="x86"
 IUSE="cealign apbs rendering resicolor autodock promol helicheck emovie dynmap rtools colorama"
 
-RDEPEND="cealign? ( dev-python/numpy
+RDEPEND="app-portage/gentoolkit
+		 cealign? ( dev-python/numpy
 					=dev-lang/python-2.4* )
 		 apbs? ( dev-libs/maloc
 				 sci-chemistry/apbs
@@ -114,4 +115,12 @@ pkg_postinst(){
 		einfo "run /usr/lib/python2.4/site-packages/cealign/cealign.py"
 		einfo "to your ~/.pymolrc file"
 	fi
+}
+
+pkg_postrm() {
+        remove_python_bytecodes
+}
+
+remove_python_bytecodes() {
+		equery -q files pymol-plugins|grep pyc|xargs rm -fv
 }
