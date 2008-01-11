@@ -39,7 +39,7 @@ src_unpack(){
 		mkdir promol
 		cd promol
 		unpack ProMOL.zip
-	# Sorry for this ugly thing, but I can't figure out how to set it relative
+	# Sorry for this ugly thing, but I can't figure out how to set it relative.
 		sed -i 's/.\/modules/\/usr\/lib\/python2.4\/site-packages/g' ProMOL_302.py
 		cd ..
 	fi
