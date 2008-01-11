@@ -51,6 +51,7 @@ src_unpack(){
 	fi
 	if use rtools;then
 		unpack rTools_0.7.2.zip
+		cd rTools
 		epatch "${FILESDIR}"/rtools-0.7.2.patch
 	fi
 }
