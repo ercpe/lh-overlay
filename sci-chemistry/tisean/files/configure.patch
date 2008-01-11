@@ -1,0 +1,25 @@
+--- Tisean_3.0.1/configure.old	2007-03-08 16:13:00.000000000 +0100
++++ Tisean_3.0.1/configure	2007-12-13 14:44:54.000000000 +0100
+@@ -527,22 +527,6 @@
+ 
+ test "x$prefix" = xNONE && prefix=$ac_default_prefix
+ 
+-echo $ac_n "checking whether $prefix is a directory and writeable""... $ac_c" 1>&6
+-echo "configure:532: checking whether $prefix is a directory and writeable" >&5
+-mkdir -p $prefix 2>&5
+-if test -d $prefix && echo "" > $prefix/test_conf_write \
+-   && rm -f $prefix/test_conf_write; then
+-   echo "$ac_t""yes" 1>&6
+-else
+-   echo "$ac_t""no" 1>&6
+-   echo "configure: warning: 
+-*** $prefix must be a writeable directory for installation 
+-*** either you provide that or give another one, say mydir,  by calling
+-***    $ ./configure --prefix=mydir
+-" 1>&2
+-fi
+-
+-
+ for ccc in "$CC" cc gcc acc "cc -Aa"; do
+    if test -z "$ccc"; then 
+       continue
