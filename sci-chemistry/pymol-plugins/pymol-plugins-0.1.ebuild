@@ -122,5 +122,12 @@ pkg_postrm() {
 }
 
 remove_python_bytecodes() {
-		equery -q files pymol-plugins|grep pyc|xargs rm -fv
+		#equery -q files pymol-plugins|grep pyc|xargs rm
+        local d="${ROOT}/usr/$(get_libdir)/python2.4/site-packages/pmg_tk/startup/"
+        [ -d "${d}" ] || return
+        find "${d}" -type d -print0 | \
+        while read -d $'\0' d ; do
+                cd "${d}"
+                rm -f *.pyc *.pyo
+        done
 }
