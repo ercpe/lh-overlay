@@ -1,6 +1,6 @@
-diff -urN pymol-plugins-0.1.orig/rTools/color_protscale.py pymol-plugins-0.1/rTools/color_protscale.py
---- pymol-plugins-0.1.orig/rTools/color_protscale.py    2008-01-11 15:15:14.000000000 +0100
-+++ pymol-plugins-0.1/rTools/color_protscale.py 2008-01-11 15:16:11.000000000 +0100
+diff -urN rTools.orig/color_protscale.py rTools/color_protscale.py
+--- rTools.orig/color_protscale.py    2008-01-11 15:15:14.000000000 +0100
++++ rTools/color_protscale.py 2008-01-11 15:16:11.000000000 +0100
 @@ -31,12 +31,7 @@
  AUTO_POPUP=0
  
@@ -15,9 +15,9 @@ diff -urN pymol-plugins-0.1.orig/rTools/color_protscale.py pymol-plugins-0.1/rTo
  
  amino_acids=['Ala','Cys','Asp','Glu','Phe','Gly','His','Ile','Lys','Leu','Met','Asn','Pro','Gln','Arg','Ser','Thr','Val','Trp','Tyr']
  
-diff -urN pymol-plugins-0.1.orig/rTools/script_box.py pymol-plugins-0.1/rTools/script_box.py
---- pymol-plugins-0.1.orig/rTools/script_box.py 2008-01-11 15:15:14.000000000 +0100
-+++ pymol-plugins-0.1/rTools/script_box.py      2008-01-11 15:15:53.000000000 +0100
+diff -urN rTools.orig/script_box.py rTools/script_box.py
+--- rTools.orig/script_box.py 2008-01-11 15:15:14.000000000 +0100
++++ rTools/script_box.py      2008-01-11 15:15:53.000000000 +0100
 @@ -23,13 +23,7 @@
  AUTO_POPUP=1
  
