@@ -1,6 +1,6 @@
-diff -urN rTools.orig/color_protscale.py rTools/color_protscale.py
---- pymol-plugins-0.1.orig/rTools/color_protscale.py      2008-01-11 15:02:45.000000000 +0100
-+++ pymol-plugins-0.1/rTools/color_protscale.py   2008-01-11 15:04:45.000000000 +0100
+diff -urN pymol-plugins-0.1.orig/rTools/color_protscale.py pymol-plugins-0.1/rTools/color_protscale.py
+--- pymol-plugins-0.1.orig/rTools/color_protscale.py    2008-01-11 15:15:14.000000000 +0100
++++ pymol-plugins-0.1/rTools/color_protscale.py 2008-01-11 15:16:11.000000000 +0100
 @@ -31,12 +31,7 @@
  AUTO_POPUP=0
  
@@ -11,13 +11,13 @@ diff -urN rTools.orig/color_protscale.py rTools/color_protscale.py
 -    SCALE_PATH = 'C:%sPrograms%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%sprotscale%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
 -    if not os.access(SCALE_PATH,os.F_OK):
 -        SCALE_PATH = 'C:%sProgramme%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%sprotscale%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
-+SCALE_PATH = '/usr/lib/python2.4/site-packages/pmg_tk/startup'
++SCALE_PATH = '/usr/lib/python2.4/site-packages/pmg_tk/startup/'
  
  amino_acids=['Ala','Cys','Asp','Glu','Phe','Gly','His','Ile','Lys','Leu','Met','Asn','Pro','Gln','Arg','Ser','Thr','Val','Trp','Tyr']
  
-diff -urN rTools.orig/script_box.py rTools/script_box.py
---- pymol-plugins-0.1.orig/rTools/script_box.py   2008-01-11 15:02:45.000000000 +0100
-+++ pymol-plugins-0.1/rTools/script_box.py        2008-01-11 15:04:13.000000000 +0100
+diff -urN pymol-plugins-0.1.orig/rTools/script_box.py pymol-plugins-0.1/rTools/script_box.py
+--- pymol-plugins-0.1.orig/rTools/script_box.py 2008-01-11 15:15:14.000000000 +0100
++++ pymol-plugins-0.1/rTools/script_box.py      2008-01-11 15:15:53.000000000 +0100
 @@ -23,13 +23,7 @@
  AUTO_POPUP=1
  
@@ -32,4 +32,3 @@ diff -urN rTools.orig/script_box.py rTools/script_box.py
 +SCRIPT_PATH='/usr/lib/python2.4/site-packages/pmg_tk/startup/'
  
  SCRIPT_LIST=SCRIPT_PATH+'scripts.lst'
- SCRIPT_PATH=SCRIPT_PATH+'scripts'+os.sep
