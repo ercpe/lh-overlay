@@ -128,6 +128,6 @@ remove_python_bytecodes() {
         find "${d}" -type d -print0 | \
         while read -d $'\0' d ; do
                 cd "${d}"
-                rm -f *.pyc *.pyo
+                rm -fv *.pyc *.pyo
         done
 }
