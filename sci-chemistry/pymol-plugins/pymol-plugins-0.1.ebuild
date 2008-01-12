@@ -22,6 +22,8 @@ RDEPEND="app-portage/gentoolkit
 				 sci-chemistry/pdb2pqr )
 		 autodock? ( sci-chemistry/autodock )
 		 helicheck? ( sci-visualization/gnuplot )
+		 rtools? ( sys-apps/gawk 
+				 || sci-chemistry/cns app-text/dos2unix )
 		 >sci-chemistry/pymol-0.93"
 DEPEND="${RDEPEND}"
 
@@ -52,13 +54,16 @@ src_unpack(){
 	if use rtools;then
 		unpack rTools_0.7.2.zip
 		cd rTools
-		for i in `find .`
-		do
-        	if [[ -f $i ]]
-	        then
-    	            sed  -i 's/.$//' $i
-        	fi
-		done
+		sed  -i 's/.$//' color_protscale.py
+#		for i in `find .`
+#		do
+#        	if [[ -f $i ]]
+#	        then
+#    	            sed  -i 's/.$//' $i
+#					dos2unix $i
+#			echo hello world
+#       	fi
+#		done
 		epatch "${FILESDIR}"/rtools-0.7.2.patch
 	fi
 }
