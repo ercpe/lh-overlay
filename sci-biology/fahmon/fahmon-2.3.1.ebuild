@@ -10,8 +10,7 @@ RESTRICT="primaryuri"
 KEYWORDS="~x86"
 
 RDEPEND=">=x11-libs/wxGTK-2.6.3"
-DEPEND="dev-util/scons
-	${RDEPEND}"
+DEPEND="${RDEPEND}"
 
 pkg_setup() {
 	if built_with_use x11-libs/wxGTK debug ; then
@@ -26,13 +25,13 @@ src_unpack() {
 }
 
 src_compile() {
-	cd "${WORKDIR}"/FahMon-2.3.1/src
-	scons ${MAKEOPTS} || die
+	cd "${WORKDIR}"/FahMon-2.3.1/
+	#scons ${MAKEOPTS} || die
+	econf
+	emake
 }
 
 src_install() {
-	cd "${WORKDIR}"/FahMon-2.3.1/src
-	dobin fahmon
-	dodir /usr/share/fahmon
-	cp -R images/ ${D}/usr/share/fahmon/ || die
+	cd "${WORKDIR}"/FahMon-2.3.1/
+	emake DESTDIR="${D}" install
 }
