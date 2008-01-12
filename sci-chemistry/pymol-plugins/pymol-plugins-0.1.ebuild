@@ -23,7 +23,7 @@ RDEPEND="app-portage/gentoolkit
 		 autodock? ( sci-chemistry/autodock )
 		 helicheck? ( sci-visualization/gnuplot )
 		 rtools? ( sys-apps/gawk 
-				 || sci-chemistry/cns app-text/dos2unix )
+				 || ( sci-chemistry/cns app-text/dos2unix ) )
 		 >sci-chemistry/pymol-0.93"
 DEPEND="${RDEPEND}"
 
