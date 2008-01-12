@@ -56,7 +56,7 @@ src_unpack(){
 		do
         	if [[ -f $i ]]
 	        then
-    	            sed  -i 's/.$//' $
+    	            sed  -i 's/.$//' $i
         	fi
 		done
 		epatch "${FILESDIR}"/rtools-0.7.2.patch
