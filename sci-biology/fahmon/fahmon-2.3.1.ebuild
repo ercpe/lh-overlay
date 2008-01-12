@@ -21,12 +21,10 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	cd "${WORKDIR}"/FahMon-2.3.1/src
-	#epatch "${FILESDIR}"/fahmon-fixes.patch
 }
 
 src_compile() {
 	cd "${WORKDIR}"/FahMon-2.3.1/
-	#scons ${MAKEOPTS} || die
 	econf
 	emake
 }
