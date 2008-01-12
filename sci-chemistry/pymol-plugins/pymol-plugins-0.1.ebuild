@@ -127,7 +127,7 @@ src_install() {
 	if use dynmap; then
 		insinto /usr/lib/dynmap/
 		doins -r ${WORKDIR}/DYNMAP_v1.0/*
-		dosym /usr/lib/dynmap/
+		dosym /usr/lib/dynmap/DYN-MAP /usr/bin/DYN-MAP
 	fi
 	
 	if use emovie;then
