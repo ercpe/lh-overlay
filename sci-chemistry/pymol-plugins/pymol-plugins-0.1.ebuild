@@ -54,7 +54,7 @@ src_unpack(){
 		cd rTools
 		for i in `find .`
 		do
-        	if [[ -f $i ]
+        	if [[ -f $i ]]
 	        then
     	            sed  -i 's/.$//' $
         	fi
