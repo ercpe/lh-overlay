@@ -25,5 +25,10 @@ RESTRICT="primaryuri"
 #}
 
 src_install(){
+	exeinto /usr/lib/solve-resolve/bin/
+	doexe solve-2.13/bin/*
+	dosym /usr/lib/solve-resolve/bin/
+	exeinto /usr/lib/solve-resolve/lib/
+	doexe solve-2.13/lib/*
 	
 }

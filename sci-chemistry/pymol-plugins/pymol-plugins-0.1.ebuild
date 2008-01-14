@@ -82,7 +82,8 @@ src_unpack(){
 	if use rtools;then
 		unpack rTools_0.7.2.zip
 		cd rTools
-		sed  -i 's/.$//' color_protscale.py
+		dosed 's/.$//' color_protscale.py
+#		sed  -i 's/.$//' color_protscale.py
 #		for i in `find .`
 #		do
 #        	if [[ -f $i ]]
