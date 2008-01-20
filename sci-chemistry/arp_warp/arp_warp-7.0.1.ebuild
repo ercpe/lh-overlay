@@ -1,20 +1,20 @@
 inherit eutils autotools
 
 DESCRIPTION=" ARP/wARP is a software suite for improvement and objective interpretation of crystallographic electron density maps and automatic construction and refinement of macromolecular models"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sci-chemistry/arp_warp/${P}.tar.gz"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
-LICENSE="GPL-2"
-RESTRICT="fetch primaryuri"
-SLOT="0"
+SRC_URI="${P}.tar.gz"
+HOMEPAGE="http://www.embl-hamburg.de/ARP/"
+LICENSE="academic free"
+RESTRICT="fetch"
+SLOT=""
 KEYWORDS="alpha amd64 hppa ia64 mips ppc ppc64 sparc x86 ~x86-fbsd"
-IUSE="curl"
+IUSE="curl gui"
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
 	 >=sci-chemistry/ccp4-6
 	 sys-apps/coreutils
+	 sys-apps/sed
 	 sys-apps/gawk
 	 >dev-lang/python-2.2
-	 curl? ( net-misc/curl )
-	 app-portage/fetch_restricted"
+	 curl? ( net-misc/curl )"
 DEPEND="${RDEPEND}"
 
 pkg_nofetch(){
@@ -24,30 +24,21 @@ pkg_nofetch(){
         einfo "or run"
         einfo "fetch_restricted ${A}"
 }
-src_unpack() {
-	unpack ${A}
-	mv arp_warp_7.0.1 ${P}
-}
 
-src_compile(){
-	cd flex-wARP-src
-	python ./compile.py||die "could not compile python stuff"
-}
-
-src_install(){
-	PYTHON_VER=$(python -V 2>&1 | sed -e 's:Python \([0-9].[0-9]\).*:\1:')
+pkg_setup(){
+	einfo "Checking decimal seperator"
 	testcommand=`echo 3 2 | awk '{printf"%3.1f",$1/$2}'`
-	if [ $testcommand == "1,5" ]
-	then
-	  einfo "*** ERROR ***"
-	  einfo "   3/2=" $testcommand
-	  einfo "Invalid decimal separator (must be ".")"
-	  einfo
-	  einfo "One way of setting the decimal separator is:"
-	  einfo "setenv LC_NUMERIC C' in your .cshrc file"
-	  einfo "Otherwise please consult your system manager"
+	if [ $testcommand == "1,5" ];then
+	  ewarn "*** ERROR ***"
+	  ewarn "   3/2=" $testcommand
+	  ewarn "Invalid decimal separator (must be ".")"
+	  ewarn
+	  ewarn "One way of setting the decimal separator is:"
+	  ewarn "setenv LC_NUMERIC C' in your .cshrc file"
+	  ewarn "Otherwise please consult your system manager"
 	  die
 	fi
+	einfo "Checking SSE2 extensions availability"
 	namesystem=`uname`
 	nameprocessor=`uname -m | sed -e 's/ //g'`
 	currentplatform="bin-"${nameprocessor}"-"${namesystem}
@@ -66,6 +57,22 @@ src_install(){
     	echo
 	  fi
 	fi
+
+			PYTHON_VER=$(python -V 2>&1 | sed -e 's:Python \([0-9].[0-9]\).*:\1:')
+}
+
+src_unpack() {
+	unpack ${A}
+	mv arp_warp_7.0.1 ${P}
+}
+
+src_compile(){
+	cd flex-wARP-src
+	python ./compile.py||die "could not compile python stuff"
+}
+
+src_install(){
+
 	dodir /usr/lib/${P}/bin/bin-$nameprocessor-$namesystem
 	exeinto /usr/lib/${P}/bin/bin-$nameprocessor-$namesystem
 	exeopts -m0775

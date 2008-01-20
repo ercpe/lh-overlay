@@ -9,8 +9,21 @@ LICENSE="free, as-is"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
-
-RDEPEND=""
+RDEPEND="x11-libs/libXext
+		 x11-libs/libX11
+		 media-libs/fontconfig
+		 x11-libs/libSM
+		 x11-libs/libICE
+		 media-libs/freetype
+		 x11-libs/libXrender
+		 x11-libs/libXrandr
+		 x11-libs/libXcursor
+		 x11-libs/libXi
+		 x11-libs/libXau
+		 x11-libs/libXdmcp
+		 sys-libs/zlib
+		 dev-libs/expat
+		 x11-libs/libXfixes"
 DEPEND="${RDEPEND}"
 
 src_unpack(){
@@ -20,7 +33,7 @@ src_unpack(){
 
 src_install() {
 	exeinto "/usr/lib/cara"
-	doexe *
+	doexe cara_1.8.4_linux
 	dosym /usr/lib/cara/cara_1.8.4_linux /usr/bin/cara
 	dodoc Start1.2.cara
 }
