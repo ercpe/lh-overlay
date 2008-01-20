@@ -20,9 +20,7 @@ DEPEND="${RDEPEND}"
 pkg_nofetch(){
         einfo "Fill out the form at http://www.embl-hamburg.de/ARP/"
         einfo "and place these files: arp_warp_7.0.1.tar.gz"
-        einfo "in ${DISTDIR}an rename it to ${A}"
-        einfo "or run"
-        einfo "fetch_restricted ${A}"
+        einfo "in ${DISTDIR} and rename it to ${A}"
 }
 
 pkg_setup(){
