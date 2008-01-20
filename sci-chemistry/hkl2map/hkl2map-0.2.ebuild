@@ -29,7 +29,7 @@ pkg_nofetch(){
 src_unpack(){
 	unpack ${P}.tgz
 	if use script;then
-		cp ${DISTDIR}/phs2mtz ${WORKDIR}
+		cp ${DISTDIR}/phs2mtz ${WORKDIR}/
 	fi
 }
 
@@ -37,7 +37,7 @@ src_install() {
 	exeinto "/usr/bin"
 	newexe hkl2map-0.2-dist hkl2map
 	if use script; then
-		doexe phs2mtz
+		doexe ${WORKDIR}/phs2mtz
 	fi
 }
 
