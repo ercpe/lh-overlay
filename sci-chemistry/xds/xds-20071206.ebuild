@@ -12,15 +12,14 @@ IUSE="mp"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	unpack XDS-linux_ifc_Intel+AMD.tar.gz
-	unpack XDS_html_doc.tar.gz
-}
+#src_unpack() {
+#	unpack XDS-linux_ifc_Intel+AMD.tar.gz
+#	unpack XDS_html_doc.tar.gz
+#}
 
 
 src_install() {
-	exeinto "/opt/xray/XDS"
-	exeopts -m0775
+	exeinto /opt/xray/XDS
 	doexe XDS-linux_ifc_Intel+AMD/*
 	dosym /opt/xray/XDS/xdsconv /usr/bin/xdsconv
 	if use mp
