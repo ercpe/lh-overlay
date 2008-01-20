@@ -19,11 +19,9 @@ src_unpack(){
 }
 
 src_install() {
-	exeinto "/usr/lib/"
-	exeopts -m0775
+	exeinto "/usr/lib/cara"
 	doexe *
-	dosym /usr/lib/cara_1.8.4_linux /usr/bin/cara
-	insinto /usr/share/cara/
-	doins Start1.2.cara
+	dosym /usr/lib/cara/cara_1.8.4_linux /usr/bin/cara
+	dodoc Start1.2.cara
 }
 
