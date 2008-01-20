@@ -1,16 +1,14 @@
 inherit eutils
 
 DESCRIPTION="HKL2MAP is a graphical user-interface for macromolecular phasing."
-SRC_URI="${P}.tgz"
+SRC_URI="${P}.tgz
+		 script? ( http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz )"
 HOMEPAGE="http://schneider.group.ifom-ieo-campus.it/hkl2map/index.html"
 RESTRICT="mirror fetch"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 IUSE="script"
-	if use script;then
-		SRC_URI="$SRC_URI http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz"
-	fi
 RDEPEND="sci-chemistry/shelx
 		 >=dev-lang/tk-8.3
 		 >=dev-lang/tcl-8.3
