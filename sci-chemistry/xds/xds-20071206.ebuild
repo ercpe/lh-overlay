@@ -5,11 +5,13 @@ SRC_URI="ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS-linux_ifc_Intel+AMD.ta
 		 ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS_html_doc.tar.gz"
 HOMEPAGE="http://www.mpimf-heidelberg.mpg.de/~kabsch/xds/"
 RESTRICT="primaryuri"
-LICENSE="GPL-2"
+LICENSE="as-is nonprofit"
 SLOT="0"
 KEYWORDS="x86"
 IUSE="mp X"
-RDEPEND=""
+RDEPEND="X? ( x11-libs/libXdmcp
+			  x11-libs/libXau
+			  x11-libs/libX11 )"
 DEPEND="${RDEPEND}"
 
 src_install() {

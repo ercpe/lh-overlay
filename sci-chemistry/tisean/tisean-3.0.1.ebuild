@@ -1,6 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/shelx/shelx-20060317.ebuild,v 1.6 2007/03/15 21:49:56 kugelfang Exp $
+
 
 inherit autotools eutils fortran
 MY_P="Tisean_3.0.1"
@@ -15,6 +13,7 @@ IUSE="gnuplot"
 RDEPEND="gnuplot? ( gnuplot )"
 DEPEND="${RDEPEND}"
 S="${WORKDIR}/${MY_P}"
+RESTRICT="mirror"
 
 #src_unpack() {
 #	unpack ${A}
