@@ -1,34 +1,42 @@
-# Copyright 1999-2005 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
-
-
 
 SLOT=""
-LICENSE=""
+LICENSE="licened"
 KEYWORDS=""
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"
 SRC_URI="http://solve.lanl.gov/pub/solve/2.13/solve-2.13-linux.tar.gz"
 HOMEPAGE="http://www.solve.lanl.gov/index.html"
 IUSE=""
-RESTRICT="primaryuri"
-
-#pkg_nofetch(){
-#	if [[ ! -f ${DISTDIR}/solve2.access ]]; then
-#		echo ${FETCHCOMMAND}
-#		einfo 'Please pay the license fee and place the "solve2.access" in ${DISTDIR}'
-#		einfo 'More info for Licening under'
-#		einfo 'http://www.solve.lanl.gov/license.html'
-#		die
-#	fi
-#	${FETCHCOMMAND} http://solve.lanl.gov/pub/solve/2.13/solve-2.13-linux.tar.gz
-#}
+RESTRICT="mirror"
 
 src_install(){
-	exeinto /usr/lib/solve-resolve/bin/
+	exeinto /opt/xray/solve-resolve/bin/
 	doexe solve-2.13/bin/*
-	dosym /usr/lib/solve-resolve/bin/
-	exeinto /usr/lib/solve-resolve/lib/
-	doexe solve-2.13/lib/*
+	cd solve-2.13/bin/
+	for i in `ls resolve* solve*`
+		do
+			dosym /opt/xray/solve-resolve/bin/$i /usr/bin/$i
+		done
+	cd ../..
+	exeinto /opt/xray/solve-resolve/lib/
+	doexe solve-2.13/lib/*sym 
+	exeinto /opt/xray/solve-resolve/lib/segments
+	doexe solve-2.13/lib/segments/*
+	exeinto /opt/xray/solve-resolve/lib/patterns
+	doexe solve-2.13/lib/patterns/*
 	
+	dohtml -r solve-2.13/lib/html/*
+	insinto /usr/share/doc/${PF}/examples_resolve
+	doins solve-2.13/lib/examples_resolve/*
+	insinto /usr/share/doc/${PF}/examples_solve
+	doins -r solve-2.13/lib/examples_solve/*
+
+
+cat >> "${T}"/20solve-resolve << EOF
+CCP4_OPEN="UNKNOWN"
+SYMOP="/opt/xray/solve-resolve/lib/symop.lib"
+SYMINFO="/opt/xray/solve-resolve/lib/syminfo.lib"
+SOLVEDIR="/opt/xray/solve-resolve/lib/"
+EOF
+	
+	doenvd "${T}"/20solve-resolve
 }
