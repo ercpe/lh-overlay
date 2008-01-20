@@ -2,13 +2,19 @@ inherit eutils
 
 DESCRIPTION="HKL2MAP is a graphical user-interface for macromolecular phasing."
 SRC_URI="${P}.tgz"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
-RESTRICT="primaryuri fetch"
+HOMEPAGE="http://schneider.group.ifom-ieo-campus.it/hkl2map/index.html"
+RESTRICT="mirror fetch"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
-IUSE=""
-RDEPEND="sci-chemistry/shelx"
+IUSE="script"
+	if use script;then
+		SRC_URI="$SRC_URI http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz"
+	fi
+RDEPEND="sci-chemistry/shelx
+		 >=dev-lang/tk-8.3
+		 >=dev-lang/tcl-8.3
+		 script? ( sci-chemistry/ccp4 )"
 DEPEND="${RDEPEND}"
 
 pkg_nofetch(){
@@ -20,21 +26,14 @@ pkg_nofetch(){
         einfo
         einfo "Place the downloaded files in your distfiles directory:"
         einfo "\t${DISTDIR}"
-        echo
-        einfo "or if you have access to ftp://j-schmitz.net then"
-        einfo " do fetch_restricted hkl2map-0.2.tgz"
-        echo
-}
-
-src_unpack() {
-	unpack hkl2map-0.2.tgz
 }
 
 src_install() {
-	dodir "/usr/bin"
 	exeinto "/usr/bin"
-	exeopts -m0775
 	newexe hkl2map-0.2-dist hkl2map
+	if use script;then
+		doexe phs2mtz
+	fi
 }
 
 pkg_postinst(){

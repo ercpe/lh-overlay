@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
-<pkgmetadata>
-	<maintainer>
-		<email>je_fro@gentoo.org</email>
-		<name>Jeffrey Gardner</name>
-	</maintainer>
-	<herd>sci-chemistry</herd>
-</pkgmetadata>
