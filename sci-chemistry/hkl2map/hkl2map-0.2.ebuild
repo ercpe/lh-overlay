@@ -29,7 +29,7 @@ pkg_nofetch(){
 src_install() {
 	exeinto "/usr/bin"
 	newexe hkl2map-0.2-dist hkl2map
-	if use script;then
+	if use script; then
 		doexe phs2mtz
 	fi
 }
