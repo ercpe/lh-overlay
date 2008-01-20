@@ -14,7 +14,6 @@ DEPEND="${RDEPEND}"
 RESTRICT="mirror"
 
 src_install() {
-	dodir /etc/init.d/ /usr/sbin/
 	insinto /etc/
 	doins readahead-royale.conf
 	doinitd readahead-royale

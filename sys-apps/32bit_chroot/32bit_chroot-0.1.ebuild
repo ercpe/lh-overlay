@@ -1,6 +1,6 @@
 inherit eutils
 
-DESCRIPTION="Setup 32bit chroot as service"
+DESCRIPTION="Setup a 32bit chroot as service"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sys-apps/32bit_chroot/${P}.tar.bz2"
 HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
 RESTRICT="primaryuri"
@@ -10,12 +10,11 @@ KEYWORDS="~amd64"
 IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
+RESTRICT="mirror"
 
 src_install() {
-	exeinto /etc/init.d/
-	doexe 32bit_chroot
-	insinto /etc/conf.d/
-	newins 32bit_chroot.conf 32bit_chroot
+	doinitd gentoo_32bit
+	doconfd gentoo_32bit.conf
 }
 
 pkg_postinst(){

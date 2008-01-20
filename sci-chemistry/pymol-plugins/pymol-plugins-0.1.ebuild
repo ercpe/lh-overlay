@@ -82,16 +82,7 @@ src_unpack(){
 	if use rtools;then
 		unpack rTools_0.7.2.zip
 		cd rTools
-		sed  -i 's/.$//' color_protscale.py
-#		for i in `find .`
-#		do
-#        	if [[ -f $i ]]
-#	        then
-#    	            sed  -i 's/.$//' $i
-#					dos2unix $i
-#			echo hello world
-#       	fi
-#		done
+		edos2unix color_protscale.py
 		epatch ${FILESDIR}/rtools-0.7.2.patch
 	fi
 }
