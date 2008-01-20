@@ -30,6 +30,8 @@ src_install() {
 	fi
 	if use !X; then
 		rm ${D}/opt/xray/XDS/VIEW
+	else
+		dosym /opt/xray/XDS/VIEW /usr/bin/VIEW
 	fi
 	dohtml -r XDS_html_doc/*
 	dodoc XDS_html_doc/html_doc/INPUT_templates/*
