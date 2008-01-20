@@ -1,7 +1,7 @@
 
 SLOT=""
 LICENSE="licened"
-KEYWORDS=""
+KEYWORDS="x86"
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"
 SRC_URI="http://solve.lanl.gov/pub/solve/2.13/solve-2.13-linux.tar.gz"
 HOMEPAGE="http://www.solve.lanl.gov/index.html"
