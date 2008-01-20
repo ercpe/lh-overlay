@@ -2,7 +2,7 @@ inherit eutils
 
 DESCRIPTION="royale readahead after http://forums.gentoo.org/viewtopic-t-478491-start-0.html"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sys-apps/readahead-royale/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
+HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
 RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
@@ -11,18 +11,13 @@ IUSE=""
 RDEPEND="sys-process/lsof
 		sys-apps/gawk"
 DEPEND="${RDEPEND}"
-
-src_unpack() {
-	unpack ${A}
-}
-
+RESTRICT="mirror"
 
 src_install() {
 	dodir /etc/init.d/ /usr/sbin/
 	insinto /etc/
 	doins readahead-royale.conf
-	exeinto /etc/init.d/
-	doexe readahead-royale
+	doinitd readahead-royale
 	exeinto /usr/sbin/
 	doexe uniquer sample-init-process
 	touch ${D}/forcesampler

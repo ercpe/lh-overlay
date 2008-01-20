@@ -6,7 +6,6 @@ MY_P="6550-Jimmac.tar.gz"
 DESCRIPTION="A high quality set of Xfree 4.3.0 animated mouse cursors"
 HOMEPAGE="http://jimmac.musichall.cz/i.php3?ikony=71"
 SRC_URI="http://kde-look.org/CONTENT/content-files/${MY_P}"
-#SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/x11-misc/jimmac-xcursors/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
