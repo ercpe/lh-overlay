@@ -18,7 +18,10 @@ src_install(){
 		done
 	cd ../..
 	exeinto /opt/xray/solve-resolve/lib/
-	doexe solve-2.13/lib/*sym 
+	doexe solve-2.13/lib/*sym
+	doexe solve-2.13/lib/sym*
+	doexe solve-2.13/lib/hist*
+	doexe solve-2.13/lib/*dat
 	exeinto /opt/xray/solve-resolve/lib/segments
 	doexe solve-2.13/lib/segments/*
 	exeinto /opt/xray/solve-resolve/lib/patterns
