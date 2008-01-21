@@ -18,5 +18,5 @@ DEPEND="${RDEPEND}"
 
 src_install(){
 	insinto /usr/lib/eclipse-3.2/
-	doins *
+	doins -r *
 }
