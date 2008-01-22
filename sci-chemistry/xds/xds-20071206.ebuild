@@ -8,7 +8,7 @@ RESTRICT="primaryuri"
 LICENSE="as-is nonprofit"
 SLOT="0"
 KEYWORDS="x86"
-IUSE="mp X"
+IUSE="smp X"
 RDEPEND="X? ( x11-libs/libXdmcp
 			  x11-libs/libXau
 			  x11-libs/libX11 )"
@@ -18,7 +18,7 @@ src_install() {
 	exeinto /opt/xray/XDS
 	doexe XDS-linux_ifc_Intel+AMD/*
 	dosym /opt/xray/XDS/xdsconv /usr/bin/xdsconv
-	if use mp
+	if use smp
 	then
 		dosym /opt/xray/XDS/xds_par /usr/bin/xds
 		dosym /opt/xray/XDS/xscale_par /usr/bin/xscale
