@@ -1,4 +1,4 @@
-inherit eutils
+inherit eutils python
 
 DESCRIPTION="Plugins for PyMOL (a USER-SPONSORED molecular visualization system on an OPEN-SOURCE foundation)"
 SRC_URI="autodock? ( http://www.mpibpc.mpg.de/groups/grubmueller/start/people/dseelig/autodock.py )
@@ -164,16 +164,6 @@ pkg_postinst(){
 }
 
 pkg_postrm() {
-        remove_python_bytecodes
-}
+	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 
-remove_python_bytecodes() {
-		#equery -q files pymol-plugins|grep pyc|xargs rm 
-        local d="${ROOT}/usr/$(get_libdir)/python2.4/site-packages/pmg_tk/startup/"
-        [ -d "${d}" ] || return
-        find "${d}" -type d -print0 | \
-        while read -d $'\0' d ; do
-                cd "${d}"
-                rm -fv *.pyc *.pyo
-        done
 }
