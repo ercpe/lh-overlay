@@ -70,6 +70,7 @@ EOF
 }
 
 src_install(){
+	python_version
 	
 cat >> "${T}"/20ccpnmr << EOF
 CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0
