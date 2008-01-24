@@ -56,7 +56,7 @@ EOF
 	# Make our own wrapper
 cat >> "${T}"/pymol << EOF
 #!/bin/sh
-${python} \${PYMOL_PATH}/__init__.py \$*
+${python} -O \${PYMOL_PATH}/__init__.py \$*
 EOF
 
 	exeinto /usr/bin

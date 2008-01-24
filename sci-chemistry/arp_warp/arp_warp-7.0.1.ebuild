@@ -1,7 +1,7 @@
 inherit eutils autotools
 
 DESCRIPTION=" ARP/wARP is a software suite for improvement and objective interpretation of crystallographic electron density maps and automatic construction and refinement of macromolecular models"
-SRC_URI="${P}.tar.gz"
+SRC_URI="arp_warp_7.0.1.tar.gz"
 HOMEPAGE="http://www.embl-hamburg.de/ARP/"
 LICENSE="academic free"
 RESTRICT="fetch"
@@ -20,7 +20,6 @@ DEPEND="${RDEPEND}"
 pkg_nofetch(){
         einfo "Fill out the form at http://www.embl-hamburg.de/ARP/"
         einfo "and place these files: arp_warp_7.0.1.tar.gz"
-        einfo "in ${DISTDIR} and rename it to ${A}"
 }
 
 pkg_setup(){
@@ -55,8 +54,6 @@ pkg_setup(){
     	echo
 	  fi
 	fi
-
-			PYTHON_VER=$(python -V 2>&1 | sed -e 's:Python \([0-9].[0-9]\).*:\1:')
 }
 
 src_unpack() {
@@ -66,43 +63,39 @@ src_unpack() {
 
 src_compile(){
 	cd flex-wARP-src
-	python ./compile.py||die "could not compile python stuff"
+	python -v compile.py||die "could not compile python stuff"
 }
 
 src_install(){
-
-	dodir /usr/lib/${P}/bin/bin-$nameprocessor-$namesystem
-	exeinto /usr/lib/${P}/bin/bin-$nameprocessor-$namesystem
-	exeopts -m0775
-	doexe bin/bin-$nameprocessor-$namesystem/* ||die
-
-	dodir /usr/lib/${P}/byte-code/python-$PYTHON_VER
-	exeinto /usr/lib/${P}/byte-code/python-$PYTHON_VER
+	PYTHON_VER=$(python -V 2>&1 | sed -e 's:Python \([0-9].[0-9]\).*:\1:')
+	exeinto /opt/xray/${P}/byte-code/python-$PYTHON_VER
 	doexe flex-wARP-src/*pyc
 
-	dodir /usr/lib/${P}/flex-wARP-src-261
-	insinto /usr/lib/${P}/flex-wARP-src-261
+	insinto /opt/xray/${P}/flex-wARP-src-261
 	doins flex-wARP-src/*py
-	dosym /usr/lib/${P}/flex-wARP-src-261 /usr/lib/${P}/flex-wARP-src
+	dosym /opt/xray/${P}/flex-wARP-src-261 /usr/lib/${P}/flex-wARP-src
 
-	dodir /usr/share/${P}/share
-	exeinto /usr/share/${P}/share
+	exeinto /opt/xray/${P}/bin/bin-`uname -m`-`uname`
+	doexe bin/bin-`uname -m`-`uname`/* ||die "executables"
+
+	exeinto /opt/xray/${P}/share
 	doexe share/*
 
-	for i in `ls ${D}usr/share/${P}/share/`
+	for i in `ls ${D}opt/xray/${P}/share/`
 	do
-		dosym /usr/share/${P}/share/$i /usr/lib/${P}/bin/bin-i686-Linux/$i
+		dosym /opt/xray/${P}/share/$i /opt/xray/${P}/bin/bin-`uname -m`-`uname`/$i
 	done
 
-	exeopts -m0775
-	exeinto /usr/lib/${P}
-	newexe ${FILESDIR}/7.0.1_arpwarp_setup.bash arpwarp_setup.bash
-	newexe ${FILESDIR}/7.0.1_arpwarp_setup.csh arpwarp_setup.csh
+#	exeinto /usr/lib/${P}
+#	newexe ${FILESDIR}/7.0.1_arpwarp_setup.bash arpwarp_setup.bash
+#	newexe ${FILESDIR}/7.0.1_arpwarp_setup.csh arpwarp_setup.csh
+
+	sed 's/arpwarphome="$1X"/arpwarphome="\/opt\/xray\/arp_warp-7.0.1"/'<arpwarp_setup.bash>${T}/arpwarp_setup.bash
 
 	dodoc README
-	dodir /usr/share/doc/${PF}
+	dohtml -r manual/*
 	insinto /usr/share/doc/${PF}
-	doins -r examples manual ARP_wARP_*.tar.gz
+	doins -r examples ARP_wARP_*.tar.gz
 }
 
 pkg_postinst(){

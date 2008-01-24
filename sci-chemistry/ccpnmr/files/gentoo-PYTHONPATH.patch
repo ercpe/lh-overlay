@@ -1,0 +1,568 @@
+diff -Nu -Nu -aruN ccpnmr.orig/INSTALL ccpnmr/INSTALL
+--- ccpnmr.orig/INSTALL	2008-01-24 17:51:40.000000000 +0100
++++ ccpnmr/INSTALL	2008-01-24 17:52:18.000000000 +0100
+@@ -239,7 +239,7 @@
+ (i.e. anything in between "< >").  For bash:
+ 
+ export CCPNMR_TOP_DIR=<CCPNMR_TOP_DIR>/ccpnmr
+-export PYTHONPATH=.:$CCPNMR_TOP_DIR/ccpnmr1.0/python
++export CCPNPYTHONPATH=.:$CCPNMR_TOP_DIR/ccpnmr1.0/python
+ export LD_LIBRARY_PATH=<TCL_DIR>/lib:<TK_DIR>/lib:<GL_DIR>/lib
+ export TCL_LIBRARY=<TCL_DIR>/lib/tcl<TCL_TK_VERSION>
+ export TK_LIBRARY=<TK_DIR>/lib/tk<TCL_TK_VERSION>
+@@ -247,7 +247,7 @@
+ For tcsh and other csh-related shells:
+ 
+ setenv CCPNMR_TOP_DIR <CCPNMR_TOP_DIR>/ccpnmr
+-setenv PYTHONPATH .:$CCPNMR_TOP_DIR/ccpnmr1.0/python
++setenv CCPNPYTHONPATH .:$CCPNMR_TOP_DIR/ccpnmr1.0/python
+ setenv LD_LIBRARY_PATH <TCL_DIR>/lib:<TK_DIR>/lib:<GL_DIR>/lib
+ setenv TCL_LIBRARY <TCL_DIR>/lib/tcl<TCL_TK_VERSION>
+ setenv TK_LIBRARY <TK_DIR>/lib/tk<TCL_TK_VERSION>
+@@ -265,16 +265,16 @@
+ 
+   CCPNMR_TOP_DIR must be set to the ccpnmr directory created by the
+     unpacking of the tar file
+-  PYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
++  CCPNPYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
+   PATH must include $CCPNMR_TOP_DIR/bin
+ 
+ For example, in .cshrc you could place:
+ 
+   setenv CCPNMR_TOP_DIR directory_where_you_unpacked_release/ccpnmr
+   setenv PATH ${CCPNMR_TOP_DIR}/bin:${PATH}
+-  setenv PYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
++  setenv CCPNPYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
+ 
+-Your PATH and PYTHONPATH might need to include other things:  to
++Your PATH and CCPNPYTHONPATH might need to include other things:  to
+ illustrate this the example of PATH above includes other directories
+ previously defined to be in PATH (the above line will fail if PATH
+ has not been previously defined, which it normally is).  See the
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_atom.c ccpnmr/ccpnmr1.0/c/ccp/structure/py_atom.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_atom.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccp/structure/py_atom.c	2008-01-24 17:51:57.000000000 +0100
+@@ -459,7 +459,7 @@
+ * a Python program. The function is usually called "initStructAtom": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStructAtom()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_bond.c ccpnmr/ccpnmr1.0/c/ccp/structure/py_bond.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_bond.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccp/structure/py_bond.c	2008-01-24 17:51:57.000000000 +0100
+@@ -357,7 +357,7 @@
+ * a Python program. The function is usually called "initStructBond": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStructBond()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_struct_util.c ccpnmr/ccpnmr1.0/c/ccp/structure/py_struct_util.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_struct_util.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccp/structure/py_struct_util.c	2008-01-24 17:51:57.000000000 +0100
+@@ -155,7 +155,7 @@
+ * a Python program. The function is usually called "initStructUtil": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStructUtil()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_structure.c ccpnmr/ccpnmr1.0/c/ccp/structure/py_structure.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccp/structure/py_structure.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccp/structure/py_structure.c	2008-01-24 17:51:57.000000000 +0100
+@@ -510,7 +510,7 @@
+ * a Python program. The function is usually called "initStructStructure": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStructStructure()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_file.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_file.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_file.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_file.c	2008-01-24 17:51:57.000000000 +0100
+@@ -373,7 +373,7 @@
+ * a Python program. The function is usually called "initContour_file": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initContourFile()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_levels.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_levels.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_levels.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_levels.c	2008-01-24 17:51:57.000000000 +0100
+@@ -247,7 +247,7 @@
+ * a Python program. The function is usually called "initContour_levels": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initContourLevels()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_style.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_style.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_contour_style.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_contour_style.c	2008-01-24 17:51:57.000000000 +0100
+@@ -262,7 +262,7 @@
+ * a Python program. The function is usually called "initContour_style": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initContourStyle()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_peak_list.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_peak_list.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_peak_list.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_peak_list.c	2008-01-24 17:51:57.000000000 +0100
+@@ -881,7 +881,7 @@
+ * a Python program. The function is usually called "initPeak_list": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initPeakList()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_slice_file.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_slice_file.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_slice_file.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_slice_file.c	2008-01-24 17:51:57.000000000 +0100
+@@ -339,7 +339,7 @@
+ * a Python program. The function is usually called "initSlice_file": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initSliceFile()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_win_peak_list.c ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_win_peak_list.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/analysis/py_win_peak_list.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/py_win_peak_list.c	2008-01-24 17:51:57.000000000 +0100
+@@ -399,7 +399,7 @@
+ * a Python program. The function is usually called "initWin_peak_list": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initWinPeakList()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord.c	2008-01-24 17:51:57.000000000 +0100
+@@ -261,7 +261,7 @@
+ * a Python program. The function is usually called "initAtom_coord": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initAtomCoord()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord_list.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord_list.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord_list.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_atom_coord_list.c	2008-01-24 17:51:57.000000000 +0100
+@@ -383,7 +383,7 @@
+ * a Python program. The function is usually called "initAtom_coord_list": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initAtomCoordList()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_bacus.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_bacus.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_bacus.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_bacus.c	2008-01-24 17:51:57.000000000 +0100
+@@ -96,7 +96,7 @@
+ * a Python program. The function is usually called "initbacus": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initBacus()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_cloud_util.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_cloud_util.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_cloud_util.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_cloud_util.c	2008-01-24 17:51:57.000000000 +0100
+@@ -277,7 +277,7 @@
+ * a Python program. The function is usually called "initCloud_util": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initCloudUtil()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint.c	2008-01-24 17:51:57.000000000 +0100
+@@ -289,7 +289,7 @@
+ * a Python program. The function is usually called "initDist_constraint": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initDistConstraint()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint_list.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint_list.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint_list.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_constraint_list.c	2008-01-24 17:51:57.000000000 +0100
+@@ -388,7 +388,7 @@
+ * a Python program. The function is usually called "initDist_constraint_list": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initDistConstraintList()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_force.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_force.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dist_force.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dist_force.c	2008-01-24 17:51:57.000000000 +0100
+@@ -267,7 +267,7 @@
+ * a Python program. The function is usually called "initDist_force": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initDistForce()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dynamics.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dynamics.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_dynamics.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_dynamics.c	2008-01-24 17:51:57.000000000 +0100
+@@ -403,7 +403,7 @@
+ * a Python program. The function is usually called "initDynamics": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initDynamics()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_midge.c ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_midge.c
+--- ccpnmr.orig/ccpnmr1.0/c/ccpnmr/clouds/py_midge.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/py_midge.c	2008-01-24 17:51:57.000000000 +0100
+@@ -315,7 +315,7 @@
+ * a Python program. The function is usually called "initMidge": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initMidge()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_block_file.c ccpnmr/ccpnmr1.0/c/memops/global/py_block_file.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_block_file.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_block_file.c	2008-01-24 17:51:57.000000000 +0100
+@@ -665,7 +665,7 @@
+ * a Python program. The function is usually called "initBlock_file": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initBlockFile()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_fit.c ccpnmr/ccpnmr1.0/c/memops/global/py_fit.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_fit.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_fit.c	2008-01-24 17:51:57.000000000 +0100
+@@ -546,7 +546,7 @@
+ * a Python program. The function is usually called "initFit_method": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initFitMethod()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_gl_handler.c ccpnmr/ccpnmr1.0/c/memops/global/py_gl_handler.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_gl_handler.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_gl_handler.c	2008-01-24 17:51:57.000000000 +0100
+@@ -664,7 +664,7 @@
+ * a Python program. The function is usually called "initGl_handler": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initGlHandler()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_mem_cache.c ccpnmr/ccpnmr1.0/c/memops/global/py_mem_cache.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_mem_cache.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_mem_cache.c	2008-01-24 17:51:57.000000000 +0100
+@@ -263,7 +263,7 @@
+ * a Python program. The function is usually called "initMem_cache": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initMemCache()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_pdf_handler.c ccpnmr/ccpnmr1.0/c/memops/global/py_pdf_handler.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_pdf_handler.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_pdf_handler.c	2008-01-24 17:51:57.000000000 +0100
+@@ -424,7 +424,7 @@
+ * a Python program. The function is usually called "initPdf_handler": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initPdfHandler()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_ps_handler.c ccpnmr/ccpnmr1.0/c/memops/global/py_ps_handler.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_ps_handler.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_ps_handler.c	2008-01-24 17:51:57.000000000 +0100
+@@ -424,7 +424,7 @@
+ * a Python program. The function is usually called "initPs_handler": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initPsHandler()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_store_file.c ccpnmr/ccpnmr1.0/c/memops/global/py_store_file.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_store_file.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_store_file.c	2008-01-24 17:51:57.000000000 +0100
+@@ -248,7 +248,7 @@
+ * a Python program. The function is usually called "initStore_file": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStoreFile()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_store_handler.c ccpnmr/ccpnmr1.0/c/memops/global/py_store_handler.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_store_handler.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_store_handler.c	2008-01-24 17:51:57.000000000 +0100
+@@ -234,7 +234,7 @@
+ * a Python program. The function is usually called "initStore_handler": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initStoreHandler()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/c/memops/global/py_tk_handler.c ccpnmr/ccpnmr1.0/c/memops/global/py_tk_handler.c
+--- ccpnmr.orig/ccpnmr1.0/c/memops/global/py_tk_handler.c	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/c/memops/global/py_tk_handler.c	2008-01-24 17:51:57.000000000 +0100
+@@ -660,7 +660,7 @@
+ * a Python program. The function is usually called "initTk_handler": this name's
+ * added to the built-in module table in config.c statically (if added to file
+ * Module/Setup), or called when the module's loaded dynamically as a shareable 
+-* object-file found on PYTHONPATH. File and function names matter if dynamic.
++* object-file found on CCPNPYTHONPATH. File and function names matter if dynamic.
+ ******************************************************************************/
+ 
+ void initTkHandler()
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/doc/HowToModel.html ccpnmr/ccpnmr1.0/doc/HowToModel.html
+--- ccpnmr.orig/ccpnmr1.0/doc/HowToModel.html	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/doc/HowToModel.html	2008-01-24 17:51:58.000000000 +0100
+@@ -80,8 +80,8 @@
+ the CCPN programs. 
+ </P>
+ <P STYLE="margin-bottom: 0in">For set-up you need to have
+-cvsroot/python in your PYTHONPATH. In the tcsh shell I have :<BR>setenv
+-PYTHONPATH
++cvsroot/python in your CCPNPYTHONPATH. In the tcsh shell I have :<BR>setenv
++CCPNPYTHONPATH
+ /home/rhf22/CCPN/LIB/ccpnmr/python2.2/Python-2.2.3:/home/rhf22/CCPN/cvsroot/python</P>
+ <P STYLE="margin-bottom: 0in">When you have installed ObjectDomain,
+ go into the ObjectDomain directories, and edit the file
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/doc/ccpnmr/analysis/Installation_Finalsteps.html ccpnmr/ccpnmr1.0/doc/ccpnmr/analysis/Installation_Finalsteps.html
+--- ccpnmr.orig/ccpnmr1.0/doc/ccpnmr/analysis/Installation_Finalsteps.html	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/doc/ccpnmr/analysis/Installation_Finalsteps.html	2008-01-24 17:51:58.000000000 +0100
+@@ -220,17 +220,17 @@
+       </P>
+       CCPNMR_TOP_DIR must be set to the ccpnmr directory created by the
+       unpacking of the tar file<br>
+-      PYTHONPATH must include CCPNMR_TOP_DIR/ccpnmr1.0/python<br>
++      CCPNPYTHONPATH must include CCPNMR_TOP_DIR/ccpnmr1.0/python<br>
+       PATH must include CCPNMR_TOP_DIR/bin
+       </P>
+       <P>
+       For example, in .cshrc you could place:
+       <PRE>setenv CCPNMR_TOP_DIR directory_where_you_unpacked_release/ccpnmr</PRE>
+       <PRE>setenv PATH {$CCPNMR_TOP_DIR}/bin:{$PATH}</PRE>
+-      <PRE>setenv PYTHONPATH .:{$CCPNMR_TOP_DIR}/ccpnmr1.0/python</PRE>
++      <PRE>setenv CCPNPYTHONPATH .:{$CCPNMR_TOP_DIR}/ccpnmr1.0/python</PRE>
+       </P>
+       <P>
+-      Your PATH and PYTHONPATH might need to include other things:  to
++      Your PATH and CCPNPYTHONPATH might need to include other things:  to
+       illustrate this the example of PATH above includes other directories
+       previously defined to be in PATH (the above line will fail if PATH
+       has not been previously defined, which it normally is).
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/doc/procedures.txt ccpnmr/ccpnmr1.0/doc/procedures.txt
+--- ccpnmr.orig/ccpnmr1.0/doc/procedures.txt	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/ccpnmr1.0/doc/procedures.txt	2008-01-24 17:51:57.000000000 +0100
+@@ -9,7 +9,7 @@
+ 
+ - Check out the CCPN repository from Sourceforge.
+ 
+-- Change your .cshrc (or equivalent) so that your PYTHONPATH environment
++- Change your .cshrc (or equivalent) so that your CCPNPYTHONPATH environment
+ variable contains the top python directory in the CCPN repository -
+ e.g. /home/rhf22/CCPN/cvsroot/python
+ 
+@@ -77,7 +77,7 @@
+ 
+ Configure python path
+     ccpn > right click: Properties
+-    PyDev - PYTHONPATH > Add Source Folder: /ccpn/python 
++    PyDev - CCPNPYTHONPATH > Add Source Folder: /ccpn/python 
+ 
+ =========================================================================
+ 
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py
+--- ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py	2008-01-24 17:51:40.000000000 +0100
++++ ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py	2008-01-24 17:52:19.000000000 +0100
+@@ -56,7 +56,7 @@
+   from memops.universal.Io import normalisePath
+ except:
+   print 'Error, cannot import core CCPN Python modules:'
+-  print 'Maybe your PYTHONPATH environment variable is not set or'
++  print 'Maybe your CCPNPYTHONPATH environment variable is not set or'
+   print 'does not contain the current CCPN installation directory.'
+   raise
+ 
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.pyc ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.pyc
+--- ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.pyc	2008-01-24 17:51:40.000000000 +0100
++++ ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.pyc	2008-01-24 17:52:19.000000000 +0100
+@@ -51,7 +51,7 @@
+ 
+ ===========================REFERENCE END===============================
+ 
+-N(   s   normalisePaths.   Error, cannot import core CCPN Python modules:s8   Maybe your PYTHONPATH environment variable is not set ors9   does not contain the current CCPN installation directory.(   s   ApiError(   s   askDirs   askFile(   s   showWarnings	   showError(   s   isWindowsOS(   s   readXmlCcpProjectFile(   s   AnalysisPopupt   xt   PYTHONINSPECTi@   c   
++N(   s   normalisePaths.   Error, cannot import core CCPN Python modules:s8   Maybe your CCPNPYTHONPATH environment variable is not set ors9   does not contain the current CCPN installation directory.(   s   ApiError(   s   askDirs   askFile(   s   showWarnings	   showError(   s   isWindowsOS(   s   readXmlCcpProjectFile(   s   AnalysisPopupt   xt   PYTHONINSPECTi@   c   
+       C   sÚ   t  i ƒ  } | i ƒ  t | d | d | ƒa d  } |  o„ t |  ƒ } d „  } d „  } y7 t i i } t d | d t d | d | d	 | ƒ } Wq¿ t j
+  o }	 t d
+  |	 i ƒ ‚  q¿ Xn t i ƒ  t i | ƒ d  S(   Nt
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/doc/Install.txt ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/doc/Install.txt
+--- ccpnmr.orig/ccpnmr1.0/python/ccpnmr/analysis/doc/Install.txt	2008-01-24 17:51:40.000000000 +0100
++++ ccpnmr/ccpnmr1.0/python/ccpnmr/analysis/doc/Install.txt	2008-01-24 17:52:18.000000000 +0100
+@@ -239,7 +239,7 @@
+ (i.e. anything in between "< >").  For bash:
+ 
+ export CCPNMR_TOP_DIR=<CCPNMR_TOP_DIR>/ccpnmr
+-export PYTHONPATH=.:$CCPNMR_TOP_DIR/ccpnmr1.0/python
++export CCPNPYTHONPATH=.:$CCPNMR_TOP_DIR/ccpnmr1.0/python
+ export LD_LIBRARY_PATH=<TCL_DIR>/lib:<TK_DIR>/lib:<GL_DIR>/lib
+ export TCL_LIBRARY=<TCL_DIR>/lib/tcl<TCL_TK_VERSION>
+ export TK_LIBRARY=<TK_DIR>/lib/tk<TCL_TK_VERSION>
+@@ -247,7 +247,7 @@
+ For tcsh and other csh-related shells:
+ 
+ setenv CCPNMR_TOP_DIR <CCPNMR_TOP_DIR>/ccpnmr
+-setenv PYTHONPATH .:$CCPNMR_TOP_DIR/ccpnmr1.0/python
++setenv CCPNPYTHONPATH .:$CCPNMR_TOP_DIR/ccpnmr1.0/python
+ setenv LD_LIBRARY_PATH <TCL_DIR>/lib:<TK_DIR>/lib:<GL_DIR>/lib
+ setenv TCL_LIBRARY <TCL_DIR>/lib/tcl<TCL_TK_VERSION>
+ setenv TK_LIBRARY <TK_DIR>/lib/tk<TCL_TK_VERSION>
+@@ -265,16 +265,16 @@
+ 
+   CCPNMR_TOP_DIR must be set to the ccpnmr directory created by the
+     unpacking of the tar file
+-  PYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
++  CCPNPYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
+   PATH must include $CCPNMR_TOP_DIR/bin
+ 
+ For example, in .cshrc you could place:
+ 
+   setenv CCPNMR_TOP_DIR directory_where_you_unpacked_release/ccpnmr
+   setenv PATH ${CCPNMR_TOP_DIR}/bin:${PATH}
+-  setenv PYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
++  setenv CCPNPYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
+ 
+-Your PATH and PYTHONPATH might need to include other things:  to
++Your PATH and CCPNPYTHONPATH might need to include other things:  to
+ illustrate this the example of PATH above includes other directories
+ previously defined to be in PATH (the above line will fail if PATH
+ has not been previously defined, which it normally is).  See the
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/python/ccpnmr/format/doc/Install.txt ccpnmr/ccpnmr1.0/python/ccpnmr/format/doc/Install.txt
+--- ccpnmr.orig/ccpnmr1.0/python/ccpnmr/format/doc/Install.txt	2008-01-24 17:51:39.000000000 +0100
++++ ccpnmr/ccpnmr1.0/python/ccpnmr/format/doc/Install.txt	2008-01-24 17:52:17.000000000 +0100
+@@ -75,16 +75,16 @@
+ variables also need setting or updating (for example, in .cshrc):
+ 
+   CCPNMR_TOP_DIR must be set to the top level directory of the release
+-  PYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
++  CCPNPYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
+   PATH must include $CCPNMR_TOP_DIR/bin
+ 
+ For example, in .cshrc you could place:
+ 
+   setenv CCPNMR_TOP_DIR directory_where_you_unpacked_release/ccpnmr
+   setenv PATH ${CCPNMR_TOP_DIR}/bin:{$PATH}
+-  setenv PYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
++  setenv CCPNPYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
+ 
+-Your PATH and PYTHONPATH might need to include other things:  to
++Your PATH and CCPNPYTHONPATH might need to include other things:  to
+ illustrate this the example of PATH above includes other directories
+ previously defined to be in PATH.
+ 
+diff -Nu -Nu -aruN ccpnmr.orig/ccpnmr1.0/python/doc/Install.txt ccpnmr/ccpnmr1.0/python/doc/Install.txt
+--- ccpnmr.orig/ccpnmr1.0/python/doc/Install.txt	2008-01-24 17:51:39.000000000 +0100
++++ ccpnmr/ccpnmr1.0/python/doc/Install.txt	2008-01-24 17:52:16.000000000 +0100
+@@ -44,16 +44,16 @@
+ 
+   CCPNMR_TOP_DIR must be set to the ccpnmr directory created by the
+     unpacking of the tar file
+-  PYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
++  CCPNPYTHONPATH must include $CCPNMR_TOP_DIR/ccpnmr1.0/python
+   PATH must include $CCPNMR_TOP_DIR/bin
+ 
+ For example, in .cshrc you could place:
+ 
+   setenv CCPNMR_TOP_DIR directory_where_you_unpacked_release/ccpnmr
+   setenv PATH ${CCPNMR_TOP_DIR}/bin:${PATH}
+-  setenv PYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
++  setenv CCPNPYTHONPATH .:${CCPNMR_TOP_DIR}/ccpnmr1.0/python
+ 
+-Your PATH and PYTHONPATH might need to include other things:  to
++Your PATH and CCPNPYTHONPATH might need to include other things:  to
+ illustrate this the example of PATH above includes other directories
+ previously defined to be in PATH (the above line will fail if PATH
+ has not been previously defined, which it normally is).
+diff -Nu -Nu -aruN ccpnmr.orig/installCode.py ccpnmr/installCode.py
+--- ccpnmr.orig/installCode.py	2008-01-24 17:51:38.000000000 +0100
++++ ccpnmr/installCode.py	2008-01-24 17:51:57.000000000 +0100
+@@ -719,7 +719,7 @@
+     fp.write('#!%s\n\n' % shell)
+ 
+   writeEnvString(fp, 'CCPNMR_TOP_DIR', top_dir, useExport)
+-  writeEnvString(fp, 'PYTHONPATH', '.:$CCPNMR_TOP_DIR/%s/python' % ccpnmr_rel_dir, useExport)
++  writeEnvString(fp, 'CCPNPYTHONPATH', '.:$CCPNMR_TOP_DIR/%s/python' % ccpnmr_rel_dir, useExport)
+   writeEnvString(fp, 'LD_LIBRARY_PATH', '%s:%s%s' % (tcl_lib_path, tk_lib_path, mesa_lib_path), useExport)
+   writeEnvString(fp, 'TCL_LIBRARY', '%s/tcl%s' % (tcl_lib_path, tcltk_version), useExport)
+   writeEnvString(fp, 'TK_LIBRARY', '%s/tk%s' % (tk_lib_path, tcltk_version), useExport)
+@@ -797,7 +797,7 @@
+ 
+   os.environ['CCPNMR_TOP_DIR'] = top_dir
+   os.environ['PATH'] = '%s/bin:%s' % (top_dir, os.environ['PATH'])
+-  os.environ['PYTHONPATH'] = '.:%s/%s/python' % (top_dir, ccpnmr_rel_dir)
++  os.environ['CCPNPYTHONPATH'] = '.:%s/%s/python' % (top_dir, ccpnmr_rel_dir)
+   os.environ['LD_LIBRARY_PATH'] = '%s:%s%s' % (tcl_lib_path, tk_lib_path, mesa_lib_path)
+   os.environ['TCL_LIBRARY'] = '%s/tcl%s' % (tcl_lib_path, tcltk_version)
+   os.environ['TK_LIBRARY'] = '%s/tk%s' % (tk_lib_path, tcltk_version)
