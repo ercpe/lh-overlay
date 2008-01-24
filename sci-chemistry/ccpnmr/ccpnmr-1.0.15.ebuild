@@ -73,7 +73,7 @@ src_install(){
 	python_version
 	
 cat >> "${T}"/20ccpnmr << EOF
-CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0
+CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/
 CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0/python
 LD_LIBRARY_PATH=/usr/lib:/usr/lib:/usr/lib
 TCL_LIBRARY=/usr/lib/tcl8.4
@@ -84,7 +84,7 @@ EOF
 	
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
-${python} -O -i \${CCPNPYTHONPATH}/ccpnmr/analysis/AnalysisGui.py $1 $2 $3 $4 $5
+${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py $1 $2 $3 $4 $5
 EOF
 	
 cat >> "${T}"/dataShifter << EOF
