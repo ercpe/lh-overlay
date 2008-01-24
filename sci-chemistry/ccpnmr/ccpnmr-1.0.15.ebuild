@@ -84,32 +84,32 @@ EOF
 	
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
-${python} -O -i \${CCPNMRPYTHONPATH}/ccpnmr/analysis/AnalysisGui.py $1 $2 $3 $4 $5
+${python} -O -i \${CCPNPYTHONPATH}/ccpnmr/analysis/AnalysisGui.py $1 $2 $3 $4 $5
 EOF
 	
 cat >> "${T}"/dataShifter << EOF
 #!/bin/sh
-${python} -O \${CCPNMRPYTHONPATH}/ccpnmr/format/gui/DataShifter.py
+${python} -O \${CCPNPYTHONPATH}/ccpnmr/format/gui/DataShifter.py
 EOF
 
 cat >> "${T}"/formatConverter << EOF
 #!/bin/sh
-${python} -O \${CCPNMRPYTHONPATH}/ccpnmr/format/gui/FormatConverter.py $1 $2
+${python} -O \${CCPNPYTHONPATH}/ccpnmr/format/gui/FormatConverter.py $1 $2
 EOF
 
 cat >> "${T}"/pipe2azara << EOF
 #!/bin/sh
-${python} -O \${CCPNMRPYTHONPATH}/ccpnmr/analysis/NmrPipeData.py $1 $2 $3
+${python} -O \${CCPNPYTHONPATH}/ccpnmr/analysis/NmrPipeData.py $1 $2 $3
 EOF
 
 cat >> "${T}"/updateAll << EOF
 #!/bin/sh
-${python} -O \${CCPNMRPYTHONPATH}/ccpnmr/update/UpdateAuto.py
+${python} -O \${CCPNPYTHONPATH}/ccpnmr/update/UpdateAuto.py
 EOF
 
 cat >> "${T}"/updateCheck << EOF
 #!/bin/sh
-${python} -O \${CCPNMRPYTHONPATH}/ccpnmr/update/UpdatePopup.py
+${python} -O \${CCPNPYTHONPATH}/ccpnmr/update/UpdatePopup.py
 EOF
 
 	exeinto /usr/bin
