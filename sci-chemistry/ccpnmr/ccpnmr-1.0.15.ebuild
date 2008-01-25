@@ -73,8 +73,8 @@ src_install(){
 	python_version
 	
 cat >> "${T}"/20ccpnmr << EOF
-CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages
-CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0/python
+CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
+CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 LD_LIBRARY_PATH=/usr/lib
 TCL_LIBRARY=/usr/lib/tcl8.4
 TK_LIBRARY=/usr/lib/tk8.4
@@ -84,8 +84,8 @@ EOF
 	
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
+export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -94,8 +94,8 @@ EOF
 	
 cat >> "${T}"/dataShifter << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
+export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -104,8 +104,8 @@ EOF
 
 cat >> "${T}"/formatConverter << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
+export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -114,7 +114,7 @@ EOF
 
 cat >> "${T}"/pipe2azara << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr/
+export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
 export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
@@ -124,7 +124,7 @@ EOF
 
 cat >> "${T}"/updateAll << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr/
+export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
 export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
@@ -150,8 +150,8 @@ EOF
 	doexe "${T}"/updateAll || die "Failed to install wrapper."
 	doexe "${T}"/updateCheck || die "Failed to install wrapper."
 	
-	insinto /usr/lib/python${PYVER}/site-packages/ccpnmr1.0/
-	cd ccpnmr/ccpnmr1.0
+	insinto /usr/lib/python${PYVER}/site-packages/ccpnmr
+	cd ccpnmr
 	doins -r *
 
 	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccp/structure/StructUtil.so
