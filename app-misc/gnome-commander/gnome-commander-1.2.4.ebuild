@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License, v2 or later
-# Maintainer: Dirk Göttel <dgoettel@freenet.de>
+# Maintainer: Dirk Goettel <dgoettel@freenet.de>
 # $Header:
 
 inherit gnome2

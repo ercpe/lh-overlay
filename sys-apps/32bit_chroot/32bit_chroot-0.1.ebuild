@@ -1,3 +1,7 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 inherit eutils
 
 DESCRIPTION="Setup a 32bit chroot as service"

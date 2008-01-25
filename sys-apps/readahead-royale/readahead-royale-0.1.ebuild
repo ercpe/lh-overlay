@@ -1,9 +1,13 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 inherit eutils
 
 DESCRIPTION="royale readahead after http://forums.gentoo.org/viewtopic-t-478491-start-0.html"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sys-apps/readahead-royale/${P}.tar.bz2"
 HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
-RESTRICT="primaryuri"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 hppa ia64 mips ppc ppc64 sparc x86 ~x86-fbsd"

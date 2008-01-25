@@ -1,3 +1,8 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+inherit eutils
 
 DESCRIPTION="This is a Grub and a Splashutils boot screen theme with original size of Gentoo logo. Enjoy..."
 HOMEPAGE="http://kde-look.org/content/show.php/show.php?content=49074"

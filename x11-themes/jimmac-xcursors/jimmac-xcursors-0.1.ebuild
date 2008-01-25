@@ -1,12 +1,12 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-themes/jimmac-xcursors/jimmac-xcursors-0.0.1.ebuild,v 1.8 2005/11/17 13:43:06 gothgirl Exp $
+# $Header: $
 
 MY_P="6550-Jimmac.tar.gz"
 DESCRIPTION="A high quality set of Xfree 4.3.0 animated mouse cursors"
 HOMEPAGE="http://jimmac.musichall.cz/i.php3?ikony=71"
 SRC_URI="http://kde-look.org/CONTENT/content-files/${MY_P}"
-
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ppc64 x86"

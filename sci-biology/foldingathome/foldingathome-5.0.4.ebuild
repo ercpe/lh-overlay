@@ -1,9 +1,7 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/foldingathome/foldingathome-5.0.2-r5.ebuild,v 1.6 2007/07/12 17:19:05 angelos Exp $
+# $Header: $
 
-# no version number on this install dir since upgrades will be using same dir
-# (data will be stored here too)
 I="/opt/foldingathome"
 
 inherit eutils

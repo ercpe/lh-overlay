@@ -1,3 +1,8 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+inherit eutils
 
 SLOT=""
 LICENSE="licened"
@@ -18,10 +23,7 @@ src_install(){
 		done
 	cd ../..
 	exeinto /opt/xray/solve-resolve/lib/
-	doexe solve-2.13/lib/*sym
-	doexe solve-2.13/lib/sym*
-	doexe solve-2.13/lib/hist*
-	doexe solve-2.13/lib/*dat
+	doexe solve-2.13/lib/{*sym,sym*,hist*,*dat}
 	exeinto /opt/xray/solve-resolve/lib/segments
 	doexe solve-2.13/lib/segments/*
 	exeinto /opt/xray/solve-resolve/lib/patterns

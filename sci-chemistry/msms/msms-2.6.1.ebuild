@@ -1,3 +1,7 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 inherit eutils
 
 DESCRIPTION="This allows you to run msms as a standalone application. A wrapped version of the library comes with MGLTools"

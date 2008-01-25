@@ -1,3 +1,6 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 inherit eutils
 
@@ -107,7 +110,7 @@ src_install() {
 		doexe ntpdate_
 
 		einfo "Create a symlink /etc/munin/plugins/ pointing to ${PLUGIN_DIR}/ntpdate_ named ntpdate_<your-ntp-server>"
-		einfo "For the german ntp-server of Physikalisch-Technische Universität Braunschweig the link would look like this:"
+		einfo "For the german ntp-server of Physikalisch-Technische Universitaet Braunschweig the link would look like this:"
 		einfo "   ntpdate_ntp1_ptb_de"
 	fi
 }

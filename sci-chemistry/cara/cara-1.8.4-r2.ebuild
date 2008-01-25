@@ -1,3 +1,7 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 inherit eutils
 
 DESCRIPTION="CARA is the application for the analysis of NMR spectra and computer aided resonance assignment developed at and used by Prof. Kurt Wuethrich's group"

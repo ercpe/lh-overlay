@@ -1,10 +1,14 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 inherit eutils
 
 DESCRIPTION="HKL2MAP is a graphical user-interface for macromolecular phasing."
 SRC_URI="${P}.tgz
 		 script? ( http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz )"
 HOMEPAGE="http://schneider.group.ifom-ieo-campus.it/hkl2map/index.html"
-RESTRICT="mirror fetch"
+RESTRICT="fetch"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
