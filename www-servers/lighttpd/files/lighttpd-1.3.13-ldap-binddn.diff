@@ -1,0 +1,96 @@
+diff -urN lighttpd-1.3.13.orig/src/http_auth.h lighttpd-1.3.13/src/http_auth.h
+--- lighttpd-1.3.13.orig/src/http_auth.h	2005-05-06 21:20:21.000000000 +0000
++++ lighttpd-1.3.13/src/http_auth.h	2005-05-06 21:19:24.000000000 +0000
+@@ -27,6 +27,8 @@
+ 	
+ 	buffer *auth_ldap_hostname;
+ 	buffer *auth_ldap_basedn;
++	buffer *auth_ldap_binddn;
++	buffer *auth_ldap_bindpw;
+ 	buffer *auth_ldap_filter;
+ 	
+ 	unsigned short auth_debug;
+diff -urN lighttpd-1.3.13.orig/src/mod_auth.c lighttpd-1.3.13/src/mod_auth.c
+--- lighttpd-1.3.13.orig/src/mod_auth.c	2005-05-06 21:20:21.000000000 +0000
++++ lighttpd-1.3.13/src/mod_auth.c	2005-05-06 21:21:24.000000000 +0000
+@@ -67,6 +67,8 @@
+ 			
+ 			buffer_free(s->auth_ldap_hostname);
+ 			buffer_free(s->auth_ldap_basedn);
++			buffer_free(s->auth_ldap_binddn);
++			buffer_free(s->auth_ldap_bindpw);
+ 			buffer_free(s->auth_ldap_filter);
+ 			
+ #ifdef USE_LDAP
+@@ -152,6 +154,8 @@
+ 	PATCH(auth_debug);
+ 	PATCH(auth_ldap_hostname);
+ 	PATCH(auth_ldap_basedn);
++	PATCH(auth_ldap_binddn);
++	PATCH(auth_ldap_bindpw);
+ 	PATCH(auth_ldap_filter);
+ #ifdef USE_LDAP
+ 	PATCH(ldap);
+@@ -296,10 +300,12 @@
+ 		{ "auth.require",                   NULL, T_CONFIG_LOCAL, T_CONFIG_SCOPE_CONNECTION },
+ 		{ "auth.backend.ldap.hostname",     NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
+ 		{ "auth.backend.ldap.base-dn",      NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
++		{ "auth.backend.ldap.bind-dn",      NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
++		{ "auth.backend.ldap.bind-pw",      NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
+ 		{ "auth.backend.ldap.filter",       NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
+ 		{ "auth.backend.htdigest.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
+ 		{ "auth.backend.htpasswd.userfile", NULL, T_CONFIG_STRING, T_CONFIG_SCOPE_CONNECTION },
+-		{ "auth.debug",                     NULL, T_CONFIG_SHORT, T_CONFIG_SCOPE_CONNECTION }, /* 9 */
++		{ "auth.debug",                     NULL, T_CONFIG_SHORT, T_CONFIG_SCOPE_CONNECTION }, /* 11 */
+ 		{ NULL,                             NULL, T_CONFIG_UNSET, T_CONFIG_SCOPE_UNSET }
+ 	};
+ 	
+@@ -320,6 +326,8 @@
+ 		
+ 		s->auth_ldap_hostname = buffer_init();
+ 		s->auth_ldap_basedn = buffer_init();
++		s->auth_ldap_binddn = buffer_init();
++		s->auth_ldap_bindpw = buffer_init();
+ 		s->auth_ldap_filter = buffer_init();
+ 		s->auth_debug = 0;
+ 		
+@@ -337,10 +345,12 @@
+ 		cv[3].destination = s->auth_require;
+ 		cv[4].destination = s->auth_ldap_hostname;
+ 		cv[5].destination = s->auth_ldap_basedn;
+-		cv[6].destination = s->auth_ldap_filter;
+-		cv[7].destination = s->auth_htdigest_userfile;
+-		cv[8].destination = s->auth_htpasswd_userfile;
+-		cv[9].destination = &(s->auth_debug);
++		cv[6].destination = s->auth_ldap_binddn;
++		cv[7].destination = s->auth_ldap_bindpw;
++		cv[8].destination = s->auth_ldap_filter;
++		cv[9].destination = s->auth_htdigest_userfile;
++		cv[10].destination = s->auth_htpasswd_userfile;
++		cv[11].destination = &(s->auth_debug);
+ 		
+ 		p->config_storage[i] = s;
+ 		ca = ((data_config *)srv->config_context->data[i])->value;
+@@ -532,10 +542,18 @@
+ 				
+ 				
+ 				/* 1. */
+-				if (LDAP_SUCCESS != (ret = ldap_simple_bind_s(s->ldap, NULL, NULL))) {
+-					log_error_write(srv, __FILE__, __LINE__, "ss", "ldap:", ldap_err2string(ret));
+-					
+-					return HANDLER_ERROR;
++				if (s->auth_ldap_binddn->used) {
++					if (LDAP_SUCCESS != (ret = ldap_simple_bind_s(s->ldap, s->auth_ldap_binddn->ptr, s->auth_ldap_bindpw->ptr))) {
++						log_error_write(srv, __FILE__, __LINE__, "ss", "ldap:", ldap_err2string(ret));
++						
++						return HANDLER_ERROR;
++					}
++				} else {
++					if (LDAP_SUCCESS != (ret = ldap_simple_bind_s(s->ldap, NULL, NULL))) {
++						log_error_write(srv, __FILE__, __LINE__, "ss", "ldap:", ldap_err2string(ret));
++						
++						return HANDLER_ERROR;
++					}
+ 				}
+ 			}
+ #else
