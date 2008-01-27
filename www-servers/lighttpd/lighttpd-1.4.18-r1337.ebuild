@@ -98,7 +98,7 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 
-	use mysql && epatch ${FILESDIR}/${PF}-mysql_auth.patch
+	use mysql && epatch ${FILESDIR}/lighttpd-1.4.18-mysql_auth.patch
 
 	EPATCH_SUFFIX="diff" EPATCH_OPTS="-l" epatch ${FILESDIR}/${PVR} || die "Patching failed!"
 
