@@ -6,14 +6,14 @@ AUX 1.4.16/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502 RMD160 a10372a6cd
 MD5 87cf789e1f6866b9ece50a4af418b5b8 files/1.4.16/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
 RMD160 a10372a6cdfce349c6221f5038f2fda699f5f74e files/1.4.16/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
 SHA256 0a7f3626e23291b3859e953bcc1762117a1585c2717adc065ccbb0ccf2f3577a files/1.4.16/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
-AUX 1.4.18/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267 RMD160 c23c816fcddbc99758a0426fc11f70677dbc06e9 SHA1 22e0d05d49cecb652d1250ac66de13fdf228cce4 SHA256 b37042549247ca2d83581aa3bcd1a5356c37015000711cecafda05aa6d6a15c4
-MD5 34d6720749f96327d311661a02886a65 files/1.4.18/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
-RMD160 c23c816fcddbc99758a0426fc11f70677dbc06e9 files/1.4.18/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
-SHA256 b37042549247ca2d83581aa3bcd1a5356c37015000711cecafda05aa6d6a15c4 files/1.4.18/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
-AUX 1.4.18/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502 RMD160 a10372a6cdfce349c6221f5038f2fda699f5f74e SHA1 12c39cd4ca731509256e271daf4aaac8a62e82c4 SHA256 0a7f3626e23291b3859e953bcc1762117a1585c2717adc065ccbb0ccf2f3577a
-MD5 87cf789e1f6866b9ece50a4af418b5b8 files/1.4.18/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
-RMD160 a10372a6cdfce349c6221f5038f2fda699f5f74e files/1.4.18/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
-SHA256 0a7f3626e23291b3859e953bcc1762117a1585c2717adc065ccbb0ccf2f3577a files/1.4.18/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
+AUX 1.4.18-r1337/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267 RMD160 c23c816fcddbc99758a0426fc11f70677dbc06e9 SHA1 22e0d05d49cecb652d1250ac66de13fdf228cce4 SHA256 b37042549247ca2d83581aa3bcd1a5356c37015000711cecafda05aa6d6a15c4
+MD5 34d6720749f96327d311661a02886a65 files/1.4.18-r1337/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
+RMD160 c23c816fcddbc99758a0426fc11f70677dbc06e9 files/1.4.18-r1337/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
+SHA256 b37042549247ca2d83581aa3bcd1a5356c37015000711cecafda05aa6d6a15c4 files/1.4.18-r1337/03_all_lighttpd-1.4.11-errorlog-pipe.diff 5267
+AUX 1.4.18-r1337/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502 RMD160 a10372a6cdfce349c6221f5038f2fda699f5f74e SHA1 12c39cd4ca731509256e271daf4aaac8a62e82c4 SHA256 0a7f3626e23291b3859e953bcc1762117a1585c2717adc065ccbb0ccf2f3577a
+MD5 87cf789e1f6866b9ece50a4af418b5b8 files/1.4.18-r1337/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
+RMD160 a10372a6cdfce349c6221f5038f2fda699f5f74e files/1.4.18-r1337/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
+SHA256 0a7f3626e23291b3859e953bcc1762117a1585c2717adc065ccbb0ccf2f3577a files/1.4.18-r1337/04_all_lighttpd-1.4.13-deprecated-ldap-api.diff 502
 AUX conf/lighttpd.conf 8182 RMD160 450cf40f4ec517331f8932618a3c492cb566e4f3 SHA1 16922786a79807fa3233d1af105a99582d3486a5 SHA256 c0f6951e00d4e8c928f1799a84976ab8bb536bd59a104c13ca9d1d3661d8cebd
 MD5 df5b2360ea380d988bf16905ab214286 files/conf/lighttpd.conf 8182
 RMD160 450cf40f4ec517331f8932618a3c492cb566e4f3 files/conf/lighttpd.conf 8182
