@@ -25,7 +25,7 @@ src_install(){
     -e "s;MODINSTALL${VER}=xxx;MODINSTALL${VER}=\"/usr/lib/modeller${VER}\";" \
     modeller-9v2/bin/modscript > "${T}/mod9v2"
     exeinto /usr/lib/modeller9v2/bin/
-    doexe "${T}mod9v2"
+    doexe "${T}/mod9v2"
     dosym /usr/lib/modeller9v2/bin/mod9v2 /usr/bin/mod9v2
     
     sed -e "s;@TOPDIR\@;\"/usr/lib/modeller${VER}\";" \
