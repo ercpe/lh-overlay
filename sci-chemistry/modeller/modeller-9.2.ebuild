@@ -70,7 +70,7 @@ src_install(){
 	read KEY_MODELLER
 	
 cat >> "${T}/config.py" << EOF
-install_dir = /usr/lib/modeller9v2/
+install_dir = "/usr/lib/modeller9v2/"
 license = "${KEY_MODELLER}"
 EOF
 	insinto /usr/lib/modeller9v2/modlib/modeller/

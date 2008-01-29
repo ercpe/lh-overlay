@@ -1,0 +1,22 @@
+diff -Nu -Nu -urNa asgl-1.3.2.orig/scripts/Makefile.include1 asgl-1.3.2/scripts/Makefile.include1
+--- asgl-1.3.2.orig/scripts/Makefile.include1	2008-01-29 15:44:58.000000000 +0100
++++ asgl-1.3.2/scripts/Makefile.include1	2008-01-29 15:43:27.000000000 +0100
+@@ -351,12 +351,12 @@
+ 	sed -e "s;BIN_value;${BINDIR};" \
+ 		-e "s;LIB_value;${LIBDIR};" \
+ 		asgl.script > ${BINDIR}/${EXECSCRIPT}
+-	chmod a+rwx ${BINDIR}
+-	chmod a+rwx ${LIBDIR}
+-	chmod a+rw ${BINDIR}/*
+-	chmod a+rw ${LIBDIR}/*
+-	chmod a+rwx ${BINDIR}/${PROGRAM}_${ASGL_EXECUTABLE_TYPE}
+-	chmod a+rwx ${BINDIR}/${EXECSCRIPT}
++	chmod 755 ${BINDIR}
++	chmod 755 ${LIBDIR}
++	chmod a+r ${BINDIR}/*
++	chmod a+r ${LIBDIR}/*
++	chmod a+rx ${BINDIR}/${PROGRAM}_${ASGL_EXECUTABLE_TYPE}
++	chmod a+rx ${BINDIR}/${EXECSCRIPT}
+ 
+ 
+ # Select the right compilation flags given COMPILER selection. The whole 
