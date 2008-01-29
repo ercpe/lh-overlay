@@ -68,6 +68,6 @@ cat >> "${T}/config.py" << EOF
 install_dir = /usr/lib/modeller9v2/
 license = "${KEY_MODELLER}"
 EOF
-	insinto /usr/lib/python2.5/site-packages/modeller
+	insinto /usr/lib/python${PYVER}/site-packages/modeller
 	doins "${T}/config.py"
 }
