@@ -51,9 +51,11 @@ src_install(){
 	doexe modeller-9v2/lib/i386-intel8/python2.5/_modeller.so
 	dosym /usr/lib/modeller9v2/lib/i386-intel8/libmodeller.so.1 \
 		  /usr/lib/modeller9v2/lib/i386-intel8/libmodeller.so
-	insinto /usr/lib/modeller9v2/lib/i386-intel8/modlib/
+	
+	insinto /usr/lib/modeller9v2/modlib/
 	doins -r modeller-9v2/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
-	insinto /usr/lib/modeller9v2/lib/
+
+	insinto /usr/lib/modeller9v2/
 	doins -r modeller-9v2/src
 	
 	insinto /usr/share/doc/${PF}/
@@ -71,6 +73,6 @@ cat >> "${T}/config.py" << EOF
 install_dir = /usr/lib/modeller9v2/
 license = "${KEY_MODELLER}"
 EOF
-	insinto /usr/lib/python${PYVER}/site-packages/modeller
+	insinto /usr/lib/modeller9v2/modlib/modeller/
 	doins "${T}/config.py"
 }
