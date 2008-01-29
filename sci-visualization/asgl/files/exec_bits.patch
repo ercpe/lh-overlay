@@ -1,6 +1,6 @@
-diff -Nu -Nu -urNa scripts.orig/Makefile.include1 scripts/Makefile.include1
---- scripts.orig/Makefile.include1	2008-01-29 15:44:58.000000000 +0100
-+++ scripts/Makefile.include1	2008-01-29 16:08:42.000000000 +0100
+diff -Nu -Nu -uarN asgl-1.3.2.orig/scripts/Makefile.include1 asgl-1.3.2/scripts/Makefile.include1
+--- asgl-1.3.2.orig/scripts/Makefile.include1	2006-11-10 00:16:11.000000000 +0100
++++ asgl-1.3.2/scripts/Makefile.include1	2008-01-29 16:08:42.000000000 +0100
 @@ -348,15 +348,15 @@
  	-if [ `echo ${LIBFILES} | wc -w` -gt 0 ] ; then cp -r ${LIBFILES} ${LIBDIR}; fi
  	-cp ${PROGRAM}_${ASGL_EXECUTABLE_TYPE} ${BINDIR}/${PROGRAM}_${ASGL_EXECUTABLE_TYPE}; \
