@@ -58,7 +58,7 @@ src_install(){
 	insinto /usr/lib/modeller9v2/
 	doins -r modeller-9v2/src
 	
-	insinto /usr/share/doc/${PF}/
+	insinto /usr/share/${PN}/
 	doins -r modeller-9v2/examples
 	dohtml modeller-9v2/doc/*
 	dodoc modeller-9v2/{README,ChangeLog}
