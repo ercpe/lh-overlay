@@ -8,7 +8,7 @@ FORTRAN="g77 gfortran"
 
 SLOT=""
 LICENSE=""
-KEYWORDS=""
+KEYWORDS="x86"
 DESCRIPTION="ASGL is a program for preparing all sorts of PostScript plots from simple data files."
 SRC_URI="ftp://salilab.org/asgl/asgl-1.3.2.tar.gz"
 HOMEPAGE="http://salilab.org/asgl/"
