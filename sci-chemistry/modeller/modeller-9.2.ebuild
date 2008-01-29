@@ -41,7 +41,7 @@ src_install(){
 	
 	exeinto /usr/lib/python${PYVER}/site-packages/
 	doexe modeller-9v2/lib/i386-intel8/_modeller.so
-	dosym /usr/lib/python2.5/site-packages/modeller /usr/lib/modeller9v2/modlib/modeller
+	dosym /usr/lib/python${PYVER}/site-packages/modeller /usr/lib/modeller9v2/modlib/modeller
 	
 	exeinto /usr/lib/modeller9v2/lib/i386-intel8/
 	doexe modeller-9v2/lib/i386-intel8/{lib*,_modeller.so}
@@ -63,7 +63,7 @@ src_install(){
 	echo
 	echo "License key, obtained from our academic license server at"
 	echo "http://salilab.org/modeller/registration.html: "
-	#read KEY_MODELLER
+	read KEY_MODELLER
 	
 cat >> "${T}/config.py" << EOF
 install_dir = /usr/lib/modeller9v2/
