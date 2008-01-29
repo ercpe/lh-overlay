@@ -22,7 +22,7 @@ RDEPEND=">=dev-lang/python-2.4
 
 src_unpack(){
 	unpack "${A}"
-	epatch "${FILESDIR}/gentoo-PYTHONPATH.patch"
+	#epatch "${FILESDIR}/gentoo-PYTHONPATH.patch"
 }
 
 
@@ -74,7 +74,7 @@ src_install(){
 	
 cat >> "${T}"/20ccpnmr << EOF
 CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 LD_LIBRARY_PATH=/usr/lib
 TCL_LIBRARY=/usr/lib/tcl8.4
 TK_LIBRARY=/usr/lib/tk8.4
@@ -85,7 +85,7 @@ EOF
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -95,54 +95,55 @@ EOF
 cat >> "${T}"/dataShifter << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${CCPNPYTHONPATH}/ccpnmr/format/gui/DataShifter.py
+${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py
 EOF
 
 cat >> "${T}"/formatConverter << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${CCPNPYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
+${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
 EOF
 
 cat >> "${T}"/pipe2azara << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${CCPNPYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
+${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
 EOF
 
 cat >> "${T}"/updateAll << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${CCPNPYTHONPATH}/ccpnmr/update/UpdateAuto.py
+${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py
 EOF
 
 cat >> "${T}"/updateCheck << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export CCPNPYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${CCPNPYTHONPATH}/ccpnmr/update/UpdatePopup.py
+${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
 EOF
 
-	exeinto /usr/bin
+	exeinto /usr/lib/python${PYVER}/site-packages/ccpnmr/bin
+#	doexe "${T}/{analysis,dataShifter,formatConverter,pipe2azara,updateAll,updateCheck}"
 	doexe "${T}"/analysis || die "Failed to install wrapper."
 	doexe "${T}"/dataShifter || die "Failed to install wrapper."
 	doexe "${T}"/formatConverter || die "Failed to install wrapper."
