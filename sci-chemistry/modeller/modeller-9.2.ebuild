@@ -41,7 +41,9 @@ src_install(){
 	
 	exeinto /usr/lib/python${PYVER}/site-packages/
 	doexe modeller-9v2/lib/i386-intel8/_modeller.so
-	dosym /usr/lib/python${PYVER}/site-packages/modeller /usr/lib/modeller9v2/modlib/modeller
+	dosym /usr/lib/modeller9v2/modlib/modeller /usr/lib/python${PYVER}/site-packages/modeller 
+	dosym /usr/lib/modeller9v2/lib/i386-intel8/_modeller.so\
+		  /usr/lib/python${PYVER}/site-packages/_modeller.so
 	
 	exeinto /usr/lib/modeller9v2/lib/i386-intel8/
 	doexe modeller-9v2/lib/i386-intel8/{lib*,_modeller.so}
