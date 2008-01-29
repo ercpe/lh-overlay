@@ -18,6 +18,7 @@ DEPEND=">=dev-lang/python-2.4"
 
 
 src_install(){
+	python_version
 	VER=9v2
 	EXECUTABLE_TYPE=i386-intel8
 	
