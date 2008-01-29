@@ -1,9 +1,14 @@
-diff -Nu -Nu -urNa asgl-1.3.2.orig/scripts/Makefile.include1 asgl-1.3.2/scripts/Makefile.include1
---- asgl-1.3.2.orig/scripts/Makefile.include1	2008-01-29 15:44:58.000000000 +0100
-+++ asgl-1.3.2/scripts/Makefile.include1	2008-01-29 15:43:27.000000000 +0100
-@@ -351,12 +351,12 @@
- 	sed -e "s;BIN_value;${BINDIR};" \
- 		-e "s;LIB_value;${LIBDIR};" \
+diff -Nu -Nu -urNa scripts.orig/Makefile.include1 scripts/Makefile.include1
+--- scripts.orig/Makefile.include1	2008-01-29 15:44:58.000000000 +0100
++++ scripts/Makefile.include1	2008-01-29 16:08:42.000000000 +0100
+@@ -348,15 +348,15 @@
+ 	-if [ `echo ${LIBFILES} | wc -w` -gt 0 ] ; then cp -r ${LIBFILES} ${LIBDIR}; fi
+ 	-cp ${PROGRAM}_${ASGL_EXECUTABLE_TYPE} ${BINDIR}/${PROGRAM}_${ASGL_EXECUTABLE_TYPE}; \
+ 	strip ${BINDIR}/${PROGRAM}_${ASGL_EXECUTABLE_TYPE}
+-	sed -e "s;BIN_value;${BINDIR};" \
+-		-e "s;LIB_value;${LIBDIR};" \
++	sed -e "s;BIN_value;/usr/lib/libasgl;" \
++		-e "s;LIB_value;/usr/lib/libasgl/libasgl;" \
  		asgl.script > ${BINDIR}/${EXECSCRIPT}
 -	chmod a+rwx ${BINDIR}
 -	chmod a+rwx ${LIBDIR}
