@@ -1,0 +1,8 @@
+DIST bashstyle-ng-5.0.1.tar.bz2 17099 RMD160 6efa4a577fcd73cae1f970fe9271af10505e889a SHA1 8a4bd1fb584f632033a085ce649974153ee2cfb1 SHA256 475c7b4cfaed532148b2ba1922b4daabb5a94ee3ef81b6ace0ebfada93b35df5
+EBUILD bashstyle-ng-5.0.1.ebuild 799 RMD160 1a1e2ea44fae1b0ce7d7aad622e4daec64476446 SHA1 403d665750b7fc9b9311c660f4f635462f55f655 SHA256 60f1e5b4d598ac83bd8bee93a774216981f444a73a17183014cbaa7db40909d0
+MD5 feadd99a576d42c852cf7d79bf041ec5 bashstyle-ng-5.0.1.ebuild 799
+RMD160 1a1e2ea44fae1b0ce7d7aad622e4daec64476446 bashstyle-ng-5.0.1.ebuild 799
+SHA256 60f1e5b4d598ac83bd8bee93a774216981f444a73a17183014cbaa7db40909d0 bashstyle-ng-5.0.1.ebuild 799
+MD5 c75e162604e9990c725bb36722eaa1cd files/digest-bashstyle-ng-5.0.1 256
+RMD160 b5371660ea508f84cc44e20dae208f24a84aa836 files/digest-bashstyle-ng-5.0.1 256
+SHA256 7df1294ae59478bb45d6fe40a13903da9eb0939562ec9a4384004d0d3ca5bd79 files/digest-bashstyle-ng-5.0.1 256
