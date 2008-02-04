@@ -13,7 +13,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 RESTRICT="primaryuri"
 
-RDEPEND="gnome-base/gnome-light"
+RDEPEND="gnome-base/gnome-light >=dev-lang/python-2.4 >=app-shells/bash-3.0 sys-apps/coreutils"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
