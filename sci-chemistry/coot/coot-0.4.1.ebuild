@@ -18,7 +18,7 @@ else
 fi
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86"
 IUSE=""
 RESTRICT="mirror"
 RDEPEND=">=sci-libs/gsl-1.3
