@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils fortran multilib flag-o-matic distutils python
+inherit eutils fortran multilib flag-o-matic distutils python gnuconfig toolchain-funcs
 
 DESCRIPTION="pdb2pqr is an automated pipeline for the setup, execution, and analysis of Poisson-Boltzmann electrostatics calculations"
 LICENSE="GPL-2"
@@ -18,6 +18,16 @@ DEPEND="dev-lang/python"
 FORTRAN="g77 gfortran"
 
 src_compile() {
+	gnuconfig_update
+	export CC=$(tc-getCC)
+	export CXX=$(tc-getCXX)
+	export COPTIM=${CFLAGS}
+	export CXXOPTIM=${CXXFLAGS}
+	# Default to -O2 if FFLAGS is unset
+	export FC=${FORTRANC}
+	export FF=${FORTRANC}
+	export FOPTIM=${FFLAGS:- -O2}
+	
 	econf || die "econf failed"
 	emake || die "emake failed"
 }
