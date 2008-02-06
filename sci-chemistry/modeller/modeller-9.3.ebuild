@@ -22,41 +22,42 @@ src_install(){
 	
 	VER=9v3
 	EXECUTABLE_TYPE=i386-intel8
+	IN_PATH=/usr/lib/modeller${VER}
 	
 	sed -e "s;EXECUTABLE_TYPE${VER}=xxx;EXECUTABLE_TYPE${VER}=$EXECUTABLE_TYPE;" \
-    -e "s;MODINSTALL${VER}=xxx;MODINSTALL${VER}=\"/usr/lib/modeller${VER}\";" \
+    -e "s;MODINSTALL${VER}=xxx;MODINSTALL${VER}=\"${IN_PATH}\";" \
     modeller-${VER}/bin/modscript > "${T}/mod${VER}"
-    exeinto /usr/lib/modeller${VER}/bin/
+    exeinto ${IN_PATH}/bin/
     doexe "${T}/mod${VER}"
-    dosym /usr/lib/modeller${VER}/bin/mod${VER} /usr/bin/mod${VER}
+    dosym ${IN_PATH}/bin/mod${VER} /usr/bin/mod${VER}
     
-    sed -e "s;@TOPDIR\@;\"/usr/lib/modeller${VER}\";" \
+    sed -e "s;@TOPDIR\@;\"${IN_PATH}\";" \
     -e "s;@EXETYPE\@;$EXECUTABLE_TYPE;" \
     modeller-${VER}/bin/modpy.sh.in > "${T}/modpy.sh"
     doexe "${T}/modpy.sh"
 
-	insinto /usr/lib/modeller${VER}/bin/
+	insinto ${IN_PATH}/bin/
 	doins -r modeller-${VER}/bin/{*top,modscript,lib,mod${VER}_i386-intel8}
-	exeinto /usr/lib/modeller${VER}/bin/
+	exeinto ${IN_PATH}/bin/
 	doexe modeller-${VER}/bin/{modpy.sh.in,modslave.py,mod${VER}_i386-intel8}
 	
 	exeinto /usr/lib/python${PYVER}/site-packages/
 	doexe modeller-${VER}/lib/i386-intel8/_modeller.so
-	dosym /usr/lib/modeller${VER}/modlib/modeller /usr/lib/python${PYVER}/site-packages/modeller 
-	dosym /usr/lib/modeller${VER}/lib/i386-intel8/_modeller.so\
+	dosym ${IN_PATH}/modlib/modeller /usr/lib/python${PYVER}/site-packages/modeller 
+	dosym ${IN_PATH}/lib/i386-intel8/_modeller.so\
 		  /usr/lib/python${PYVER}/site-packages/_modeller.so
 	
-	exeinto /usr/lib/modeller${VER}/lib/i386-intel8/
+	exeinto ${IN_PATH}/lib/i386-intel8/
 	doexe modeller-${VER}/lib/i386-intel8/{lib*,_modeller.so}
-	exeinto /usr/lib/modeller${VER}/lib/i386-intel8/python${PYVER}/
+	exeinto ${IN_PATH}/lib/i386-intel8/python${PYVER}/
 	doexe modeller-${VER}/lib/i386-intel8/python2.5/_modeller.so
-	dosym /usr/lib/modeller${VER}/lib/i386-intel8/libmodeller.so.1 \
-		  /usr/lib/modeller${VER}/lib/i386-intel8/libmodeller.so
+	dosym ${IN_PATH}/lib/i386-intel8/libmodeller.so.1 \
+		  ${IN_PATH}/lib/i386-intel8/libmodeller.so
 	
-	insinto /usr/lib/modeller${VER}/modlib/
+	insinto ${IN_PATH}/modlib/
 	doins -r modeller-${VER}/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
 
-	insinto /usr/lib/modeller${VER}/
+	insinto ${IN_PATH}/
 	doins -r modeller-${VER}/src
 	
 	insinto /usr/share/${PN}/
@@ -65,30 +66,31 @@ src_install(){
 	dodoc modeller-${VER}/{README,ChangeLog}
 	
 	cat >> "${T}/config.py" << EOF
-install_dir = "/usr/lib/modeller${VER}/"
-license = YOURLICENSEKEY
+install_dir = "${IN_PATH}/"
+license = "YOURLICENSEKEY"
 EOF
 
-	insinto /usr/lib/modeller${VER}/modlib/modeller/
+	insinto ${IN_PATH}/modlib/modeller/
 	doins "${T}/config.py"
 }
 
 pkg_postinst(){
-	ewarn ""
-	ewarn " If you need to define your own residues"
-	ewarn " read the FAQ and edit the following files:"
-	ewarn ""
-	ewarn "    ${MY_D}/modlib/top_heav.lib"
-	ewarn "    ${MY_D}/modlib/radii.lib"
-	ewarn "    ${MY_D}/modlib/radii14.lib"
-	ewarn "    ${MY_D}/modlib/restyp.lib"
-	ewarn ""
-	ewarn "    Good Luck and Happy Modeling :D"
-	ewarn ""
-	
-
-	einfo "Obtain a license Key from"
-	einfo "http://salilab.org/modeller/registration.html"
-	einfo "and change the adequate line in"
-	einfo "/usr/lib/modeller${VER}/modlib/modeller/config.py"
+	#Adapted from BUG #127628
+	einfo ""
+	einfo " If you need to define your own residues"
+	einfo " read the FAQ and edit the following files:"
+	einfo ""
+	einfo "    ${MY_D}/modlib/top_heav.lib"
+	einfo "    ${MY_D}/modlib/radii.lib"
+	einfo "    ${MY_D}/modlib/radii14.lib"
+	einfo "    ${MY_D}/modlib/restyp.lib"
+	einfo ""
+	einfo "    Good Luck and Happy Modeling :D"
+	einfo ""
+	echo
+	echo
+	ewarn "Obtain a license Key from"
+	ewarn "http://salilab.org/modeller/registration.html"
+	ewarn "and change the adequate line in"
+	ewarn "${IN_PATH}/modlib/modeller/config.py"
 }

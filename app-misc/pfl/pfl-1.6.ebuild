@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
+inherit python
 
 SLOT=""
 LICENSE="GPLv2"
@@ -21,11 +21,11 @@ src_unpack(){
 }
 
 src_install(){
-
+	python_version
 cat >> "${T}/pfl" << EOF
 #!/bin/sh
 
-exec nice ${python} /usr/lib/pfl/pfl.py
+exec nice ${python} -O /usr/lib/pfl/pfl.py
 
 EOF
 	

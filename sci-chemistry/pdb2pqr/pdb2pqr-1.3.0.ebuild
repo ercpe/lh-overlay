@@ -24,8 +24,8 @@ src_compile() {
 	export COPTIM=${CFLAGS}
 	export CXXOPTIM=${CXXFLAGS}
 	# Default to -O2 if FFLAGS is unset
-	export FC=${FORTRANC}
-	export FF=${FORTRANC}
+	export FC=${tc-getFORTRAN}
+	export FF=${tc-getFORTRAN}
 	export FOPTIM=${FFLAGS:- -O2}
 	
 	econf || die "econf failed"
