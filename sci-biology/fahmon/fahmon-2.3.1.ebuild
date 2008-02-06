@@ -10,7 +10,7 @@ SRC_URI="http://fahmon.net/downloads/FahMon-2.3.1.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 IUSE=""
-RESTRICT="primaryuri"
+RESTRICT="mirror"
 KEYWORDS="~x86"
 
 RDEPEND=">=x11-libs/wxGTK-2.6.3"
