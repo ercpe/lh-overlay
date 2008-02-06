@@ -25,6 +25,7 @@ src_install(){
 cat >> "${T}/pfl" << EOF
 #!/bin/sh
 
+exec nice ${python}/usr/lib/pfl/pfl.py
 exec nice ${python} -O /usr/lib/pfl/pfl.py
 
 EOF
@@ -32,6 +33,6 @@ EOF
 	exeinto /etc/cron.daily/
 	doexe "${T}/pfl"
 	
-	insinto /usr/lib/pfl/
-	doins pfl.py
+	exeinto /usr/lib/pfl/
+	doexe pfl.py
 }
