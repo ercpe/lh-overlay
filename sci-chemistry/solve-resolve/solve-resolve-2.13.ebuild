@@ -5,43 +5,57 @@
 inherit eutils
 
 SLOT=""
+#Some should correct the license
+#I do not know which to choose
 LICENSE="licened"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"
-SRC_URI="http://solve.lanl.gov/pub/solve/2.13/solve-2.13-linux.tar.gz"
+SRC_URI="x86? ( http://solve.lanl.gov/pub/solve/${PV}/solve-${PV}-linux.tar.gz )
+		 amd64? ( http://solve.lanl.gov/pub/solve/${PV}/solve-${PV}-linux-64.tar.gz )"
 HOMEPAGE="http://www.solve.lanl.gov/index.html"
 IUSE=""
 RESTRICT="mirror"
 
 src_install(){
-	exeinto /opt/xray/solve-resolve/bin/
+	IN_PATH=/opt/xray/solve-resolve/
+	exeinto ${IN_PATH}bin/
 	doexe solve-2.13/bin/*
 	cd solve-2.13/bin/
 	for i in `ls resolve* solve*`
 		do
-			dosym /opt/xray/solve-resolve/bin/$i /usr/bin/$i
+			dosym ${IN_PATH}bin/$i /usr/bin/$i
 		done
-	cd ../..
-	exeinto /opt/xray/solve-resolve/lib/
+	cd ${WORKDIR}
+	exeinto ${IN_PATH}lib/
 	doexe solve-2.13/lib/{*sym,sym*,hist*,*dat}
-	exeinto /opt/xray/solve-resolve/lib/segments
+	exeinto ${IN_PATH}lib/segments
 	doexe solve-2.13/lib/segments/*
-	exeinto /opt/xray/solve-resolve/lib/patterns
+	exeinto ${IN_PATH}lib/patterns
 	doexe solve-2.13/lib/patterns/*
 	
 	dohtml -r solve-2.13/lib/html/*
-	insinto /usr/share/doc/${PF}/examples_resolve
+	sed -i 's:/usr/local/lib/solve/:/opt/xray/solve-resolve/lib/:' \
+			solve-2.13/lib/examples_solve/p9/solve.com
+	sed -i 's:/usr/local/lib/resolve/:/opt/xray/solve-resolve/lib/:' \
+			solve-2.13/lib/examples_resolve/{resolve.csh,prime_and_switch.csh}
+	insinto /usr/share/${PF}/examples_resolve
 	doins solve-2.13/lib/examples_resolve/*
-	insinto /usr/share/doc/${PF}/examples_solve
+	insinto /usr/share/${PF}/examples_solve
 	doins -r solve-2.13/lib/examples_solve/*
 
 
 cat >> "${T}"/20solve-resolve << EOF
 CCP4_OPEN="UNKNOWN"
-SYMOP="/opt/xray/solve-resolve/lib/symop.lib"
-SYMINFO="/opt/xray/solve-resolve/lib/syminfo.lib"
-SOLVEDIR="/opt/xray/solve-resolve/lib/"
+SYMOP="${IN_PATH}lib/symop.lib"
+SYMINFO="${IN_PATH}lib/syminfo.lib"
+SOLVEDIR="${IN_PATH}lib/"
 EOF
 	
 	doenvd "${T}"/20solve-resolve
+}
+pkg_postinst(){
+	einfo "Get a valid license key from"
+	einfo "http://solve.lanl.gov/license.html"
+	einfo "and place it in"
+	einfo "${IN_PATH}lib/"
 }
