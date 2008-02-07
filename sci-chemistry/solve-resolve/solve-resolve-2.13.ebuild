@@ -35,7 +35,7 @@ src_install(){
 	
 	dohtml -r solve-2.13/lib/html/*
 	sed -i 's:/usr/local/lib/solve/:/opt/xray/solve-resolve/lib/:' \
-			solve-2.13/lib/examples_solve/p9/solve.com
+			solve-2.13/lib/examples_solve/p9/solve*
 	sed -i 's:/usr/local/lib/resolve/:/opt/xray/solve-resolve/lib/:' \
 			solve-2.13/lib/examples_resolve/{resolve.csh,prime_and_switch.csh}
 	insinto /usr/share/${PF}/examples_resolve
