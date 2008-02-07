@@ -25,7 +25,6 @@ src_install(){
 cat >> "${T}/pfl" << EOF
 #!/bin/sh
 
-exec nice ${python}/usr/lib/pfl/pfl.py
 exec nice ${python} -O /usr/lib/pfl/pfl.py
 
 EOF
