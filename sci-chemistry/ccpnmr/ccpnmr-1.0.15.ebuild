@@ -82,7 +82,7 @@ TK_LIBRARY=/usr/lib/tk8.4
 EOF
 	
 	doenvd "${T}"/20ccpnmr || die "Failed to install env.d."
-	
+	echo 1
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -92,7 +92,7 @@ export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py \$1 \$2 \$3 \$4 \$5
 EOF
-	
+		echo 2
 cat >> "${T}"/dataShifter << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -102,7 +102,7 @@ export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py
 EOF
-
+	echo 3
 cat >> "${T}"/formatConverter << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -112,7 +112,7 @@ export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
 EOF
-
+	echo 4
 cat >> "${T}"/pipe2azara << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -122,7 +122,7 @@ export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
 EOF
-
+	echo 5
 cat >> "${T}"/updateAll << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -132,7 +132,7 @@ export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py
 EOF
-
+	echo 6
 cat >> "${T}"/updateCheck << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
@@ -143,6 +143,7 @@ export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
 EOF
 
+	einfo "Installing wrapper"
 	exeinto ${IN_PATH}/bin
 #	doexe "${T}/{analysis,dataShifter,formatConverter,pipe2azara,updateAll,updateCheck}"
 	doexe "${T}"/analysis || die "Failed to install wrapper."
