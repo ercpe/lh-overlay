@@ -30,6 +30,7 @@ src_compile(){
 	
 	echo "CC = "$(tc-getCC)>environment.txt
 
+#This could be outsourced to the file dir
 cat >> environment.txt << EOF
 MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
 FPIC_FLAG = -fPIC
@@ -73,15 +74,15 @@ src_install(){
 	IN_PATH=/usr/lib/python${PYVER}/site-packages/ccpnmr
 	
 	einfo "Creating launch wrapper"
-cat >> "${T}"/20ccpnmr << EOF
-CCPNMR_TOP_DIR=${IN_PATH}
-PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-LD_LIBRARY_PATH=/usr/lib
-TCL_LIBRARY=/usr/lib/tcl8.4
-TK_LIBRARY=/usr/lib/tk8.4
-EOF
+#cat >> "${T}"/20ccpnmr << EOF
+#CCPNMR_TOP_DIR=${IN_PATH}
+#PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
+#LD_LIBRARY_PATH=/usr/lib
+#TCL_LIBRARY=/usr/lib/tcl8.4
+#TK_LIBRARY=/usr/lib/tk8.4
+#EOF
 	
-	doenvd "${T}"/20ccpnmr || die "Failed to install env.d."
+#	doenvd "${T}"/20ccpnmr || die "Failed to install env.d."
 
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
@@ -165,44 +166,58 @@ EOF
 	doins -r *
 
 	einfo "Adjusting permissions"
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccp/structure/{StructUtil.so,StructAtom.so,\
-				StructBond.so,StructStructure.so}
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/clouds/{Midge.so,Dynamics.so,Bacus.so,\
-				AtomCoord.so,DistConstraintList.so,DistConstraint.so,CloudUtil.so,\
-				DistForce.so,AtomCoordList.so}
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourFile.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourLevels.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/SliceFile.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/PeakList.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourStyle.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/WinPeakList.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/PdfHandler.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/TkHandler.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/FitMethod.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/BlockFile.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/MemCache.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/StoreFile.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/PsHandler.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/StoreHandler.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/GlHandler.so
-	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/prev.gif
-	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/up.gif
-	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/next.gif
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccp/c/linkSharedObjs
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/c/linkSharedObjs
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/CloudsPopup.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/HcloudsMdPopup.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/PseudoResonances.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FilterCloudsPopup.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/HydrogenDynamics.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FilterClouds.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/Clouds.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/MidgePopup.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/NoeRelaxation.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FileIO.py
-	fperms 755 ${IN_PATH}/cppnmr1.0/python/ccpnmr/clouds/BacusPopup.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/ResonanceIdentification.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/__init__.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/_licenseInfo.py
-	fperms 755 ${IN_PATH}/ccpnmr1.0/python/memops/c/linkSharedObjs
+#I do not know wether this is a must or not, but thats how the original install looks like
+	local FILES="c/ccp/structure/StructUtil.so
+				 c/ccp/structure/StructAtom.so
+				 c/ccp/structure/StructBond.so
+				 c/ccp/structure/StructStructure.so
+				 c/ccpnmr/clouds/Midge.so
+				 c/ccpnmr/clouds/Dynamics.so
+				 c/ccpnmr/clouds/Bacus.so
+				 c/ccpnmr/clouds/AtomCoord.so
+				 c/ccpnmr/clouds/DistConstraintList.so
+				 c/ccpnmr/clouds/DistConstraint.so
+				 c/ccpnmr/clouds/CloudUtil.so
+				 c/ccpnmr/clouds/DistForce.so
+				 c/ccpnmr/clouds/AtomCoordList.so
+				 c/ccpnmr/analysis/ContourFile.so
+				 c/ccpnmr/analysis/ContourLevels.so
+				 c/ccpnmr/analysis/SliceFile.so
+				 c/ccpnmr/analysis/PeakList.so
+				 c/ccpnmr/analysis/ContourStyle.so
+				 c/ccpnmr/analysis/WinPeakList.so
+				 c/memops/global/PdfHandler.so
+				 c/memops/global/TkHandler.so
+				 c/memops/global/FitMethod.so
+				 c/memops/global/BlockFile.so
+				 c/memops/global/MemCache.so
+				 c/memops/global/StoreFile.so
+				 c/memops/global/PsHandler.so
+				 c/memops/global/StoreHandler.so
+				 c/memops/global/GlHandler.so
+				 doc/graphics/prev.gif
+				 doc/graphics/up.gif
+				 doc/graphics/next.gif
+				 python/ccp/c/linkSharedObjs
+				 python/ccpnmr/c/linkSharedObjs
+				 python/ccpnmr/clouds/CloudsPopup.py
+				 python/ccpnmr/clouds/HcloudsMdPopup.py
+				 python/ccpnmr/clouds/PseudoResonances.py
+				 python/ccpnmr/clouds/FilterCloudsPopup.py
+				 python/ccpnmr/clouds/HydrogenDynamics.py
+				 python/ccpnmr/clouds/FilterClouds.py
+				 python/ccpnmr/clouds/Clouds.py
+				 python/ccpnmr/clouds/MidgePopup.py
+				 python/ccpnmr/clouds/NoeRelaxation.py
+				 python/ccpnmr/clouds/FileIO.py
+				 python/ccpnmr/clouds/BacusPopup.py
+				 python/ccpnmr/clouds/ResonanceIdentification.py
+				 python/ccpnmr/clouds/__init__.py
+				 python/ccpnmr/clouds/_licenseInfo.py
+				 python/memops/c/linkSharedObjs"
+				 
+	for FILE in ${FILES}
+		do
+			fperms 755 ${IN_PATH}/ccpnmr1.0/${FILE}
+		done
 }
