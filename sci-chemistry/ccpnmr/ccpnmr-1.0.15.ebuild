@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs distutils multilib
+inherit eutils toolchain-funcs python
 
 SLOT=""
 LICENSE="CCPN license"
@@ -24,8 +24,6 @@ src_unpack(){
 	unpack "${A}"
 	#epatch "${FILESDIR}/gentoo-PYTHONPATH.patch"
 }
-
-
 
 src_compile(){
 	cd ccpnmr/ccpnmr1.0/c
@@ -72,9 +70,12 @@ EOF
 src_install(){
 	python_version
 	
+	IN_PATH=/usr/lib/python${PYVER}/site-packages/ccpnmr
+	
+	einfo "Creating launch wrapper"
 cat >> "${T}"/20ccpnmr << EOF
-CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+CCPNMR_TOP_DIR=${IN_PATH}
+PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 LD_LIBRARY_PATH=/usr/lib
 TCL_LIBRARY=/usr/lib/tcl8.4
 TK_LIBRARY=/usr/lib/tk8.4
@@ -84,8 +85,8 @@ EOF
 	
 cat >> "${T}"/analysis << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -94,8 +95,8 @@ EOF
 	
 cat >> "${T}"/dataShifter << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -104,8 +105,8 @@ EOF
 
 cat >> "${T}"/formatConverter << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -114,8 +115,8 @@ EOF
 
 cat >> "${T}"/pipe2azara << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -124,8 +125,8 @@ EOF
 
 cat >> "${T}"/updateAll << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
@@ -134,15 +135,15 @@ EOF
 
 cat >> "${T}"/updateCheck << EOF
 #!/bin/sh
-export CCPNMR_TOP_DIR=/usr/lib/python${PYVER}/site-packages/ccpnmr
-export PYTHONPATH=/usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python
+export CCPNMR_TOP_DIR=${IN_PATH}
+export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
 ${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
 EOF
 
-	exeinto /usr/lib/python${PYVER}/site-packages/ccpnmr/bin
+	exeinto ${IN_PATH}/bin
 #	doexe "${T}/{analysis,dataShifter,formatConverter,pipe2azara,updateAll,updateCheck}"
 	doexe "${T}"/analysis || die "Failed to install wrapper."
 	doexe "${T}"/dataShifter || die "Failed to install wrapper."
@@ -151,56 +152,54 @@ EOF
 	doexe "${T}"/updateAll || die "Failed to install wrapper."
 	doexe "${T}"/updateCheck || die "Failed to install wrapper."
 	
-	insinto /usr/lib/python${PYVER}/site-packages/ccpnmr
+	for in in analysis dataShifter formatConverter pipe2azara
+		do
+			dosym ${IN_PATH}/bin/$i /usr/bin/$i
+		done
+	
+	insinto ${IN_PATH}
 	cd ccpnmr
 	doins -r *
 
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccp/structure/StructUtil.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccp/structure/StructAtom.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccp/structure/StructBond.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccp/structure/StructStructure.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/Midge.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/Dynamics.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/Bacus.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/AtomCoord.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/DistConstraintList.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/DistConstraint.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/CloudUtil.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/DistForce.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/clouds/AtomCoordList.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/ContourFile.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/ContourLevels.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/SliceFile.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/PeakList.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/ContourStyle.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/ccpnmr/analysis/WinPeakList.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/PdfHandler.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/TkHandler.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/FitMethod.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/BlockFile.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/MemCache.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/StoreFile.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/PsHandler.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/StoreHandler.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/c/memops/global/GlHandler.so
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/doc/graphics/prev.gif
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/doc/graphics/up.gif
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/doc/graphics/next.gif
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccp/c/linkSharedObjs
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/c/linkSharedObjs
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/CloudsPopup.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/HcloudsMdPopup.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/PseudoResonances.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/FilterCloudsPopup.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/HydrogenDynamics.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/FilterClouds.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/Clouds.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/MidgePopup.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/NoeRelaxation.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/FileIO.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/cccpnmr/cpnmr1.0/python/ccpnmr/clouds/BacusPopup.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/ResonanceIdentification.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/__init__.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/ccpnmr/clouds/_licenseInfo.py
-	fperms 755 /usr/lib/python${PYVER}/site-packages/ccpnmr/ccpnmr1.0/python/memops/c/linkSharedObjs
+	einfo "Adjusting permissions"
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccp/structure/{StructUtil.so,StructAtom.so,\
+				StructBond.so,StructStructure.so}
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/clouds/{Midge.so,Dynamics.so,Bacus.so,\
+				AtomCoord.so,DistConstraintList.so,DistConstraint.so,CloudUtil.so,\
+				DistForce.so,AtomCoordList.so}
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourFile.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourLevels.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/SliceFile.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/PeakList.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/ContourStyle.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccpnmr/analysis/WinPeakList.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/PdfHandler.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/TkHandler.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/FitMethod.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/BlockFile.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/MemCache.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/StoreFile.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/PsHandler.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/StoreHandler.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/c/memops/global/GlHandler.so
+	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/prev.gif
+	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/up.gif
+	fperms 755 ${IN_PATH}/ccpnmr1.0/doc/graphics/next.gif
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccp/c/linkSharedObjs
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/c/linkSharedObjs
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/CloudsPopup.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/HcloudsMdPopup.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/PseudoResonances.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FilterCloudsPopup.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/HydrogenDynamics.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FilterClouds.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/Clouds.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/MidgePopup.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/NoeRelaxation.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/FileIO.py
+	fperms 755 ${IN_PATH}/cppnmr1.0/python/ccpnmr/clouds/BacusPopup.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/ResonanceIdentification.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/__init__.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/ccpnmr/clouds/_licenseInfo.py
+	fperms 755 ${IN_PATH}/ccpnmr1.0/python/memops/c/linkSharedObjs
 }
