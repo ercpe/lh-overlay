@@ -162,7 +162,7 @@ EOF
 	cd ccpnmr
 	
 	einfo "Installing main files"
-	doins -rv *
+	doins -r *
 
 	einfo "Adjusting permissions"
 	fperms 755 ${IN_PATH}/ccpnmr1.0/c/ccp/structure/{StructUtil.so,StructAtom.so,\
