@@ -74,6 +74,9 @@ src_install(){
 	IN_PATH=/usr/lib/python${PYVER}/site-packages/ccpnmr
 	
 	einfo "Creating launch wrapper"
+#doesnt work with env.d, because portage uses the PYTHONPATH variable 
+#and I couldn't manage renaming it to CCPNPYTHONPATH. CCPNMR breaks.
+
 #cat >> "${T}"/20ccpnmr << EOF
 #CCPNMR_TOP_DIR=${IN_PATH}
 #PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
@@ -84,65 +87,33 @@ src_install(){
 	
 #	doenvd "${T}"/20ccpnmr || die "Failed to install env.d."
 
-cat >> "${T}"/analysis << EOF
+cat >> "${T}"/base << EOF
 #!/bin/sh
 export CCPNMR_TOP_DIR=${IN_PATH}
 export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
 export LD_LIBRARY_PATH=/usr/lib
 export TCL_LIBRARY=/usr/lib/tcl8.4
 export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py \$1 \$2 \$3 \$4 \$5
 EOF
 
-cat >> "${T}"/dataShifter << EOF
-#!/bin/sh
-export CCPNMR_TOP_DIR=${IN_PATH}
-export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-export LD_LIBRARY_PATH=/usr/lib
-export TCL_LIBRARY=/usr/lib/tcl8.4
-export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py
-EOF
+	cat "${T}"/base > "${T}"/analysis
+	echo "${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py \$1 \$2 \$3 \$4 \$5" >> "${T}"/analysis
 
-cat >> "${T}"/formatConverter << EOF
-#!/bin/sh
-export CCPNMR_TOP_DIR=${IN_PATH}
-export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-export LD_LIBRARY_PATH=/usr/lib
-export TCL_LIBRARY=/usr/lib/tcl8.4
-export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
-EOF
+	cat "${T}"/base > "${T}"/dataShifter
+	echo "${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py" >> "${T}"/dataShifter
 
-cat >> "${T}"/pipe2azara << EOF
-#!/bin/sh
-export CCPNMR_TOP_DIR=${IN_PATH}
-export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-export LD_LIBRARY_PATH=/usr/lib
-export TCL_LIBRARY=/usr/lib/tcl8.4
-export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
-EOF
+	cat "${T}"/base > "${T}"/formatConverter
+	echo "${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2" >> "${T}"/formatConverter
 
-cat >> "${T}"/updateAll << EOF
-#!/bin/sh
-export CCPNMR_TOP_DIR=${IN_PATH}
-export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-export LD_LIBRARY_PATH=/usr/lib
-export TCL_LIBRARY=/usr/lib/tcl8.4
-export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py
-EOF
+	cat "${T}"/base > "${T}"/pipe2azara
+	echo "${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3" >> "${T}"/pipe2azara
 
-cat >> "${T}"/updateCheck << EOF
-#!/bin/sh
-export CCPNMR_TOP_DIR=${IN_PATH}
-export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-export LD_LIBRARY_PATH=/usr/lib
-export TCL_LIBRARY=/usr/lib/tcl8.4
-export TK_LIBRARY=/usr/lib/tk8.4
-${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
-EOF
+#Perhaps the two Update wrapper shouldn't be.
+	cat "${T}"/base > "${T}"/updateAll
+	echo "${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py" >> "${T}"/updateAll
+
+	cat "${T}"/base > "${T}"/updateCheck
+	echo "${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py" >> "${T}"/updateCheck
 
 	einfo "Installing wrapper"
 	exeinto ${IN_PATH}/bin
@@ -154,7 +125,7 @@ EOF
 	doexe "${T}"/updateAll || die "Failed to install wrapper."
 	doexe "${T}"/updateCheck || die "Failed to install wrapper."
 	
-	for in in analysis dataShifter formatConverter pipe2azara
+	for i in analysis dataShifter formatConverter pipe2azara
 		do
 			dosym ${IN_PATH}/bin/$i /usr/bin/$i
 		done
@@ -164,6 +135,7 @@ EOF
 	
 	einfo "Installing main files"
 	doins -r *
+	
 
 	einfo "Adjusting permissions"
 #I do not know wether this is a must or not, but thats how the original install looks like
@@ -220,4 +192,9 @@ EOF
 		do
 			fperms 755 ${IN_PATH}/ccpnmr1.0/${FILE}
 		done
+		
+# I do not know how to make this more simple, because the relative paths have to be kept.
+	dodir /usr/share/doc/${PF}/html/
+	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
+	rm -r `find . -name doc`
 }
