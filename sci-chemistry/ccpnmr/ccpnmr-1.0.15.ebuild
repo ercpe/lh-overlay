@@ -23,7 +23,7 @@ RDEPEND=">=dev-lang/python-2.4
 
 pkg_setup(){
 	if use examples; then
-	ewarn "The examples is about 523MB large."
+	ewarn "The examples are about 523MB large."
 	ewarn "Be sure you have enough space free!"
 	epause 5
 	CHECKREQS_DISK_USR="1024"
@@ -33,7 +33,7 @@ pkg_setup(){
 }
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	#epatch "${FILESDIR}/gentoo-CCPNPYTHONPATH.patch"
 }
 
@@ -210,11 +210,11 @@ EOF
 	dodir /usr/share/doc/${PF}/html/
 	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
 	pwd
-	rm -rv `find . -name doc`
+	rm -rv `find ${D}usr/lib/. -name doc`
 	
 	if use examples; then
 		insinto usr/share/${PF}
-		doins -r analysisTutorialData
+		doins -r analysisTutorialData/*
 	fi
 }
 
