@@ -8,8 +8,8 @@ SLOT=""
 LICENSE="CCPN license"
 KEYWORDS="~x86"
 DESCRIPTION="The Collaborative Computing Project for NMR is a public non-profit project serving the macromolecular NMR community"
-SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz"
-#		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
+SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz
+		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
 HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
 IUSE="examples"
 RESTRICT="mirror"
@@ -213,7 +213,8 @@ EOF
 	rm -rv `find . -name doc`
 	
 	if use examples; then
-		echo hello world
+		insinto usr/share/${PF}
+		doins -r analysisTutorialData
 	fi
 }
 
