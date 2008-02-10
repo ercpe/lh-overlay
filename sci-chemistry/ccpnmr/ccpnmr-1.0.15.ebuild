@@ -26,8 +26,8 @@ pkg_setup(){
 	ewarn "The examples is about 523MB large."
 	ewarn "Be sure you have enough space free!"
 	epause 5
-	CHECKREQS_DISK_USR = 1024
-	CHECKREQS_DISK_VAR = 1024 
+	CHECKREQS_DISK_USR="1024"
+	CHECKREQS_DISK_VAR="1024"
 	check_reqs
 	fi
 }
