@@ -2,15 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs python
+inherit eutils toolchain-funcs python check-reqs
 
 SLOT=""
 LICENSE="CCPN license"
 KEYWORDS="~x86"
 DESCRIPTION="The Collaborative Computing Project for NMR is a public non-profit project serving the macromolecular NMR community"
 SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz"
+#		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
 HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
-IUSE=""
+IUSE="examples"
 RESTRICT="mirror"
 DEPEND="${RDEPEND}"
 RDEPEND=">=dev-lang/python-2.4
@@ -20,9 +21,20 @@ RDEPEND=">=dev-lang/python-2.4
 		  dev-tcltk/tix
 		  x11-apps/mesa-progs"
 
+pkg_setup(){
+	if use examples; then
+	ewarn "The examples is about 523MB large."
+	ewarn "Be sure you have enough space free!"
+	epause 5
+	CHECKREQS_DISK_USR = 1024
+	CHECKREQS_DISK_VAR = 1024 
+	check_reqs
+	fi
+}
+
 src_unpack(){
 	unpack "${A}"
-	#epatch "${FILESDIR}/gentoo-PYTHONPATH.patch"
+	#epatch "${FILESDIR}/gentoo-CCPNPYTHONPATH.patch"
 }
 
 src_compile(){
@@ -75,7 +87,8 @@ src_install(){
 	
 	einfo "Creating launch wrapper"
 #doesnt work with env.d, because portage uses the PYTHONPATH variable 
-#and I couldn't manage renaming it to CCPNPYTHONPATH. CCPNMR breaks.
+#and I couldn't manage renaming the variable inside ccpnmr correctly
+# to CCPNPYTHONPATH. CCPNMR always breaks.
 
 #cat >> "${T}"/20ccpnmr << EOF
 #CCPNMR_TOP_DIR=${IN_PATH}
@@ -196,5 +209,14 @@ EOF
 # I do not know how to make this more simple, because the relative paths have to be kept.
 	dodir /usr/share/doc/${PF}/html/
 	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
-	rm -r `find . -name doc`
+	pwd
+	rm -rv `find . -name doc`
+	
+	if use examples; then
+		echo hello world
+	fi
+}
+
+pkg_postrm() {
+	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
 }
