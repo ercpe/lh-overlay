@@ -38,6 +38,7 @@ src_unpack(){
 }
 
 src_compile(){
+	python_version
 	cd ccpnmr/ccpnmr1.0/c
 	
 	echo "CC = "$(tc-getCC)>environment.txt
@@ -67,7 +68,7 @@ TK_LIB = -ltk8.4
 TK_INCLUDE_FLAGS = -I\$(TK_DIR)/include
 TK_LIB_FLAGS = -L\$(TK_DIR)/lib
 PYTHON_DIR = /usr
-PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python2.4
+PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
 GL_DIR = /usr
 GL_LIB = -lglut -lGLU -lGL
 GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include 
@@ -210,14 +211,15 @@ EOF
 	dodir /usr/share/doc/${PF}/html/
 	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
 	pwd
-	rm -rv `find ${D}usr/lib/. -name doc`
+	rm -rv `find ${D}usr/lib/ -name doc`
 	
 	if use examples; then
 		insinto usr/share/${PF}
-		doins -r analysisTutorialData/*
+		doins -r ../analysisTutorialData
 	fi
 }
 
 pkg_postrm() {
+	python_version
 	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
 }
