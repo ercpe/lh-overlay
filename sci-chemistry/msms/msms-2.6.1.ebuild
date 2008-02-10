@@ -26,8 +26,8 @@ src_install() {
 	amd64? && !static? && doexe msms.x86_64Linux2.2.6.1
 	amd64? && static? && doexe msms.x86_64Linux2.2.6.1.staticgcc
 	x86 && dosym /usr/lib/msms/msms.i86Linux2.2.6.1 /usr/bin/msms
-	amd64? && static? && dosym /usr/lib/msms/msms.i86_64Linux2.2.6.1staticgcc /usr/bin/msms
-	amd64? && !static? && dosym /usr/lib/msms/msms.i86_64Linux2.2.6.1 /usr/bin/msms
+	amd64? && static? && dosym /usr/lib/msms/msms.x86_64Linux2.2.6.1.staticgcc /usr/bin/msms
+	amd64? && !static? && dosym /usr/lib/msms/msms.x86_64Linux2.2.6.1 /usr/bin/msms
 	dosym /usr/lib/msms/pdb_to_xyzr /usr/bin/pdb_to_xyzr
 	dosym /usr/lib/msms/pdb_to_xyzrn /usr/bin/pdb_to_xyzrn
 	dodoc README ReleaseNotes
