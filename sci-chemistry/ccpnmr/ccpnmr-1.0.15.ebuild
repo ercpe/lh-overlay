@@ -210,12 +210,13 @@ EOF
 # I do not know how to make this more simple, because the relative paths have to be kept.
 	dodir /usr/share/doc/${PF}/html/
 	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
-	pwd
-	rm -rv `find ${D}usr/lib/ -name doc`
+	rm -r `find ${D}usr/lib/ -name doc`
 	
 	if use examples; then
-		insinto usr/share/${PF}
-		doins -r ../analysisTutorialData
+		cd ${WORKDIR}
+		insopts -v
+		insinto usr/share/${PF}/analysisTutorialData
+		doins -r analysisTutorialData/*
 	fi
 }
 
