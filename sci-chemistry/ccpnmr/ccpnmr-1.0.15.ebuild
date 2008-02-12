@@ -24,7 +24,7 @@ RDEPEND=">=dev-lang/python-2.4
 pkg_setup(){
 	if use examples; then
 	ewarn "The examples are about 523MB large."
-	ewarn "Be sure you have enough space free!"
+	ewarn "Sure you wnt to have them?"
 	epause 5
 	CHECKREQS_DISK_USR="1024"
 	CHECKREQS_DISK_VAR="1024"
@@ -215,12 +215,12 @@ EOF
 	if use examples; then
 		cd ${WORKDIR}
 		insopts -v
-		insinto usr/share/${PF}/analysisTutorialData
-		doins -r analysisTutorialData/*
+		insinto /usr/share/${PF}/
+		doins -r analysisTutorialData
 	fi
 }
 
 pkg_postrm() {
 	python_version
-	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
+	python_mod_cleanup ${ROOT}/usr/lib/python${PYVER}/site-packages/ccpnmr
 }
