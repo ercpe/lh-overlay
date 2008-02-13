@@ -32,7 +32,7 @@ RDEPEND="app-portage/gentoolkit
 		 dynmap? ( >=sci-biology/biopython-1.43
 		 		   >=dev-python/cheetah-2.0
 				   >=sci-chemistry/gromacs-3.3.1
-				   sci-chemistry/msms )
+				   sci-chemistry/msms-bin )
 		 helicheck? ( sci-visualization/gnuplot )
 		 >sci-chemistry/pymol-0.99"
 DEPEND="${RDEPEND}"
@@ -177,5 +177,6 @@ pkg_postinst(){
 }
 
 pkg_postrm() {
+	python_version
 	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
