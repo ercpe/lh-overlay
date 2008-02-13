@@ -71,7 +71,7 @@ src_unpack(){
 		cd promol
 		unpack ProMOL.zip
 	# Sorry for this ugly thing, but I can't figure out how to set it relative.
-		sed -i 's/.\/modules/\/usr\/lib\/python2.4\/site-packages/g' ProMOL_302.py
+		sed -i 's:./modules:/usr/lib/python2.4/site-packages:g' ProMOL_302.py
 		cd ..
 	fi	
 	
@@ -99,6 +99,7 @@ src_compile(){
 }
 
 src_install() {
+#Could be directly implied into the apbs ebuild
 	if use apbs; then
 	cat >> "${T}/20apbs" << EOF
 APBS_BINARY="/usr/bin/apbs"
