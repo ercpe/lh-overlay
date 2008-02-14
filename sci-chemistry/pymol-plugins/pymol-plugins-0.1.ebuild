@@ -131,6 +131,7 @@ EOF
 	if use dynmap; then
 		insinto /usr/lib/dynmap/
 		doins -r ${WORKDIR}/DYNMAP_v1.0/*
+		fperms 775 /usr/lib/dynmap/DYN-MAP
 		dosym /usr/lib/dynmap/DYN-MAP /usr/bin/DYN-MAP
 	fi
 	
