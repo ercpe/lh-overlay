@@ -103,7 +103,7 @@ src_install() {
 	if use apbs; then
 	cat >> "${T}/20apbs" << EOF
 APBS_BINARY="/usr/bin/apbs"
-APBS_PSIZE="/usr/share/apbs-0.5.1/tools/manip/psize.py"
+APBS_PSIZE="/usr/share/apbs-0.5.1-r1/tools/manip/psize.py"
 EOF
 	doenvd "${T}/20apbs"
 	fi
