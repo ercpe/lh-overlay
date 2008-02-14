@@ -4,7 +4,7 @@
 
 inherit eutils toolchain-funcs python check-reqs
 
-SLOT=""
+SLOT="0"
 LICENSE="CCPN license"
 KEYWORDS="~x86"
 DESCRIPTION="The Collaborative Computing Project for NMR is a public non-profit project serving the macromolecular NMR community"
