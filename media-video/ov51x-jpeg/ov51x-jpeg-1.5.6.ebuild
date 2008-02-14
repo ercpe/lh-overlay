@@ -7,7 +7,7 @@ inherit linux-mod
 DESCRIPTION="OV51x driver for Linux which supports JPEG decompression inside the kernel"
 HOMEPAGE="http://www.rastageeks.org/ov51x-jpeg/index.php/Main_Page"
 SRC_URI="http://www.rastageeks.org/downloads/${PN}/${P}.tar.gz"
-RESTRICT="primaryuri"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

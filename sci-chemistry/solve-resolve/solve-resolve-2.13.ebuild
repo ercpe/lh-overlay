@@ -4,8 +4,8 @@
 
 inherit eutils
 
-SLOT=""
-#Some should correct the license
+SLOT="0"
+#Someone should correct the license
 #I do not know which to choose
 LICENSE="licened"
 KEYWORDS="x86 ~amd64"

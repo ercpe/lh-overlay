@@ -4,7 +4,7 @@
 
 inherit eutils python
 
-SLOT=""
+SLOT="0"
 LICENSE="free of charge to academic non-profit"
 KEYWORDS="x86"
 DESCRIPTION="MODELLER is used for homology or comparative modeling of protein three-dimensional structures"
