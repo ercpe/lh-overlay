@@ -17,6 +17,11 @@ DEPEND="dev-lang/python"
 
 FORTRAN="g77 gfortran"
 
+src_unpack(){
+	unpack ${A}
+	epatch ${FILESDIR}/${P}-gcc4-gentoo.patch
+}
+
 src_compile() {
 	gnuconfig_update
 	export CC=$(tc-getCC)
@@ -24,8 +29,8 @@ src_compile() {
 	export COPTIM=${CFLAGS}
 	export CXXOPTIM=${CXXFLAGS}
 	# Default to -O2 if FFLAGS is unset
-	export FC=${tc-getFORTRAN}
-	export FF=${tc-getFORTRAN}
+	#export FC=${tc-getFORTRAN}
+	#export FF=${tc-getFORTRAN}
 	export FOPTIM=${FFLAGS:- -O2}
 	
 	econf || die "econf failed"

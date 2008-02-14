@@ -10,7 +10,7 @@ SRC_URI="x86? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/
 HOMEPAGE="http://mgltools.scripps.edu"
 RESTRICT="mirror"
 LICENSE="academical free"
-SLOT=""
+SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="static"
 
@@ -20,6 +20,7 @@ DEPEND="${RDEPEND}"
 src_install() {
 	insinto /opt/msms/
 	doins atmtypenumbers
+	sed -i 's:nawk:gawk:g' {pdb_to_xyzr,pdb_to_xyzrn}
 	exeinto /opt/msms/
 	doexe pdb_to_xyzr pdb_to_xyzrn 
 	if [[ ${ARCH}=="x86" ]];then
