@@ -4,7 +4,6 @@
 
 inherit eutils python
 
-SLOT="0"
 LICENSE="free of charge to academic non-profit"
 KEYWORDS="x86"
 DESCRIPTION="MODELLER is used for homology or comparative modeling of protein three-dimensional structures"
@@ -12,6 +11,7 @@ SRC_URI="http://salilab.org/modeller/9v3/modeller-9v3.tar.gz"
 HOMEPAGE="http://salilab.org/modeller/"
 IUSE=""
 RESTRICT="mirror"
+SLOT="0"
 
 RDEPEND="${DEPEND}"
 DEPEND=">=dev-lang/python-2.4"
