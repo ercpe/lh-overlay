@@ -24,7 +24,7 @@ RDEPEND=">=dev-lang/python-2.4
 pkg_setup(){
 	if use examples; then
 	ewarn "The examples are about 523MB large."
-	ewarn "Sure you wnt to have them?"
+	ewarn "Sure you want to have them?"
 	epause 5
 	CHECKREQS_DISK_USR="1024"
 	CHECKREQS_DISK_VAR="1024"
