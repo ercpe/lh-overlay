@@ -148,6 +148,7 @@ EOF
 	cd ccpnmr
 	
 	einfo "Installing main files"
+	insopts -v
 	doins -r *
 	
 
@@ -214,6 +215,7 @@ EOF
 	
 	if use examples; then
 		cd ${WORKDIR}
+		einfo "Installing example files"
 		insopts -v
 		insinto /usr/share/${PF}/
 		doins -r analysisTutorialData
