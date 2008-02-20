@@ -35,6 +35,8 @@ src_unpack() {
 	sed -i \
 		-e "s:\(ext_comp_args=\).*:\1[]:g" \
 		"${S}"/setup.py
+	
+	epatch "${FILESDIR}"/${PF}-shaders.patch
 }
 
 src_install() {
