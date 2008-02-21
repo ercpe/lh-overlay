@@ -21,14 +21,16 @@ RESTRICT="mirror"
 src_compile(){
 	einfo "The author claims -O3 -ffast-math -finline-limit=1200 -ftree-vectorize"
 	einfo "as best CFLAGS for compilation"
+	einfo "compiling with ${CFLAGS}"
 	cd epmr0.5/src
 	$(tc-getCXX) -o epmr $CFLAGS *.cpp
 }
 src_install(){
 	exeinto /usr/bin
-	doexe epmr
+	doexe epmr0.5/src/epmr
+	dodoc epmr0.5/src/{README,CHANGES}
 	if use doc;then
 		insinto /usr/share/doc/${PF}/
-		doins ${WORKDIR}/epmr-user-guide.pdf
+		doins ${DISTDIR}/epmr-user-guide.pdf
 	fi
 }
