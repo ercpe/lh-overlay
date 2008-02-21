@@ -8,13 +8,10 @@ SLOT="0"
 LICENSE="GPLv2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="A new, open-source version of the molecular replacement program"
-SRC_URI="http://homepage.mac.com/WebObjects/FileSharing.woa/wa/epmr0.5-src.tar.gz.5-src.tar.gz?a=downloadFile&user=crkissinger&path=.Public/EPMR%20Distribution/Version%200.5/epmr0.5-src.tar.gz"
+SRC_URI="http://homepage.mac.com/WebObjects/FileSharing.woa/wa/epmr0.5-src.tar.gz.5-src.tar.gz?a=downloadFile&user=crkissinger&path=.Public/EPMR%20Distribution/Version%200.5/epmr0.5-src.tar.gz
+		 doc? ( http://homepage.mac.com/WebObjects/FileSharing.woa/wa/epmr-user-guide.pdf.pdf-zip.zip?a=downloadFile&user=crkissinger&path=.Public/EPMR%20Distribution/Version%200.5/epmr-user-guide.pdf )"
 HOMEPAGE="http://www.epmr.info/"
 IUSE="doc"
-if use doc;then
-	SRC_URI="${SRC_URI}
-	http://homepage.mac.com/WebObjects/FileSharing.woa/wa/epmr-user-guide.pdf.pdf-zip.zip?a=downloadFile&user=crkissinger&path=.Public/EPMR%20Distribution/Version%200.5/epmr-user-guide.pdf"
-fi
 
 RESTRICT="mirror"
 
