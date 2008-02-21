@@ -11,7 +11,7 @@ SRC_URI="http://salilab.org/modeller/9v3/modeller-9v3.tar.gz"
 HOMEPAGE="http://salilab.org/modeller/"
 IUSE=""
 RESTRICT="mirror"
-SLOT="0"
+SLOT="0"	
 
 RDEPEND="${DEPEND}"
 DEPEND=">=dev-lang/python-2.4"

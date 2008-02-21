@@ -10,7 +10,7 @@ DESCRIPTION="A Python-extensible molecular graphics system."
 HOMEPAGE="http://pymol.sourceforge.net/"
 
 LICENSE="PSF-2.2"
-IUSE=""
+IUSE="shaders"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
@@ -36,7 +36,9 @@ src_unpack() {
 		-e "s:\(ext_comp_args=\).*:\1[]:g" \
 		"${S}"/setup.py
 	
-	epatch "${FILESDIR}"/${PF}-shaders.patch
+	if use shaders;then
+		epatch "${FILESDIR}"/${PF}-shaders.patch
+	fi
 }
 
 src_install() {
