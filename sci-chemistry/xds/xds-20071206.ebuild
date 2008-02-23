@@ -8,10 +8,10 @@ DESCRIPTION="X-ray Detector Software for processing single-crystal monochromatic
 SRC_URI="ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS-linux_ifc_Intel+AMD.tar.gz
 		 ftp://ftp.mpimf-heidelberg.mpg.de/pub/kabsch/XDS_html_doc.tar.gz"
 HOMEPAGE="http://www.mpimf-heidelberg.mpg.de/~kabsch/xds/"
-RESTRICT="primaryuri"
-LICENSE="as-is nonprofit"
+RESTRICT="mirror"
+LICENSE="free-noncomm"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="~x86"
 IUSE="smp X"
 RDEPEND="X? ( x11-libs/libXdmcp
 			  x11-libs/libXau
@@ -21,26 +21,24 @@ DEPEND="${RDEPEND}"
 src_install() {
 	exeinto /opt/xray/XDS
 	doexe XDS-linux_ifc_Intel+AMD/*
-	dosym /opt/xray/XDS/xdsconv /usr/bin/xdsconv
 	if use smp
 	then
-		dosym /opt/xray/XDS/xds_par /usr/bin/xds
-		dosym /opt/xray/XDS/xscale_par /usr/bin/xscale
-		dosym /opt/xray/XDS/xds /usr/bin/xds_single
-		dosym /opt/xray/XDS/xscale /usr/bin/xscale_single
-	else
-		dosym /opt/xray/XDS/xds_par /usr/bin/xds_par
-		dosym /opt/xray/XDS/xscale_par /usr/bin/xscale_par
-		dosym /opt/xray/XDS/xds /usr/bin/xds
-		dosym /opt/xray/XDS/xscale /usr/bin/xscale
+		rm ${D}/opt/xray/XDS/{xds,mintegrate,mcolspot,xscale}
+		dosym /opt/xray/XDS/xds_par /opt/xray/XDS/xds
+		dosym /opt/xray/XDS/xscale_par /opt/xray/XDS/xscale
+		dosym /opt/xray/XDS/mintegrate_par /opt/xray/XDS/mintegrate
+		dosym /opt/xray/XDS/mcolspot_par /opt/xray/XDS/mcolspot
 	fi
-	if use !X; then
+	if ! use X; then
 		rm ${D}/opt/xray/XDS/VIEW
-	else
-		dosym /opt/xray/XDS/VIEW /usr/bin/VIEW
 	fi
 	dohtml -r XDS_html_doc/*
 	dodoc XDS_html_doc/html_doc/INPUT_templates/*
+	
+	cat>>${T}/20xds<<-EOF
+	PATH="/opt/xray/XDS/"
+	EOF
+	doenvd ${T}/20xds
 }
 
 pkg_postinst(){
