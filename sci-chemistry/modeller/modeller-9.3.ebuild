@@ -28,8 +28,8 @@ src_install(){
 	
 	IN_PATH=/opt/modeller${VER}
 	
-	sed -e "s;EXECUTABLE_TYPE${VER}=xxx;EXECUTABLE_TYPE${VER}=$EXECUTABLE_TYPE;" \
-    -e "s;MODINSTALL${VER}=xxx;MODINSTALL${VER}=\"${IN_PATH}\";" \
+	sed -e "s:EXECUTABLE_TYPE${VER}=xxx:EXECUTABLE_TYPE${VER}=${EXECUTABLE_TYPE}:g" \
+    -e "s:MODINSTALL${VER}=xxx:MODINSTALL${VER}=\"${IN_PATH}\":g" \
     modeller-${VER}/bin/modscript > "${T}/mod${VER}"
     exeinto ${IN_PATH}/bin/
     doexe "${T}/mod${VER}"
@@ -41,22 +41,22 @@ src_install(){
     doexe "${T}/modpy.sh"
 
 	insinto ${IN_PATH}/bin/
-	doins -r modeller-${VER}/bin/{*top,modscript,lib,mod${VER}_i386-intel8}
+	doins -r modeller-${VER}/bin/{*top,lib}
 	exeinto ${IN_PATH}/bin/
-	doexe modeller-${VER}/bin/{modpy.sh.in,modslave.py,mod${VER}_i386-intel8}
+	doexe modeller-${VER}/bin/{modslave.py,mod${VER}_${EXECUTABLE_TYPE}}
 	
 	exeinto /usr/lib/python${PYVER}/site-packages/
-	doexe modeller-${VER}/lib/i386-intel8/_modeller.so
+	doexe modeller-${VER}/lib/${EXECUTABLE_TYPE}/_modeller.so
 	dosym ${IN_PATH}/modlib/modeller /usr/lib/python${PYVER}/site-packages/modeller 
-	dosym ${IN_PATH}/lib/i386-intel8/_modeller.so\
+	dosym ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so\
 		  /usr/lib/python${PYVER}/site-packages/_modeller.so
 	
-	exeinto ${IN_PATH}/lib/i386-intel8/
-	doexe modeller-${VER}/lib/i386-intel8/{lib*,_modeller.so}
-	exeinto ${IN_PATH}/lib/i386-intel8/python${PYVER}/
-	doexe modeller-${VER}/lib/i386-intel8/python2.5/_modeller.so
-	dosym ${IN_PATH}/lib/i386-intel8/libmodeller.so.1 \
-		  ${IN_PATH}/lib/i386-intel8/libmodeller.so
+	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/
+	doexe modeller-${VER}/lib/${EXECUTABLE_TYPE}/{lib*,_modeller.so}
+	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/python${PYVER}/
+	doexe modeller-${VER}/lib/${EXECUTABLE_TYPE}/python2.5/_modeller.so
+	dosym ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so.1 \
+		  ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
 	
 	insinto ${IN_PATH}/modlib/
 	doins -r modeller-${VER}/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
