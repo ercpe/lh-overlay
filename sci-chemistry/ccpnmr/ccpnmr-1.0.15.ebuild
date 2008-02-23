@@ -5,7 +5,7 @@
 inherit eutils toolchain-funcs python check-reqs
 
 SLOT="0"
-LICENSE="CCPN license"
+LICENSE="CCPN"
 KEYWORDS="~x86"
 DESCRIPTION="The Collaborative Computing Project for NMR is a public non-profit project serving the macromolecular NMR community"
 SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz
@@ -16,7 +16,6 @@ RESTRICT="mirror"
 DEPEND="${RDEPEND}"
 RDEPEND=">=dev-lang/python-2.4
 		  virtual/glut
-		  >=dev-lang/tcl-8.3
 		  >=dev-lang/tk-8.3
 		  dev-tcltk/tix
 		  x11-apps/mesa-progs"
@@ -44,36 +43,36 @@ src_compile(){
 	echo "CC = "$(tc-getCC)>environment.txt
 
 #This could be outsourced to the file dir
-cat >> environment.txt << EOF
-MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
-FPIC_FLAG = -fPIC
-XOR_FLAG = 
-IGNORE_GL_FLAG = 
-GL_FLAG = -DUSE_GL_FALSE
-GLUT_NEED_INIT = -DNEED_GLUT_INIT
-GLUT_NOT_IN_GL = 
-GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
-SHARED_FLAGS = -shared
-MATH_LIB = -lm
-X11_DIR = /usr/
-X11_LIB = -lX11 -lXext
-X11_INCLUDE_FLAGS = -I\$(X11_DIR)/include
-X11_LIB_FLAGS = -L\$(X11_DIR)/lib
-TCL_DIR = /usr
-TCL_LIB = -ltcl8.4
-TCL_INCLUDE_FLAGS = -I\$(TCL_DIR)/include
-TCL_LIB_FLAGS = -L\$(TCL_DIR)/lib
-TK_DIR = /usr
-TK_LIB = -ltk8.4
-TK_INCLUDE_FLAGS = -I\$(TK_DIR)/include
-TK_LIB_FLAGS = -L\$(TK_DIR)/lib
-PYTHON_DIR = /usr
-PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
-GL_DIR = /usr
-GL_LIB = -lglut -lGLU -lGL
-GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include 
-GL_LIB_FLAGS = -L\$(GL_DIR)/lib 
-EOF
+	cat >> environment.txt <<- EOF
+	MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
+	FPIC_FLAG = -fPIC
+	XOR_FLAG = 
+	IGNORE_GL_FLAG = 
+	GL_FLAG = -DUSE_GL_FALSE
+	GLUT_NEED_INIT = -DNEED_GLUT_INIT
+	GLUT_NOT_IN_GL = 
+	GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
+	SHARED_FLAGS = -shared
+	MATH_LIB = -lm
+	X11_DIR = /usr/
+	X11_LIB = -lX11 -lXext
+	X11_INCLUDE_FLAGS = -I\$(X11_DIR)/include
+	X11_LIB_FLAGS = -L\$(X11_DIR)/lib
+	TCL_DIR = /usr
+	TCL_LIB = -ltcl8.4
+	TCL_INCLUDE_FLAGS = -I\$(TCL_DIR)/include
+	TCL_LIB_FLAGS = -L\$(TCL_DIR)/lib
+	TK_DIR = /usr
+	TK_LIB = -ltk8.4
+	TK_INCLUDE_FLAGS = -I\$(TK_DIR)/include
+	TK_LIB_FLAGS = -L\$(TK_DIR)/lib
+	PYTHON_DIR = /usr
+	PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
+	GL_DIR = /usr
+	GL_LIB = -lglut -lGLU -lGL
+	GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include 
+	GL_LIB_FLAGS = -L\$(GL_DIR)/lib 
+	EOF
 	echo "CFLAGS = "$CFLAGS" \$(MALLOC_FLAG) \$(FPIC_FLAG) \$(XOR_FLAG)">>environment.txt
 
 	

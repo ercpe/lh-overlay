@@ -17,7 +17,7 @@ IUSE=""
 RESTRICT="mirror"
 
 src_install(){
-	IN_PATH=/opt/xray/solve-resolve/
+	IN_PATH=/opt/solve-resolve/
 	exeinto ${IN_PATH}bin/
 	doexe solve-2.13/bin/*
 	cd ${WORKDIR}
@@ -35,9 +35,9 @@ src_install(){
 	doins solve-2.13/lib/patterns/*
 
 	dohtml -r solve-2.13/lib/html/*
-	sed -i 's:/usr/local/lib/solve/:/opt/xray/solve-resolve/lib/:' \
+	sed -i 's:/usr/local/lib/solve/:/opt/solve-resolve/lib/:' \
 			solve-2.13/lib/examples_solve/p9/solve*
-	sed -i 's:/usr/local/lib/resolve/:/opt/xray/solve-resolve/lib/:' \
+	sed -i 's:/usr/local/lib/resolve/:/opt/solve-resolve/lib/:' \
 			solve-2.13/lib/examples_resolve/{resolve.csh,prime_and_switch.csh}
 	insinto /usr/share/${PF}/examples_resolve
 	doins solve-2.13/lib/examples_resolve/*

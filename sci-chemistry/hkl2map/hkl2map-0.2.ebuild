@@ -15,7 +15,6 @@ KEYWORDS="x86"
 IUSE="script"
 RDEPEND="sci-chemistry/shelx
 		 >=dev-lang/tk-8.3
-#		 >=dev-lang/tcl-8.3
 		 script? ( sci-chemistry/ccp4 )"
 
 pkg_nofetch(){
@@ -27,7 +26,6 @@ pkg_nofetch(){
         einfo
         einfo "Place the downloaded files in your distfiles directory:"
         einfo "\t${DISTDIR}"
-        if use script
 }
 
 src_unpack(){

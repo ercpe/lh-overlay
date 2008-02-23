@@ -19,24 +19,24 @@ RDEPEND="X? ( x11-libs/libXdmcp
 
 
 src_install() {
-	exeinto /opt/xray/XDS
+	exeinto /opt/XDS
 	doexe XDS-linux_ifc_Intel+AMD/*
 	if use smp
 	then
-		rm ${D}/opt/xray/XDS/{xds,mintegrate,mcolspot,xscale}
-		dosym /opt/xray/XDS/xds_par /opt/xray/XDS/xds
-		dosym /opt/xray/XDS/xscale_par /opt/xray/XDS/xscale
-		dosym /opt/xray/XDS/mintegrate_par /opt/xray/XDS/mintegrate
-		dosym /opt/xray/XDS/mcolspot_par /opt/xray/XDS/mcolspot
+		rm ${D}/opt/XDS/{xds,mintegrate,mcolspot,xscale}
+		dosym /opt/XDS/xds_par /opt/XDS/xds
+		dosym /opt/XDS/xscale_par /opt/XDS/xscale
+		dosym /opt/XDS/mintegrate_par /opt/XDS/mintegrate
+		dosym /opt/XDS/mcolspot_par /opt/XDS/mcolspot
 	fi
 	if ! use X; then
-		rm ${D}/opt/xray/XDS/VIEW
+		rm ${D}/opt/XDS/VIEW
 	fi
 	dohtml -r XDS_html_doc/*
 	dodoc XDS_html_doc/html_doc/INPUT_templates/*
 	
 	cat>>${T}/20xds<<-EOF
-	PATH="/opt/xray/XDS/"
+	PATH="/opt/XDS/"
 	EOF
 	doenvd ${T}/20xds
 }
