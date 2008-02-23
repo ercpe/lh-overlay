@@ -4,8 +4,8 @@
 
 inherit eutils python
 
-LICENSE="free of charge to academic non-profit"
-KEYWORDS="x86"
+LICENSE="MODELLER"
+KEYWORDS="~x86"
 DESCRIPTION="MODELLER is used for homology or comparative modeling of protein three-dimensional structures"
 SRC_URI="http://salilab.org/modeller/9v3/modeller-9v3.tar.gz"
 HOMEPAGE="http://salilab.org/modeller/"
@@ -13,23 +13,27 @@ IUSE=""
 RESTRICT="mirror"
 SLOT="0"	
 
-RDEPEND="${DEPEND}"
-DEPEND=">=dev-lang/python-2.4"
+RDEPEND=">=dev-lang/python-2.4"
 
 
 src_install(){
 	python_version
 	
 	VER=9v3
-	EXECUTABLE_TYPE=i386-intel8
-	IN_PATH=/usr/lib/modeller${VER}
+	if [[ "${ARCH}" == "x86" ]] ; then EXECUTABLE_TYPE="i386-intel8"
+		elif [[ "${ARCH}" == "amd64" ]] ; then EXECUTABLE_TYPE="x86_64-intel8"
+		else 
+		echo "Your arch "${ARCH}" does not appear supported at this time."||die "Unsupported Arch"
+	fi
+	
+	IN_PATH=/opt/modeller${VER}
 	
 	sed -e "s;EXECUTABLE_TYPE${VER}=xxx;EXECUTABLE_TYPE${VER}=$EXECUTABLE_TYPE;" \
     -e "s;MODINSTALL${VER}=xxx;MODINSTALL${VER}=\"${IN_PATH}\";" \
     modeller-${VER}/bin/modscript > "${T}/mod${VER}"
     exeinto ${IN_PATH}/bin/
     doexe "${T}/mod${VER}"
-    dosym ${IN_PATH}/bin/mod${VER} /usr/bin/mod${VER}
+    dosym ${IN_PATH}/bin/mod${VER} /opt/bin/mod${VER}
     
     sed -e "s;@TOPDIR\@;\"${IN_PATH}\";" \
     -e "s;@EXETYPE\@;$EXECUTABLE_TYPE;" \
@@ -65,10 +69,10 @@ src_install(){
 	dohtml modeller-${VER}/doc/*
 	dodoc modeller-${VER}/{README,ChangeLog}
 	
-	cat >> "${T}/config.py" << EOF
-install_dir = "${IN_PATH}/"
-license = "YOURLICENSEKEY"
-EOF
+	cat >> "${T}/config.py" <<- EOF
+	install_dir = "${IN_PATH}/"
+	license = "YOURLICENSEKEY"
+	EOF
 
 	insinto ${IN_PATH}/modlib/modeller/
 	doins "${T}/config.py"
