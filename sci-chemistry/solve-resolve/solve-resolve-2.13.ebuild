@@ -20,11 +20,6 @@ src_install(){
 	IN_PATH=/opt/xray/solve-resolve/
 	exeinto ${IN_PATH}bin/
 	doexe solve-2.13/bin/*
-	cd solve-2.13/bin/
-	for i in `ls resolve* solve*`
-		do
-			dosym ${IN_PATH}bin/$i /usr/bin/$i
-		done
 	cd ${WORKDIR}
 #	exeinto ${IN_PATH}lib/
 #	doexe solve-2.13/lib/{*sym,sym*,hist*,*dat}

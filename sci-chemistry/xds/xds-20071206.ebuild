@@ -16,7 +16,7 @@ IUSE="smp X"
 RDEPEND="X? ( x11-libs/libXdmcp
 			  x11-libs/libXau
 			  x11-libs/libX11 )"
-DEPEND="${RDEPEND}"
+
 
 src_install() {
 	exeinto /opt/xray/XDS

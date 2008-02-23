@@ -9,15 +9,14 @@ SRC_URI="${P}.tgz
 		 script? ( http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz )"
 HOMEPAGE="http://schneider.group.ifom-ieo-campus.it/hkl2map/index.html"
 RESTRICT="fetch"
-LICENSE="GPL-2"
+LICENSE="as-is"
 SLOT="0"
 KEYWORDS="x86"
 IUSE="script"
 RDEPEND="sci-chemistry/shelx
 		 >=dev-lang/tk-8.3
-		 >=dev-lang/tcl-8.3
+#		 >=dev-lang/tcl-8.3
 		 script? ( sci-chemistry/ccp4 )"
-DEPEND="${RDEPEND}"
 
 pkg_nofetch(){
         einfo "Please visit:"
@@ -28,6 +27,7 @@ pkg_nofetch(){
         einfo
         einfo "Place the downloaded files in your distfiles directory:"
         einfo "\t${DISTDIR}"
+        if use script
 }
 
 src_unpack(){
