@@ -53,19 +53,19 @@ src_install() {
 
 	# These environment variables should not go in the wrapper script, or else
 	# it will be impossible to use the PyMOL libraries from Python.
-cat >> "${T}"/20pymol << EOF
-PYMOL_PATH=/usr/lib/python${PYVER}/site-packages/pymol
-PYMOL_DATA="/usr/share/pymol/data"
-PYMOL_SCRIPTS="/usr/share/pymol/scripts"
-EOF
+	cat >> "${T}"/20pymol <<- EOF
+	PYMOL_PATH=/usr/lib/python${PYVER}/site-packages/pymol
+	PYMOL_DATA="/usr/share/pymol/data"
+	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
+	EOF
 
 	doenvd "${T}"/20pymol || die "Failed to install env.d file."
 
 	# Make our own wrapper
-cat >> "${T}"/pymol << EOF
-#!/bin/sh
-${python} -O \${PYMOL_PATH}/__init__.py \$*
-EOF
+	cat >> "${T}"/pymol <<- EOF
+	#!/bin/sh
+	${python} -O \${PYMOL_PATH}/__init__.py \$*
+	EOF
 
 	exeinto /usr/bin
 	doexe "${T}"/pymol || die "Failed to install wrapper."

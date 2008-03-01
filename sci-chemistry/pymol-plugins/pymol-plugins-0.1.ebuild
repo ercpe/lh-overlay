@@ -101,10 +101,10 @@ src_compile(){
 src_install() {
 #Could be directly implied into the apbs ebuild
 	if use apbs; then
-	cat >> "${T}/20apbs" << EOF
-APBS_BINARY="/usr/bin/apbs"
-APBS_PSIZE="/usr/share/apbs-0.5.1-r1/tools/manip/psize.py"
-EOF
+	cat >> "${T}/20apbs" <<- EOF
+	APBS_BINARY="/usr/bin/apbs"
+	APBS_PSIZE="/usr/share/apbs-0.5.1-r1/tools/manip/psize.py"
+	EOF
 	doenvd "${T}/20apbs"
 	fi
 	
