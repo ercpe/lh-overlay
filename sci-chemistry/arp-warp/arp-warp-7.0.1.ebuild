@@ -79,9 +79,9 @@ src_install(){
 	insinto /opt/${P}/byte-code/python${PYVER}
 	doins flex-wARP-src/*{pyc,pyo} ||die "python-code"
 
-#	insinto /opt/${P}/flex-wARP-src-261
-#	doins flex-wARP-src-261/*py
-#	dosym /opt/${P}/flex-wARP-src-261 /usr/lib/${P}/flex-wARP-src
+	insinto /opt/${P}/flex-wARP-src-261
+	doins flex-wARP-src-261/*py
+	dosym /opt/${P}/flex-wARP-src-261 /usr/lib/${P}/flex-wARP-src
 
 	exeinto /opt/${P}/bin/bin-`uname -m`-`uname`
 	doexe bin/bin-`uname -m`-`uname`/* ||die "executables"
@@ -100,8 +100,8 @@ src_install(){
 #	newexe ${FILESDIR}/7.0.1_arpwarp_setup.bash arpwarp_setup.bash
 #	newexe ${FILESDIR}/7.0.1_arpwarp_setup.csh arpwarp_setup.csh
 
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<share/arpwarp_setup_base.bash>${T}/arpwarp_setup.bash
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<share/arpwarp_setup_base.csh>${T}/arpwarp_setup.csh
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-7.0.1":'<share/arpwarp_setup_base.bash>${T}/arpwarp_setup.bash
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-7.0.1":'<share/arpwarp_setup_base.csh>${T}/arpwarp_setup.csh
 	
 	insinto /usr/share/${P}/
 	doins ${T}/arpwarp_setup.{bash,csh}
