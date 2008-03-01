@@ -11,12 +11,11 @@ LICENSE="academic-free"
 RESTRICT="fetch"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="curl gui"
+IUSE=""
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
 	 >=sci-chemistry/ccp4-6
 	 sys-apps/gawk
-	 >dev-lang/python-2.2
-	 curl? ( net-misc/curl )"
+	 >dev-lang/python-2.3"
 DEPEND="${RDEPEND}"
 
 pkg_nofetch(){
@@ -25,10 +24,10 @@ pkg_nofetch(){
 }
 
 pkg_setup(){
-	if use gui && built_with_use sci-chemistry/ccp4 X;then
-		einfo "The ArpWarp gui needs sci-chemistry/ccp4 to be build with X"
-		die "sci-chemistry/ccp4 without X"
-	fi
+#	if use gui && built_with_use sci-chemistry/ccp4 X;then
+#		einfo "The ArpWarp gui needs sci-chemistry/ccp4 to be build with X"
+#		die "sci-chemistry/ccp4 without X"
+#	fi
 #Adopted from the original installer
 	einfo "Checking decimal seperator"
 	testcommand=`echo 3 2 | awk '{printf"%3.1f",$1/$2}'`
@@ -69,18 +68,16 @@ src_unpack() {
 }
 
 src_compile(){
-	python_version
 	cd flex-wARP-src
 	for i in `ls *py`;do
 		python_mod_compile $i
 	done
-#	${python} -v compile.py||die "could not compile python stuff"
 }
 
 src_install(){
 	python_version
-	exeinto /opt/${P}/byte-code/python${PYVER}
-	doexe flex-wARP-src/*{pyc,pyo} ||die "python-code"
+	insinto /opt/${P}/byte-code/python${PYVER}
+	doins flex-wARP-src/*{pyc,pyo} ||die "python-code"
 
 #	insinto /opt/${P}/flex-wARP-src-261
 #	doins flex-wARP-src-261/*py
@@ -90,7 +87,9 @@ src_install(){
 	doexe bin/bin-`uname -m`-`uname`/* ||die "executables"
 
 	exeinto /opt/${P}/share
-	doexe share/*
+	doexe share/*sh
+	insinto /opt/${P}/share
+	doins share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
 
 	for i in `ls ${D}opt/${P}/share/`
 	do
@@ -101,8 +100,8 @@ src_install(){
 #	newexe ${FILESDIR}/7.0.1_arpwarp_setup.bash arpwarp_setup.bash
 #	newexe ${FILESDIR}/7.0.1_arpwarp_setup.csh arpwarp_setup.csh
 
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<arpwarp_setup.bash>${T}/arpwarp_setup.bash
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<arpwarp_setup.csh>${T}/arpwarp_setup.csh
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<share/arpwarp_setup_base.bash>${T}/arpwarp_setup.bash
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/${P}":'<share/arpwarp_setup_base.csh>${T}/arpwarp_setup.csh
 	
 	insinto /usr/share/${P}/
 	doins ${T}/arpwarp_setup.{bash,csh}
@@ -140,8 +139,6 @@ pkg_postinst(){
 	einfo "If you prefer to use bash, add the following line in your .bashrc or .bash_profile file:"
 	einfo "source /usr/lib/arp_warp-7.0.1/arpwarp_setup.bash"
 	einfo ""
-	if ! use gui;then
-		einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
-		einfo ""
-	fi
+	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
+	einfo ""
 }
