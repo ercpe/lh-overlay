@@ -21,6 +21,8 @@ src_unpack(){
 	cd ${P}
 	unpack ${A}
 }
+#RDEPEND="${RDEPEND}"
+DEPEND="sci-chemistry/ccp4"
 
 src_compile(){
 
@@ -48,7 +50,7 @@ src_compile(){
 }
 src_install(){
 	exeinto /usr/lib/refmac/
-	doexe {refmac,makecif,libcheck}_${PV}
+	doexe {refmac,makecif,libcheck}_${PV} || die
 	dosym /usr/lib/refmac/refmac_${PV} /usr/bin/refmac5
 	dosym /usr/lib/refmac/libcheck_${PV} /usr/bin/libcheck
 	dosym /usr/lib/refmac/makecif_${PV} /usr/bin/makecif
