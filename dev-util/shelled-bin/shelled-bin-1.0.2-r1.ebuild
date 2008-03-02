@@ -17,6 +17,7 @@ RDEPEND="dev-util/eclipse-sdk"
 DEPEND="${RDEPEND}"
 
 src_install(){
+	echo ${has_version dev-util/eclipse-sdk}
 	insinto /usr/lib/eclipse-3.2/
 	doins -r *
 }
