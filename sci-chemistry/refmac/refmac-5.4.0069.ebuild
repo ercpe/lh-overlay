@@ -36,16 +36,20 @@ src_compile(){
 			-e "s:  -static-libgcc::"\
 			-e "s:/sw/lib/gcc4.2/lib/libgfortran.a::"\
 			-i makefile ||die "makefile"
-		
+		if use static;then
+			sed -i "s:XFFLAGS =:XFFLAGS = -static:" makefile ||die "static"
+		fi		
 	elif [[ ${FORTRANC} == ifort ]];then
 		cp makefile_linintel makefile
-		sed -e "s:VERSION = _gfortran:VERSION = _${PV}:"\
+		sed -e "s:VERSION = _linintel:VERSION = _${PV}:"\
 			-e "s:FOPTIM  =:FOPTIM  = ${FFLAGS}:"\
+			
 			-i makefile ||die "makefile"
-	fi
-	
-	if use static;then
-		sed -i "s:XFFLAGS =:XFFLAGS = -static:" makefile ||die "static"
+		if use static;then
+			sed -i "s:-i-static:-static-intel:" makefile 
+		else
+			sed -i "s:-i-static::" makefile 
+		fi ||die "static"
 	fi
 	
 	CLIB="/usr/lib" emake -j1||die "compile"
