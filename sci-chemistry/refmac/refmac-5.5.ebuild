@@ -21,7 +21,7 @@ src_unpack(){
 	cd ${P}
 	unpack ${A}
 }
-#RDEPEND="${RDEPEND}"
+RDEPEND="${RDEPEND}"
 DEPEND="sci-chemistry/ccp4
 		virtual/blas
 		virtual/lapack"
@@ -36,11 +36,15 @@ src_compile(){
 			-e "s:/lapack::g"\
 			-i makefile ||die "makefile"
 		
-#	elif [[ ${FORTRANC} == ifort ]];then
-#		cp makefile_linintel makefile
-#		sed -e "s:VERSION = _gfortran:VERSION = _${PV}:"\
-#			-e "s:FOPTIM  =:FOPTIM  = ${FFLAGS}:"\
-#			-i makefile ||die "makefile"
+	elif [[ ${FORTRANC} == ifort ]];then
+		sed -e "s:VERSION = gfortran:VERSION = _${PV}:"\
+			-e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
+			-e "s:CC      = gcc:CC      = $(tc-getCC):" \
+			-e "s:CPP     = g++:CPP     = $(tc-getCPP):" \
+			-e "s:FOPTIM  = -O2 -m32 :FOPTIM  = ${FFLAGS}:"\
+			-e "s:COPTIM  = -O2 -m32 :COPTIM  = ${CFLAGS}:"\
+			-e "s:/lapack::g"\
+			-i makefile ||die "makefile"
 	fi
 	
 	if ! use static;then
@@ -49,7 +53,7 @@ src_compile(){
 	
 #	cat makefile
 #	emake clean	
-	CLIB="/usr/lib" emake -j1
+	CLIB="/usr/lib" emake -j1||die "compile"
 }
 src_install(){
 	exeinto /usr/lib/refmac/

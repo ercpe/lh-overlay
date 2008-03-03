@@ -48,7 +48,7 @@ src_compile(){
 		sed -i "s:XFFLAGS =:XFFLAGS = -static:" makefile ||die "static"
 	fi
 	
-	CLIB="/usr/lib" emake V=1 -j1
+	CLIB="/usr/lib" emake -j1||die "compile"
 }
 src_install(){
 	exeinto /usr/lib/refmac/
