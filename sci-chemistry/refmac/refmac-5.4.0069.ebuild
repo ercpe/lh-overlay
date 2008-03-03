@@ -43,7 +43,6 @@ src_compile(){
 		cp makefile_linintel makefile
 		sed -e "s:VERSION = _linintel:VERSION = _${PV}:"\
 			-e "s:FOPTIM  =:FOPTIM  = ${FFLAGS}:"\
-			
 			-i makefile ||die "makefile"
 		if use static;then
 			sed -i "s:-i-static:-static-intel:" makefile 
