@@ -6,7 +6,7 @@ inherit fortran toolchain-funcs
 
 SLOT="0"
 LICENSE="ccp4"
-KEYWORDS="~x86"
+KEYWORDS="-* ~x86"
 DESCRIPTION="The REFMAC program can carry out rigid body, tls, restrained or unrestrained refinement against Xray data, or idealisation of a macromolecular structure"
 SRC_URI="http://www.ysbl.york.ac.uk/~garib/refmac/data/refmac_sad_source.tar.gz
 		 http://www.ysbl.york.ac.uk/~garib/refmac/data/refmac5.4_dictionary.tar.gz"
