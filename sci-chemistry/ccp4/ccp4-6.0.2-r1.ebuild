@@ -46,7 +46,6 @@ RDEPEND="X? (
 		sci-chemistry/rasmol
 		sci-libs/mccp4
 		|| ( app-shells/tcsh app-shells/csh )
-		sci-chemistry/refmac
 		!app-office/sc"
 DEPEND="${RDEPEND}
 		X? (
@@ -54,6 +53,7 @@ DEPEND="${RDEPEND}
 				x11-proto/inputproto
 				x11-proto/xextproto
 		)"
+PDEPEND="sci-chemistry/refmac"
 
 S="${WORKDIR}/${PN}-${PV}"
 
