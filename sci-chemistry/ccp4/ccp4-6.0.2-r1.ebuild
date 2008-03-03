@@ -53,7 +53,7 @@ DEPEND="${RDEPEND}
 				x11-proto/inputproto
 				x11-proto/xextproto
 		)"
-PDEPEND="<sci-chemistry/refmac-5.5"
+PDEPEND="sci-chemistry/refmac"
 
 S="${WORKDIR}/${PN}-${PV}"
 
