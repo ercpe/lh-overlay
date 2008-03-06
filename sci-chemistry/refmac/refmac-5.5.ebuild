@@ -27,25 +27,19 @@ DEPEND="sci-chemistry/ccp4
 		virtual/lapack"
 
 src_compile(){
-	if [[ ${FORTRANC} == gfortran ]];then
-		sed -e "s:VERSION = gfortran:VERSION = _${PV}:"\
-			-e "s:CC      = gcc:CC      = $(tc-getCC):" \
-			-e "s:CPP     = g++:CPP     = $(tc-getCPP):" \
-			-e "s:FOPTIM  = -O2 -m32 :FOPTIM  = ${FFLAGS}:"\
-			-e "s:COPTIM  = -O2 -m32 :COPTIM  = ${CFLAGS}:"\
-			-e "s:/lapack::g"\
-			-i makefile ||die "makefile"
-		
-	elif [[ ${FORTRANC} == ifort ]];then
-		sed -e "s:VERSION = gfortran:VERSION = _${PV}:"\
-			-e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
-			-e "s:CC      = gcc:CC      = $(tc-getCC):" \
-			-e "s:CPP     = g++:CPP     = $(tc-getCPP):" \
-			-e "s:FOPTIM  = -O2 -m32 :FOPTIM  = ${FFLAGS}:"\
-			-e "s:COPTIM  = -O2 -m32 :COPTIM  = ${CFLAGS}:"\
-			-e "s:/lapack::g"\
+	if [[ ${FORTRANC} == ifort ]];then
+		sed -e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
 			-i makefile ||die "makefile"
 	fi
+	
+	sed -e "s:VERSION = gfortran:VERSION = _${PV}:"\
+		-e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
+		-e "s:CC      = gcc:CC      = $(tc-getCC):" \
+		-e "s:CPP     = g++:CPP     = $(tc-getCPP):" \
+		-e "s:FOPTIM  = -O2 -m32 :FOPTIM  = ${FFLAGS}:"\
+		-e "s:COPTIM  = -O2 -m32 :COPTIM  = ${CFLAGS}:"\
+		-e "s:/lapack::g"\
+		-i makefile ||die "makefile_all"
 	
 	if ! use static;then
 		sed -i "s: -static::" makefile ||die "static"
