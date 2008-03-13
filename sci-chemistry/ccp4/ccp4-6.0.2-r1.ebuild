@@ -25,7 +25,7 @@ for i in $(seq $PATCH_TOT); do
 done
 LICENSE="ccp4"
 SLOT="0"
-KEYWORDS="~ppc ~x86"
+KEYWORDS="~x86"
 IUSE="X"
 # app-office/sc overlaps sc binary and man page
 # We can't rename ours since the automated ccp4i interface expects it there,

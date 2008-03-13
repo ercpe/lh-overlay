@@ -7,7 +7,7 @@ inherit eutils
 SLOT="0"
 #Someone should correct the license
 #I do not know which to choose
-LICENSE="licened"
+LICENSE="solve"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"
 SRC_URI="x86? ( http://solve.lanl.gov/pub/solve/${PV}/solve-${PV}-linux.tar.gz )

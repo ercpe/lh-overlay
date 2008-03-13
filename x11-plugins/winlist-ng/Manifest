@@ -1,7 +1,1 @@
 EBUILD winlist-ng-9999.ebuild 914 RMD160 24e2a7a98f715cd21192ed4d6c8ca55a93bc1618 SHA1 07c9051bcd202669505a4230d17eaba2fa0ede1c SHA256 9d3717ffeae4e107dc8eeb0f861483cc72e5fcf65e0e9fcacfb3f2bc6ef0922e
-MD5 8d89350c96c323828a00fd4cb38dfd9f winlist-ng-9999.ebuild 914
-RMD160 24e2a7a98f715cd21192ed4d6c8ca55a93bc1618 winlist-ng-9999.ebuild 914
-SHA256 9d3717ffeae4e107dc8eeb0f861483cc72e5fcf65e0e9fcacfb3f2bc6ef0922e winlist-ng-9999.ebuild 914
-MD5 d41d8cd98f00b204e9800998ecf8427e files/digest-winlist-ng-9999 0
-RMD160 9c1185a5c5e9fc54612808977ee8f548b2258d31 files/digest-winlist-ng-9999 0
-SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 files/digest-winlist-ng-9999 0

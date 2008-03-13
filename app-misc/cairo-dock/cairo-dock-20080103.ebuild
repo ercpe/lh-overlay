@@ -4,8 +4,8 @@
 
 
 
-SLOT=""
-LICENSE="GPLv2"
+SLOT="0"
+LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Cairo-dock was in the beginning a small simple but effective dock."
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/cairo-dock/${P}.tar.bz2"

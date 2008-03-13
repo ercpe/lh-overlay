@@ -5,7 +5,7 @@
 inherit python
 
 SLOT="0"
-LICENSE="GPLv2"
+LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="PFL is an online searchable file/package database for Gentoo"
 SRC_URI="http://files.portagefilelist.de/pfl"

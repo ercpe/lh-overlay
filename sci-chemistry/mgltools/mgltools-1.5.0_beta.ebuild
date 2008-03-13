@@ -4,13 +4,13 @@
 
 inherit python
 
-SLOT=""
-LICENSE="GPL-2"
+SLOT="0"
+LICENSE="mgltools"
 KEYWORDS="~x86"
 DESCRIPTION="MGLTools is a software for visualization and analysis of molecular structures"
 #SRC_URI="http://mgltools.scripps.edu/downloads/tars/releases/REL${PV}/${PN}_source_${PV}.tar.gz"
 SRC_URI="http://mgltools.scripps.edu/downloads/tars/releases/REL1.5.0/${PN}_source_1.5.0.tar.gz"
-HOMEPAGE=""
+HOMEPAGE="http://mgltools.scripps.edu/"
 IUSE=""
 RESTRICT="mirror"
 DEPEND=">=dev-lang/python-2.4

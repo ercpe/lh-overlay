@@ -9,7 +9,7 @@ SRC_URI="x86? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/
 		 amd64? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL${PV}/msms_i86_64Linux2_${PV}.tar.gz)"
 HOMEPAGE="http://mgltools.scripps.edu"
 RESTRICT="mirror"
-LICENSE="academical free"
+LICENSE="mgltools"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="static"

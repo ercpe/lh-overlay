@@ -10,7 +10,7 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/49074-natural-gentoo-7.1.tar.
 IUSE="grub build"
 LICENSE="freedist"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~x86"
 DEPEND=">=media-gfx/splashutils-1.1.9.5
 		grub? ( sys-boot/grub )"
 RESTRICT="binchecks strip mirror"

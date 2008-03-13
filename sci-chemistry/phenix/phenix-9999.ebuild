@@ -8,7 +8,7 @@ MY_P="phenix-installer-1.3b"
 
 SLOT="0"
 #License?
-LICENSE="Phenix licence free non profit"
+LICENSE="phenix"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Python-based Hierarchical ENvironment for Integrated Xtallography"
 SRC_URI="x86? ( ${MY_P}-rc6-intel-linux-2.6.tar )

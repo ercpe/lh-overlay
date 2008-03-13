@@ -1,16 +1,4 @@
 DIST rsync-update-0.1.tar.bz2 645 RMD160 2166b5da5644a3e7c3c7150c668b90d55cfc4697 SHA1 a844f8f4d4fcb442cd807c4bd7a1f01a2b3db7c9 SHA256 92a839c96f8b5f2fbd85c824bcb4bfdd623cc041481074cce688aea3a3f28dd9
 DIST rsync-update-0.2.tar.bz2 652 RMD160 6ff70bff3f3951da977559992ca5bea3ee52a7ee SHA1 b153ab4c7147823f38c5e38068b4e0343144fc6c SHA256 d623fd8fa1a3ebb6803f59bd58002352fde219f0beccfa6e48b7c173d3e89652
 EBUILD rsync-update-0.1.ebuild 622 RMD160 8f52a6b9f0ca667d68d375bff1e3c9c5402af3d9 SHA1 5b7e0ded448c94cba25c55916c7b3709fa9fb69e SHA256 6ca0025d9bb89cd91c79908ac859ae5743f2da257dfdc136c27cd3c94edb561f
-MD5 effc1a8527ca56dc85253c3912887e5f rsync-update-0.1.ebuild 622
-RMD160 8f52a6b9f0ca667d68d375bff1e3c9c5402af3d9 rsync-update-0.1.ebuild 622
-SHA256 6ca0025d9bb89cd91c79908ac859ae5743f2da257dfdc136c27cd3c94edb561f rsync-update-0.1.ebuild 622
 EBUILD rsync-update-0.2.ebuild 629 RMD160 d1f45c2ed6a4a8cb8135dd626e83eeb00f469d7a SHA1 e5c20af96d67ca00943c71a8c57fd3a1733de978 SHA256 7bc577ef5b0e0f86846dbfcad1433c7cd20b1693284561f81658024ba2b774ff
-MD5 92d7603421ab65c29cd06964bab32507 rsync-update-0.2.ebuild 629
-RMD160 d1f45c2ed6a4a8cb8135dd626e83eeb00f469d7a rsync-update-0.2.ebuild 629
-SHA256 7bc577ef5b0e0f86846dbfcad1433c7cd20b1693284561f81658024ba2b774ff rsync-update-0.2.ebuild 629
-MD5 5d091450bbcdcfcb37bf0d6ad36424d4 files/digest-rsync-update-0.1 244
-RMD160 75a3d4eb5f9e45a5e43492bb4ddf63bb02d40918 files/digest-rsync-update-0.1 244
-SHA256 6f16765b7d763ab6c7e73a9578be7a82e71890d3abe48b26d58341d2d8d6ba3b files/digest-rsync-update-0.1 244
-MD5 c3c659fa87065ba78ca49f84ee1bd5a2 files/digest-rsync-update-0.2 244
-RMD160 78c02a9db54ddc7e222e63adc8af085a2512fb99 files/digest-rsync-update-0.2 244
-SHA256 933ee22893dc965312a1fa1bb14154a8bb006cf25ed14e55e08d6bb505db25ec files/digest-rsync-update-0.2 244

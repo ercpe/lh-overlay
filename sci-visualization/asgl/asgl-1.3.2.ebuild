@@ -7,7 +7,7 @@ inherit fortran eutils
 FORTRAN="g77 gfortran"
 
 SLOT="0"
-LICENSE=""
+LICENSE="GPL-2"
 KEYWORDS="x86"
 DESCRIPTION="ASGL is a program for preparing all sorts of PostScript plots from simple data files."
 SRC_URI="ftp://salilab.org/asgl/asgl-1.3.2.tar.gz"

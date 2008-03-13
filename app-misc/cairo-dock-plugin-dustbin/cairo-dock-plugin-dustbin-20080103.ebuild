@@ -4,8 +4,8 @@
 
 
 
-SLOT=""
-LICENSE="GPLv2"
+SLOT="0"
+LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="A cairo-dock plugin"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/cairo-dock-plugins/${P}.tar.bz2"

@@ -1,23 +1,20 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License, v2 or later
-# Maintainer: Dirk Goettel <dgoettel@freenet.de>
-# $Header:
+# $Header: $
 
 inherit gnome2
 
 DESCRIPTION="A full featured, dual-pane file manager for Gnome2"
 HOMEPAGE="http://www.nongnu.org/gcmd/"
-
 SRC_URI="http://ftp.gnome.org/pub/GNOME/sources/${PN}/1.2/${P}.tar.bz2";
-
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~x86"
 
 LICENSE="GPL-2"
 
 IUSE="doc exif iptc id3 gsf"
 SLOT="0"
 
-RESTRICT="primaryuri"
+RESTRICT="mirror"
 
 RDEPEND=">=x11-libs/gtk+-2.6.0
 	>=gnome-base/gnome-vfs-2.0
