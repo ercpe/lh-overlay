@@ -7,7 +7,7 @@ inherit eutils toolchain-funcs python check-reqs
 SLOT="0"
 LICENSE="CCPN"
 KEYWORDS="~x86"
-DESCRIPTION="The Collaborative Computing Project for NMR is a public non-profit project serving the macromolecular NMR community"
+DESCRIPTION="The Collaborative Computing Project for NMR"
 SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz
 		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
 HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
@@ -39,18 +39,18 @@ src_unpack(){
 src_compile(){
 	python_version
 	cd ccpnmr/ccpnmr1.0/c
-	
+
 	echo "CC = "$(tc-getCC)>environment.txt
 
 #This could be outsourced to the file dir
 	cat >> environment.txt <<- EOF
 	MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
 	FPIC_FLAG = -fPIC
-	XOR_FLAG = 
-	IGNORE_GL_FLAG = 
+	XOR_FLAG =
+	IGNORE_GL_FLAG =
 	GL_FLAG = -DUSE_GL_FALSE
 	GLUT_NEED_INIT = -DNEED_GLUT_INIT
-	GLUT_NOT_IN_GL = 
+	GLUT_NOT_IN_GL =
 	GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
 	SHARED_FLAGS = -shared
 	MATH_LIB = -lm
@@ -70,21 +70,21 @@ src_compile(){
 	PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
 	GL_DIR = /usr
 	GL_LIB = -lglut -lGLU -lGL
-	GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include 
-	GL_LIB_FLAGS = -L\$(GL_DIR)/lib 
+	GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include
+	GL_LIB_FLAGS = -L\$(GL_DIR)/lib
 	EOF
 	echo "CFLAGS = "$CFLAGS" \$(MALLOC_FLAG) \$(FPIC_FLAG) \$(XOR_FLAG)">>environment.txt
 
-	
+
 	emake -j1
 	emake -j1 links
 }
 
 src_install(){
 	python_version
-	
+
 	IN_PATH=/usr/lib/python${PYVER}/site-packages/ccpnmr
-	
+
 	einfo "Creating launch wrapper"
 #doesnt work with env.d, because portage uses the PYTHONPATH variable 
 #and I couldn't manage renaming the variable inside ccpnmr correctly
@@ -97,7 +97,7 @@ src_install(){
 #TCL_LIBRARY=/usr/lib/tcl8.4
 #TK_LIBRARY=/usr/lib/tk8.4
 #EOF
-	
+
 #	doenvd "${T}"/20ccpnmr || die "Failed to install env.d."
 
 cat >> "${T}"/base << EOF
@@ -137,19 +137,19 @@ EOF
 	doexe "${T}"/pipe2azara || die "Failed to install wrapper."
 	doexe "${T}"/updateAll || die "Failed to install wrapper."
 	doexe "${T}"/updateCheck || die "Failed to install wrapper."
-	
+
 	for i in analysis dataShifter formatConverter pipe2azara
 		do
 			dosym ${IN_PATH}/bin/$i /usr/bin/$i
 		done
-	
+
 	insinto ${IN_PATH}
 	cd ccpnmr
-	
+
 	einfo "Installing main files"
 	insopts -v
 	doins -r *
-	
+
 
 	einfo "Adjusting permissions"
 #I do not know wether this is a must or not, but thats how the original install looks like
@@ -201,19 +201,19 @@ EOF
 				 python/ccpnmr/clouds/__init__.py
 				 python/ccpnmr/clouds/_licenseInfo.py
 				 python/memops/c/linkSharedObjs"
-				 
+
 	for FILE in ${FILES}
 		do
 			fperms 755 ${IN_PATH}/ccpnmr1.0/${FILE}
 		done
-		
+
 # I do not know how to make this more simple, because the relative paths have to be kept.
 	dodir /usr/share/doc/${PF}/html/
-	cp -r --parents `find . -name doc` ${D}usr/share/doc/${PF}/html/
-	rm -r `find ${D}usr/lib/ -name doc`
-	
+	cp -r --parents `find . -name doc` "${D}"usr/share/doc/${PF}/html/
+	rm -r `find "${D}"usr/lib/ -name doc`
+
 	if use examples; then
-		cd ${WORKDIR}
+		cd "${WORKDIR}"
 		einfo "Installing example files"
 		insopts -v
 		insinto /usr/share/${PF}/
@@ -223,5 +223,5 @@ EOF
 
 pkg_postrm() {
 	python_version
-	python_mod_cleanup ${ROOT}/usr/lib/python${PYVER}/site-packages/ccpnmr
+	python_mod_cleanup "${ROOT}"/usr/lib/python${PYVER}/site-packages/ccpnmr
 }
