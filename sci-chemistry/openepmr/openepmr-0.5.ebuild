@@ -1,4 +1,4 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -28,6 +28,6 @@ src_install(){
 	dodoc epmr0.5/src/{README,CHANGES}
 	if use doc;then
 		insinto /usr/share/doc/${PF}/
-		doins ${DISTDIR}/epmr-user-guide.pdf
+		doins "${DISTDIR}"/epmr-user-guide.pdf
 	fi
 }

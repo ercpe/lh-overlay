@@ -7,7 +7,7 @@ inherit fortran toolchain-funcs
 SLOT="0"
 LICENSE="ccp4"
 KEYWORDS="~x86"
-DESCRIPTION="The REFMAC program can carry out rigid body, tls, restrained or unrestrained refinement against Xray data, or idealisation of a macromolecular structure"
+DESCRIPTION="REFMAC can carry out rigid body, tls, restrained or unrestrained refinement against Xray data"
 SRC_URI="http://www.ysbl.york.ac.uk/~garib/refmac/data/refmac5.4_source.tar.gz
 		 http://www.ysbl.york.ac.uk/~garib/refmac/data/refmac5.4_dictionary.tar.gz"
 HOMEPAGE="http://www.ysbl.york.ac.uk/~garib/refmac/index.html"
@@ -22,7 +22,7 @@ src_unpack(){
 	cd ${P}
 	unpack ${A}
 }
-#RDEPEND="${RDEPEND}"
+#RDEPEND="${DEPEND}"
 DEPEND="sci-chemistry/ccp4
 		virtual/blas
 		virtual/lapack"
@@ -39,19 +39,19 @@ src_compile(){
 			-i makefile ||die "makefile"
 		if use static;then
 			sed -i "s:XFFLAGS =:XFFLAGS = -static:" makefile ||die "static"
-		fi		
+		fi
 	elif [[ ${FORTRANC} == ifort ]];then
 		cp makefile_linintel makefile
 		sed -e "s:VERSION = _linintel:VERSION = _${PV}:"\
 			-e "s:FOPTIM  =:FOPTIM  = ${FFLAGS}:"\
 			-i makefile ||die "makefile"
 		if use static;then
-			sed -i "s:-i-static:-static-intel:" makefile 
+			sed -i "s:-i-static:-static-intel:" makefile
 		else
-			sed -i "s:-i-static::" makefile 
+			sed -i "s:-i-static::" makefile
 		fi ||die "static"
 	fi
-	
+
 	CLIB="/usr/lib" emake -j1||die "compile"
 }
 src_install(){
@@ -60,7 +60,7 @@ src_install(){
 	dosym /usr/lib/refmac/refmac_${PV} /usr/bin/refmac5
 	dosym /usr/lib/refmac/libcheck_${PV} /usr/bin/libcheck
 	dosym /usr/lib/refmac/makecif_${PV} /usr/bin/makecif
-	
+
 	insinto /usr/share/ccp4/data/monomers
 	doins -r dic/*
 }

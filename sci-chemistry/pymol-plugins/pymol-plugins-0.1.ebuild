@@ -19,11 +19,11 @@ HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
 RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="apbs autodock cealign colorama dynmap emovie helicheck promol rendering resicolor rtools"
 
 RDEPEND="app-portage/gentoolkit
- 		 apbs? ( dev-libs/maloc
+		 apbs? ( dev-libs/maloc
 				 sci-chemistry/apbs
 				 sci-chemistry/pdb2pqr )
 		 autodock? ( sci-chemistry/autodock )
@@ -38,21 +38,22 @@ RDEPEND="app-portage/gentoolkit
 DEPEND="${RDEPEND}"
 
 src_unpack(){
+
 	if use autodock;then
-		cp ${DISTDIR}/autodock.py ${WORKDIR}
+		cp "${DISTDIR}"/autodock.py "${WORKDIR}"
 	fi
 
 	if use cealign;then
 		unpack Cealign-0.8-RBS.tar.bz2
 	fi
-	
+
 	if use colorama; then
 		unpack Colorama-0.1.0.tar.bz2
 	fi
-	
+
 	if use dynmap; then
 		unpack DYNMAP_v1.0.tar.gz
-		epatch ${FILESDIR}/dynmap-1.0.patch
+		epatch "${FILESDIR}"/dynmap-1.0.patch
 	fi
 
 	if use emovie;then
@@ -61,11 +62,11 @@ src_unpack(){
 		unpack eMovie_package.zip
 		cd ..
 	fi
-		
+
 	if use helicheck; then
 		unpack Helicity_check-1.0.tar.bz2
 	fi
-	
+
 	if use promol;then
 		mkdir promol
 		cd promol
@@ -73,12 +74,12 @@ src_unpack(){
 	# Sorry for this ugly thing, but I can't figure out how to set it relative.
 		sed -i 's:./modules:/usr/lib/python2.4/site-packages:g' ProMOL_302.py
 		cd ..
-	fi	
-	
-	if use rendering;then
-		cp ${DISTDIR}/rendering.py ${WORKDIR}
 	fi
-	
+
+	if use rendering;then
+		cp "${DISTDIR}"/rendering.py "${WORKDIR}"
+	fi
+
 	if use resicolor; then
 		unpack Resicolor-0.1.tar.bz2
 	fi
@@ -87,7 +88,7 @@ src_unpack(){
 		unpack rTools_0.7.2.zip
 		cd rTools
 		edos2unix color_protscale.py
-		epatch ${FILESDIR}/rtools-0.7.2.patch
+		epatch "${FILESDIR}"/rtools-0.7.2.patch
 	fi
 }
 
@@ -107,12 +108,12 @@ src_install() {
 	EOF
 	doenvd "${T}/20apbs"
 	fi
-	
+
 	if use autodock;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-        doins ${WORKDIR}/autodock.py
+		doins "${WORKDIR}"/autodock.py
 	fi
-	
+
 	if use cealign; then
 		cd cealign-0.8-RBS
 		exeinto /usr/lib/python2.4/site-packages/
@@ -125,40 +126,41 @@ src_install() {
 
 	if use colorama;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-        doins colorama.py
+		doins colorama.py
 	fi
-	
+
 	if use dynmap; then
 		insinto /usr/lib/dynmap/
-		doins -r ${WORKDIR}/DYNMAP_v1.0/*
+		doins -r "${WORKDIR}"/DYNMAP_v1.0/*
 		fperms 775 /usr/lib/dynmap/DYN-MAP
 		dosym /usr/lib/dynmap/DYN-MAP /usr/bin/DYN-MAP
 	fi
-	
+
 	if use emovie;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-		doins -r ${WORKDIR}/emovie/eMovie.py
+		doins -r "${WORKDIR}"/emovie/eMovie.py
 	fi
-	
+
 	if use helicheck;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
 		doins helicity_check.py
 	fi
-		
+
 	if use promol;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-		doins -r ${WORKDIR}/promol/*
+		doins -r "${WORKDIR}"/promol/*
 	fi
-	
+
 	if use rendering;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-		doins ${WORKDIR}/rendering.py
+		doins "${WORKDIR}"/rendering.py
 	fi
+
 	if use resicolor;then
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
-		doins ${WORKDIR}/resicolor.py
+		doins "${WORKDIR}"/resicolor.py
 	fi
-	
+
 	if use rtools;then
 		cd rTools
 		insinto /usr/lib/python2.4/site-packages/pmg_tk/startup/
@@ -179,5 +181,5 @@ pkg_postinst(){
 
 pkg_postrm() {
 	python_version
-	python_mod_cleanup ${ROOT}/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
