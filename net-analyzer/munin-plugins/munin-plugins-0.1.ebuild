@@ -54,7 +54,7 @@ src_install() {
 	then
 		exeinto $PLUGIN_DIR;
 		doexe mysql_*
-		
+
 		einfo "To use the mysql plugins, create a mysql-user with the following rights:  PROCESS, REFERENCES, SHOW DATABASES"
 		einfo "and a config-file with the following content:"
 		einfo ""
@@ -68,29 +68,29 @@ src_install() {
 		einfo "  [mysql*]"
 		einfo "  env.mysqlopts --defaults-extra-file=<path-to-your-config-file>"
 	fi
-	
+
 	if use postfix
 	then
 		exeinto $PLUGIN_DIR;
 		doexe postfix_*
-		
+
 		einfo "Add a section to /etc/munin/plugin-conf.d/munin-node:"
 		einfo "  [postfix_mailfiltered]"
 		einfo "  user root"
 		einfo "  group root"
 	fi
-	
+
 	if use proftpd
 	then
 		exeinto $PLUGIN_DIR;
 		doexe proftpd_*
-		
+
 		einfo "Add a section to /etc/munin/plugin-conf.d/munin-node:"
 		einfo "  [proftpd_*]"
 		einfo "  user root"
 		einfo "  group root"
 	fi
-	
+
 	if use spamassassin
 	then
 		exeinto $PLUGIN_DIR;
@@ -103,7 +103,7 @@ src_install() {
 		einfo "  env.logdir /var/log/"
 		einfo "  env.logfile mail.log"
 	fi
-	
+
 	if use ntp
 	then
 		exeinto $PLUGIN_DIR;

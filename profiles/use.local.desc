@@ -19,3 +19,9 @@ app-misc/gnome-commander:gsf Some gsf things
 app-misc/gnome-commander:iptc Some iptc things
 app-misc/gnome-commander:id3 Some id3 things
 app-misc/gnome-commander:gsf Some gsf things
+media-gfx/natural-gentoo:grub Install grub theme
+net-analyzer/munin-plugins:lighttpd lighttpd plugins support
+net-analyzer/munin-plugins:postfix postfix plugins support
+net-analyzer/munin-plugins:proftpd proftpd plugins support
+net-analyzer/munin-plugins:spamassassin spamassassin plugins support
+net-analyzer/munin-plugins:ntp ntp plugins support

@@ -20,11 +20,11 @@ DEPEND="${RDEPEND}"
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 }
 
 src_install() {
-	
+
 	mkdir -p "${D}/usr/local/bin/walloffire/" || die
 	mkdir -p "${D}/etc/walloffire/" || die
 	mkdir -p "${D}/etc/init.d/" || die
@@ -37,7 +37,7 @@ src_install() {
 	cp "wof-functions.sh" "${D}/etc/walloffire/" || die
 
 	cp rules/* "${D}/etc/walloffire/" || die
-	
+
 	cp gentoo-init "${D}/etc/init.d/walloffire" || die
 
 #	if use symlink; then

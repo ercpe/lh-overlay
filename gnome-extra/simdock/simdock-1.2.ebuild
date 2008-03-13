@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -22,5 +22,5 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/trunk
 
 src_install() {
-	emake DESTDIR=${D} install || die "make install failed"
+	emake DESTDIR="${D}" install || die "make install failed"
 }

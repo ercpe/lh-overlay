@@ -10,7 +10,7 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/49074-natural-gentoo-7.1.tar.
 IUSE="grub build"
 LICENSE="freedist"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86"
 DEPEND=">=media-gfx/splashutils-1.1.9.5
 		grub? ( sys-boot/grub )"
 RESTRICT="binchecks strip mirror"
@@ -34,8 +34,8 @@ src_install() {
 		fi
 		cd natural_gentoo/etc/splash/
 		for res in `ls natural_gentoo/|grep x |sed 's/\.cfg//'`
-			do 
-				splash_geninitramfs natural_gentoo -r $res -g ${D}boot/natural_gentoo-7.1-$res
+			do
+				splash_geninitramfs natural_gentoo -r $res -g "${D}"boot/natural_gentoo-7.1-$res
 			done
 	fi
 }
