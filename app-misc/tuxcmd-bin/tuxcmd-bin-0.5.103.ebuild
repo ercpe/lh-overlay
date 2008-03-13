@@ -7,7 +7,7 @@ inherit eutils
 
 DESCRIPTION="Tux Commander - Fast and Small filemanager using GTK2"
 HOMEPAGE="http://tuxcmd.sourceforge.net/"
-SRC_URI="mirror://sourceforge/tuxcmd/tuxcmd-dev-${PV}-bin.tar.bz2"
+SRC_URI="mirror://sourceforge/tuxcmd/tuxcmd-${PV}-bin.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,14 +22,14 @@ RDEPEND=">=x11-libs/gtk+-2.4.0
 S="${WORKDIR}/${P}"
 
 src_compile() {
-        einfo "This is a binary package, no compilation needed"
+	einfo "This is a binary package, no compilation needed"
 }
 
 src_install() {
-        cd "${WORKDIR}/tuxcmd-dev-${PV}-bin"
+	cd "${WORKDIR}/tuxcmd-dev-${PV}-bin"
 
-        insinto /opt/tuxcmd
-        doins -r ./*
+	insinto /opt/tuxcmd
+	doins -r ./*
 
 	exeinto /opt/tuxcmd
 	doexe tuxcmd

@@ -1,5 +1,5 @@
 # Copyright 1999-2008 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License, v2 or later
+# Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit gnome2
@@ -39,10 +39,10 @@ DEPEND="${RDEPEND}
 DOCS="AUTHORS BUGS ChangeLog NEWS README TODO"
 
 pkg_setup() {
-        G2CONF=" ${G2CONF}
-                $(use_with exif libexif)
-                $(use_with iptc libiptcdata)
-                $(use_with id3 id3lib)
-                $(use_with doc docs)
-                $(use_with gsf libgsf)"
+	G2CONF=" ${G2CONF}
+			 $(use_with exif libexif)
+			 $(use_with iptc libiptcdata)
+			 $(use_with id3 id3lib)
+			 $(use_with doc docs)
+			 $(use_with gsf libgsf)"
 }

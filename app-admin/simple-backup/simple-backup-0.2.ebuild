@@ -16,7 +16,7 @@ RESTRICT="primaryuri"
 src_install(){
 	exeinto /usr/lib/simple-backup
 	doexe simple-backup.sh
-	
+
 	insinto /etc/
 	doins simple-backup.conf
 

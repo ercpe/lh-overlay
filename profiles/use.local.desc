@@ -1,1 +1,21 @@
+sci-chemistry/pymol-plugins:apbs Pymol apbs plugin support
+sci-chemistry/pymol-plugins:autodock Pymol autodock plugin support
+sci-chemistry/pymol-plugins:cealign Pymol cealign plugin support
+sci-chemistry/pymol-plugins:colorama Pymol colorama plugin support
+sci-chemistry/pymol-plugins:dynmap Pymol dynmap plugin support
+sci-chemistry/pymol-plugins:emovie Pymol emovie plugin support
+sci-chemistry/pymol-plugins:helicheck Pymol helicheck plugin support
+sci-chemistry/pymol-plugins:promol Pymol promol plugin support
+sci-chemistry/pymol-plugins:rendering Pymol rendering plugin support
+sci-chemistry/pymol-plugins:resicolor Pymol resicolor plugin support
+sci-chemistry/pymol-plugins:rtools Pymol rtools plugin support
 sci-chemistry/hkl2map-bin:script Installs additional scripts
+sci-chemistry/pymol:shaders Compiles the shaders support in
+sci-chemistry/xds-bin:smp Enable multithreading support
+app-misc/tuxcmd-modules:zip Some zip shit
+app-misc/gnome-commander:iptc Some iptc things
+app-misc/gnome-commander:id3 Some id3 things
+app-misc/gnome-commander:gsf Some gsf things
+app-misc/gnome-commander:iptc Some iptc things
+app-misc/gnome-commander:id3 Some id3 things
+app-misc/gnome-commander:gsf Some gsf things

@@ -16,7 +16,7 @@ RESTRICT="primaryuri"
 src_install(){
 	exeinto /usr/lib/overlay-index
 	doexe overlay-index.sh
-	
+
 	insinto /etc/
 	doins overlay-index.conf
 

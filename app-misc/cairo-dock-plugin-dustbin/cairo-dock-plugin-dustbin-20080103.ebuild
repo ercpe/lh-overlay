@@ -18,13 +18,13 @@ DEPEND="app-misc/cairo-dock"
 
 ## x11-misc/xcompmgr-1.1.3-r1
 src_unpack(){
-    unpack ${A}
-    cd "${S}"
+	unpack ${A}
+	cd "${S}"
 }
 
 src_compile() {
 	econf || die "configure failed!"
-	
+
 	emake || die "Make failed!"
 }
 

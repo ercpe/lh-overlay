@@ -16,20 +16,19 @@ RESTRICT="strip"
 
 DEPEND=""
 RDEPEND=">=app-misc/tuxcmd-bin-0.5.103
-	 >=dev-libs/glib-2.4.0
-	 >=sys-devel/gcc-4.0.0"
+		 >=dev-libs/glib-2.4"
 
 S="${WORKDIR}/${P}"
 
 src_compile() {
-        einfo "This is a binary package, no compilation needed"
+	einfo "This is a binary package, no compilation needed"
 }
 
 src_install() {
-        cd "${WORKDIR}/tuxcmd-modules-${PV}-bin"
+	cd "${WORKDIR}"/tuxcmd-modules-${PV}-bin
 
-        dodir /opt/tuxcmd/plugins
+	dodir /opt/tuxcmd/plugins
 
-        insinto /opt/tuxcmd/plugins
-        doins -r ./* || die "install failed"
+	insinto /opt/tuxcmd/plugins
+	doins -r ./* || die "install failed"
 }

@@ -2,10 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
-
 SLOT="0"
-LICENSE="GPL"
+LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Init script which sets up the ethernet devices for wakeonlan"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/wol-init/${P}.tar.bz2"

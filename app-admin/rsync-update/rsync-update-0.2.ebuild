@@ -17,7 +17,7 @@ RESTRICT="primaryuri"
 src_install(){
 	exeinto /usr/lib/rsync-update
 	doexe rsync-update.sh
-	
+
 	insinto /etc/
 	doins rsync-update.conf
 

@@ -24,5 +24,5 @@ pkg_nofetch(){
 src_compile(){
 	echo hello world
 	cd ${MY_P}
-	./install --source --nproc=2 --debug --force-compile --prefix=${D}/usr/lib/phenix/
+	./install --source --nproc=2 --debug --force-compile --prefix="${D}"/usr/lib/phenix/
 }
