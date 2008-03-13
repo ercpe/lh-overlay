@@ -6,7 +6,7 @@ inherit eutils
 
 SLOT="0"
 LICENSE="solve"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="-* ~x86 ~amd64"
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"
 SRC_URI="x86? ( http://solve.lanl.gov/pub/solve/${PV}/solve-${PV}-linux.tar.gz )
 		 amd64? ( http://solve.lanl.gov/pub/solve/${PV}/solve-${PV}-linux-64.tar.gz )"
@@ -18,7 +18,7 @@ src_install(){
 	IN_PATH=/opt/solve-resolve/
 	exeinto ${IN_PATH}bin/
 	doexe solve-2.13/bin/*
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 #	exeinto ${IN_PATH}lib/
 #	doexe solve-2.13/lib/{*sym,sym*,hist*,*dat}
 #	exeinto ${IN_PATH}lib/segments
@@ -50,7 +50,7 @@ src_install(){
 	SOLVEDIR="${IN_PATH}lib/"
 	PATH="${IN_PATH}bin"
 	EOF
-	
+
 	doenvd "${T}"/20solve-resolve
 }
 pkg_postinst(){

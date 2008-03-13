@@ -11,7 +11,7 @@ HOMEPAGE="http://www.mpimf-heidelberg.mpg.de/~kabsch/xds/"
 RESTRICT="mirror"
 LICENSE="free-noncomm"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="-* ~x86"
 IUSE="smp X"
 RDEPEND="X? ( x11-libs/libXdmcp
 			  x11-libs/libXau
@@ -24,7 +24,6 @@ src_install() {
 	if use smp
 	then
 		rm "${D}"/opt/xds/{xds,mintegrate,mcolspot,xscale}
-		cd opt/xds
 		dosym xds_par /opt/xds/xds
 		dosym xscale_par /opt/xds/xscale
 		dosym mintegrate_par /opt/xds/mintegrate
