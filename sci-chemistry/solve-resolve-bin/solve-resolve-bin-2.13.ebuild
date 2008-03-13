@@ -5,8 +5,6 @@
 inherit eutils
 
 SLOT="0"
-#Someone should correct the license
-#I do not know which to choose
 LICENSE="solve"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Automated crystallographic structure solution for MIR, SAD, and MAD"

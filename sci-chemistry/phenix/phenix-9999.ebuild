@@ -7,7 +7,6 @@ inherit check-reqs
 MY_P="phenix-installer-1.3b"
 
 SLOT="0"
-#License?
 LICENSE="phenix"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Python-based Hierarchical ENvironment for Integrated Xtallography"
