@@ -1,0 +1,35 @@
+diff -uarN rTools.orig/color_protscale.py rTools/color_protscale.py
+--- rTools.orig/color_protscale.py	2008-01-12 11:24:03.000000000 +0100
++++ rTools/color_protscale.py	2008-01-12 11:25:08.000000000 +0100
+@@ -31,12 +31,7 @@
+ AUTO_POPUP=0
+ 
+ # path where the protscale files are found.
+-SCALE_PATH = '/usr/local/pymol/modules/pmg_tk/startup/protscale/'
+-# for windows
+-if os.sep == '\\':
+-    SCALE_PATH = 'C:%sPrograms%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%sprotscale%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
+-    if not os.access(SCALE_PATH,os.F_OK):
+-        SCALE_PATH = 'C:%sProgramme%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%sprotscale%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
++SCALE_PATH = '/usr/lib/python2.5/site-packages/pmg_tk/startup/protscale/'
+ 
+ amino_acids=['Ala','Cys','Asp','Glu','Phe','Gly','His','Ile','Lys','Leu','Met','Asn','Pro','Gln','Arg','Ser','Thr','Val','Trp','Tyr']
+ 
+diff -uarN rTools.orig/script_box.py rTools/script_box.py
+--- rTools.orig/script_box.py	2008-01-12 11:24:03.000000000 +0100
++++ rTools/script_box.py	2008-01-12 11:25:32.000000000 +0100
+@@ -23,13 +23,7 @@
+ AUTO_POPUP=1
+ 
+ # path to the file indicating, which scripts to use locate
+-SCRIPT_PATH='/usr/local/pymol/modules/pmg_tk/startup/'
+-# for windows
+-if os.sep == '\\':
+-    SCRIPT_PATH='C:%sPrograms%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
+-    if not os.access(SCRIPT_PATH,os.F_OK):
+-        # for German users(like me)
+-        SCRIPT_PATH='C:%sProgramme%sDeLano Scientific%sPymol%smodules%spmg_tk%sstartup%s'%(os.sep,os.sep,os.sep,os.sep,os.sep,os.sep,os.sep)
++SCRIPT_PATH='/usr/lib/python2.5/site-packages/pmg_tk/startup/'
+ 
+ SCRIPT_LIST=SCRIPT_PATH+'scripts.lst'
+ SCRIPT_PATH=SCRIPT_PATH+'scripts'+os.sep

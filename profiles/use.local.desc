@@ -3,6 +3,7 @@ sci-chemistry/pymol-plugins:autodock Pymol autodock plugin support
 sci-chemistry/pymol-plugins:cealign Pymol cealign plugin support
 sci-chemistry/pymol-plugins:colorama Pymol colorama plugin support
 sci-chemistry/pymol-plugins:dynmap Pymol dynmap plugin support
+sci-chemistry/pymol-plugins:divscore Pymol divscore plugin support
 sci-chemistry/pymol-plugins:emovie Pymol emovie plugin support
 sci-chemistry/pymol-plugins:helicheck Pymol helicheck plugin support
 sci-chemistry/pymol-plugins:promol Pymol promol plugin support

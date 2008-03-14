@@ -5,17 +5,17 @@
 inherit eutils autotools python
 
 DESCRIPTION=" ARP/wARP is a software for improvement and interpretation of crystallographic electron density maps"
-SRC_URI="arp_warp_7.0.1.tar.gz"
+SRC_URI="arp_warp_${PV}.tar.gz"
 HOMEPAGE="http://www.embl-hamburg.de/ARP/"
 LICENSE="ArpWarp"
 RESTRICT="fetch"
 SLOT="0"
-KEYWORDS="-* ~x86"
+KEYWORDS="-* ~x86 ~amd64"
 IUSE=""
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
 	 >=sci-chemistry/ccp4-6
 	 sys-apps/gawk
-	 >dev-lang/python-2.3"
+	 >=dev-lang/python-2.3"
 DEPEND="${RDEPEND}"
 
 pkg_nofetch(){
