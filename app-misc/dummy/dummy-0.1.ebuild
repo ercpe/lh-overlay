@@ -10,9 +10,9 @@ HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 mips ppc ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="amd64 x86"
 IUSE=""
-
+RESTRICT="mirror"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 

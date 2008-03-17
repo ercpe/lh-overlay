@@ -10,7 +10,7 @@ DESCRIPTION="A Python-extensible molecular graphics system."
 HOMEPAGE="http://pymol.sourceforge.net/"
 
 LICENSE="PSF-2.2"
-IUSE="shaders"
+IUSE="apbs shaders"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
@@ -20,7 +20,8 @@ DEPEND="dev-lang/python
 	dev-lang/tk
 	media-libs/libpng
 	sys-libs/zlib
-	virtual/glut"
+	virtual/glut
+	apbs? ( sci-chemistry/apbs )"
 
 src_unpack() {
 	subversion_src_unpack
@@ -44,6 +45,8 @@ src_unpack() {
 src_install() {
 	python_version
 
+	APBS_VER="$(best_version sci-chemistry/apbs | cut -d/ -f2)"
+
 	distutils_src_install
 	cd "${S}"
 
@@ -58,6 +61,13 @@ src_install() {
 	PYMOL_DATA="/usr/share/pymol/data"
 	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
 	EOF
+	
+	if use apbs;then
+		cat >> "${T}"/20pymol <<- EOF
+		APBS_BINARY="/usr/bin/apbs"
+		APBS_PSIZE="/usr/share/$APBS_VER/tools/manip/psize.py"
+		EOF
+	fi
 
 	doenvd "${T}"/20pymol || die "Failed to install env.d file."
 
@@ -66,6 +76,10 @@ src_install() {
 	#!/bin/sh
 	${python} -O \${PYMOL_PATH}/__init__.py \$*
 	EOF
+
+	if ! use apbs; then
+		rm "${D}"/usr/lib/python2.4/site-packages/pmg_tk/startup/apbs_tools.py
+	fi
 
 	exeinto /usr/bin
 	doexe "${T}"/pymol || die "Failed to install wrapper."
@@ -77,4 +91,8 @@ src_install() {
 	mv test "${D}"/usr/share/pymol/ || die "Failed moving test files."
 	mv data "${D}"/usr/share/pymol/ || die "Failed moving data files."
 	mv scripts "${D}"/usr/share/pymol/ || die "Failed moving scripts."
+}
+pkg_postrm() {
+	python_version
+	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }

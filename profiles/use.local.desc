@@ -1,3 +1,4 @@
+sci-chemistry/pymol:apbs Pymol apbs plugin support
 sci-chemistry/pymol-plugins:apbs Pymol apbs plugin support
 sci-chemistry/pymol-plugins:autodock Pymol autodock plugin support
 sci-chemistry/pymol-plugins:cealign Pymol cealign plugin support
