@@ -66,7 +66,7 @@ src_install() {
 	doins -r examples/* || \
 		die "Failed to install examples"
 
-	insinto /usr/share/${PF}/tools
+	insinto /usr/share/${PN}/tools
 	doins -r tools/* || die "failed to install tools"
 
 }
