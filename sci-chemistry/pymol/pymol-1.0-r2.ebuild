@@ -41,8 +41,6 @@ src_unpack() {
 src_install() {
 	python_version
 
-	APBS_VER="$(best_version sci-chemistry/apbs | cut -d/ -f2)"
-
 	distutils_src_install
 	cd "${S}"
 
@@ -60,7 +58,7 @@ src_install() {
 	if use apbs;then
 		cat >> "${T}"/20pymol <<- EOF
 		APBS_BINARY="/usr/bin/apbs"
-		APBS_PSIZE="/usr/share/$APBS_VER/tools/manip/psize.py"
+		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
 		EOF
 	fi
 
@@ -73,7 +71,7 @@ src_install() {
 	EOF
 
 	if ! use apbs; then
-		rm "${D}"/usr/lib/python2.4/site-packages/pmg_tk/startup/apbs_tools.py
+		rm "${D}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/apbs_tools.py
 	fi
 
 	exeinto /usr/bin
@@ -87,7 +85,14 @@ src_install() {
 	mv data "${D}"/usr/share/pymol/ || die "Failed moving data files."
 	mv scripts "${D}"/usr/share/pymol/ || die "Failed moving scripts."
 }
+
+pkg_postinst(){
+	if use apbs; then
+		[ -e /usr/share/apbs-0.5* ] && \
+		ewarn "You need to reemerge sci-chemistry/apbs!"
+	fi
+}
+
 pkg_postrm() {
-	python_version
 	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
