@@ -398,6 +398,8 @@ src_install() {
 
 	# Fix overlaps with other packages
 	rm "${D}"/usr/share/man/man1/rasmol.1.gz
+
+	doenvd "${FILESDIR}"/70ccp4
 }
 
 pkg_postinst() {
