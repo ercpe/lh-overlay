@@ -91,11 +91,15 @@ src_install(){
 		dosym /opt/${P}/share/$i /opt/${P}/bin/bin-`uname -m`-`uname`/$i
 	done
 
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-${PV}":'<share/arpwarp_setup_base.bash>${T}/arpwarp_setup.bash
-	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-${PV}":'<share/arpwarp_setup_base.csh>${T}/arpwarp_setup.csh
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-${PV}":'\
+		 -i share/arpwarp_setup_base.bash
+	sed 's:arpwarphome="$1X":arpwarphome="/opt/arp-warp-${PV}":'\
+		 -i share/arpwarp_setup_base.csh
 
-	insinto /usr/share/${P}/
-	doins "${T}"/arpwarp_setup.{bash,csh}
+#	insinto /usr/share/${P}/
+	insinto /etc/profile.d/
+	doins share/arpwarp_setup.csh
+	newins share/arpwarp_setup.bash arpwarp_setup.sh
 
 	dodoc README
 	dohtml -r manual/*
