@@ -13,7 +13,7 @@ LICENSE="pymol"
 
 IUSE="apbs"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-lang/python
 		dev-python/pmw
@@ -21,7 +21,9 @@ DEPEND="dev-lang/python
 		media-libs/libpng
 		sys-libs/zlib
 		virtual/glut
-		apbs? ( sci-chemistry/apbs )"
+		apbs? ( dev-libs/maloc
+				sci-chemistry/apbs
+				sci-chemistry/pdb2pqr )"
 
 src_unpack() {
 	subversion_src_unpack
