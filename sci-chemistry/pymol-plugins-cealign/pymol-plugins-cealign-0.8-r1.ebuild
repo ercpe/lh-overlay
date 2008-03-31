@@ -8,7 +8,7 @@ SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="The CE algorithm is a fast and accurate protein structure alignment algorithm."
-SRC_URI="http://www.pymolwiki.org/images/0/03/Cealign-0.9.zip"
+SRC_URI="http://www.pymolwiki.org/images/5/58/Cealign-${PV}-RBS.tar.bz2"
 HOMEPAGE="http://www.pymolwiki.org/index.php/Cealign"
 IUSE=""
 RESTRICT="mirror"
@@ -17,7 +17,7 @@ DEPEND="dev-python/numpy
 		>sci-chemistry/pymol-0.99"
 RDEPEND="${DEPEND}"
 
-S="cealign-0.9"
+S="cealign-${PV}-RBS"
 
 src_compile(){
 	cd "${S}"
@@ -29,12 +29,8 @@ src_install(){
 	mtype=`uname -m`
 
 	cd "${S}"
-	exeinto /usr/$(get_libdir)/python${PYVER}/site-packages/
-	if use amd64 ; then
-		doexe build/lib.linux-${mtype}-${PYVER}/ccealign.so
-	elif use x86 ; then
-		doexe build/lib.linux-${mtype}-${PYVER}/ccealign.so
-	fi
+	python setup.py install --prefix="${D}"/usr
+
 	insinto /usr/$(get_libdir)/python${PYVER}/site-packages/cealign
 	doins qkabsch.py cealign.py
 
