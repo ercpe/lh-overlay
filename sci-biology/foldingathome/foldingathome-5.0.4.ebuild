@@ -14,11 +14,11 @@ RESTRICT="mirror strip"
 SLOT="0"
 IUSE=""
 LICENSE="folding-at-home"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND=">=sys-apps/baselayout-1.8.0
-	>=sys-libs/glibc-2.3.0
-	amd64? ( app-emulation/emul-linux-x86-baselibs )"
+		>=sys-libs/glibc-2.3.0
+		amd64? ( app-emulation/emul-linux-x86-baselibs )"
 
 S="${WORKDIR}"
 
@@ -28,8 +28,8 @@ src_unpack() {
 
 src_install() {
 	exeinto ${I}
-	newexe ${FILESDIR}/initfolding-r2 initfolding
-	newexe ${FILESDIR}/copy_client_config-${PV}-r1 copy_client_config
+	newexe "${FILESDIR}"/initfolding-r2 initfolding
+	newexe "${FILESDIR}"/copy_client_config-${PV}-r1 copy_client_config
 
 	# Clients
 	exeinto ${I}/client1
@@ -48,8 +48,8 @@ src_install() {
 	doexe foldingathome
 	exeinto ${I}/client8
 	doexe foldingathome
-	newinitd ${FILESDIR}/init-${PVR} foldingathome
-	newconfd ${FILESDIR}/folding-conf.d-r1 foldingathome
+	newinitd "${FILESDIR}"/init-${PVR} foldingathome
+	newconfd "${FILESDIR}"/folding-conf.d-r1 foldingathome
 }
 
 pkg_preinst() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ FORTRAN="g77 gfortran"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="x86"
+KEYWORDS="~x86"
 DESCRIPTION="ASGL is a program for preparing all sorts of PostScript plots from simple data files."
 SRC_URI="ftp://salilab.org/asgl/asgl-1.3.2.tar.gz"
 HOMEPAGE="http://salilab.org/asgl/"

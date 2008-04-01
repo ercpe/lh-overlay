@@ -10,11 +10,11 @@ HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
 RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 hppa ia64 mips ppc ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="sys-process/lsof
 		sys-apps/gawk"
-DEPEND="${RDEPEND}"
+DEPEND=""
 RESTRICT="mirror"
 
 src_install() {
@@ -23,7 +23,7 @@ src_install() {
 	doinitd readahead-royale
 	exeinto /usr/sbin/
 	doexe uniquer sample-init-process
-	touch ${D}/forcesampler
+	touch "${D}"/forcesampler
 }
 
 pkg_postinst(){

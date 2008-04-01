@@ -9,7 +9,7 @@ SRC_URI="http://kde-look.org/CONTENT/content-files/${MY_P}"
 RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ppc64 x86"
+KEYWORDS="~amd64 x86"
 IUSE=""
 
 DEPEND=""
@@ -26,8 +26,8 @@ src_install() {
 
 	dodir /usr/share/cursors/${X11_IMPLEM}/Jimmac/cursors/
 	cp -d  jimmac/cursors/* \
-		${D}/usr/share/cursors/${X11_IMPLEM}/Jimmac/cursors/ || die
-	dodoc README COPYING
+		"${D}"/usr/share/cursors/${X11_IMPLEM}/Jimmac/cursors/ || die
+	dodoc README
 }
 
 pkg_postinst() {
