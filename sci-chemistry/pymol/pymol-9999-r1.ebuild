@@ -23,6 +23,16 @@ DEPEND="dev-lang/python
 	virtual/glut
 	apbs? ( sci-chemistry/apbs )"
 
+pkg_setup(){
+	if ! built_with_use dev-lang/python tk; then
+	eerror "Please reemerge dev-lang/python with 'tk' support or pymol will"
+	eerror "not work. In order to fix this, execute the following:"
+	eerror "echo \"dev-lang/python tk\" >> /etc/portage/package.use"
+	eerror "and reemerge dev-lang/python before emerging pymol."
+	die "requires dev-lang/python with use-flag 'tk'!!"
+	fi
+}
+
 src_unpack() {
 	subversion_src_unpack
 
@@ -84,6 +94,8 @@ src_install() {
 	dodoc DEVELOPERS || die "Failed to install docs."
 
 	mv examples "${D}"/usr/share/doc/${PF}/ || die "Failed moving docs."
+
+	dosym /usr/share/pymol/data /usr/$(get_libdir)/python${PYVER}/site-packages/pymol/data
 
 	dodir /usr/share/pymol
 	mv test "${D}"/usr/share/pymol/ || die "Failed moving test files."

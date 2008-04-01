@@ -18,6 +18,7 @@ DEPEND=""
 S="rTools"
 
 src_unpack(){
+	python_version
 	unpack rTools_0.7.2.zip
 	edos2unix "${S}"/color_protscale.py
 	if [[ "${PYVER}" == "2.5" ]] ; then
@@ -28,7 +29,6 @@ src_unpack(){
 }
 
 src_install(){
-	python_version
 	insinto /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 	doins -r "${S}"/{protscale/,scripts/,*.py,scripts.lst}
 	dodoc "${S}"/{LICENSE.TXT,rtools_doku.rtf}

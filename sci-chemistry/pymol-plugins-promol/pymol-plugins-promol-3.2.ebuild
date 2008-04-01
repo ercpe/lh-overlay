@@ -18,11 +18,16 @@ DEPEND=""
 src_unpack(){
 	python_version
 	unpack ProMOL.zip
-	sed -e "s:./modules:/usr/lib/python${PYVER}/site-packages:g" -i ProMOL_302.py
+	sed -e "s:./modules:/usr/$(get_libdir)/python${PYVER}/site-packages:g" -i ProMOL_302.py
 }
 src_install(){
 	insinto /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
-	doins ProMOL_302.py
+	doins -r PDB_List AminoPics Motifs *{py,GIF} pdb_entry_type.txt Master.txt
+	dodoc *doc
+	dohtml -r Thanks.html EDMHelp.htm Help
+	dosym /usr/share/doc/${PF}/Help /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/Help
+	dosym /usr/share/doc/${PF}/Thanks.html /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+	dosym /usr/share/doc/${PF}/EDMHelp.htm /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
 
 pkg_postrm() {
