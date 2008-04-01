@@ -20,6 +20,10 @@ src_install(){
 	doins eMovie.py
 }
 
+pkg_postinst(){
+	python_mod_optimize "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+}
+
 pkg_postrm() {
 	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }

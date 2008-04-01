@@ -29,12 +29,8 @@ src_install(){
 	mtype=`uname -m`
 
 	cd "${S}"
-	exeinto /usr/$(get_libdir)/python${PYVER}/site-packages/
-	if use amd64 ; then
-		doexe build/lib.linux-${mtype}-${PYVER}/ccealign.so
-	elif use x86 ; then
-		doexe build/lib.linux-${mtype}-${PYVER}/ccealign.so
-	fi
+	python setup.py install --prefix="${D}"/usr
+
 	insinto /usr/$(get_libdir)/python${PYVER}/site-packages/cealign
 	doins qkabsch.py cealign.py
 

@@ -19,7 +19,7 @@ S="rTools"
 
 src_unpack(){
 	python_version
-	unpack rTools_0.7.2.zip
+	unpack rTools_${PV}.zip
 	edos2unix "${S}"/color_protscale.py
 	if [[ "${PYVER}" == "2.5" ]] ; then
 		epatch "${FILESDIR}"/rtools-${PV}-python2.5.patch
@@ -32,6 +32,10 @@ src_install(){
 	insinto /usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 	doins -r "${S}"/{protscale/,scripts/,*.py,scripts.lst}
 	dodoc "${S}"/{LICENSE.TXT,rtools_doku.rtf}
+}
+
+pkg_postinst(){
+	python_mod_optimize "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
 
 pkg_postrm() {

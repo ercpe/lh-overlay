@@ -35,6 +35,10 @@ src_install(){
 	dodoc DYNMAP_v${PV}/README.txt
 }
 
+pkg_postinst(){
+	python_mod_optimize "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+}
+
 pkg_postrm() {
 	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
