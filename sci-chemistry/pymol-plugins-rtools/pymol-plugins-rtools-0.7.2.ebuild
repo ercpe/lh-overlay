@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit python eutils toolchain-funcs
+inherit python eutils
 
 SLOT="0"
 LICENSE="GPL-2"

@@ -16,27 +16,27 @@ diff -urN pymol-9999.orig/modules/pymol/commanding.py pymol-9999/modules/pymol/c
              if os.path.exists(png_path):
                  _self.do("_ cmd.load_png('%s',0,quiet=1)"%png_path)
          else:
-diff -urN pymol-9999.orig/modules/pymol/fitting.py pymol-9999/modules/pymol/fitting.py
---- pymol-9999.orig/modules/pymol/fitting.py	2008-01-11 13:23:32.000000000 +0100
-+++ pymol-9999/modules/pymol/fitting.py	2008-01-11 13:23:00.000000000 +0100
-@@ -68,7 +68,7 @@
-         if string.lower(matrix)=='none':
-             matrix=''
-         if len(matrix):
--            mfile = cmd.exp_path("$PYMOL_PATH/data/pymol/matrices/"+matrix)
-+            mfile = cmd.exp_path("$PYMOL_DATA/pymol/matrices/"+matrix)
-         else:
-             mfile = ''        
-         # delete existing alignment object (if asked to reset it)
-@@ -135,7 +135,7 @@
-         if string.lower(matrix)=='none':
-             matrix=''
-         if len(matrix):
--            mfile = cmd.exp_path("$PYMOL_PATH/data/pymol/matrices/"+matrix)
-+            mfile = cmd.exp_path("$PYMOL_DATA/pymol/matrices/"+matrix)
-         else:
-             mfile = ''
-         if object==None: object=''
+#diff -urN pymol-9999.orig/modules/pymol/fitting.py pymol-9999/modules/pymol/fitting.py
+#--- pymol-9999.orig/modules/pymol/fitting.py	2008-01-11 13:23:32.000000000 +0100
+#+++ pymol-9999/modules/pymol/fitting.py	2008-01-11 13:23:00.000000000 +0100
+#@@ -68,7 +68,7 @@
+#         if string.lower(matrix)=='none':
+#             matrix=''
+#         if len(matrix):
+#-            mfile = cmd.exp_path("$PYMOL_PATH/data/pymol/matrices/"+matrix)
+#+            mfile = cmd.exp_path("$PYMOL_DATA/pymol/matrices/"+matrix)
+#         else:
+#             mfile = ''        
+#         # delete existing alignment object (if asked to reset it)
+#@@ -135,7 +135,7 @@
+#         if string.lower(matrix)=='none':
+#             matrix=''
+#         if len(matrix):
+#-            mfile = cmd.exp_path("$PYMOL_PATH/data/pymol/matrices/"+matrix)
+#+            mfile = cmd.exp_path("$PYMOL_DATA/pymol/matrices/"+matrix)
+#         else:
+#             mfile = ''
+#         if object==None: object=''
 diff -urN pymol-9999.orig/modules/pymol/importing.py pymol-9999/modules/pymol/importing.py
 --- pymol-9999.orig/modules/pymol/importing.py	2008-01-11 13:23:32.000000000 +0100
 +++ pymol-9999/modules/pymol/importing.py	2008-01-11 13:23:02.000000000 +0100

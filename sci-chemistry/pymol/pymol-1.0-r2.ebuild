@@ -25,6 +25,16 @@ DEPEND="dev-lang/python
 				sci-chemistry/apbs
 				sci-chemistry/pdb2pqr )"
 
+pkg_setup(){
+	if ! built_with_use dev-lang/python tk; then
+	eerror "Please reemerge dev-lang/python with 'tk' support or pymol will"
+	eerror "not work. In order to fix this, execute the following:"
+	eerror "echo \"dev-lang/python tk\" >> /etc/portage/package.use"
+	eerror "and reemerge dev-lang/python before emerging pymol."
+	die "requires dev-lang/python with use-flag 'tk'!!"
+	fi
+}
+
 src_unpack() {
 	subversion_src_unpack
 

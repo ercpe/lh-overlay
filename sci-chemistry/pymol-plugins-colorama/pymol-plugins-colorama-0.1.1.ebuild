@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit python toolchain-funcs
+inherit python
 
 SLOT="0"
 LICENSE="GPL-2"
