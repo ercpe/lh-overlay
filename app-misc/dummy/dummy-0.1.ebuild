@@ -16,11 +16,23 @@ RESTRICT="mirror"
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
+pkg_setup(){
+	sse2=0
+	ebegin "Checking SSE2 availability!"
+	grep -q sasdse2 /proc/cpuinfo
+#	eend ${sse2}
+	eend $? "test
+	\t\t\t\t\t ***WARNING***"
+	ewarn "\t\t The CPU on this hardware platform is lacking the SSE2 instruction set!"
+	ewarn "\t\t Some executables of ARP/wARP ${PV} however depend on these. Take notice that"
+	ewarn "\t\t part of the software will not work and consider remote job submission to the"
+	ewarn "\t\t dedicated facility at EMBL-Hamburg."
+}
+
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
 }
-
 
 src_install() {
 	ls -lah .

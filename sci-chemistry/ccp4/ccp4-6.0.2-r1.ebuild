@@ -335,6 +335,8 @@ src_install() {
 	# Environment files, setup scripts, etc.
 	insinto /usr/share/ccp4/include
 	doins "${S}"/include/* || die
+	insinto /etc/profile.d
+	newins "${S}"/include/ccp4.setup-bash ccp4.sh
 
 	# CCP4Interface - GUI
 	insinto /usr/$(get_libdir)/ccp4
