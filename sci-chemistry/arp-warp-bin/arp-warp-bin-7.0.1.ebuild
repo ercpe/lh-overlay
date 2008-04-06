@@ -26,13 +26,6 @@ pkg_nofetch(){
 	einfo "in ${DISTDIR}"
 }
 
-#pkg_setup(){
-#	if use gui && built_with_use sci-chemistry/ccp4 X;then
-#		einfo "The ArpWarp gui needs sci-chemistry/ccp4 to be build with X"
-#		die "sci-chemistry/ccp4 without X"
-#	fi
-#}
-
 S="arp_warp_${PV}"
 
 src_unpack() {
@@ -40,81 +33,54 @@ src_unpack() {
 	epatch "${FILESDIR}"/setup-${PV}.patch
 }
 
-#src_compile(){
-#	cd flex-wARP-src
-#	for i in `ls *py`;do
-#		python_mod_compile $i
-#	done
-#}
-
 src_install(){
 	python_version
-#	insinto /opt/${P}/byte-code/python-${PYVER}
-#	doins flex-wARP-src/* ||die "python-code"
 
-#	insinto /opt/${P}/flex-wARP-src
-#	doins flex-wARP-src-261/*py
-#	dosym /opt/${P}/flex-wARP-src-261 /opt/${P}/flex-wARP-src
-#	dosym /opt/${P}/flex-wARP-src /opt/${P}/byte-code/python-${PYVER}
+	insinto /opt/${PN}/byte-code/python-${PYVER}
+	doins "${S}"/flex-wARP-src-261/*py
 
-	insinto /opt/${P}/byte-code/python-${PYVER}
-	doins flex-wARP-src-261/*py
+	exeinto /opt/${PN}/bin/bin-`uname -m`-`uname`
+	doexe "${S}"/bin/bin-`uname -m`-`uname`/*
+	doexe "${S}"/share/*sh
 
-	exeinto /opt/${P}/bin/bin-`uname -m`-`uname`
-	doexe bin/bin-`uname -m`-`uname`/*
-	doexe share/*sh
+	insinto /opt/${PN}/bin/bin-`uname -m`-`uname`
+	doins "${S}"/share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
 
-	insinto /opt/${P}/bin/bin-`uname -m`-`uname`
-	doins share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
-
-#	exeinto /opt/${P}/share
-#	doexe share/*sh
-#	insinto /opt/${P}/share
-#	doins share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
-
-#	for i in `ls "${D}"opt/${P}/share/`
-#	do
-#		dosym /opt/${P}/share/$i /opt/${P}/bin/bin-`uname -m`-`uname`/$i
-#	done
-
-#	sed 's:arpwarphome="$1X":arpwarphome="/opt/${PN}":'\
-#		 -i share/arpwarp_setup_base.bash
-#	sed 's:arpwarphome="$1X":arpwarphome="/opt/${PN}":'\
-#		 -i share/arpwarp_setup_base.csh
-
-#	insinto /usr/share/${P}/
 	insinto /etc/profile.d/
-	doins share/arpwarp_setup.csh
-	newins share/arpwarp_setup.bash arpwarp_setup.sh
+	newins "${S}"/share/arpwarp_setup_base.csh arpwarp_setup.csh
+	newins "${S}"/share/arpwarp_setup_base.bash arpwarp_setup.sh
 
-	dodoc README
-	dohtml -r manual/*
+	dodoc "${S}"/README
+	dohtml -r "${S}"/manual/*
 	insinto /usr/share/doc/${PF}
-	doins -r examples ARP_wARP_CCP4I6.tar.gz
+	doins -r "${S}"/{examples,ARP_wARP_CCP4I6.tar.gz}
 }
 
 pkg_postinst(){
-	python_mod_optimize "${ROOT}"/opt/${P}/byte-code/python-${PYVER}
-	
-		testcommand=$(echo 3 2 | awk '{printf"%3.1f",$1/$2}')
-	if [ $testcommand == "1.5" ];then
+	python_mod_optimize "${ROOT}"/opt/${PN}/byte-code/python-${PYVER}
+
+	testcommand=$(echo 3 2 | awk '{printf"%3.1f",$1/$2}')
+	if [ $testcommand == "1,5" ];then
 	  ewarn "*** ERROR ***"
 	  ewarn "   3/2=" $testcommand
 	  ewarn "Invalid decimal separator (must be ".")"
 	  ewarn "You need to set this correctly!!!"
+	  ewarn
+	  ewarn "One way of setting the decimal separator is:"
+	  ewarn "setenv LC_NUMERIC C' in your .cshrc file"
+	  ewarn "\tor"
+	  ewarn "export LC_NUMERIC=C' in your .bashrc file"
+	  ewarn "Otherwise please consult your system manager"
 	  epause 10
-#	  ewarn
-#	  ewarn "One way of setting the decimal separator is:"
-#	  ewarn "setenv LC_NUMERIC C' in your .cshrc file"
-#	  ewarn "\tor"
-#	  ewarn "export LC_NUMERIC=C' in your .bashrc file"
-#	  ewarn "Otherwise please consult your system manager"
-#	  die
 	fi
 
-	grep -q sasdse2 /proc/cpuinfo || \
+	grep -q sse2 /proc/cpuinfo || \
 	einfo "The CPU is lacking SSE2! Use the cluster at EMBL-Hamburg."
 	einfo ""
 	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
 	einfo ""
+}
+
+pkg_postrm() {
+	python_mod_cleanup "${ROOT}"/opt/${PN}/byte-code/python-${PYVER}
 }
