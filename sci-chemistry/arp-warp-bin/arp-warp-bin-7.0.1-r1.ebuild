@@ -75,10 +75,10 @@ pkg_postinst(){
 	fi
 
 	grep -q sse2 /proc/cpuinfo || \
-	einfo "The CPU is lacking SSE2! Use the cluster at EMBL-Hamburg."
+	einfo ""
+	einfo "The CPU is lacking SSE2! You should use the cluster at EMBL-Hamburg."
 	einfo ""
 	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
-	einfo ""
 }
 
 pkg_postrm() {
