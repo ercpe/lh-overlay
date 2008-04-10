@@ -17,10 +17,9 @@ DEPEND="dev-python/numpy
 		>sci-chemistry/pymol-0.99"
 RDEPEND="${DEPEND}"
 
-S="cealign-${PV}-RBS"
+S=${WORKDIR}/cealign-${PV}-RBS
 
 src_compile(){
-	cd "${S}"
 	python setup.py build
 }
 
@@ -28,7 +27,6 @@ src_install(){
 	python_version
 	mtype=`uname -m`
 
-	cd "${S}"
 	exeinto /usr/$(get_libdir)/python${PYVER}/site-packages/
 	if use amd64 ; then
 		doexe build/lib.linux-${mtype}-${PYVER}/ccealign.so

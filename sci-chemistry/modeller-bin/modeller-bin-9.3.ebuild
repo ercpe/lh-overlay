@@ -4,11 +4,13 @@
 
 inherit eutils python
 
+MY_PV="${PV/./v}"
+MY_PN="${PN%-bin}"
 LICENSE="MODELLER"
-KEYWORDS="-* ~x86"
+KEYWORDS="~amd64 ~x86"
 DESCRIPTION="MODELLER is used for homology or comparative modeling of protein three-dimensional structures"
-SRC_URI="http://salilab.org/modeller/9v3/modeller-9v3.tar.gz"
-HOMEPAGE="http://salilab.org/modeller/"
+SRC_URI="http://salilab.org/${MY_PN}/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz"
+HOMEPAGE="http://salilab.org/${MY_PN}/"
 IUSE=""
 RESTRICT="mirror"
 SLOT="0"
@@ -96,6 +98,6 @@ pkg_postinst(){
 	echo
 	ewarn "Obtain a license Key from"
 	ewarn "http://salilab.org/modeller/registration.html"
-	ewarn "and change the adequate line in"
+	ewarn "and change the appropriate line in"
 	ewarn "${IN_PATH}/modlib/modeller/config.py"
 }

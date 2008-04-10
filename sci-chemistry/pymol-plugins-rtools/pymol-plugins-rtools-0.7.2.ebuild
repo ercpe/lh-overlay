@@ -15,7 +15,7 @@ RESTRICT="mirror"
 RDEPEND=">sci-chemistry/pymol-0.99"
 DEPEND=""
 
-S="rTools"
+S=${WORKDIR}/rTools
 
 src_unpack(){
 	python_version
