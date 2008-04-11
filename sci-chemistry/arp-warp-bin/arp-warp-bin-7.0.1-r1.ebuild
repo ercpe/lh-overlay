@@ -12,12 +12,12 @@ HOMEPAGE="http://www.embl-hamburg.de/ARP/"
 LICENSE="ArpWarp"
 RESTRICT="fetch"
 SLOT="0"
-KEYWORDS="-* ~x86" # ~amd64: ccp4 is blocking
+KEYWORDS="-* ~x86 ~amd64"
 IUSE=""
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
-	 >=sci-chemistry/ccp4-6
-	 sys-apps/gawk
-	 >=dev-lang/python-2.4"
+ 		 >=sci-chemistry/ccp4-6
+ 		 sys-apps/gawk
+ 		 >=dev-lang/python-2.4"
 DEPEND=""
 
 pkg_nofetch(){
@@ -25,8 +25,6 @@ pkg_nofetch(){
 	einfo "and place these files: ${A}"
 	einfo "in ${DISTDIR}"
 }
-
-S="arp_warp_${PV}"
 
 src_unpack() {
 	unpack ${A}
@@ -61,22 +59,22 @@ pkg_postinst(){
 
 	testcommand=$(echo 3 2 | awk '{printf"%3.1f",$1/$2}')
 	if [ $testcommand == "1,5" ];then
-	  ewarn "*** ERROR ***"
-	  ewarn "   3/2=" $testcommand
-	  ewarn "Invalid decimal separator (must be ".")"
-	  ewarn "You need to set this correctly!!!"
-	  ewarn
-	  ewarn "One way of setting the decimal separator is:"
-	  ewarn "setenv LC_NUMERIC C' in your .cshrc file"
-	  ewarn "\tor"
-	  ewarn "export LC_NUMERIC=C' in your .bashrc file"
-	  ewarn "Otherwise please consult your system manager"
-	  epause 10
+  	ewarn "*** ERROR ***"
+  	ewarn "   3/2=" $testcommand
+  	ewarn "Invalid decimal separator (must be ".")"
+  	ewarn "You need to set this correctly!!!"
+  	ewarn
+  	ewarn "One way of setting the decimal separator is:"
+  	ewarn "setenv LC_NUMERIC C' in your .cshrc file"
+  	ewarn "\tor"
+  	ewarn "export LC_NUMERIC=C' in your .bashrc file"
+  	ewarn "Otherwise please consult your system manager"
+  	epause 10
 	fi
 
 	grep -q sse2 /proc/cpuinfo || einfo "The CPU is lacking SSE2! You should use the cluster at EMBL-Hamburg."
 	einfo ""
-	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
+        einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
 }
 
 pkg_postrm() {
