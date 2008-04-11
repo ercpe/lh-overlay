@@ -47,8 +47,8 @@ src_install(){
 	doins "${S}"/share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
 
 	insinto /etc/profile.d/
-	newins "${S}"/share/arpwarp_setup_base.csh arpwarp_setup.csh
-	newins "${S}"/share/arpwarp_setup_base.bash arpwarp_setup.sh
+	newins "${S}"/share/arpwarp_setup_base.csh 90arpwarp_setup.csh
+	newins "${S}"/share/arpwarp_setup_base.bash 90arpwarp_setup.sh
 
 	dodoc "${S}"/README
 	dohtml -r "${S}"/manual/*
@@ -74,9 +74,7 @@ pkg_postinst(){
 	  epause 10
 	fi
 
-	grep -q sse2 /proc/cpuinfo || \
-	einfo ""
-	einfo "The CPU is lacking SSE2! You should use the cluster at EMBL-Hamburg."
+	grep -q sse2 /proc/cpuinfo || einfo "The CPU is lacking SSE2! You should use the cluster at EMBL-Hamburg."
 	einfo ""
 	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
 }
