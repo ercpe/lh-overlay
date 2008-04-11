@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Header: $
 
 inherit fortran eutils gnuconfig toolchain-funcs
 
@@ -8,11 +8,33 @@ FORTRAN="g77 gfortran ifc"
 
 SRC="ftp://ftp.ccp4.ac.uk/ccp4"
 
-PATCH_TOT="0"
-#PATCH1=( src/mmdb_app_
-#	chainsaw.cpp-11May2006.diff )
-#PATCH2=( src
-#	anisoanl.f-r1.22-r1.24.diff )
+PATCH_TOT="10"
+# Here's a little scriptlet to generate this list from the provided
+# index.patches file
+#
+# i=1; while read -a line; do [[ ${line//#} != ${line} ]] && continue; 
+# echo "PATCH${i}=( ${line[1]}"; echo "${line[0]} )"; (( i++ )); done < 
+# index.patches
+PATCH1=( src/topp_
+topp.f-r1.16.2.5-r1.16.2.6.diff )
+PATCH2=( .
+configure-r1.372.2.18-r1.372.2.19.diff )
+PATCH3=( src/scala_
+scala.f-r1.101.2.3-r1.101.2.4.diff )
+PATCH4=( ccp4i/src
+util_windows.tcl-r1.27-r1.27.2.1.diff )
+PATCH5=( src
+amore.f-r1.115-r1.116.diff )
+PATCH6=( src/bp3_
+crystal.C-r1.5-r1.6.diff )
+PATCH7=( src
+mtz2various.f-r1.124.2.3-r1.124.2.4.diff )
+PATCH8=( src
+rstats.f-r1.39-r1.40.diff )
+PATCH9=( src/refmac5_
+rharvest.fh-r1.13-r1.14.diff )
+PATCH10=( ccp4i/utils
+amore_utils.tcl-r1.14-r1.15.diff )
 
 DESCRIPTION="Protein X-ray crystallography toolkit"
 HOMEPAGE="http://www.ccp4.ac.uk/"
@@ -25,7 +47,7 @@ for i in $(seq $PATCH_TOT); do
 done
 LICENSE="ccp4"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="X"
 # app-office/sc overlaps sc binary and man page
 # We can't rename ours since the automated ccp4i interface expects it there,
@@ -78,30 +100,30 @@ src_unpack() {
 	# --bindir and --libdir instead of straight copying after build
 
 	# it attempts to install some libraries during the build
-	#ccp_patch ${FILESDIR}/${P}-install-libs-at-install-time.patch
+	#ccp_patch "${FILESDIR}"/${P}-install-libs-at-install-time.patch
 	# hklview/ipdisp.exe/xdlmapman/ipmosflm can't find libxdl_view
 	# without this patch when --libdir is set
 	# Rotgen still needs more patching to find it
-	#ccp_patch ${FILESDIR}/add-xdl-libdir.patch
+	#ccp_patch "${FILESDIR}"/add-xdl-libdir.patch
 
 	# it tries to create libdir, bindir etc on live system in configure
 	ccp_patch "${FILESDIR}"/${PV}-dont-make-dirs-in-configure.patch
 
-	# We already have sci-chemistry/rasmol
-	ccp_patch "${FILESDIR}"/dont-build-rasmol.patch
+	# We already have some stuff
+	ccp_patch "${FILESDIR}"/dont-build-what-we-have.patch
 
-	# We already have sci-chemistry/refmac
-	ccp_patch "${FILESDIR}"/dont-build-refmac.patch
+	# We already have sci-chemistry/rasmol
+	#ccp_patch "${FILESDIR}"/dont-build-rasmol.patch
 
 	# We already have sci-chemistry/pdb-extract
 # Use configure option instead
 #	ccp_patch "${FILESDIR}"/dont-build-pdb-extract.patch
 
-	ccp_patch "${FILESDIR}"/create-mosflm-bindir.patch
-	ccp_patch "${FILESDIR}"/make-mosflm-libdir.patch
-	ccp_patch "${FILESDIR}"/make-mosflm-index-libdir.patch
-	ccp_patch "${FILESDIR}"/make-mosflm-cbf-libdir.patch
-	ccp_patch "${FILESDIR}"/make-ipmosflm-dir.patch
+#	ccp_patch "${FILESDIR}"/create-mosflm-bindir.patch
+#	ccp_patch "${FILESDIR}"/make-mosflm-libdir.patch
+#	ccp_patch "${FILESDIR}"/make-mosflm-index-libdir.patch
+#	ccp_patch "${FILESDIR}"/make-mosflm-cbf-libdir.patch
+#	ccp_patch "${FILESDIR}"/make-ipmosflm-dir.patch
 
 # Don't use these when we aren't building phaser
 #	ccp_patch "${FILESDIR}"/make-phaser-bindir.patch
@@ -124,7 +146,7 @@ src_unpack() {
 	# gerror_ gets defined twice on ppc if you're using gfortran/g95
 	ccp_patch "${FILESDIR}"/${PV}-ppc-double-define-gerror.patch
 
-	#idate to uidate
+	# Replace IDATE with UIDATE for compat with gcc 4.1.2
 	ccp_patch "${FILESDIR}"/${PV}-gcc-4.1.2-idate-fix.patch
 
 	einfo "Done." # done applying Gentoo patches
@@ -169,14 +191,6 @@ src_compile() {
 		-e "s~^\(setenv CCP4I_TCLTK.*\)/usr/local/bin~\1/usr/bin~g" \
 		"${S}"/include/ccp4.setup*
 
-#	#FIX ifort
-#	if [[ "${FORTRANC}" = "ifort" ]]; then
-#		sed -i \
-#			-e "s/-fno-second-underscore//" \
-#			-e "s/-fno-globals//" \
-#			"${S}"/configure
-#	fi
-
 	# Set up variables for build
 	source "${S}"/include/ccp4.setup
 
@@ -219,10 +233,10 @@ src_install() {
 		-e "s~^\(setenv CCP4_MASTER.*\)${WORKDIR}~\1/usr~g" \
 		-e "s~^\(setenv CCP4.*\$CCP4_MASTER\).*~\1~g" \
 		-e "s~^\(setenv CCP4I_TOP\).*~\1 \$CCP4/$(get_libdir)/ccp4/ccp4i~g" \
-		-e "s~^\(.*setenv CINCL.*\$CCP4\).*~\1/share/ccp4/include~g" \
-		-e "s~^\(.*setenv CLIBD .*\$CCP4\).*~\1/share/ccp4/data~g" \
-		-e "s~^\(.*setenv CLIBD_MON .*\)\$CCP4.*~\1\$CLIBD/monomers/~g" \
-		-e "s~^\(.*setenv MOLREPLIB .*\)\$CCP4.*~\1\$CLIBD/monomers/~g" \
+		-e "s~^\(.*setenv CINCL.*\$CCP4\).*~\1\$CCP4/share/ccp4/include~g" \
+		-e "s~^\(.*setenv CLIBD .*\$CCP4\).*~\1\$CCP4/share/ccp4/data~g" \
+		-e "s~^\(.*setenv CLIBD_MON .*\)\$CCP4.*~\1/share/ccp4/data/monomers/~g" \
+		-e "s~^\(.*setenv MOLREPLIB .*\)\$CCP4.*~\1/share/ccp4/data/monomers/~g" \
 		-e "s~^\(.*setenv CCP4_BROWSER.*\).*~\1 firefox~g" \
 		"${S}"/include/ccp4.setup*
 
@@ -332,11 +346,16 @@ src_install() {
 #	dosym libxdl_view.so.2.0.0 /usr/$(get_libdir)/libxdl_view.so.2
 #	dosym libxdl_view.so.2.0.0 /usr/$(get_libdir)/libxdl_view.so.2.0
 
+	# Setup scripts
+	insinto /etc/profile.d
+	newins "${S}"/include/ccp4.setup-bash 10ccp4.setup.sh
+	newins "${S}"/include/ccp4.setup-dist 10ccp4.setup.csh
+	rm -f "${S}"/include/ccp4.setup-bash
+	rm -f "${S}"/include/ccp4.setup-dist
+
 	# Environment files, setup scripts, etc.
 	insinto /usr/share/ccp4/include
 	doins "${S}"/include/* || die
-	insinto /etc/profile.d
-	newins "${S}"/include/ccp4.setup-bash 10ccp4-setup.sh
 
 	# CCP4Interface - GUI
 	insinto /usr/$(get_libdir)/ccp4
@@ -347,9 +366,6 @@ src_install() {
 	# Data
 	insinto /usr/share/ccp4
 	doins -r "${S}"/lib/data || die
-
-	# Remove monomers as they are now provided by refmac
-	rm -r "${D}"/usr/share/ccp4/data/monomers || die
 
 	# Include files
 	insinto /usr/include
@@ -367,8 +383,8 @@ src_install() {
 	dodoc "${S}"/README "${S}"/CHANGES
 
 	dodoc "${S}"/doc/*
-	rm "${D}"/usr/share/doc/${PF}/GNUmakefile.gz
-	rm "${D}"/usr/share/doc/${PF}/COPYING.gz
+	rm "${D}"/usr/share/doc/${PF}/GNUmakefile.*
+	rm "${D}"/usr/share/doc/${PF}/COPYING.*
 
 	dohtml -r "${S}"/html/*
 	dodoc "${S}"/examples/README
@@ -391,7 +407,7 @@ src_install() {
 
 	for i in non-runnable runnable; do
 		docinto examples/unix/${i}
-		dodoc "${S}"/examples/unix/${i}
+		dodoc ""${S}""/examples/unix/${i}
 	done
 
 	# Needed for ccp4i docs to work
@@ -399,18 +415,18 @@ src_install() {
 	dosym ../../share/doc/${PF}/html /usr/$(get_libdir)/ccp4/html
 
 	# Fix overlaps with other packages
-	rm "${D}"/usr/share/man/man1/rasmol.1.gz
+	rm "${D}"/usr/share/man/man1/rasmol.1.*
 
+	# Remove monomers as they are now provided by refmac
+	rm -r "${D}"/usr/share/ccp4/data/monomers || die
+
+	# Prelink sucks
 	doenvd "${FILESDIR}"/70ccp4
 }
 
 pkg_postinst() {
 	einfo "The Web browser defaults to firefox. Change CCP4_BROWSER"
 	einfo "in /usr/share/ccp4/include/ccp4.setup* to modify this."
-
-	ewarn "Set your .bashrc or other shell login file to source"
-	ewarn "one of the ccp4.setup* files in ${ROOT}usr/share/ccp4/include."
-	ewarn "CCP4 will not work without this."
 }
 
 # Epatch wrapper for bulk patching

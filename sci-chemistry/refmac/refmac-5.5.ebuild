@@ -47,7 +47,7 @@ src_compile(){
 
 #	cat makefile
 #	emake clean	
-	CLIB="/usr/lib" emake -j1||die "compile"
+	CLIB="/usr/lib" emake -j1||die
 }
 src_install(){
 	exeinto /usr/lib/refmac/
