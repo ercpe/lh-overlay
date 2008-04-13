@@ -407,7 +407,7 @@ src_install() {
 
 	for i in non-runnable runnable; do
 		docinto examples/unix/${i}
-		dodoc ""${S}""/examples/unix/${i}
+		dodoc "${S}"/examples/unix/${i}
 	done
 
 	# Needed for ccp4i docs to work
@@ -415,7 +415,7 @@ src_install() {
 	dosym ../../share/doc/${PF}/html /usr/$(get_libdir)/ccp4/html
 
 	# Fix overlaps with other packages
-	rm "${D}"/usr/share/man/man1/rasmol.1.*
+	rm -f "${D}"/usr/share/man/man1/rasmol.1.*
 
 	# Remove monomers as they are now provided by refmac
 	rm -r "${D}"/usr/share/ccp4/data/monomers || die
