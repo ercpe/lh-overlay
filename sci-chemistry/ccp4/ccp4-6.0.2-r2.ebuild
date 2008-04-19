@@ -407,7 +407,7 @@ src_install() {
 
 	for i in non-runnable runnable; do
 		docinto examples/unix/${i}
-		dodoc "${S}"/examples/unix/${i}
+		dodoc "${S}"/examples/unix/${i}/*
 	done
 
 	# Needed for ccp4i docs to work

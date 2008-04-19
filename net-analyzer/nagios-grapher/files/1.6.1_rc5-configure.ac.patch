@@ -1,0 +1,43 @@
+diff -Nu -Nu -r NagiosGrapher-1.6.1-rc5-0.5.orig/configure.ac NagiosGrapher-1.6.1-rc5-0.5/configure.ac
+--- NagiosGrapher-1.6.1-rc5-0.5.orig/configure.ac	2007-08-20 08:43:38.000000000 +0200
++++ NagiosGrapher-1.6.1-rc5-0.5/configure.ac	2008-04-19 19:24:06.000000000 +0200
+@@ -70,7 +70,7 @@
+ 		s/^#.*$//m;
+ 		s/^\s+//gim;
+ 		s/\s+$/\n/gim;
+-		s/\+$/\/nagios_grapher/gim;
++		s/\+$/\/nagios-grapher/gim;
+ 		# m4 will not let us just use $1, we need @S|@1
+ 		s/^\s*(nagios_config|ng_config_sub|nagios_config_cgi|nagios_images|nagios_images_logos|nagios_folder_cgi|perl_inc|nagios_contribution|ng_config|ng_daemon|ng_srvext_dir|ng_rrd)\s*:\s*(.*)$/@S|@1=@S|@2/gim;
+ 		s/^\s*(.*?)\s*:\s*(.*)$/\(test "x\@S|@@S|@1" = "xNONE" || test "x\@S|@@S|@1" = "x") && @S|@1=@S|@2/gim;
+@@ -237,9 +237,9 @@
+ AC_ARG_WITH(init,
+ 	AC_HELP_STRING([--with-init=SCRIPT], [init script to install (see ./init_scripts/)]),
+ 	[AC_CHECK_FILE($withval,
+-		[cp $withval ./nagios_grapher.in],
+-		[NG_CHOOSE_INIT_SCRIPT([init_scripts/nagios_grapher], [default], [default], [./nagios_grapher.in])])],
+-	NG_CHOOSE_INIT_SCRIPT([init_scripts/nagios_grapher], [$DISTRO_NAME], [default], [./nagios_grapher.in])
++		[cp $withval ./nagios-grapher.in],
++		[NG_CHOOSE_INIT_SCRIPT([init_scripts/nagios-grapher], [default], [default], [./nagios-grapher.in])])],
++	NG_CHOOSE_INIT_SCRIPT([init_scripts/nagios-grapher], [$DISTRO_NAME], [default], [./nagios-grapher.in])
+ )
+ 
+ # get NG version
+@@ -347,7 +347,7 @@
+ #AC_ARG_WITH(ng-dir-daemon,
+ #	AC_HELP_STRING([--with-ng-dir-daemon=DIR], [the folder for the daemon data]),
+ #	NG_DAEMON=$withval,
+-#	NG_DAEMON=/usr/local/nagios/var/nagios_grapher
++#	NG_DAEMON=/usr/local/nagios/var/nagios-grapher
+ #)
+ #AC_SUBST(NG_DAEMON)
+ 
+@@ -451,7 +451,7 @@
+ 	sbin/graphs.cgi
+ 	sbin/rrd2-graph.cgi
+ 	sbin/rrd2-system.cgi
+-	nagios_grapher
++	nagios-grapher
+ 	cfg/ngraph.ncfg]
+ 	)
+ 

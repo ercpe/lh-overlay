@@ -1,0 +1,34 @@
+#!/sbin/runscript
+# Copyright 1999-2006 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+NAME="collect2.pl"
+DESC="nagios-grapher"
+DAEMON=@NAGIOS_CONTRIBUTION@/$NAME
+PIDFILE=@NG_DAEMON@/$DESC.pid
+
+depend() {
+	before nagios
+}
+
+start() {
+	ebegin "Starting nagios-grapher deamon"
+	start-stop-daemon --start --pidfile $PIDFILE --oknodo --exec $DAEMON
+	sleep 1
+	ps -p $(cat $PIDFILE) > /dev/null
+	if [ $? -eq 0 ]
+	then
+		eend 0
+	else
+		einfo "$NAME refused to start. Run '$DAEMON -v' for more information."
+		eend 1
+	fi
+}
+
+stop() {
+	ebegin "Stopping nagios-grapher deamon"
+	start-stop-daemon --stop --signal KILL --pidfile $PIDFILE --oknodo
+	eend $?
+}
+

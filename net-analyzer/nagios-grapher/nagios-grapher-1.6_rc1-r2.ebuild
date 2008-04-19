@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 # cvahldieck 2007-04
@@ -7,8 +7,8 @@ inherit eutils
 
 DESCRIPTION="Nagios Grapher - Daemon and CGIs for getting quite pretty charts out of nagios"
 HOMEPAGE="http://www.nagiosexchange.org/NagiosGrapher.84.0.html/"
-SRC_URI="http://de.geocities.com/fencheltee84/nagios/nagios-grapher-1.6.tar.gz \
-         http://de.geocities.com/fencheltee84/nagios/nagios-grapher-${PVR}.gentoo-patchset.tar.gz"
+SRC_URI="http://de.geocities.com/fencheltee84/nagios/nagios-grapher-1.6.tar.gz
+		 http://de.geocities.com/fencheltee84/nagios/nagios-grapher-${PVR}.gentoo-patchset.tar.gz"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
@@ -36,7 +36,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 	epatch files/${PVR}/collect2.pl.patch
 	epatch files/${PVR}/config.layout.patch
 	epatch files/${PVR}/configure.patch
@@ -45,36 +45,36 @@ src_unpack() {
 }
 
 src_compile() {
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 	cp files/${PVR}/nagios-grapher.in .
 	./configure --with-layout=gentoo --with-ng-interface=pipe || die "./configure failed"
-	cd  ${WORKDIR}/contrib/fifo_write/C
-	gcc fifo_write.c -o fifo_write
-	cd  ${WORKDIR}/contrib/udpecho
-	gcc udpecho.c -o udpecho
+	cd  "${WORKDIR}"/contrib/fifo_write/C
+	$(tc-getCC) ${CFLAGS} fifo_write.c -o fifo_write
+	cd  "${WORKDIR}"/contrib/udpecho
+	$(tc-getCC) ${CFLAGS} udpecho.c -o udpecho
 }
 
 src_install() {
-	cd ${WORKDIR}
+	cd "${WORKDIR}"
 
 	insinto /etc/nagios/
 	doins cfg/ngraph.ncfg
-	
+
 	insinto /usr/nagios/share/images
 	doins dot.png graph.png
-	
+
 	exeinto /usr/nagios/sbin
 	doexe graphs.cgi rrd2-graph.cgi rrd2-system.cgi
-	
+
 	exeinto /usr/nagios/contrib
 	doexe collect2.pl contrib/fifo_write/C/fifo_write contrib/udpecho/udpecho
-	
+
 	exeinto /etc/perl
 	doexe NagiosGrapher.pm
-	
+
 	exeinto /etc/init.d
 	doexe nagios-grapher
-	
+
 	cd doc
 	dodoc ABOUT AUTHORS CHANGELOG CONFIG INSTALL LAYOUT VERSION
 	docinto examples

@@ -1,0 +1,12 @@
+diff -Nu -Nu -r NagiosGrapher-1.6.1-rc5-0.5.orig/cfg/ngraph.ncfg.in NagiosGrapher-1.6.1-rc5-0.5/cfg/ngraph.ncfg.in
+--- NagiosGrapher-1.6.1-rc5-0.5.orig/cfg/ngraph.ncfg.in	2007-08-10 17:05:31.000000000 +0200
++++ NagiosGrapher-1.6.1-rc5-0.5/cfg/ngraph.ncfg.in	2008-04-19 19:55:54.000000000 +0200
+@@ -12,7 +12,7 @@
+     interface               @NG_INTERFACE@
+ 
+     # please use subfolder
+-    pidfile                 @NG_DAEMON@/nagios_grapher.pid
++    pidfile                 @NG_DAEMON@/nagios-grapher.pid
+     user                    @NAGIOS_PROC_USER@
+     group                   @NAGIOS_PROC_GROUP@
+ 
