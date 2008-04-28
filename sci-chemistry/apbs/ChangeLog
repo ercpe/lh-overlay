@@ -1,62 +1,67 @@
-# ChangeLog for sci-chemistry/apbs
+# ChangeLog for <CATEGORY>/<PACKAGE_NAME>
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/ChangeLog,v 1.16 2008/01/12 13:44:08 markusle Exp $
+# $Header: $
 
-  12 Jan 2008; Markus Dittrich <markusle@gentoo.org> apbs-0.5.1.ebuild:
-  Fixed improper link path for libapbsblas.a (fixes bug #205310).
+*<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 
-  31 Jul 2007; Jeff Gardner <je_fro@gentoo.org> -apbs-0.4.0.ebuild:
-  Removing unused version/files.
+  DD MMM YYYY; YOUR_NAME <YOUR_EMAIL> changed_file1, changed_file2 :
+  Initial import.  Ebuild submitted by submitter_name <submitter_email>.
+  Note that the "changed_file" listing is optional if you are simply bumping
+  the rev of the ebuild and are only making changes to the .ebuild file
+  itself.  Also note that we now have a single unified paragraph rather than
+  having the first line separated from the rest by a newline.  Everything
+  should be in one block like this. (note by drobbins, 16 Jul 2002)
 
-  18 Jul 2007; Jeff Gardner <je_fro@gentoo.org> ChangeLog:
-  Add apbs-0.5.1 which includes many bugfixes and new features.
+  DD MMM YYYY; YOUR_NAME <YOUR_EMAIL> changed_file1, changed_file2: this is
+  an earlier ChangeLog entry.
+ 
+-- Explanation of ChangeLog format:
 
-  24 Feb 2007; Jeff Gardner <je_fro@gentoo.org> apbs-0.5.0.ebuild:
-  Cleanup apbs-0.5.0.ebuild.
+  ***************************************************************************
+  THIS IS IMPORTANT: The ChangeLog format is a *chronological* account of all
+  changes made to a set of ebuilds. That means that the most recent ChangeLog
+  entry *always* goes at the top of the file. More explanation below.
+  ***************************************************************************
 
-*apbs-0.5.0 (23 Feb 2007)
+  ***************************************************************************
+  ANOTHER IMPORTANT NOTE: There are some ChangeLogs that don't follow this
+  format and organize all changes under the "correct" "*" entry. This is not
+  correct. However, rather than making a concerted effort to fix these
+  ChangeLogs, we should spend our energy defining a comprehensive and strict
+  XML-based ChangeLog format which we then migrate to. But for any entries to
+  any ChangeLog that *you* make, please make sure to always add entries to the
+  top of the file like a good boy/girl. Even do this if it's clear that you're
+  adding an entry to a b0rked ChangeLog.
+  ***************************************************************************
+  
+  This changelog is targeted to users. This means that the comments should be
+  well explained and written in clean English.
+ 
+  Every new version or revision of the package should be marked by a '*'
+  separator line as above to indicate where in the chronology it was first
+  added to our CVS tree. Any changes since the last revision, really _any
+  changes at all_ have to be added to the top of the file, underneath the
+  initial copyright and cvs header comments, in exactly the same format as this
+  comment. If you are modifying older ebuilds, simply note them as changed
+  files and add your entry to the top of the ChangeLog. Resist the temptation
+  to "organize" your ChangeLog entries by placing them under the "correct" "*"
+  entries -- this isn't the purpose of the "*" entries.
+  
+  This means that you start with header line that has the following format,
+  indented two spaces:
+  
+  DD MMM YYYY; your_name <your_email> changed_file1, changed_file2: Your
+  explanation should follow. It should be indented and wrapped at a line width
+  of 80 characters.  The changed_files can be omitted if they are obvious; for
+  example, if you are only modifying the .ebuild file and committing a new rev
+  of a package.  Any details about what exactly changed in the code should be
+  added as a message when the changes are committed to cvs, not in this file.
 
-  23 Feb 2007; Jeff Gardner <je_fro@gentoo.org> +apbs-0.5.0.ebuild:
-  Add apbs-0.5.0 with Big Thanks(tm) to Stephen Floor.
+-- A word regarding credit:
 
-  06 Jan 2007; Danny van Dyk <kugelfang@gentoo.org> -apbs-0.3.2.ebuild:
-  QA: Removed unused versions.
+  Please add credit information ("ebuild submitted by ...", "patch submitted
+  by ...") to the ChangeLog. Do not add this information to the ebuilds
+  themselves.
 
-  12 Oct 2006; Jeff Gardner <je_fro@gentoo.org>; apbs-0.4.0.ebuild:
-  Keyword ~amd64
-
-  20 Sep 2006; Donnie Berkholz <dberkholz@gentoo.org>; metadata.xml:
-  (#148281) Change herd to sci-chemistry from sci.
-
-  16 Sep 2006; Donnie Berkholz <dberkholz@gentoo.org>; apbs-0.4.0.ebuild:
-  Keyword ~ppc.
-
-  07 Jul 2006; Donnie Berkholz <spyderous@gentoo.org>; ChangeLog:
-  Update to my new email address.
-
-  31 May 2006; Donnie Berkholz <dberkholz@gentoo.org>; apbs-0.4.0.ebuild:
-  Fix crackrock SRC_URI, reported by Brian Harring.
-
-  23 May 2006; Markus Dittrich <markusle@gentoo.org>
-  +files/apbs-gcc4-gentoo.patch, apbs-0.4.0.ebuild:
-  Added patch to enable compilation with gcc-4.1.
-
-  27 Apr 2006; Alec Warner <antarus@gentoo.org> files/digest-apbs-0.3.2,
-  Manifest:
-  Fixing SHA256 digest, pass four
-
-*apbs-0.4.0 (08 Mar 2006)
-
-  08 Mar 2006; Markus Dittrich <markusle@gentoo.org> +apbs-0.4.0.ebuild, +apbs-examples-gentoo.patch:
-  Version bump. Thanks to je_fro <je_fro@yahoo.com> for the ebuild
-  (see bug #124793).
-
-  13 Dec 2005; Markus Dittrich <markusle@gentoo.org> metadata.xml:
-  marked apbs-0.3.2.ebuild as ~x86
-
-*apbs-0.3.2 (20 Oct 2005)
-
-  20 Oct 2005; Olivier Fisette <ribosome@gentoo.org> +metadata.xml,
-  +apbs-0.3.2.ebuild:
-  Initial import. Thanks to Markus Dittrich <markusle@gmail.com> for his work.
-
+  And remember: Give credit where credit is due. We're all doing this for
+  free, so the best we can hope (and expect!) to receive is credit.

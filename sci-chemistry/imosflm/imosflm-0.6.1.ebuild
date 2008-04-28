@@ -12,8 +12,17 @@ SRC_URI="http://www.mrc-lmb.cam.ac.uk/harry/${PN}/downloads/${PN}.tar.gz"
 HOMEPAGE="http://www.mrc-lmb.cam.ac.uk/harry/${PN}/"
 IUSE=""
 RESTRICT="mirror"
+RDEPEND=">=dev-tcltk/itcl-3.3
+		 >=dev-tcltk/itk-3.3
+		 >=dev-tcltk/iwidgets-4
+		 >=dev-tcltk/tkimg-1.3
+		 >=dev-tcltk/tdom-0.8
+		 >=dev-tcltk/tktreectrl-2.1
+		 >=sci-chemistry/mosflm-7.0.3"
+DEPEND=""
 
-S=${PN}
+
+S="${WORKDIR}"/${PN}
 
 src_unpack(){
 	unpack ${A}
@@ -21,16 +30,26 @@ src_unpack(){
 }
 
 src_compile(){
-	cd "${S}"/c
+	cd c
 	$(tc-getCC) ${CFLAGS} -fPIC -shared -DUSE_TCL_STUBS -DTK_USE_STUBS tkImageLoadDLL.c tkImageLoad.c \
-				-o tkImageLoad.so -ltclstub8.4 -ltclstub8.4
+				-o tkImageLoad.so -ltclstub -ltclstub
 }
 
 src_install(){
-	insinto /usr/lib/${PN}
+	insinto /usr/$(get_libdir)/${PN}
 	doins -r "${S}"/{lib,src,bitmaps}
-	fperms 775 /usr/lib/${PN}/src/imosflm
-	insinto /usr/lib/${PN}/lib/
+	fperms 775 /usr/$(get_libdir)/${PN}/src/imosflm
+	insinto /usr/$(get_libdir)/${PN}/lib/
 	doins "${S}"/c/tkImageLoad.so
-	dosym ../lib/${PN}/src/imosflm /usr/bin/imosflm
-}
+
+	cat >> "${T}"/imoslfm <<- EOF
+	#!/bin/sh
+	export MOSFLM_WISH="/usr/bin/wish8.4"
+
+	cd /usr/$(get_libdir)/${PN}/src/
+	exec ./imosflm
+	EOF
+
+	exeinto /usr/bin
+	doexe "${T}"/imoslfm
+}+
