@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 RESTRICT="mirror"
 SLOT="0"
 IUSE="blas mpi"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="~x86 ~amd64"
 
 DEPEND="blas? ( virtual/blas )
 		sys-libs/readline
@@ -35,7 +35,7 @@ src_compile() {
 		|| die "failed to fix configure"
 
 	# use blas
-	use blas && local myconf="--with-blas=-lblas"
+	use blas && local myconf="--with-blas='-L/usr/lib/ -lblas'"
 
 	use mpi && myconf="${myconf} --with-mpiinc=/usr/include"
 
