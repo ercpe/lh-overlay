@@ -19,7 +19,7 @@ RDEPEND=">=dev-lang/python-2.4
 		 >=dev-lang/swig-1.3"
 DEPEND=""
 
-S="${MY_PN}-${MY_PV}"
+S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 src_unpack(){
 	unpack ${A}
@@ -46,39 +46,61 @@ src_install(){
 
 	sed -e "s:EXECUTABLE_TYPE${MY_PV}=xxx:EXECUTABLE_TYPE${MY_PV}=${EXECUTABLE_TYPE}:g" \
 		-e "s:MODINSTALL${MY_PV}=xxx:MODINSTALL${MY_PV}=\"${IN_PATH}\":g" \
-		"${S}"/bin/modscript > "${T}/mod${MY_PV}"
+		bin/modscript > "${T}/mod${MY_PV}"
 	exeinto ${IN_PATH}/bin/
 	doexe "${T}/mod${MY_PV}"
 	dosym ${IN_PATH}/bin/mod${MY_PV} /opt/bin/mod${MY_PV}
 
 	sed -e "s;@TOPDIR\@;\"${IN_PATH}\";" \
 		-e "s;@EXETYPE\@;$EXECUTABLE_TYPE;" \
-		"${S}"/bin/modpy.sh.in > "${T}/modpy.sh"
+		bin/modpy.sh.in > "${T}/modpy.sh"
 	doexe "${T}/modpy.sh"
 
-	insinto ${IN_PATH}/bin/
-	doins -r "${S}"/bin/{lib,*top}
-	exeinto ${IN_PATH}/bin/
-	doexe "${S}"/bin/{modslave.py,mod${MY_PV}_${EXECUTABLE_TYPE}}
+	insinto ${IN_PATH}
+	doins -r modlib
 
-	cd "${S}"/src/swig
-	python setup.py install --prefix="${D}"/usr
-	cd -
-
-	dosym /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so \
-		  ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so
+	insinto ${IN_PATH}/bin
+	doins bin/{lib,*top}
+	exeinto ${IN_PATH}/bin
+	doexe bin/{modslave.py,mod${MY_PV}_${EXECUTABLE_TYPE}}
 
 	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/
-	doexe "${S}"/lib/${EXECUTABLE_TYPE}/lib*
+	doexe lib/${EXECUTABLE_TYPE}/lib*
 	dosym libmodeller.so.2 ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
+	doexe src/swig/build/lib.linux-$(uname -m)-${PYVER}/_modeller.so
 
-	insinto ${IN_PATH}/modlib/
-	doins -r "${S}"/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
-
+	dodoc README INSTALLATION
+	dohtml doc
 	insinto /usr/share/${PN}/
-	doins -r "${S}"/examples
-	dohtml "${S}"/doc/*
-	dodoc "${S}"/{README,ChangeLog}
+	doins examples
+
+	dosym ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so \
+		  /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so
+
+
+#	insinto ${IN_PATH}/bin/
+#	doins -r "${S}"/bin/{lib,*top}
+#	exeinto ${IN_PATH}/bin/
+#	doexe "${S}"/bin/{modslave.py,mod${MY_PV}_${EXECUTABLE_TYPE}}
+
+#	cd "${S}"/src/swig
+#	python setup.py install --prefix="${D}"/usr
+#	cd -
+
+#	dosym /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so \
+#		  ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so
+
+#	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/
+#	doexe "${S}"/lib/${EXECUTABLE_TYPE}/lib*
+#	dosym libmodeller.so.2 ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
+
+#	insinto ${IN_PATH}/modlib/
+#	doins -r "${S}"/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
+
+#	insinto /usr/share/${PN}/
+#	doins -r "${S}"/examples
+#	dohtml "${S}"/doc/*
+#	dodoc "${S}"/{README,ChangeLog}
 
 	cat >> "${T}/config.py" <<- EOF
 	install_dir = "${IN_PATH}/"
