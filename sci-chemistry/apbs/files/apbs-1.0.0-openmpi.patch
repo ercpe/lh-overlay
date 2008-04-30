@@ -1,0 +1,49 @@
+diff -Naur apbs-1.0.0-source/configure.ac apbs-1.0.0-source.new/configure.ac
+--- apbs-1.0.0-source/configure.ac	2008-04-17 16:44:51.000000000 -0400
++++ apbs-1.0.0-source.new/configure.ac	2008-04-28 17:51:47.000000000 -0400
+@@ -521,28 +521,27 @@
+ 		fi
+ 	fi
+ 	
+-#	if test -n "${USE_OPMI}"; then
+-#		AC_CHECK_FILE(${mpi_path}/lib/libmpi.a, [HAS_MPI_LIB="yes"], [])
+-#		AC_CHECK_FILE(${mpi_path}/lib/libmpi.so, [HAS_MPI_LIB="yes"], [])
+-#		AC_CHECK_FILE(${mpi_path}/lib/liblam.dylib, [HAS_MPI_LIB="yes"], [])
+-#		if test -n "${HAS_MPI_LIB}"; then
+-#			mpi_lib="-L${mpi_path}/lib -lmpi"
+-#		else
+-#			AC_MSG_ERROR([Error...Could not find LAM-MPI libraries in ${mpi_path}/lib], 0)
+-#		fi
+-#	fi
++	if test -n "${USE_OPMI}"; then
++		AC_CHECK_FILE(${mpi_path}/lib/libmpi.a, [HAS_MPI_LIB="yes"], [])
++		AC_CHECK_FILE(${mpi_path}/lib/libmpi.so, [HAS_MPI_LIB="yes"], [])
++		if test -n "${HAS_MPI_LIB}"; then
++			mpi_lib="-L${mpi_path}/lib -lmpi"
++		else
++			AC_MSG_ERROR([Error...Could not find OPEN-MPI libraries in ${mpi_path}/lib], 0)
++		fi
++	fi
+ 
+ 	USE_MPI="yes"
+ fi
+ 
+-if test -n "${USE_OPMI}"; then
+-  	HAS_MPI_LIB="yes"
+-	HAS_MPI_INC="yes"
+-	mpi_inc=""
+-	mpi_lib=""
+-	AC_DEFINE([HAVE_MPI_H], [], [have the MPI library])
+-	USE_MPI="yes"
+-fi	
++#if test -n "${USE_OPMI}"; then
++#  	HAS_MPI_LIB="yes"
++#	HAS_MPI_INC="yes"
++#	mpi_inc=""
++#	mpi_lib=""
++#	AC_DEFINE([HAVE_MPI_H], [], [have the MPI library])
++#	USE_MPI="yes"
++#fi	
+ 
+ AC_SUBST(mpi_lib)
+ AC_SUBST(mpi_inc)

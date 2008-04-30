@@ -1,22 +1,23 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-0.5.1.ebuild,v 1.2 2008/01/12 13:44:08 markusle Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-1.0.0.ebuild,v 1.2 2008/04/30 01:18:01 mr_bones_ Exp $
 
-inherit eutils fortran
+inherit eutils fortran autotools
 
 MY_P="${P}-source"
 S="${WORKDIR}"/"${MY_P}"
 
 DESCRIPTION=" Software for evaluating the electrostatic properties of nanoscale biomolecular systems"
-LICENSE="GPL-2"
+LICENSE="BSD"
 HOMEPAGE="http://agave.wustl.edu/apbs/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
-RESTRICT="mirror"
+
 SLOT="0"
-IUSE="blas mpi"
-KEYWORDS="~x86 ~amd64"
+IUSE="blas mpi python doc"
+KEYWORDS="~ppc ~x86 ~amd64"
 
 DEPEND="blas? ( virtual/blas )
+		python? ( dev-lang/python )
 		sys-libs/readline
 		mpi? ( virtual/mpi )"
 
@@ -28,45 +29,47 @@ pkg_setup() {
 	fortran_pkg_setup
 }
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}"/${P}-openmpi.patch
+	epatch "${FILESDIR}"/${P}-install-fix.patch
+	epatch "${FILESDIR}"/${P}-libmaloc-noinstall.patch
+
+	sed -e "s:GENTOO_PKG_NAME:${PN}:" -i Makefile.am \
+		|| die "Failed to fix Makefile.am"
+
+	eautoreconf
+}
+
 src_compile() {
-	# fix apbsblas
-	sed -e "s:-L\${prefix}/lib -lapbsblas:${S}//contrib/blas/.libs/libapbsblas.a:" \
-		-i configure \
-		|| die "failed to fix configure"
+	local myconf
+	use blas && myconf="${myconf} --with-blas=-lblas"
 
-	# use blas
-	use blas && local myconf="--with-blas='-L/usr/lib/ -lblas'"
+	# check which mpi version is installed and tell configure
+	if use mpi; then
+		if has_version sys-cluster/mpich; then
+	 		myconf="${myconf} --with-mpich=/usr"
+		elif has_version sys-cluster/mpich2; then
+			myconf="${myconf} --with-mpich2=/usr"
+		elif has_version sys-cluster/lam-mpi; then
+			myconf="${myconf} --with-lam=/usr"
+		elif has_version sys-cluster/openmpi; then
+			myconf="${myconf} --with-openmpi=/usr"
+		fi
+	fi || die "Failed to select proper mpi implementation"
 
-	use mpi && myconf="${myconf} --with-mpiinc=/usr/include"
+	econf $(use_enable python) \
+		${myconf} || die "configure failed"
 
-	econf ${myconf} || die "configure failed"
+	emake -j1 || die "make failed"
+}
 
-	# build
-	make DESTDIR="${D}" || die "make failed"
+src_test() {
+	cd examples && make test \
+		|| die "Tests failed"
 }
 
 src_install() {
-
-	# install apbs binary
-	dobin bin/apbs || die "failed to install apbs binary"
-
-	# remove useless files and install docs
-	find ./examples -name 'test.sh' -exec rm -f {} \; || \
-		die "Failed to remove test.sh files"
-	find ./examples -name 'Makefile*' -exec rm -f {} \; || \
-		die "Failed to remove Makefiles"
-	find ./tools -name 'Makefile*' -exec rm -f {} \; || \
-		die "Failed to remove Makefiles"
-
-	dohtml -r doc/index.html doc/programmer doc/tutorial \
-		doc/user-guide doc/license || \
-			die "Failed to install html docs"
-
-	insinto /usr/share/doc/${PF}/examples
-	doins -r examples/* || \
-		die "Failed to install examples"
-
-	insinto /usr/share/${PN}/tools
-	doins -r tools/* || die "failed to install tools"
-
+	make DESTDIR="${D}" install || die "make install failed"
 }
