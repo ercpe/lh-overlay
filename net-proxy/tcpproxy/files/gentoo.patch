@@ -1,0 +1,24 @@
+--- makefile	2007-10-24 13:59:46.000000000 +0000
++++ makefilepatch	2007-10-25 11:02:28.000000000 +0000
+@@ -19,16 +19,16 @@
+ 
+ install:	all
+ 	strip $(TARGETS)
+-	cp $(TARGETS) /usr/local/sbin
+-	cp *.1 /usr/local/man/man1
++#	cp $(TARGETS) /usr/sbin
++#	cp *.1 /usr/local/man/man1
+ 
+ 
+ tcpproxy:	$(TCPPROXY)
+ 	$(CC) -o $@ $(TCPPROXY)
+ 
+-debian:		all
+-	strip $(TARGETS)
+-	deb-packager $(PROGRAM) $(VERSION)+$(DEBRELEASE) debian/files.list
++#debian:		all
++#	strip $(TARGETS)
++#	deb-packager $(PROGRAM) $(VERSION)+$(DEBRELEASE) debian/files.list
+ 
+ tar:		clean
+ 	rm -f *.deb
