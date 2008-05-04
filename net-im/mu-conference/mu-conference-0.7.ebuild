@@ -17,7 +17,7 @@ SLOT="0"
 DEPEND="dev-libs/expat
 	>=dev-libs/glib-2
 	net-dns/libidn
-	net-im/jabberd
+	(net-im/jabberd net-im/jabberd2)
 	mysql? ( virtual/mysql )"
 
 IUSE="mysql"
