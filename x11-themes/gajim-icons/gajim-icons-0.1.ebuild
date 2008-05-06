@@ -9,8 +9,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
-RDEPEND=""
-DEPEND="net-im/gajim"
+RDEPEND="net-im/gajim"
+DEPEND=""
 RESTRICT="mirror"
 
 src_install(){
