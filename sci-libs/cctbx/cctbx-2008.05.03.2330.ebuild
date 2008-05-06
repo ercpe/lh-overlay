@@ -1,4 +1,4 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ DESCRIPTION="Computational Crystallography Toolbox"
 HOMEPAGE="http://cctbx.sourceforge.net/"
 #SRC_URI="mirror://gentoo/cctbx_bundle-${PV}.tar.gz"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/${CATEGORY}/${PN}/${P}.tar.gz"
-LICENSE="cctbx"
+LICENSE="cctbx-2.0"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -17,7 +17,8 @@ RDEPEND=""
 DEPEND="dev-util/scons"
 RESTRICT="mirror"
 
-S="${WORKDIR}"/cctbx_sources
+S="${WORKDIR}"
+MY_S="${WORKDIR}"/cctbx_sources
 
 src_unpack() {
 	unpack ${A}
@@ -37,13 +38,19 @@ src_compile() {
 	# Fix CXXFLAGS
 	sed -i \
 		-e "s:\"-O3\", \"-ffast-math\":${OPTS}:g" \
-		${S}/libtbx/SConscript
+		${MY_S}/libtbx/SConscript
 
 	# Get compiler in the right way
 	COMPILER=$(expr match "$(tc-getCC)" '.*\([a-z]cc\)')
 
-	${python} libtbx/configure.py \
+	${python} "${MY_S}/libtbx/libtbx/command_line/py_compile_all.py"
+
+	mkdir "${S}"/cctbx_build
+	cd "${S}"/cctbx_build
+	${python} "${MY_S}"/libtbx/configure.py \
 		--compiler=$COMPILER \
+		--current_working_directory="${S}"/cctbx_build \
+		--build=release \
 		mmtbx \
 		|| die "configure failed"
 	source setpaths_all.sh
