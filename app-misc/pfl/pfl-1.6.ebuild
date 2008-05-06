@@ -22,12 +22,12 @@ src_unpack(){
 
 src_install(){
 	python_version
-cat >> "${T}/pfl" << EOF
-#!/bin/sh
+	cat >> "${T}/pfl" <<- EOF
+	#!/bin/sh
 
-exec nice ${python} -O /usr/lib/pfl/pfl.py
+	exec nice ${python} -O /usr/lib/pfl/pfl.py
 
-EOF
+	EOF
 
 	exeinto /etc/cron.daily/
 	doexe "${T}/pfl"
