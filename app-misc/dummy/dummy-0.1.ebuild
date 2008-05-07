@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils versionator
 
 DESCRIPTION="Dummy package to get portage overlay running"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/dummy/${P}.tar.bz2"
@@ -20,7 +20,6 @@ pkg_setup(){
 	sse2=0
 	ebegin "Checking SSE2 availability!"
 	grep -q sasdse2 /proc/cpuinfo
-#	eend ${sse2}
 	eend $? "test
 	\t\t\t\t\t ***WARNING***"
 	ewarn "\t\t The CPU on this hardware platform is lacking the SSE2 instruction set!"
@@ -35,7 +34,9 @@ src_unpack() {
 }
 
 src_install() {
-	ls -lah .
+	echo $(best_version dev-lang/tk)
+	echo $(has_version dev-lang/tk)
+	get_all_version_components $(best_version dev-lang/tk)
 	mkdir -p "${D}/usr/local/bin/"
 	cp dummy.sh "${D}/usr/local/bin/"
 	chmod +x "${D}/usr/local/bin/dummy.sh"

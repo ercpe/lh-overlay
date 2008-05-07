@@ -1,0 +1,11 @@
+--- Src/MPI/compile.py.orig	2007-09-15 11:11:53.739580548 +0100
++++ Src/MPI/compile.py	2007-09-15 11:12:49.798775179 +0100
+@@ -13,7 +13,7 @@
+ sources='mpipython.c Scientific_mpi.c'
+ 
+ 
+-cmd = '%s %s -o mpipython -I%s %s -L%s -lpython%s %s %s' % \
++cmd = '%s %s -o mpipython -I%s -I../../Include %s -L%s -lpython%s %s %s' % \
+     (mpicompiler, 
+     cfgDict['LINKFORSHARED'],
+     cfgDict['INCLUDEPY'],

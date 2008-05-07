@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils python
+inherit eutils python distutils
 
 MY_PV="${PV/./v}"
 MY_PN="${PN%-bin}"
@@ -29,7 +29,8 @@ src_unpack(){
 src_compile(){
 	cd src/swig
 	swig -python -keyword -nodefaultctor -nodefaultdtor -noproxy modeller.i
-	python setup.py build
+	distutils_src_compile
+	#python setup.py build
 }
 
 src_install(){
