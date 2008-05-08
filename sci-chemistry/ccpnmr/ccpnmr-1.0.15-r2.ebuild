@@ -102,24 +102,24 @@ src_install(){
 	EOF
 
 	cat >> "${T}"/dataShifter <<- EOF
-	${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/format/gui/DataShifter.py
 	EOF
 
 	cat >> "${T}"/formatConverter <<- EOF
-	${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/format/gui/FormatConverter.py \$1 \$2
 	EOF
 
 	cat >> "${T}"/pipe2azara <<- EOF
-	${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
 	EOF
 
 #Perhaps the two update wrapper shouldn't be.
 	cat >> "${T}"/updateAll <<- EOF
-	${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/update/UpdateAuto.py
 	EOF
 
 	cat >> "${T}"/updateCheck <<- EOF
-	${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/update/UpdatePopup.py
 	EOF
 
 	einfo "Installing wrapper"

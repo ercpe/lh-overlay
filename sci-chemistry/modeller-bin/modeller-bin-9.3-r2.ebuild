@@ -11,7 +11,7 @@ KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Protein structure modeling by satisfaction of spatial restraints"
 SRC_URI="http://salilab.org/${MY_PN}/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz"
 HOMEPAGE="http://salilab.org/${MY_PN}/"
-IUSE=""
+IUSE="doc examples"
 RESTRICT="mirror"
 SLOT="0"
 
@@ -30,7 +30,6 @@ src_compile(){
 	cd src/swig
 	swig -python -keyword -nodefaultctor -nodefaultdtor -noproxy modeller.i
 	distutils_src_compile
-	#python setup.py build
 }
 
 src_install(){
@@ -71,66 +70,21 @@ src_install(){
 	doexe src/swig/build/lib.linux-$(uname -m)-${PYVER}/_modeller.so
 
 	dodoc README INSTALLATION
-	dohtml doc/*
-	insinto /usr/share/${PN}/
-	doins -r examples
+	if use doc; then
+		dohtml doc/*
+	fi
+	if use examples; then
+		insinto /usr/share/${PN}/
+		doins -r examples
+	fi
 
 	dosym ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so \
 		  /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so
-
-
-#	insinto ${IN_PATH}/bin/
-#	doins -r "${S}"/bin/{lib,*top}
-#	exeinto ${IN_PATH}/bin/
-#	doexe "${S}"/bin/{modslave.py,mod${MY_PV}_${EXECUTABLE_TYPE}}
-
-#	cd "${S}"/src/swig
-#	python setup.py install --prefix="${D}"/usr
-#	cd -
-
-#	dosym /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so \
-#		  ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so
-
-#	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/
-#	doexe "${S}"/lib/${EXECUTABLE_TYPE}/lib*
-#	dosym libmodeller.so.2 ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
-
-#	insinto ${IN_PATH}/modlib/
-#	doins -r "${S}"/modlib/{*mat,*lib,*prob,*mdt,*bin,*de,*inp,*ini,modeller}
-
-#	insinto /usr/share/${PN}/
-#	doins -r "${S}"/examples
-#	dohtml "${S}"/doc/*
-#	dodoc "${S}"/{README,ChangeLog}
-
-#	cat >> "${T}/config.py" <<- EOF
-#	install_dir = "${IN_PATH}/"
-#	EOF
-#	license = "YOURLICENSEKEY"
-#	EOF
-
-#	insinto ${IN_PATH}/modlib/modeller/
-#	doins "${T}/config.py"
 }
 
-#pkg_postinst(){
-#	einfo ""
-#	einfo " If you need to define your own residues"
-#	einfo " read the FAQ and edit the following files:"
-#	einfo ""
-#	einfo "    ${MY_D}/modlib/top_heav.lib"
-#	einfo "    ${MY_D}/modlib/radii.lib"
-#	einfo "    ${MY_D}/modlib/radii14.lib"
-#	einfo "    ${MY_D}/modlib/restyp.lib"
-#	einfo ""
-#	ewarn "Obtain a license Key from"
-#	ewarn "http://salilab.org/modeller/registration.html"
-#	ewarn "and change the appropriate line in"
-#	ewarn "${IN_PATH}/modlib/modeller/config.py"
-#}
 pkg_postinst() {
 	if [[ ! -e "${IN_PATH}/modlib/modeller/config.py" ]]; then
-		echo install_dir = "${IN_PATH}/"> ${IN_PATH}/modlib/modeller/config.py
+		echo install_dir = '"'"${IN_PATH}/"'"'> ${IN_PATH}/modlib/modeller/config.py
 	fi
 
 	if grep -q license ${IN_PATH}/modlib/modeller/config.py; then
@@ -165,7 +119,7 @@ pkg_config() {
 		else
 			if [[ "$license_key1" == "$license_key2" ]]
 			then
-				echo license = "$license_key1" >> "${IN_PATH}/modlib/modeller/config.py"
+				echo license = '"'$license_key1'"' >> "${IN_PATH}/modlib/modeller/config.py"
 				einfo "Thank you!"
 				break
 			else
