@@ -97,37 +97,28 @@ src_install(){
 
 	einfo "Creating launch wrapper"
 
-	cat >> "${T}"/base <<- EOF
-	#!/bin/sh
-	export CCPNMR_TOP_DIR=${IN_PATH}
-	export PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
-	export LD_LIBRARY_PATH=/usr/$(get_libdir)
-	export TCL_LIBRARY=/usr/$(get_libdir)/tcl$tk_ver
-	export TK_LIBRARY=/usr/$(get_libdir)/tk$tk_ver
-	EOF
-
-	cat >> "${T}"/analysis << EOF
+	cat >> "${T}"/analysis <<- EOF
 	${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py \$1 \$2 \$3 \$4 \$5
 	EOF
 
-	cat >> "${T}"/dataShifter << EOF
+	cat >> "${T}"/dataShifter <<- EOF
 	${python} -O \${PYTHONPATH}/ccpnmr/format/gui/DataShifter.py
 	EOF
 
-	cat >> "${T}"/formatConverter << EOF
+	cat >> "${T}"/formatConverter <<- EOF
 	${python} -O \${PYTHONPATH}/ccpnmr/format/gui/FormatConverter.py \$1 \$2
 	EOF
 
-	cat >> "${T}"/pipe2azara << EOF
+	cat >> "${T}"/pipe2azara <<- EOF
 	${python} -O \${PYTHONPATH}/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
 	EOF
 
 #Perhaps the two update wrapper shouldn't be.
-	cat >> "${T}"/updateAll << EOF
+	cat >> "${T}"/updateAll <<- EOF
 	${python} -O \${PYTHONPATH}/ccpnmr/update/UpdateAuto.py
 	EOF
 
-	cat >> "${T}"/updateCheck << EOF
+	cat >> "${T}"/updateCheck <<- EOF
 	${python} -O \${PYTHONPATH}/ccpnmr/update/UpdatePopup.py
 	EOF
 
@@ -149,11 +140,11 @@ src_install(){
 
 	einfo "Installing main files"
 	insopts -v
-	doins -r *
+	doins -r * || die "main files installation failed"
 
 
 	einfo "Adjusting permissions"
-#I do not know wether this is a must or not, but thats how the original install looks like
+
 	local FILES="c/ccp/structure/StructUtil.so
 				 c/ccp/structure/StructAtom.so
 				 c/ccp/structure/StructBond.so
@@ -198,7 +189,7 @@ src_install(){
 		einfo "Installing example files"
 		insopts -v
 		insinto /usr/share/${PF}/
-		doins -r analysisTutorialData
+		doins -r analysisTutorialData || die "tutorial data installation failed"
 	fi
 }
 
