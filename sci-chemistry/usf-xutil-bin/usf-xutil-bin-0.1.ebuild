@@ -16,7 +16,7 @@ RESTRICT="mirror"
 
 src_install(){
 	exeinto /opt/${PN}
-	for i in `ls xutil_linux`
+	for i in $(ls xutil_linux)
 	do
 		newexe xutil_linux/$i ${i#lx_}
 	done

@@ -37,7 +37,7 @@ src_unpack() {
 		sed -i '/^CFLAGS/ a CFLAGS:=$(CFLAGS) -DHAVE_MYSQL' src/Makefile
 	else
 		# Makefile is broken. Should not always link against mysql
-		sed -i 's/`mysql_config --libs`//' src/Makefile
+		sed -i 's/$(mysql_config --libs)//' src/Makefile
 	fi
 }
 

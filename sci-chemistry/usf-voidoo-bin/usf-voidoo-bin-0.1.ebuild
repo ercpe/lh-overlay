@@ -16,7 +16,7 @@ RESTRICT="mirror"
 
 src_install(){
 	exeinto /opt/${PN}
-	for i in `ls voidoo_linux`
+	for i in $(ls voidoo_linux)
 	do
 		newexe voidoo_linux/$i ${i#lx_}
 	done

@@ -16,8 +16,7 @@ RESTRICT="mirror"
 SLOT="0"
 
 RDEPEND=">=dev-lang/python-2.4
-	 >=dev-lang/swig-1.3
-	 !<=sci-chemistry/modeller-bin-9.3-r1"
+	 >=dev-lang/swig-1.3"
 DEPEND=""
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"

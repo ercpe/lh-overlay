@@ -16,7 +16,7 @@ RESTRICT="mirror"
 
 src_install(){
 	exeinto /opt/${PN}
-	for i in `ls rave_linux`
+	for i in $(ls rave_linux)
 	do
 		newexe rave_linux/$i ${i#lx_}
 	done

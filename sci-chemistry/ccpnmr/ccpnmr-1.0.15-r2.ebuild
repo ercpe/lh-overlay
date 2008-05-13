@@ -181,8 +181,8 @@ src_install(){
 
 	rm "${D}"${IN_PATH}/{INSTALL,README,installCode.py}
 
-	treecopy `find . -name doc` "${D}"usr/share/doc/${PF}/html/
-	rm -r `find "${D}"usr/lib/ -name doc`
+	treecopy $(find . -name doc) "${D}"usr/share/doc/${PF}/html/
+	rm -r $(find "${D}"usr/lib/ -name doc)
 
 	if use examples; then
 		cd "${WORKDIR}"

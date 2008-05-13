@@ -36,7 +36,7 @@ src_install() {
 		fi
 		cd natural_gentoo/etc/splash/
 		einfo "creating initramfs ;-) ..."
-		for res in `ls natural_gentoo/|grep x |sed 's/\.cfg//'`
+		for res in $(ls natural_gentoo/|grep x |sed 's/\.cfg//')
 			do
 				splash_geninitramfs natural_gentoo -r $res -g "${D}"boot/natural_gentoo-7.1-$res
 			done

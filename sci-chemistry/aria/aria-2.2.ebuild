@@ -31,12 +31,14 @@ pkg_nofetch(){
 }
 
 pkg_setup(){
+	python_version
+	
 	if ( ! built_with_use dev-lang/python tk || ! built_with_use dev-python/matplotlib tk ); then
 		ewarn "dev-lang/python and dev-python/matplotlib need to be build with tk"
 		die "NO tk support in either dev-lang/python or dev-python/matplotlib"
 	fi
 	if ( ! built_with_use sci-chemistry/cns aria ); then
-		ewarn "sci-chemistry/cns has to be emrged with USE aria"
+		ewarn "sci-chemistry/cns has to be emerged with USE aria"
 		die "NO aria support in sci-chemistry/cns"
 	fi
 }
@@ -51,7 +53,6 @@ src_test(){
 }
 
 src_install(){
-	python_version
 	insinto /usr/$(get_libdir)/python$PYVER/site-packages/aria
 	doins -r src aria2.py
 	insinto /usr/$(get_libdir)/python$PYVER/site-packages/aria/cns

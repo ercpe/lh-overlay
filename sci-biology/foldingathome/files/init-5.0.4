@@ -8,7 +8,7 @@ opts="${opts} unitinfo"
 do_config() {
 	if [ -z "${CPU}" ] || [ "${CPU}" == "0" ]; then
 		if [ -r /proc/cpuinfo ]; then
-			CPU=`grep "^processor[[:space:]]*:" /proc/cpuinfo | wc -l`
+			CPU=$(grep "^processor[[:space:]]*:" /proc/cpuinfo | wc -l)
 			if (( $CPU > 8 )); then
 				CPU=8
 			fi
