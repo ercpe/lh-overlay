@@ -33,15 +33,17 @@ src_unpack() {
 
 src_install(){
 	python_version
+	m_type=$(uname -m)
+	os_type=$(uname)
 
 	insinto /opt/${PN}/byte-code/python-${PYVER}
 	doins "${S}"/flex-wARP-src-261/*py
 
-	exeinto /opt/${PN}/bin/bin-`uname -m`-`uname`
-	doexe "${S}"/bin/bin-`uname -m`-`uname`/*
+	exeinto /opt/${PN}/bin/bin-${os_type}-${m_type}
+	doexe "${S}"/bin/bin-${os_type}-${m_type}/*
 	doexe "${S}"/share/*sh
 
-	insinto /opt/${PN}/bin/bin-`uname -m`-`uname`
+	insinto /opt/${PN}/bin/bin-${os_type}-${m_type}
 	doins "${S}"/share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
 
 	insinto /etc/profile.d/
