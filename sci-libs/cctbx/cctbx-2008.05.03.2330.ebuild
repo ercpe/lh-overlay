@@ -69,10 +69,10 @@ src_install() {
 	doins -r include/*
 	exeinto /usr/lib/cctbx/bin
 	doexe bin/*
-	
+
 	sed "s:${D}:/usr/lib/cctbx:g" -i setpaths.sh
 	sed "s:${D}:/usr/lib/cctbx:g" -i setpaths.csh
-	
+
 	insinto /etc/profile.d/
 	newins setpaths.sh 30setpaths.sh
 	newins setpaths.csh 30setpaths.csh

@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ SLOT="0"
 DEPEND="dev-libs/expat
 	>=dev-libs/glib-2
 	net-dns/libidn
-	|| (net-im/jabberd net-im/jabberd2)
+	|| ( net-im/jabberd net-im/jabberd2 )
 	mysql? ( virtual/mysql )"
 
 IUSE="mysql"
@@ -27,12 +27,12 @@ S="${WORKDIR}/${PN}_${PV}"
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 
 	# Fix missing header in src/conference_user.c in order to
 	# make emerge happy and avoid QA notice.
 	sed -i "/conference.h/ i #define _XOPEN_SOURCE" src/conference_user.c
-	
+
 	if use mysql; then
 		sed -i '/^CFLAGS/ a CFLAGS:=$(CFLAGS) -DHAVE_MYSQL' src/Makefile
 	else
@@ -51,7 +51,7 @@ src_install() {
 	fowners jabber:jabber /usr/bin/mu-conference
 	fperms 750 /usr/bin/mu-conference
 
-	newinitd ${FILESDIR}/${P}.init mu-conference
+	newinitd "${FILESDIR}"/${P}.init mu-conference
 
 	dodoc ChangeLog FAQ mu-conference.sql README
 	docinto scripts

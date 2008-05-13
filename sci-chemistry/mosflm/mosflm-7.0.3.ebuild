@@ -8,7 +8,7 @@ MY_PV=${PV//./}
 
 SLOT="0"
 LICENSE="ccp4"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Mosflm is a program for integrating single crystal diffraction data from area detectors."
 SRC_URI="http://www.mrc-lmb.cam.ac.uk/harry/${PN}/ver${MY_PV}/build-it-yourself/${PN}${MY_PV}.tgz"
 HOMEPAGE="http://www.mrc-lmb.cam.ac.uk/harry/${PN}/"

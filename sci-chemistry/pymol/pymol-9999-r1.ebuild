@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+NEED_PYTHON=2.3
+
 inherit distutils eutils multilib subversion
 
 ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
@@ -14,14 +16,13 @@ IUSE="apbs shaders"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
-DEPEND="dev-lang/python
-	dev-python/pmw
-	dev-python/numeric
-	dev-lang/tk
-	media-libs/libpng
-	sys-libs/zlib
-	virtual/glut
-	apbs? ( sci-chemistry/apbs )"
+DEPEND="dev-python/pmw
+		dev-python/numeric
+		dev-lang/tk
+		media-libs/libpng
+		sys-libs/zlib
+		virtual/glut
+		apbs? ( sci-chemistry/apbs )"
 
 pkg_setup(){
 	if ! built_with_use dev-lang/python tk; then

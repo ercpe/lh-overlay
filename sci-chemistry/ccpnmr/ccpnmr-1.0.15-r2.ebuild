@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+NEED_PYTHON=2.4
+
 inherit eutils toolchain-funcs python check-reqs portability
 
 SLOT="0"
@@ -14,9 +16,8 @@ HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
 IUSE="examples"
 RESTRICT="mirror"
 DEPEND="${RDEPEND}"
-RDEPEND=">=dev-lang/python-2.4
-		  virtual/glut
-		  dev-tcltk/tix"
+RDEPEND="virtual/glut
+		 dev-tcltk/tix"
 
 S="${WORKDIR}/${PN}"
 
@@ -84,7 +85,7 @@ src_compile(){
 src_install(){
 
 	IN_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
-	
+
 	cat >> "${T}"/20ccpnmr <<- EOF
 	CCPNMR_TOP_DIR=${IN_PATH}
 	PYTHONPATH=${IN_PATH}/ccpnmr1.0/python

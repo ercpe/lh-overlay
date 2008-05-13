@@ -2,19 +2,20 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+NEED_PYTHON=2.3
+
 inherit eutils python
 
 MY_P="${PN}${PV}"
 SLOT="0"
 LICENSE="cns"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~x86"
 DESCRIPTION="ARIA is a software for automated NOE assignment and NMR structure calculation."
 SRC_URI="http://aria.pasteur.fr/archives/${MY_P}.tar.gz"
 HOMEPAGE="http://aria.pasteur.fr/"
 IUSE="examples"
 RESTRICT="fetch"
 DEPEND="sci-chemistry/cns
-		dev-lang/python
 		|| ( dev-python/numeric dev-python/numpy )
 		>=dev-python/scientificpython-2.7.3
 		>=dev-lang/tk-8.3
@@ -32,7 +33,7 @@ pkg_nofetch(){
 
 pkg_setup(){
 	python_version
-	
+
 	if ( ! built_with_use dev-lang/python tk || ! built_with_use dev-python/matplotlib tk ); then
 		ewarn "dev-lang/python and dev-python/matplotlib need to be build with tk"
 		die "NO tk support in either dev-lang/python or dev-python/matplotlib"
@@ -44,12 +45,12 @@ pkg_setup(){
 }
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	epatch "${FILESDIR}"/sa_ls_cool2.patch
 }
 
 src_test(){
-	${python} check.py || die 
+	${python} check.py || die
 }
 
 src_install(){
@@ -57,17 +58,17 @@ src_install(){
 	doins -r src aria2.py
 	insinto /usr/$(get_libdir)/python$PYVER/site-packages/aria/cns
 	doins -r cns/{protocols,toppar,src/helplib}
-	
+
 	if use examples; then
 		insinto /usr/share/${P}/
 		doins -r examples
-	fi 
+	fi
 
 # ENV
 	cat >> "${T}"/20aria <<- EOF
 	ARIA2="/usr/$(get_libdir)/python$PYVER/site-packages/aria"
 	EOF
-	
+
 	doenvd "${T}"/20aria
 
 # Launch Wrapper

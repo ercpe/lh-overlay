@@ -20,12 +20,12 @@ RDEPEND="${DEPEND}"
 S=${WORKDIR}/cealign-0.9
 
 src_compile(){
-	python setup.py build
+	$python setup.py build
 }
 
 src_install(){
 	python_version
-	mtype=`uname -m`
+	mtype=$(uname -m)
 
 	python setup.py install --prefix="${D}"/usr
 

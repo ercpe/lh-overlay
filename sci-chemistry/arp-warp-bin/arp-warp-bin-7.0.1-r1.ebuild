@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+NEED_PYTHON=2.4
+
 inherit eutils autotools python
 
 S=${WORKDIR}/arp_warp_${PV}
@@ -16,8 +18,7 @@ KEYWORDS="-* ~x86 ~amd64"
 IUSE=""
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
 	 >=sci-chemistry/ccp4-6
-	 sys-apps/gawk
-	 >=dev-lang/python-2.4"
+	 sys-apps/gawk"
 DEPEND=""
 
 pkg_nofetch(){

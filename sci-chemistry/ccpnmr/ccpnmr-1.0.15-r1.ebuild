@@ -84,7 +84,7 @@ src_compile(){
 src_install(){
 
 	IN_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
-	
+
 	cat >> "${T}"/20ccpnmr <<- EOF
 	export CCPNMR_TOP_DIR=${IN_PATH}
 	EOF

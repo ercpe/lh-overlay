@@ -2,16 +2,6 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-*dummy-0.1-r1 (13 May 2008)
-
-  13 May 2008;  <>  dummy-0.1-r1.ebuild
-  # INSERT ENTRY HERE
-
-*dummy-0.1-r1 (13 May 2008)
-
-  13 May 2008;  <>  dummy-0.1-r1.ebuild
-  # INSERT ENTRY HERE
-
 *<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 
   DD MMM YYYY; YOUR_NAME <YOUR_EMAIL> changed_file1, changed_file2 :

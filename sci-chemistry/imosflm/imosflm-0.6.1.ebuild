@@ -52,4 +52,4 @@ src_install(){
 
 	exeinto /usr/bin
 	doexe "${T}"/imoslfm
-}+
+}

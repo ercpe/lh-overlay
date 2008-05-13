@@ -18,5 +18,5 @@ S="${WORKDIR}""/ccp4-6.0.2"
 src_compile(){
 	cd src/${PN}
 	mkdir "${WORKDIR}/phaser"
-	./install --force-compile --compiler=$(tc-getCC)  --prefix="${WORKDIR}/phaser" 
+	./install --force-compile --compiler=$(tc-getCC)  --prefix="${WORKDIR}/phaser"
 }

@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 MY_P="${P}-beta15"
 
@@ -24,20 +24,19 @@ S=${WORKDIR}/${MY_P}
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
 	epatch "${FILESDIR}/gentoo.patch"
 }
 
 src_compile() {
+	sed -e "s:tc-getCC:$(tc-getCC):g" \
+		-e "s:CCFLAGS:$CFLAGS:g" \
+		-i makefile
+
 	emake || die "emake failed"
-	einstall || die "einstall failed"
 }
 
 src_install() {
-	insinto /usr/bin
-	doins tcpproxy
-	fowners root:root /usr/bin/tcpproxy
-	fperms 770 /usr/bin/tcpproxy
-	dodoc CHANGES LICENSE README
+	dobin tcpproxy
+	dodoc CHANGES README
 	doman tcpproxy.1
 }
