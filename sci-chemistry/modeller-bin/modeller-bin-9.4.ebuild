@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-NEED_PYTHON=2.4
+NEED_PYTHON=2.3
 
 inherit eutils python distutils
 
@@ -13,11 +13,12 @@ KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Protein structure modeling by satisfaction of spatial restraints"
 SRC_URI="http://salilab.org/${MY_PN}/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz"
 HOMEPAGE="http://salilab.org/${MY_PN}/"
-IUSE="doc examples"
+IUSE="doc examples python"
 RESTRICT="mirror"
 SLOT="0"
 
-RDEPEND=">=dev-lang/swig-1.3"
+RDEPEND=">=dev-lang/swig-1.3
+		  python? ( dev-lang/python:2.3 )"
 DEPEND=""
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
@@ -36,7 +37,7 @@ src_compile(){
 src_install(){
 	python_version
 
-	IN_PATH=/opt/${MY_PN}${MY_PV}
+	IN_PATH=/opt/${MY_PN}
 
 	case ${ARCH} in
 		x86)	EXECUTABLE_TYPE="i386-intel8";;
@@ -67,7 +68,7 @@ src_install(){
 
 	exeinto ${IN_PATH}/lib/${EXECUTABLE_TYPE}/
 	doexe lib/${EXECUTABLE_TYPE}/lib*
-	dosym libmodeller.so.2 ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
+	dosym libmodeller.so.3 ${IN_PATH}/lib/${EXECUTABLE_TYPE}/libmodeller.so
 	doexe src/swig/build/lib.linux-$(uname -m)-${PYVER}/_modeller.so
 
 	dodoc README INSTALLATION
@@ -84,6 +85,8 @@ src_install(){
 }
 
 pkg_postinst() {
+	python_mod_optimize "${ROOT%/}/${IN_PATH}/"
+	
 	if [[ ! -e "${IN_PATH}/modlib/modeller/config.py" ]]; then
 		echo install_dir = '"'"${IN_PATH}/"'"'> ${IN_PATH}/modlib/modeller/config.py
 	fi
@@ -100,6 +103,7 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
+	python_mod_cleanup "${ROOT%/}/${IN_PATH}/"
 	ewarn "This package leaves a license Key file in ${IN_PATH}/modlib/modeller/config.py"
 	ewarn "that you need to remove to completely get rid of modeller."
 }
