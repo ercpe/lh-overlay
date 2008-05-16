@@ -19,6 +19,7 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 MY_S="${WORKDIR}"/cctbx_sources
+MY_B="${WORKDIR}"/cctbx_build
 
 src_unpack() {
 	unpack ${A}
@@ -58,22 +59,32 @@ src_compile() {
 }
 
 src_test(){
-	libtbx.python $(libtbx.show_dist_paths boost_adaptbx)/tst_rational.py \
+	libtbx.python $(libtbx.show_dist_paths boost_adaptbx)/tst_rational.py && \
+	libtbx.python $SCITBX_DIST/run_tests.py \
 	|| die "test failed"
 }
 
-src_install() {
-	insinto /usr/lib/cctbx
-	doins -r lib setpath*
-	insinto /usr/include
-	doins -r include/*
-	exeinto /usr/lib/cctbx/bin
-	doexe bin/*
+#src_install() {
+#	insinto /usr/$(get_libdir)/cctbx
+#	doins -r "${MY_B}"/{lib,setpaths*}
+#	insinto /usr/include
+#	doins -r "${MY_B}"/include/*
+#	exeinto /usr/$(get_libdir)/cctbx/bin
+#	doexe "${MY_B}"/bin/*
+#
+#	sed -e "s:${MY_S}/libtbx:/usr/$(get_libdir)/cctbx:g" \
+#		-e "s:${MY_B}//usr/$(get_libdir)/cctbx:g" \
+#		-i "${MY_B}"/setpaths.sh
+#
+#	sed -e "s:${MY_S}/libtbx:/usr/$(get_libdir)/cctbx:g" \
+#		-e "s:${MY_B}//usr/$(get_libdir)/cctbx:g" \
+#		-i "${MY_B}"/setpaths.csh
+#
+#	insinto /etc/profile.d/
+#	newins "${MY_B}"/setpaths.sh 30setpaths.sh
+#	newins "${MY_B}"/setpaths.csh 30setpaths.csh
+#}
 
-	sed "s:${D}:/usr/lib/cctbx:g" -i setpaths.sh
-	sed "s:${D}:/usr/lib/cctbx:g" -i setpaths.csh
-
-	insinto /etc/profile.d/
-	newins setpaths.sh 30setpaths.sh
-	newins setpaths.csh 30setpaths.csh
+src_install(){
+	einstall || die "install failed"
 }
