@@ -61,6 +61,7 @@ src_compile() {
 src_test(){
 	libtbx.python $(libtbx.show_dist_paths boost_adaptbx)/tst_rational.py && \
 	libtbx.python $SCITBX_DIST/run_tests.py \
+	libtbx.python $CCTBX_DIST/run_tests.py --Quick \
 	|| die "test failed"
 }
 
@@ -86,5 +87,6 @@ src_test(){
 #}
 
 src_install(){
-	einstall || die "install failed"
+	dodir /usr/share/${P}
+	cp -r cctbx_build/* ${D}/usr/share/${P}/
 }
