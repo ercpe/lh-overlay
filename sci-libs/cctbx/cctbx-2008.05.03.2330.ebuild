@@ -61,8 +61,8 @@ src_compile() {
 src_test(){
 	source "${MY_B}"/setpaths_all.sh
 	libtbx.python $(libtbx.show_dist_paths boost_adaptbx)/tst_rational.py && \
-	libtbx.python $SCITBX_DIST/run_tests.py \
-	libtbx.python $CCTBX_DIST/run_tests.py --Quick \
+	libtbx.python $SCITBX_DIST/run_tests.py ${MAKEOPTS} \
+	libtbx.python $CCTBX_DIST/run_tests.py ${MAKEOPTS} \
 	|| die "test failed"
 }
 
