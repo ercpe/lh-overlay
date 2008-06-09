@@ -13,14 +13,15 @@ SRC_URI="${MY_P}_all.tar.gz"
 RESTRICT="fetch"
 LICENSE="cns"
 SLOT="0"
-KEYWORDS="~ppc ~x86"
+KEYWORDS="~x86"
 IUSE="aria"
 RDEPEND="|| ( app-shells/tcsh app-shells/csh )
-	!app-text/dos2unix"
+	!app-text/dos2unix
+	aria? ( sci-chemistry/aria )"
 DEPEND="${RDEPEND}"
 S="${WORKDIR}/${MY_P}"
 
-FORTRAN="g77 gfortran"
+FORTRAN="g77 gfortran ifc"
 
 pkg_nofetch() {
 	einfo "Fill out the form at http://cns.csb.yale.edu/cns_request/"
