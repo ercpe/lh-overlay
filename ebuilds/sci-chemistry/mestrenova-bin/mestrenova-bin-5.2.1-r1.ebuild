@@ -20,7 +20,7 @@ pkg_nofetch(){
 }
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	unpack ./data.tar.gz
 }
 
