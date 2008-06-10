@@ -18,7 +18,7 @@ RESTRICT="mirror"
 SLOT="0"
 
 RDEPEND=">=dev-lang/swig-1.3
-		  python? ( dev-lang/python-2.3* )"
+		  python? ( =dev-lang/python-2.3* )"
 DEPEND=""
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
@@ -86,7 +86,7 @@ src_install(){
 
 pkg_postinst() {
 	python_mod_optimize "${ROOT%/}/${IN_PATH}/"
-	
+
 	if [[ ! -e "${IN_PATH}/modlib/modeller/config.py" ]]; then
 		echo install_dir = '"'"${IN_PATH}/"'"'> ${IN_PATH}/modlib/modeller/config.py
 	fi
