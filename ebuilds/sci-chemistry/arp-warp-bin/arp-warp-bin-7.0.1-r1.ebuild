@@ -40,16 +40,16 @@ src_install(){
 	insinto /opt/${PN}/byte-code/python-${PYVER}
 	doins "${S}"/flex-wARP-src-261/*py
 
-	exeinto /opt/${PN}/bin/bin-${os_type}-${m_type}
-	doexe "${S}"/bin/bin-${os_type}-${m_type}/*
-	doexe "${S}"/share/*sh
+	exeinto /opt/${PN}/bin/bin-${m_type}-${os_type}
+	doexe "${S}"/bin/bin-${m_type}-${os_type}/* && \
+	doexe "${S}"/share/*sh || die
 
-	insinto /opt/${PN}/bin/bin-${os_type}-${m_type}
-	doins "${S}"/share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh}
+	insinto /opt/${PN}/bin/bin-${m_type}-${os_type}
+	doins "${S}"/share/*{gif,XYZ,bash,csh,dat,lib,tbl,llh} || die
 
 	insinto /etc/profile.d/
-	newins "${S}"/share/arpwarp_setup_base.csh 90arpwarp_setup.csh
-	newins "${S}"/share/arpwarp_setup_base.bash 90arpwarp_setup.sh
+	newins "${S}"/share/arpwarp_setup_base.csh 90arpwarp_setup.csh && \
+	newins "${S}"/share/arpwarp_setup_base.bash 90arpwarp_setup.sh || die
 
 	dodoc "${S}"/README
 	dohtml -r "${S}"/manual/*
