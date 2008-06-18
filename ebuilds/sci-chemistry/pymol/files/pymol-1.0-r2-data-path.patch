@@ -1,0 +1,67 @@
+diff -aurN pymol-1.0-orig/modules/pymol/commanding.py pymol-1.0/modules/pymol/commanding.py
+--- pymol-1.0-orig/modules/pymol/commanding.py	2007-07-01 17:12:26.000000000 -0500
++++ pymol-1.0/modules/pymol/commanding.py	2007-07-01 17:16:26.000000000 -0500
+@@ -198,11 +198,11 @@
+                 _self.unlock(0,_self)
+             r = DEFAULT_SUCCESS
+             if show_splash==1: # generic / open-source
+-                png_path = _self.exp_path("$PYMOL_PATH/data/pymol/splash.png")
++                png_path = _self.exp_path("$PYMOL_DATA/data/pymol/splash.png")
+             elif show_splash==2: # evaluation builds
+-                png_path = _self.exp_path("$PYMOL_PATH/data/pymol/epymol.png")
++                png_path = _self.exp_path("$PYMOL_DATA/data/pymol/epymol.png")
+             else: # incentive builds
+-                png_path = _self.exp_path("$PYMOL_PATH/data/pymol/ipymol.png")
++                png_path = _self.exp_path("$PYMOL_DATA/data/pymol/ipymol.png")
+             if os.path.exists(png_path):
+                 _self.do("_ cmd.load_png('%s',0,quiet=1)"%png_path)
+         else:
+diff -aurN pymol-1.0-orig/modules/pymol/fitting.py pymol-1.0/modules/pymol/fitting.py
+--- pymol-1.0-orig/modules/pymol/fitting.py	2007-07-01 17:12:26.000000000 -0500
++++ pymol-1.0/modules/pymol/fitting.py	2007-07-01 17:17:51.000000000 -0500
+@@ -68,7 +68,7 @@
+         if string.lower(matrix)=='none':
+             matrix=''
+         if len(matrix):
+-            mfile = cmd.exp_path("$PYMOL_PATH/data/pymol/matrices/"+matrix)
++            mfile = cmd.exp_path("$PYMOL_DATA/data/pymol/matrices/"+matrix)
+         else:
+             mfile = ''        
+         # delete existing alignment object (if asked to reset it)
+diff -aurN pymol-1.0-orig/modules/pymol/importing.py pymol-1.0/modules/pymol/importing.py
+--- pymol-1.0-orig/modules/pymol/importing.py	2007-07-01 17:12:26.000000000 -0500
++++ pymol-1.0/modules/pymol/importing.py	2007-07-01 17:18:52.000000000 -0500
+@@ -170,7 +170,7 @@
+         r = DEFAULT_ERROR
+         
+         
+-        tables = { 'cmyk' : "$PYMOL_PATH/data/pymol/cmyk.png",
++        tables = { 'cmyk' : "$PYMOL_DATA/data/pymol/cmyk.png",
+                       'pymol' : 'pymol',
+                       'rgb' : 'rgb' }
+ 
+diff -aurN pymol-1.0-orig/modules/pymol/wizard/mutagenesis.py pymol-1.0/modules/pymol/wizard/mutagenesis.py
+--- pymol-1.0-orig/modules/pymol/wizard/mutagenesis.py	2007-07-01 17:12:26.000000000 -0500
++++ pymol-1.0/modules/pymol/wizard/mutagenesis.py	2007-07-01 17:20:44.000000000 -0500
+@@ -53,8 +53,8 @@
+ 
+         self.dep = default_dep
+ 
+-        self.ind_library = io.pkl.fromFile(os.environ['PYMOL_PATH']+
+-                                           "/data/chempy/sidechains/sc_bb_ind.pkl")
++        self.ind_library = io.pkl.fromFile(os.environ['PYMOL_DATA']+
++                                           "/chempy/sidechains/sc_bb_ind.pkl")
+         self.load_library()
+         self.status = 0 # 0 no selection, 1 mutagenizing
+         self.bump_check = 1
+@@ -217,8 +217,8 @@
+     def load_library(self):
+         if self.dep == 'dep':
+             if not hasattr(self,'dep_library'):
+-                self.dep_library = io.pkl.fromFile(os.environ['PYMOL_PATH']+
+-                                           "/data/chempy/sidechains/sc_bb_dep.pkl")
++                self.dep_library = io.pkl.fromFile(os.environ['PYMOL_DATA']+
++                                           "/chempy/sidechains/sc_bb_dep.pkl")
+             
+     def set_mode(self,mode):
+         cmd=self.cmd
