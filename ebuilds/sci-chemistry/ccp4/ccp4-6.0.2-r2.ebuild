@@ -88,7 +88,7 @@ src_unpack() {
 		base="PATCH${patch}"
 		dir=$(eval echo \${${base}[0]})
 		p=$(eval echo \${${base}[1]})
-		pushd ${dir} >& /dev/null
+		pushd "${dir}" >& /dev/null
 		ccp_patch "${DISTDIR}"/${p}
 		popd >& /dev/null
 	done
