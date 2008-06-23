@@ -4,7 +4,7 @@
 
 NEED_PYTHON=2.4
 
-inherit eutils autotools python
+inherit eutils python
 
 S=${WORKDIR}/arp_warp_${PV}
 

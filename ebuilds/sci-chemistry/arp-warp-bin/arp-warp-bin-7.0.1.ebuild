@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools python
+inherit eutils python
 
 DESCRIPTION=" ARP/wARP is a software for improvement and interpretation of crystallographic electron density maps"
 SRC_URI="arp_warp_7.0.1.tar.gz"

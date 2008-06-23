@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit autotools
+# inherit autotools
 
 DESCRIPTION="a fast and customizable dockbar written in C++/wxWidgets"
 HOMEPAGE="http://sourceforge.net/projects/simdock/"

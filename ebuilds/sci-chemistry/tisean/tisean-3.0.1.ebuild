@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit eutils fortran
 
-inherit autotools eutils fortran
 MY_P="Tisean_3.0.1"
 DESCRIPTION="Analysis of time series with methods based on the theory of nonliner deterministic dynamical systems"
 HOMEPAGE="http://www.mpipks-dresden.mpg.de/%7Etisean/Tisean_3.0.1/index.html"

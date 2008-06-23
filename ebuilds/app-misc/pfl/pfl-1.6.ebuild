@@ -17,21 +17,21 @@ DEPEND="mp? ( app-arch/pbzip2 )"
 
 
 src_unpack(){
-	cp "${DISTDIR}"/pfl "${WORKDIR}"/pfl.py
+	cp "${DISTDIR}"/${P} "${WORKDIR}"/${P}.py
 }
 
 src_install(){
 	python_version
-	cat >> "${T}/pfl" <<- EOF
+	cat >> "${T}/${P}" <<- EOF
 	#!/bin/sh
 
-	exec nice ${python} -O /usr/lib/pfl/pfl.py
+	exec nice ${python} -O /usr/lib/pfl/${P}.py
 
 	EOF
 
 	exeinto /etc/cron.daily/
-	doexe "${T}/pfl"
+	doexe "${T}/${P}"
 
-	exeinto /usr/lib/pfl/
-	doexe pfl.py
+	exeinto /usr/lib/${P}/
+	doexe ${P}.py
 }
