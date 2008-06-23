@@ -8,11 +8,11 @@ inherit eutils
 DESCRIPTION="Tux Commander - Fast and Small filemanager using GTK2"
 HOMEPAGE="http://tuxcmd.sourceforge.net/"
 SRC_URI="mirror://sourceforge/tuxcmd/tuxcmd-${PV}-bin.tar.bz2"
-
+IUSE=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 -*" # binary distribution, won't work on other arches (possible amd64 but not tested yet)
-RESTRICT="strip"
+RESTRICT="strip mirror"
 
 DEPEND=""
 RDEPEND=">=x11-libs/gtk+-2.4.0
