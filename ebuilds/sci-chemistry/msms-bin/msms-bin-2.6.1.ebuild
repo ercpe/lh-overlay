@@ -4,7 +4,7 @@
 
 DESCRIPTION="msms is a wrapped version of the library comes with MGLTools"
 SRC_URI="x86? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL${PV}/msms_i86Linux2_${PV}.tar.gz )
-		 amd64? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL${PV}/msms_i86_64Linux2_${PV}.tar.gz)"
+		 amd64? ( http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/REL${PV}/msms_i86_64Linux2_${PV}.tar.gz )"
 HOMEPAGE="http://mgltools.scripps.edu"
 RESTRICT="mirror"
 LICENSE="mgltools"
