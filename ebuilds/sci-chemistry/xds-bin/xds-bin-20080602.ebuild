@@ -20,7 +20,7 @@ DEPEND=""
 
 pkg_nofetch(){
 	ewarn "Fetch XDS-linux_ifc_Intel+AMD.tar.gz and XDS_html_doc.tar.gz"
-	ewarn "from $HOMEPAGEhtml_doc/downloading.html"
+	ewarn "from ${HOMEPAGE}html_doc/downloading.html"
 	ewarn "rename it to $A and"
 	ewarn "place it in $DISTDIR"
 }
