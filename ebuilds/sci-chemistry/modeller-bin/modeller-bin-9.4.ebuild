@@ -17,9 +17,8 @@ IUSE="doc examples python"
 RESTRICT="mirror"
 SLOT="0"
 
-RDEPEND=">=dev-lang/swig-1.3
-		  python? ( =dev-lang/python-2.3* )"
-DEPEND=""
+RDEPEND="python? ( =dev-lang/python-2.3* )"
+DEPEND=">=dev-lang/swig-1.3"
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
