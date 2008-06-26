@@ -1,22 +1,23 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:  $
+# $Header: $
+
+NEED_PYTHON=2.4
 
 inherit distutils eutils multilib subversion
 
-ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/branches/b10/pymol"
+ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
 
 DESCRIPTION="A Python-extensible molecular graphics system."
 HOMEPAGE="http://pymol.sourceforge.net/"
 
-LICENSE="pymol"
-
-IUSE="apbs"
+LICENSE="PSF-2.2"
+IUSE="apbs shaders"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="dev-lang/python
-		dev-python/pmw
+DEPEND="dev-python/pmw
+		dev-python/numeric
 		dev-lang/tk
 		media-libs/libpng
 		sys-libs/zlib
@@ -40,48 +41,59 @@ pkg_setup(){
 src_unpack() {
 	subversion_src_unpack
 
+	python_version
+
 	epatch "${FILESDIR}"/${PF}-data-path.patch
 
-# Turn off splash screen.  Please do make a project contribution
-# if you are able.
-	[[ -n "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch
+	# Turn off splash screen.  Please do make a project contribution
+	# if you are able though.
+	[[ -z "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch
 
-# Respect CFLAGS
+	# Respect CFLAGS
 	sed -i \
-	-e "s:\(ext_comp_args=\).*:\1[]:g" \
-	"${S}"/setup.py
+		-e "s:\(ext_comp_args=\).*:\1[]:g" \
+		"${S}"/setup.py
+
+	if use shaders;then
+		epatch "${FILESDIR}"/${PF}-shaders.patch || die
+	fi
+
+	if use apbs;then
+		epatch "${FILESDIR}"/apbs-070604.patch.bz2 || die
+		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
+			-i modules/pmg_tk/startup/apbs_tools.py || die
+	fi
 }
 
 src_install() {
-	python_version
-
 	distutils_src_install
 	cd "${S}"
 
-#The following three lines probably do not do their jobs and should be
-#changed
-	PYTHONPATH="${D}/usr/$(get_libdir)/site-packages" ${python} setup2.py
+	#The following three lines probably do not do their jobs and should be
+	#changed
+	PYTHONPATH="${D}/usr/$(get_libdir)/python${PYVER}/site-packages" ${python} setup2.py
 
-# These environment variables should not go in the wrapper script, or else
-# it will be impossible to use the PyMOL libraries from Python.
+	# These environment variables should not go in the wrapper script, or else
+	# it will be impossible to use the PyMOL libraries from Python.
 	cat >> "${T}"/20pymol <<- EOF
 	PYMOL_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/pymol
 	PYMOL_DATA="/usr/share/pymol/data"
 	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
 	EOF
-	if use apbs;then
-		cat >> "${T}"/20pymol <<- EOF
-		APBS_BINARY="/usr/bin/apbs"
-		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
-		EOF
-	fi
+
+#	if use apbs;then
+#		cat >> "${T}"/20pymol <<- EOF
+#		APBS_BINARY="/usr/bin/apbs"
+#		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
+#		EOF
+#	fi
 
 	doenvd "${T}"/20pymol || die "Failed to install env.d file."
 
-# Make our own wrapper
+	# Make our own wrapper
 	cat >> "${T}"/pymol <<- EOF
 	#!/bin/sh
-	${python} \${PYMOL_PATH}/__init__.py \$*
+	${python} -O \${PYMOL_PATH}/__init__.py \$*
 	EOF
 
 	if ! use apbs; then
@@ -93,6 +105,8 @@ src_install() {
 	dodoc DEVELOPERS || die "Failed to install docs."
 
 	mv examples "${D}"/usr/share/doc/${PF}/ || die "Failed moving docs."
+
+	dosym /usr/share/pymol/data /usr/$(get_libdir)/python${PYVER}/site-packages/pymol/data
 
 	dodir /usr/share/pymol
 	mv test "${D}"/usr/share/pymol/ || die "Failed moving test files."
@@ -108,5 +122,5 @@ pkg_postinst(){
 }
 
 pkg_postrm() {
-	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+	python_mod_cleanup "${ROOT%/}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }

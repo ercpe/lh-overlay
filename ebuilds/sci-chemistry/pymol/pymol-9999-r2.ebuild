@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-NEED_PYTHON=2.3
+NEED_PYTHON=2.4
 
 inherit distutils eutils multilib subversion
 
@@ -14,7 +14,7 @@ HOMEPAGE="http://pymol.sourceforge.net/"
 LICENSE="PSF-2.2"
 IUSE="apbs shaders"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/pmw
 		dev-python/numeric
@@ -22,7 +22,11 @@ DEPEND="dev-python/pmw
 		media-libs/libpng
 		sys-libs/zlib
 		virtual/glut
-		apbs? ( sci-chemistry/apbs )"
+		apbs? ( dev-libs/maloc
+				sci-chemistry/apbs
+				sci-chemistry/pdb2pqr )"
+
+RDEPEND="${DEPEND}"
 
 pkg_setup(){
 	if ! built_with_use dev-lang/python tk; then
@@ -37,11 +41,13 @@ pkg_setup(){
 src_unpack() {
 	subversion_src_unpack
 
+	python_version
+
 	epatch "${FILESDIR}"/${PF}-data-path.patch
 
 	# Turn off splash screen.  Please do make a project contribution
 	# if you are able though.
-	[[ -n "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch
+	[[ -z "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch
 
 	# Respect CFLAGS
 	sed -i \
@@ -51,32 +57,36 @@ src_unpack() {
 	if use shaders;then
 		epatch "${FILESDIR}"/${PF}-shaders.patch
 	fi
+
+	if use apbs;then
+		epatch "${FILESDIR}"/apbs-070604.patch.bz2
+		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
+			-i modules/pmg_tk/startup/apbs_tools.py || die
+	fi
 }
 
 src_install() {
-	python_version
-
 	distutils_src_install
 	cd "${S}"
 
 	#The following three lines probably do not do their jobs and should be
 	#changed
-	PYTHONPATH="${D}/usr/$(get_libdir)/site-packages" ${python} setup2.py
+	PYTHONPATH="${D}/usr/$(get_libdir)/python${PYVER}/site-packages" ${python} setup2.py
 
 	# These environment variables should not go in the wrapper script, or else
 	# it will be impossible to use the PyMOL libraries from Python.
 	cat >> "${T}"/20pymol <<- EOF
-	PYMOL_PATH=/usr/lib/python${PYVER}/site-packages/pymol
+	PYMOL_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/pymol
 	PYMOL_DATA="/usr/share/pymol/data"
 	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
 	EOF
 
-	if use apbs;then
-		cat >> "${T}"/20pymol <<- EOF
-		APBS_BINARY="/usr/bin/apbs"
-		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
-		EOF
-	fi
+#	if use apbs;then
+#		cat >> "${T}"/20pymol <<- EOF
+#		APBS_BINARY="/usr/bin/apbs"
+#		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
+#		EOF
+#	fi
 
 	doenvd "${T}"/20pymol || die "Failed to install env.d file."
 
@@ -112,5 +122,5 @@ pkg_postinst(){
 }
 
 pkg_postrm() {
-	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
+	python_mod_cleanup "${ROOT%/}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/
 }
