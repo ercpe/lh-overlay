@@ -4,7 +4,7 @@
 
 NEED_PYTHON=2.4
 
-inherit eutils toolchain-funcs python check-reqs portability
+inherit toolchain-funcs python check-reqs portability
 
 SLOT="0"
 LICENSE="CCPN"
@@ -22,13 +22,8 @@ RDEPEND="virtual/glut
 S="${WORKDIR}/${PN}"
 
 pkg_setup(){
-	if ! built_with_use dev-lang/python tk; then
-	eerror "Please reemerge dev-lang/python with 'tk' support or ccpnmr will"
-	eerror "not work. In order to fix this, execute the following:"
-	eerror "echo \"dev-lang/python tk\" >> /etc/portage/package.use"
-	eerror "and reemerge dev-lang/python before emerging ccpnmr."
-	die "requires dev-lang/python with use-flag 'tk'!!"
-	fi
+	python_tkinter_exists
+	python_version
 
 	if use examples; then
 	ewarn "The examples are about 523MB large."
@@ -42,7 +37,7 @@ pkg_setup(){
 
 src_compile(){
 	tk_ver="$(best_version dev-lang/tk | cut -d- -f3 | cut -d. -f1,2)"
-	python_version
+
 	cd ccpnmr1.0/c
 
 	cat >> environment.txt <<- EOF
