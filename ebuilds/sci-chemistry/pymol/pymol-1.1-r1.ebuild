@@ -7,6 +7,7 @@ NEED_PYTHON=2.4
 inherit distutils eutils multilib subversion
 
 ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
+ESVN_UPDATE_CMD="svn -r 3395 update"
 
 DESCRIPTION="A Python-extensible molecular graphics system."
 HOMEPAGE="http://pymol.sourceforge.net/"
@@ -55,11 +56,11 @@ src_unpack() {
 		"${S}"/setup.py
 
 	if use shaders;then
-		epatch "${FILESDIR}"/${PF}-shaders.patch || die
+		epatch "${FILESDIR}"/${PF}-shaders.patch
 	fi
 
 	if use apbs;then
-		epatch "${FILESDIR}"/apbs-070604.patch.bz2 || die
+		epatch "${FILESDIR}"/apbs-070604.patch.bz2
 		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
 			-i modules/pmg_tk/startup/apbs_tools.py || die
 	fi

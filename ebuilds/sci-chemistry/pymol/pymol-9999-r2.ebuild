@@ -43,11 +43,11 @@ src_unpack() {
 
 	python_version
 
-	epatch "${FILESDIR}"/${PF}-data-path.patch
+	epatch "${FILESDIR}"/${PF}-data-path.patch || die
 
 	# Turn off splash screen.  Please do make a project contribution
 	# if you are able though.
-	[[ -z "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch
+	[[ -z "$WANT_NOSPLASH" ]] && epatch "${FILESDIR}"/nosplash-gentoo.patch ||die
 
 	# Respect CFLAGS
 	sed -i \
@@ -55,7 +55,7 @@ src_unpack() {
 		"${S}"/setup.py
 
 	if use shaders;then
-		epatch "${FILESDIR}"/${PF}-shaders.patch
+		epatch "${FILESDIR}"/${PF}-shaders.patch || die
 	fi
 
 	if use apbs;then
