@@ -5,7 +5,7 @@
 NEED_PYTHON=2.4
 PYTHON_MODNAME="chempy pmg_tk pymol"
 
-inherit distutils eutils multilib subversion
+inherit distutils subversion
 
 ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
 ESVN_UPDATE_CMD="svn -r 3395 update"
@@ -28,22 +28,15 @@ RDEPEND="dev-python/pmw
 		sci-chemistry/apbs
 		sci-chemistry/pdb2pqr
 	)"
-DEPEND="${RDEPEND}"
+DEPEND="${DEPEND}"
 
-pkg_setup() {
-	if ! built_with_use dev-lang/python tk; then
-		eerror "Please reemerge dev-lang/python with 'tk' support or pymol will"
-		eerror "not work. In order to fix this, execute the following:"
-		eerror "echo \"dev-lang/python tk\" >> /etc/portage/package.use"
-		eerror "and reemerge dev-lang/python before emerging pymol."
-		die "requires dev-lang/python with use-flag 'tk'!!"
-	fi
+pkg_setup(){
+	python_tkinter_exists
+	python_version
 }
 
 src_unpack() {
 	subversion_src_unpack
-
-	python_version
 
 	epatch "${FILESDIR}"/${PF}-data-path.patch
 
@@ -110,6 +103,7 @@ src_install() {
 pkg_postinst() {
 	distutils_pkg_postinst
 
+	# The apbs ebuild was just corrected and not bumped #213616
 	if use apbs; then
 		[[ -e /usr/share/apbs-0.5* ]] && \
 		ewarn "You need to reemerge sci-chemistry/apbs!"
