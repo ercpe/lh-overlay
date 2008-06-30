@@ -16,30 +16,27 @@ HOMEPAGE="http://www.ysbl.york.ac.uk/~garib/refmac/index.html"
 IUSE="static"
 RESTRICT="mirror"
 
-FORTRAN="gfortran ifc"
-
-src_unpack(){
-	mkdir ${P}
-	cd ${P}
-	unpack ${A}
-}
-#RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}"
 DEPEND="sci-chemistry/ccp4
 		virtual/blas
 		virtual/lapack"
 
+S=${WORKDIR}
+
+FORTRAN="gfortran ifc"
+
 src_compile(){
-	if [[ ${FORTRANC} == ifort ]];then
-		sed -e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
-			-i makefile ||die "makefile"
+	if [[ ${FORTRANC} == ifort ]]; then
+		sed 's:-fno-second-underscore::g' \
+			-i makefile
 	fi
 
-	sed -e "s:VERSION = gfortran:VERSION = _${PV}:"\
-		-e "s:FC      = gfortran:FC      = ${FORTRANC}:"\
-		-e "s:CC      = gcc:CC      = $(tc-getCC):" \
-		-e "s:CPP     = g++:CPP     = $(tc-getCPP):" \
-		-e "s:FOPTIM  = -O2 -m32 :FOPTIM  = ${FFLAGS}:"\
-		-e "s:COPTIM  = -O2 -m32 :COPTIM  = ${CFLAGS}:"\
+	sed -e "s:VERSION = gfortran:VERSION = _${PV}:g"\
+		-e "s:FC      = gfortran:FC      = ${FORTRANC}:g"\
+		-e "s:CC      = gcc:CC      = $(tc-getCC):g" \
+		-e "s:CPP     = g++:CPP     = $(tc-getCPP):g" \
+		-e "s:FOPTIM  = -O2 -m32 -g:FOPTIM  = ${FFLAGS}:g"\
+		-e "s:COPTIM  = -O2 -m32 -g:COPTIM  = ${CFLAGS}:g"\
 		-e "s:/lapack::g"\
 		-i makefile ||die "makefile_all"
 

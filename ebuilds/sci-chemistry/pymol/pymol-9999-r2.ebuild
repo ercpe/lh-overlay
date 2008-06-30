@@ -25,7 +25,8 @@ DEPEND="dev-python/pmw
 		virtual/glut
 		apbs? ( dev-libs/maloc
 				sci-chemistry/apbs
-				sci-chemistry/pdb2pqr )"
+				sci-chemistry/pdb2pqr
+		)"
 
 RDEPEND="${DEPEND}"
 
@@ -48,11 +49,11 @@ src_unpack() {
 		-e "s:\(ext_comp_args=\).*:\1[]:g" \
 		"${S}"/setup.py
 
-	if use shaders;then
+	if use shaders; then
 		epatch "${FILESDIR}"/${PF}-shaders.patch || die
 	fi
 
-	if use apbs;then
+	if use apbs; then
 		epatch "${FILESDIR}"/apbs-070604.patch.bz2
 		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
 			-i modules/pmg_tk/startup/apbs_tools.py || die
@@ -75,13 +76,6 @@ src_install() {
 	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
 	EOF
 
-#	if use apbs;then
-#		cat >> "${T}"/20pymol <<- EOF
-#		APBS_BINARY="/usr/bin/apbs"
-#		APBS_PSIZE="/usr/share/apbs/tools/manip/psize.py"
-#		EOF
-#	fi
-
 	doenvd "${T}"/20pymol || die "Failed to install env.d file."
 
 	# Make our own wrapper
@@ -99,8 +93,6 @@ src_install() {
 	dodoc DEVELOPERS || die "Failed to install docs."
 
 	mv examples "${D}"/usr/share/doc/${PF}/ || die "Failed moving docs."
-
-	dosym /usr/share/pymol/data /usr/$(get_libdir)/python${PYVER}/site-packages/pymol/data
 
 	dodir /usr/share/pymol
 	mv test "${D}"/usr/share/pymol/ || die "Failed moving test files."
