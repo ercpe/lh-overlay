@@ -3,8 +3,9 @@
 # $Header: $
 
 NEED_PYTHON=2.4
+PYTHON_MODNAME="ccpnmr"
 
-inherit toolchain-funcs python check-reqs portability
+inherit toolchain-funcs distutils check-reqs portability
 
 SLOT="0"
 LICENSE="CCPN"
@@ -187,12 +188,4 @@ src_install(){
 		insinto /usr/share/${PF}/
 		doins -r analysisTutorialData || die "tutorial data installation failed"
 	fi
-}
-
-pkg_postinst(){
-	python_mod_optimize "${ROOT%/}"/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
-}
-
-pkg_postrm() {
-	python_mod_cleanup "${ROOT%/}"/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
 }

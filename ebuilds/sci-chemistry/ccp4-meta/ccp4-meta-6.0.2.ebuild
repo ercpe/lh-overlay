@@ -10,4 +10,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="sci-chemistry/ccp4-core
-		 sci-chemistry/refmac"
+		 sci-chemistry/refmac
+		 sci-chemistry/mosflm
+		 sci-chemistry/imosflm"
