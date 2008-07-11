@@ -1,0 +1,171 @@
+# ChangeLog for media-sound/lastfmplayer
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/lastfmplayer/ChangeLog,v 1.32 2008/06/27 12:32:17 beandog Exp $
+
+  27 Jun 2008; Steve Dibb <beandog@gentoo.org>
+  lastfmplayer-1.4.2.58240-r1.ebuild:
+  Fix multilib issues, bug 216604
+
+  05 Apr 2008; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.4.2.58240-r1.ebuild:
+  Fix doins -> doins -r, also use mv instead of cp to be faster and catch
+  symlinks, add sharutils to DEPEND
+
+*lastfmplayer-1.4.2.58240-r1 (02 Apr 2008)
+
+  02 Apr 2008; Stefan Schweizer <genstef@gentoo.org>
+  +lastfmplayer-1.4.2.58240-r1.ebuild:
+  Use debian package to reduce download size dramatically and also install
+  i18n, bug 215635
+
+  11 Mar 2008; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.4.2.58240.ebuild:
+  fix deps, bug 206860
+
+  29 Feb 2008; Carsten Lohrke <carlo@gentoo.org>
+  lastfmplayer-1.4.2.58240.ebuild:
+  Remove icon extension from desktop entry to match Icon Theme Specification.
+
+*lastfmplayer-1.4.2.58240 (19 Jan 2008)
+
+  19 Jan 2008; Stefan Schweizer <genstef@gentoo.org>
+  -lastfmplayer-1.3.1.0.ebuild, -lastfmplayer-1.3.2.13.ebuild,
+  -lastfmplayer-1.4.1.57486.ebuild, +lastfmplayer-1.4.2.58240.ebuild:
+  Version bump thanks to Allen Brooker (AllenJB) <gentoo-bugs@allenjb.me.uk>
+  in bug 206597
+
+*lastfmplayer-1.4.1.57486 (22 Dec 2007)
+
+  22 Dec 2007; Stefan Schweizer <genstef@gentoo.org>
+  +files/lastfmplayer-mad-asneeded.patch, +lastfmplayer-1.4.1.57486.ebuild:
+  version bump thanks to Geert Lamers <biert85@gmail.com> in bug 202861
+
+*lastfmplayer-1.3.2.13 (16 Nov 2007)
+
+  16 Nov 2007; Stefan Schweizer <genstef@gentoo.org>
+  +lastfmplayer-1.3.2.13.ebuild:
+  version bump thanks to Allen Brooker (AllenJB) <gentoo-bugs@allenjb.me.uk>
+  and Sebastian Krämer <mail@kraymer.de> in bug 197083
+
+*lastfmplayer-1.3.1.0.ebuild (29 Aug 2007)
+
+  29 Aug 2007; Stefan Schweizer <genstef@gentoo.org>
+  -files/lastfmplayer-1.1.3-mp3transcode.patch,
+  -files/lastfmplayer-amd64.patch, -files/lastfmplayer-1.1.3-pic.patch,
+  -files/13_alsa-r1.diff, -files/qt4.patch, -lastfmplayer-1.1.3-r2.ebuild,
+  -lastfmplayer-1.3.0.58.ebuild, lastfmplayer-1.3.1.0.ebuild:
+  remove old, use eqmake4 thanks Davide Pesavento <davidepesa@gmail.com> in
+  bug 189641
+
+*lastfmplayer-1.3.1.0 (27 Jul 2007)
+
+  27 Jul 2007; Piotr Jaroszyński <peper@gentoo.org>
+  +lastfmplayer-1.3.1.0.ebuild:
+  Add 1.3.1.0.
+
+  04 Jul 2007; Joseph Jezak <josejx@gentoo.org>
+  -files/lastfmplayer-1.3.0.58-mp3transcode.patch,
+  lastfmplayer-1.3.0.58.ebuild:
+  Removed mp3transcode patch for 1.3.0.58.
+
+  02 Jul 2007; Piotr Jaroszyński <peper@gentoo.org>
+  lastfmplayer-1.1.3-r2.ebuild, lastfmplayer-1.3.0.58.ebuild:
+  (QA) RESTRICT clean up.
+
+  28 Jun 2007; Joseph Jezak <josejx@gentoo.org>
+  +files/lastfmplayer-1.1.3-mp3transcode.patch,
+  +files/lastfmplayer-1.3.0.58-mp3transcode.patch,
+  lastfmplayer-1.1.3-r2.ebuild, lastfmplayer-1.3.0.58.ebuild:
+  Added ppc endian patch from Albert Zeyer, fixes bug #181288.  Marked ~ppc.
+
+*lastfmplayer-1.3.0.58 (27 Jun 2007)
+
+  27 Jun 2007; Stefan Schweizer <genstef@gentoo.org>
+  +lastfmplayer-1.3.0.58.ebuild:
+  version bump thanks to Serkan Kaba <serkan_kaba@yahoo.com> in bug 183106
+
+*lastfmplayer-1.1.3-r2 (22 May 2007)
+
+  22 May 2007; Stefan Schweizer <genstef@gentoo.org>
+  -lastfmplayer-1.1.3-r1.ebuild, +lastfmplayer-1.1.3-r2.ebuild:
+  Fix wrapper to kill hanging processes prior to starting thanks to Heiko
+  Baums <heiko@baums-on-web.de> in bug 178590
+
+  14 May 2007; Stefan Schweizer <genstef@gentoo.org> +files/qt4.patch,
+  -lastfmplayer-1.0.0.1_p2113.ebuild, lastfmplayer-1.1.3-r1.ebuild:
+  Fix qt4.3 version bug thanks to Peter Gantner (a.k.a. nephros)
+  <gentoo@nephros.org> and Heiko Baums <heiko@baums-on-web.de> in bug 177932
+
+  01 May 2007; Marius Mauch <genone@gentoo.org>
+  lastfmplayer-1.0.0.1_p2113.ebuild, lastfmplayer-1.1.3-r1.ebuild:
+  Replacing einfo with elog
+
+*lastfmplayer-1.1.3-r1 (20 Mar 2007)
+
+  20 Mar 2007; Stefan Schweizer <genstef@gentoo.org> +files/13_alsa-r1.diff,
+  -lastfmplayer-1.1.3.ebuild, +lastfmplayer-1.1.3-r1.ebuild:
+  Fix Alsa issues thanks to David Grant <davidgrant@gmail.com> in bug 167229
+
+  12 Feb 2007; Simon Stelling <blubb@gentoo.org>
+  +files/lastfmplayer-1.1.3-pic.patch, lastfmplayer-1.1.3.ebuild:
+  fix fPIC issues; bug 166451
+
+*lastfmplayer-1.1.3 (11 Feb 2007)
+
+  11 Feb 2007; <genstef@gentoo.org> +lastfmplayer-1.1.3.ebuild:
+  version bump thanks to Jouni Rinne  in bug 164044
+
+  04 Nov 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.0.0.1_p2113.ebuild:
+  use a snapshot instead of svn, fixes bug 153184
+
+  22 Sep 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.0.0.1_p2113.ebuild:
+  Ebuild info fixes and changes thanks to Alexander Skwar
+  <askwar@digitalprojects.com> and David Li <matrixhax0r@gmail.com> in bug
+  148574
+
+  31 Aug 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.0.0.1_p2113.ebuild:
+  Add -j1 thanks to David Grant <davidgrant@gmail.com> and Lars Strojny
+  <lars@strojny.net> in bug 144253
+
+  05 Aug 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.0.0.1_p2113.ebuild:
+  Add proper debugging support thanks to Santiago M. Mola Velasco
+  <cooldwind@gmail.com> in bug 142875
+
+  28 Jul 2006; Stefan Schweizer <genstef@gentoo.org>
+  +files/lastfmplayer-amd64.patch, lastfmplayer-1.0.0.1_p2113.ebuild:
+  Add patch to allow compiling on amd64 again thanks to Mehmet Kemal EROL
+  <mehmetkemal@gmx.net> and David Li <matrixhax0r@gmail.com> in bug 141729
+
+*lastfmplayer-1.0.0.1_p2113 (23 Jul 2006)
+
+  23 Jul 2006; Stefan Schweizer <genstef@gentoo.org>
+  +lastfmplayer-1.0.0.1_p2113.ebuild, -lastfmplayer-1.2_pre2099.ebuild:
+  version bump thanks to David Li <matrixhax0r@gmail.com> in bug 141351
+
+  02 Jun 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.2_pre2099.ebuild:
+  Add browser-setting information thanks to Pietro Franchi
+  <tinaught@gmail.com> in bug 135279
+
+*lastfmplayer-1.2_pre2099 (27 Apr 2006)
+
+  27 Apr 2006; Stefan Schweizer <genstef@gentoo.org> +files/lastfm.protocol,
+  -lastfmplayer-1.1.4_p2099.ebuild, +lastfmplayer-1.2_pre2099.ebuild:
+  Version bump thanks to Nicholas Doyle <niskel+bugs@gmail.com> in bug 131400,
+  kde services file thanks to Heiko Baums <heiko@baums-on-web.de> in bug
+  129335
+
+  02 Apr 2006; Stefan Schweizer <genstef@gentoo.org>
+  lastfmplayer-1.1.4_p2099.ebuild:
+  remove oss USEflag thanks to Ryan Hill <dirtyepic.sk@gmail.com> in bug 128581
+
+*lastfmplayer-1.1.4_p2099 (02 Apr 2006)
+
+  02 Apr 2006; Stefan Schweizer <genstef@gentoo.org> +metadata.xml,
+  +lastfmplayer-1.1.4_p2099.ebuild:
+  New ebuild thanks to David Li <matrixhax0r@yahoo.com> in bug 102059
+
