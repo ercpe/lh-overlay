@@ -16,7 +16,12 @@ IUSE=""
 RDEPEND="dev-util/eclipse-sdk"
 DEPEND="${RDEPEND}"
 
+pkg_setup(){
+	 ECLIPSE_SLOT=$(get_version_components $(best_version dev-util/eclipse-sdk)|\
+	 awk '{print $7}')
+}
+
 src_install(){
-	insinto /usr/lib/eclipse-3.3/
+	insinto /usr/lib/eclipse-3.${ECLIPSE_SLOT}/
 	doins -r *
 }
