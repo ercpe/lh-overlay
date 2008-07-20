@@ -13,11 +13,11 @@ KEYWORDS="~amd64 ~x86"
 DESCRIPTION="Protein structure modeling by satisfaction of spatial restraints"
 SRC_URI="http://salilab.org/${MY_PN}/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz"
 HOMEPAGE="http://salilab.org/${MY_PN}/"
-IUSE="doc examples python"
+IUSE="doc examples"
 RESTRICT="mirror"
 SLOT="0"
 
-RDEPEND="python? ( =dev-lang/python-2.3* )"
+RDEPEND=""
 DEPEND=">=dev-lang/swig-1.3"
 
 S="${WORKDIR}/${MY_PN}-${MY_PV}"

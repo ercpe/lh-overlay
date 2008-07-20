@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE herds SYSTEM "http://www.gentoo.org/dtd/herds.dtd">
+<?xml-stylesheet href="/xsl/herds.xsl" type="text/xsl" ?>
+<?xml-stylesheet href="/xsl/guide.xsl" type="text/xsl" ?>
+<herds>
+	<herd>
+		<name>private-overlay</name>
+		<email>overlay@j-schmitz.net</email>
+		<description>Everybody owns its own overlay today</description>
+		<maintainer>
+			<email>justin@j-schmitz.net</email>
+			<name>Justin Lecher</name>
+		</maintainer>
+		<maintainer>
+			<email>johann@j-schmitz.net</email>
+			<name>Johann Schmitz</name>
+		</maintainer>
+	</herd>
+</herds>
+

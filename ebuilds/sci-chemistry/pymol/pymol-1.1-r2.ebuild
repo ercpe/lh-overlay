@@ -7,8 +7,7 @@ PYTHON_MODNAME="chempy pmg_tk pymol"
 
 inherit distutils multilib subversion
 
-ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
-ESVN_UPDATE_CMD="svn -r 3395 update"
+ESVN_REPO_URI="https://pymol.svn.sourceforge.net/svnroot/pymol/branches/b11/pymol"
 
 DESCRIPTION="A Python-extensible molecular graphics system."
 HOMEPAGE="http://pymol.sourceforge.net/"

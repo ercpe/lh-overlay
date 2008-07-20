@@ -11,6 +11,14 @@
 # will be committed to cvs, the details on that line will be automatically
 # generated to contain the correct data.
 
+# The EAPI variable tells the ebuild format in use.
+# Defaults to 0 if not specified. The current PMS draft contains details on
+# a proposed EAPI=0 definition but is not finalized yet.
+# Eclasses will test for this variable if they need to use EAPI > 0 features.
+# Ebuilds should not define EAPI > 0 unless they absolutely need to use
+# features added in that version.
+#EAPI=0
+
 # inherit lists eclasses to inherit functions from. Almost all ebuilds should
 # inherit eutils, as a large amount of important functionality has been
 # moved there. For example, the $(get_libdir) mentioned below wont work

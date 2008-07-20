@@ -7,7 +7,7 @@ inherit toolchain-funcs
 DESCRIPTION="aeinfo"
 HOMEPAGE="http://breakbe.at/development/aquaero/"
 SRC_URI="http://breakbe.at/development/aquaero/${P}-src.tar.gz"
-LICENSE="LPGL"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
@@ -22,3 +22,9 @@ src_compile(){
 
 	emake
 }
+
+src_install(){
+	dobin aeinfo aquaerod
+	dohtml -r htdocs/*
+}
+
