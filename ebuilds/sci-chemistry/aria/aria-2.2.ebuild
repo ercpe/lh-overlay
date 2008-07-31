@@ -4,7 +4,7 @@
 
 NEED_PYTHON=2.3
 
-inherit python
+inherit python eutils
 
 MY_P="${PN}${PV}"
 SLOT="0"
