@@ -12,7 +12,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="dev-libs/libusb"
+DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${P}"-src
 
@@ -26,5 +27,6 @@ src_compile(){
 src_install(){
 	dobin aeinfo aquaerod
 	dohtml -r htdocs/*
+	dodoc TODO README*
 }
 
