@@ -25,9 +25,7 @@ RDEPEND="|| ( gnome-base/gnome-light gnome-base/gnome )
 		 dev-perl/libwww-perl
 		 dev-perl/gtk2-trayicon
 		 ssl? ( dev-perl/IO-Socket-SSL )"
-#                 + Perl: Gnome2::Sound
-DEPEND="${RDEPEND}
-		"
+DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/Applet
 
