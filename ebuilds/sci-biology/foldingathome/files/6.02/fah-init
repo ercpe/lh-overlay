@@ -1,0 +1,36 @@
+#!/sbin/runscript
+# Copyright 1999-2007 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/foldingathome/files/6.02/fah-init,v 1.1 2008/08/03 03:19:59 je_fro Exp $
+
+opts="${opts} unitinfo"
+
+unitinfo() {
+	einfo "$(head -n1 /opt/foldingathome/amd64-smp/unitinfo.txt):"
+	sed -e '1,2d' /opt/foldingathome/amd64-smp/unitinfo.txt
+}
+
+start() {
+	ebegin "Starting Folding@Home"
+	cd /opt/foldingathome/amd64-smp
+	start-stop-daemon -v --chdir ${PWD} --chuid foldingathome --nicelevel 19 --start --background --exec ./fah6 -- ${FOLD_OPTS}
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping Folding@Home"
+	start-stop-daemon -vv --stop --user foldingathome --exec /opt/foldingathome/amd64-smp/fah6
+	cd /opt/foldingathome/amd64-smp
+	for I in FahCore*.exe; do
+		if ps ax|grep $I > /dev/null 2>&1; then
+			killall -q $I > /dev/null 2>&1
+		fi
+	done
+	sleep 1
+	if ps ax|grep '[/]opt[/]foldingathome[/]amd64-smp[/]fah6' > /dev/null 2>&1; then
+		eend 1
+	else
+		eend 0
+	fi
+}
+
