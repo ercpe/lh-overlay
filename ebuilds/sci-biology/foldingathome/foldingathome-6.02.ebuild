@@ -5,7 +5,8 @@
 # no version number on this install dir since upgrades will be using same dir
 # (data will be stored here too)
 # The clientX files from old foldingathome will remain untouched.
-I="/opt/foldingathome/amd64-smp"
+GENTOO_MACHINE=$(uname -m)
+I="/opt/foldingathome/${GENTOO_MACHINE}-smp"
 
 inherit eutils
 
@@ -29,10 +30,16 @@ S="${WORKDIR}"
 
 src_install() {
 	exeinto ${I}
+#	sed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" -i "${FILESDIR}"/${PV}/initfolding
 	newexe "${FILESDIR}"/${PV}/initfolding initfolding
+	dosed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" ${I}/initfolding
 	doexe fah6 mpiexec
+#	sed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" -i "${FILESDIR}"/${PV}/folding-conf.d
 	newconfd "${FILESDIR}"/${PV}/folding-conf.d foldingathome
+	dosed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" /etc/conf.d/foldingathome
+#	sed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" -i "${FILESDIR}"/${PV}/fah-init
 	newinitd "${FILESDIR}"/${PV}/fah-init foldingathome
+	dosed "s:GENTOO_MACHINE:${GENTOO_MACHINE}:g" /etc/init.d/foldingathome
 }
 
 pkg_preinst() {

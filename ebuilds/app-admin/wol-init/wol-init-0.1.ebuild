@@ -12,6 +12,8 @@ IUSE=""
 
 RESTRICT="mirror"
 
+RDEPEND="sys-apps/ethtool"
+
 src_install(){
 	newinitd wakeonlan.init wakeonlan
 	newconfd wakeonlan.conf wakeonlan
