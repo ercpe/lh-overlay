@@ -22,9 +22,7 @@ not relevant for general metadata.xml files.
 <!--  <description>Description of the maintainership</description> -->
 </maintainer>
 <!-- <longdescription>Long description of the package</longdescription> -->
-<!--
 <use>
   <flag name='smp'>Makes use of more CPUs</flag>
 </use>
--->
 </pkgmetadata>

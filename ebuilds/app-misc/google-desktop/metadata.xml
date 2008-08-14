@@ -6,5 +6,8 @@
 		<email>justin@j-schmitz.net</email>
 		<name>Justin Lecher</name>
 	</maintainer>
+	<use>
+		<flag name='thunderbird'>Support for Thunderbird</flag>
+	</use>
 </pkgmetadata>
 

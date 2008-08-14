@@ -22,10 +22,11 @@ not relevant for general metadata.xml files.
 <!--  <description>coding for fun</description> -->
 </maintainer>
 <!-- <longdescription>Long description of the package</longdescription> -->
-<!--
 <use>
-  <flag name='flag'>Description of how USE='flag' affects this package.</flag>
-  <flag name='userland_GNU'>Description of how USERLAND='GNU' affects this package.</flag>
+	<flag name='lighttpd'> lighttpd plugins support</flag>
+	<flag name='postfix'> postfix plugins support</flag>
+	<flag name='proftpd'> proftpd plugins support</flag>
+	<flag name='spamassassin'> spamassassin plugins support</flag>
+	<flag name='ntp'> ntp plugins support</flag>
 </use>
--->
 </pkgmetadata>

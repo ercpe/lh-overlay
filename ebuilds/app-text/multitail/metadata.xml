@@ -6,8 +6,5 @@
 		<email>justin@j-schmitz.net</email>
 		<name>Justin Lecher</name>
 	</maintainer>
-<use>
-	<flag name='webinterface'> Webinterface</flag>
-</use>
 </pkgmetadata>
 

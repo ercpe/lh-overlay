@@ -22,10 +22,4 @@ not relevant for general metadata.xml files.
 <!--  <description>coding for fun</description> -->
 </maintainer>
 <!-- <longdescription>Long description of the package</longdescription> -->
-<!--
-<use>
-  <flag name='flag'>Description of how USE='flag' affects this package.</flag>
-  <flag name='userland_GNU'>Description of how USERLAND='GNU' affects this package.</flag>
-</use>
--->
 </pkgmetadata>
