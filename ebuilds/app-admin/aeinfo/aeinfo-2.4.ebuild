@@ -11,7 +11,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-
+RESTRICT="mirror"
 RDEPEND="dev-libs/libusb"
 DEPEND="${RDEPEND}"
 
