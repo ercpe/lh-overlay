@@ -1,0 +1,19 @@
+diff -Naur a/makefile b/makefile
+--- a/makefile	2008-07-30 22:05:53.000000000 +0100
++++ b/makefile	2008-07-30 22:07:55.000000000 +0100
+@@ -4,7 +4,7 @@
+ PLATFORMS_PATH=$(PREFIX)/lib/launchy/
+ DESKTOP_PATH=$(PREFIX)/share/applications
+ ICON_PATH=$(PREFIX)/share/pixmaps
+-QMAKE=qmake-qt4
++QMAKE=qmake
+ 
+ DEFS=SKINS_PATH=\\\"$(SKINS_PATH)\\\" PLUGINS_PATH=\\\"$(PLUGINS_PATH)\\\" \
+ 	PLATFORMS_PATH=\\\"$(PLATFORMS_PATH)\\\"
+@@ -60,4 +60,4 @@
+ 	-rm -rf $(PLATFORMS_PATH)
+ 	-rm -rf $(SKINS_PATH)
+ 	-rm $(DESTDIR)$(DESKTOP_PATH)/launchy.desktop
+-	-rm $(DESTDIR)$(ICON_PATH)/launchy.png	
+\ No newline at end of file
++	-rm $(DESTDIR)$(ICON_PATH)/launchy.png	
