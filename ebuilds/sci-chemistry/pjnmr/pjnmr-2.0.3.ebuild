@@ -40,5 +40,5 @@ src_install() {
 	java -DLIB_PATH="${PJLIB}/" -jar ${PJLIB}/PJNMR.jar
 	EOF
 
-	dobin "${T}"/pynmr
+	dobin "${T}"/pjnmr
 }
