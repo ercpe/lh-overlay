@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils versionator
 
 DESCRIPTION="ShellEd is a superb shell script editor for Eclipse."
 SRC_URI="mirror://sourceforge/shelled/shelled_1_0_3.zip"

@@ -38,6 +38,7 @@ src_unpack(){
 src_install() {
 	exeinto "/opt/cara"
 	doexe cara_1.8.4_linux
+	dosym cara_1.8.4_linux /opt/cara/cara
 	dodoc Start1.2.cara
 
 	cat>>"${T}"/20cara<<-EOF
