@@ -9,7 +9,8 @@ MY_P="${MY_PN}_${PV}"
 
 DESCRIPTION="Crystallography and NMR System"
 HOMEPAGE="http://cns.csb.yale.edu/"
-SRC_URI="${MY_P}_all.tar.gz"
+SRC_URI="${MY_P}_all.tar.gz
+	 http://gentoo.j-schmitz.net/portage/distfiles/${CATEGORY}/${PN}/1.2-aria.patch.bz2"
 RESTRICT="fetch"
 LICENSE="cns"
 SLOT="0"
