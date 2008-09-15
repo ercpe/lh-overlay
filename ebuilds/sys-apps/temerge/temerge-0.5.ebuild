@@ -21,5 +21,5 @@ CONFIG_CHECK="~TMPFS"
 src_install() {
 	insinto /etc
 	doins temerge.conf
-	doexe temerge
+	dobin temerge
 }
