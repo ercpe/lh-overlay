@@ -29,11 +29,11 @@ src_unpack(){
 
 src_compile(){
 	#append-flags -ansi -D_POSIX_SOURCE
-#	export CFLAGS="${CFLAGS} -ansi -D_POSIX_SOURCE"
-#	export CXXFLAGS="${CXXFLAGS} -ansi -D_POSIX_SOURCE"
-#	append-fflags -fno-range-check
-	make all #\
-#	CFLAGS="${CFLAGS}" \
-#	F90FLAGS="${FFLAGS}" \
-#	all
+	export CFLAGS="${CFLAGS} -ansi -D_POSIX_SOURCE -g -O2  -Wall -ansi -pedantic"
+	export CXXFLAGS="${CXXFLAGS} -ansi -D_POSIX_SOURCE -g -O2  -Wall -ansi -pedantic"
+	append-fflags -fno-range-check -g
+	make \
+	CFLAGS="${CFLAGS}" \
+	F90FLAGS="${FFLAGS}" \
+	all
 }
