@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils flag-o-matic
 
 MY_P="CBFlib_${PV}"
 
@@ -28,5 +28,12 @@ src_unpack(){
 }
 
 src_compile(){
-	emake all
+	#append-flags -ansi -D_POSIX_SOURCE
+#	export CFLAGS="${CFLAGS} -ansi -D_POSIX_SOURCE"
+#	export CXXFLAGS="${CXXFLAGS} -ansi -D_POSIX_SOURCE"
+#	append-fflags -fno-range-check
+	make all #\
+#	CFLAGS="${CFLAGS}" \
+#	F90FLAGS="${FFLAGS}" \
+#	all
 }
