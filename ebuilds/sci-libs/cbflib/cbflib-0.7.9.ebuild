@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic
+inherit eutils flag-o-matic toolchain
 
 MY_P="CBFlib_${PV}"
 
@@ -23,8 +23,20 @@ S="${WORKDIR}/${MY_P}"
 src_unpack(){
 	unpack ${A}
 	cd "${S}"
-	cp Makefile_LINUX_gcc42 Makefile
-	epatch "${FILESDIR}"/HOMEDIR.patch
+
+#	cp Makefile_LINUX_gcc42 Makefile
+
+	#gcc 4.2 -D_POSIX_SOURCE
+	#gfortran 4.2 -fno-rang-check
+
+	if ( use amd64 || use x86 ) && [[ $gcc-version -ge 4.2 ]]; then
+
+	fi
+
+
+#	epatch "${FILESDIR}"/HOMEDIR.patch
+
+
 }
 
 src_compile(){

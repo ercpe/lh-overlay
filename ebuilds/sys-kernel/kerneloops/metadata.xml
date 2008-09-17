@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<herd>no-herd</herd>
+<maintainer>
+  <email>gregkh@gentoo.org</email>
+  <name>Greg Kroah-Hartman</name>
+</maintainer>
+<longdescription>
+  This package contains the tools to collect kernel crash signatures, and to
+  submit them to the kerneloops website where the kernel crash signatures get
+  collected and groups for presentation to the Linux kernel developers.
+</longdescription>
+<use>
+  <flag name='gtk'>desktop.applett</flag>
+</use>
+</pkgmetadata>
