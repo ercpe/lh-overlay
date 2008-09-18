@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils flag-o-matic toolchain
+inherit eutils flag-o-matic toolchain-funcs versionator
 
 MY_P="CBFlib_${PV}"
 
@@ -28,9 +28,15 @@ src_unpack(){
 
 	#gcc 4.2 -D_POSIX_SOURCE
 	#gfortran 4.2 -fno-rang-check
+#	if version_is_at_least "4.2" "$(gcc-version)"; then
+#	echo Kathi
+#	fi
 
-	if ( use amd64 || use x86 ) && [[ $gcc-version -ge 4.2 ]]; then
-
+	if [[ gcc-version -ge 4 4 ]]; then
+	echo arsch
+	fi
+	if use amd64 || use x86; then
+	echo Kathi
 	fi
 
 
