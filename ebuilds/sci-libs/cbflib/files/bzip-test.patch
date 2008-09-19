@@ -1,0 +1,31 @@
+--- Makefile.orig	2008-09-19 15:46:36.000000000 +0200
++++ Makefile	2008-09-19 15:47:50.000000000 +0200
+@@ -288,13 +288,13 @@
+ #
+ # Program to use to decompress a data file
+ #
+-DECOMPRESS = /usr/bin/bunzip2
++DECOMPRESS = /bin/bunzip2
+ 
+ 
+ #
+ # Program to use to compress a data file
+ #
+-COMPRESS = /usr/bin/bzip2
++COMPRESS = /bin/bzip2
+ 
+ #
+ # Program to use to generate a signature
+
+--- Makefile.orig	2008-09-19 15:54:46.000000000 +0200
++++ Makefile	2008-09-19 15:55:43.000000000 +0200
+@@ -316,7 +316,7 @@
+ # call to time a command
+ 
+ #TIME =
+-#TIME = time
++TIME = time
+ 
+ 
+ #
+

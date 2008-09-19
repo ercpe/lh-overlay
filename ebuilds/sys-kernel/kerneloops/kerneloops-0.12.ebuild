@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sys-kernel/kerneloops/kerneloops-0.12.ebuild,v 1.1 2008/09/15 22:38:48 gregkh Exp $
 
-inherit eutils toolchain-funcs flag-o-matic
+inherit eutils
 
 DESCRIPTION="Tool to automatically collect and submit Linux kernel crash signatures"
 HOMEPAGE="http://www.kerneloops.org/"
@@ -19,19 +19,14 @@ DEPEND="net-misc/curl
 		dev-util/desktop-file-utils"
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack ${A}
+	cd "${WORKDIR}"
+}
+
 src_compile() {
-
-	append-flags -fstack-protector -D_FORTIFY_SOURCE=2 -fno-common
-
-	emake \
-	CFLAGS="${CFLAGS}" \
-	CC="$(tc-getCC)" \
-	kerneloops || die "Compile deamon failed"
-
-	emake \
-	CFLAGS="${CFLAGS}" \
-	CC="$(tc-getCC)" \
-	kerneloops-applet || die "Compile applet failed"
+	emake kerneloops || die "Compile deamon failed"
+	emake kerneloops-applet || die "Compile applet failed"
 }
 
 src_install() {
@@ -41,13 +36,6 @@ src_install() {
 
 	doinitd "${FILESDIR}"/kerneloops || die "doinitd failed"
 
-	cat >> "${T}"/kerneloops <<- EOF
-
-	# Change this according to your syslogger
-	LOGFILE="/var/log/messages"
-	EOF
-
-	doconfd "${T}"/kerneloops
 }
 
 pkg_postinst() {
