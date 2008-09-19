@@ -4,10 +4,17 @@
 
 inherit eutils python
 
+if use x86; then
+	MY_VER="Linux_2.4_i686"
+else
+	MY_VER="Linux_2.6_x86_64"
+fi
+
 DESCRIPTION="XPLOR-NIH is a structure determination program which builds on the X-PLOR program"
-SRC_URI="x86? ( xplor-nih-${PV}-Linux_2.4_i686.tar.gz )
-		 amd64? ( xplor-nih-${PV}-Linux_2.6_x86_64.tar.gz )
-		 xplor-nih-${PV}-db.tar.gz"
+#SRC_URI="x86? ( xplor-nih-${PV}-Linux_2.4_i686.tar.gz )
+#		 amd64? ( xplor-nih-${PV}-Linux_2.6_x86_64.tar.gz )
+#		 xplor-nih-${PV}-db.tar.gz"
+SRC_URI="xplor-nih-${PV}-${MY_VER}.tar.gz"
 HOMEPAGE="http://nmr.cit.nih.gov/xplor-nih/"
 RESTRICT="fetch"
 LICENSE="xplor"
@@ -21,13 +28,6 @@ DEPEND=""
 
 S="${WORKDIR}"/xplor-nih-${PV}
 
-pkg_setup(){
-	if use x86; then
-		MY_VER="Linux_2.4_i686"
-	else
-		MY_VER="Linux_2.6_x86_64"
-	fi
-}
 src_compile(){
 	einfo "Nothing to compile, it's binary!"
 }

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 MY_P="RasMol_${PV}"
 
@@ -17,6 +17,7 @@ IUSE=""
 
 RDEPEND="x11-libs/libXext
 	x11-libs/libXi
+	sci-libs/cbflib
 	|| ( x11-apps/xdpyinfo x11-apps/xwininfo )"
 DEPEND="${RDEPEND}
 	x11-proto/inputproto
@@ -26,18 +27,19 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}_10Apr08"
 
-#src_unpack() {
-#	unpack ${A}
-#	cd "${S}"
-#
-#	# Hack required for build
-#	cd src
-#	ln -s ../doc
-#}
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+
+	## We have it ${DEPEND}.
+	## The makefile wants to download it and build it.
+	epatch "${FILESDIR}"/cbflib.patch
+}
 
 src_compile() {
 	cd src
 	xmkmf || die "xmkmf failed"
+	make clean
 	make DEPTHDEF=-DEIGHTBIT CC="$(tc-getCC)" \
 		CDEBUGFLAGS="${CFLAGS}" \
 		|| die "8-bit make failed"
@@ -52,7 +54,6 @@ src_compile() {
 		CDEBUGFLAGS="${CFLAGS}" \
 		|| die "32-bit make failed"
 	mv rasmol rasmol.32
-	make clean
 }
 
 src_install () {
@@ -65,4 +66,5 @@ src_install () {
 	doman doc/rasmol.1
 	insinto /usr/lib/${PN}/databases
 	doins data/*
+	dohtml *html html_graphics
 }
