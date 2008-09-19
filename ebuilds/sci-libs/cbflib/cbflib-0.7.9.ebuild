@@ -61,7 +61,7 @@ src_compile(){
 }
 
 src_test(){
-	emake tests
+	emake -j1 tests
 }
 
 src_install() {
