@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="=virtual/jdk-1.6*
+DEPEND=">=virtual/jre-1.4*
 	>=app-arch/p7zip-4.4.3"
 RDEPEND="${DEPEND}"
 
