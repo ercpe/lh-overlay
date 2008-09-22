@@ -66,12 +66,12 @@ src_install() {
 
 	#The following three lines probably do not do their jobs and should be
 	#changed
-	PYTHONPATH="${D}/usr/$(get_libdir)/python${PYVER}/site-packages" ${python} setup2.py
+	PYTHONPATH="${D}$(python_get_sitedir)" ${python} setup2.py
 
 	# These environment variables should not go in the wrapper script, or else
 	# it will be impossible to use the PyMOL libraries from Python.
 	cat >> "${T}"/20pymol <<- EOF
-	PYMOL_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/pymol
+	PYMOL_PATH=$(python_get_sitedir)/pymol
 	PYMOL_DATA="/usr/share/pymol/data"
 	PYMOL_SCRIPTS="/usr/share/pymol/scripts"
 	EOF
@@ -85,7 +85,7 @@ src_install() {
 	EOF
 
 	if ! use apbs; then
-		rm "${D}"/usr/$(get_libdir)/python${PYVER}/site-packages/pmg_tk/startup/apbs_tools.py
+		rm "${D}"$(python_get_sitedir)/pmg_tk/startup/apbs_tools.py
 	fi
 
 	exeinto /usr/bin
