@@ -28,6 +28,7 @@ S="${WORKDIR}/muCommander-${MY_PV}"
 src_unpack(){
 	unpack ${A}
 	cd "${S}"
+	unpack ./"${MY_PN}".jar
 	epatch "${FILESDIR}"/wrapper.patch
 }
 
@@ -44,4 +45,7 @@ src_install(){
 	dosym ../../opt/${MY_PN}/mucommander.sh /usr/bin/mucommander
 
 	dodoc readme.txt
+
+	newicon about.png ${MY_PN}.png
+	make_desktop_entry ${MY_PN} "muCommander" ${MY_PN}
 }

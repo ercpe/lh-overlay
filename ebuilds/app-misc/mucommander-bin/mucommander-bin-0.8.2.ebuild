@@ -9,7 +9,7 @@ MY_PV="${PV//./_}"
 MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"
-HOMEPAGE="http://www.${MY_PN}.com/"
+HOMEPAGE="http://www.mucommander.com/"
 SRC_URI="${HOMEPAGE}/download/${MY_P}-portable.tar.gz"
 
 LICENSE="GPL-3"
