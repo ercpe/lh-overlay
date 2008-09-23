@@ -2,6 +2,11 @@
 # Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/rasmol/ChangeLog,v 1.13 2007/07/22 07:26:04 dberkholz Exp $
 
+*rasmol-2.7.4.2-r1 (23 Sep 2008)
+
+  23 Sep 2008;  <>  rasmol-2.7.4.2-r1.ebuild
+  # INSERT ENTRY HERE
+
   22 Jul 2007; Donnie Berkholz <dberkholz@gentoo.org>;
   rasmol-2.7.2.1.1-r1.ebuild:
   Drop virtual/x11 references.
