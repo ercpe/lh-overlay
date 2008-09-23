@@ -32,12 +32,13 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	## We have it ${DEPEND}.
+	## We have it in ${DEPEND}.
 	## The makefile wants to download it and build it.
 	epatch "${FILESDIR}"/cbflib.patch
 }
 
 src_compile() {
+
 	cd src
 
 	if use gtk; then

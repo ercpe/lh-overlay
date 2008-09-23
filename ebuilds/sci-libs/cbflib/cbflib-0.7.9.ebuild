@@ -38,6 +38,7 @@ src_unpack(){
 	    -i Makefile
 	fi
 
+	# Probably this should not but upstream set this explicitly
 	replace-flags -Os -O3
 	replace-flags -O1 -O3
 	replace-flags -O2 -O3
