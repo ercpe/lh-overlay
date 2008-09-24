@@ -14,6 +14,7 @@ DESCRIPTION="http://www.mucommander.com"
 HOMEPAGE="http://www.mucommander.com"
 ESVN_REPO_URI="https://svn.${PN}.com/${PN}/trunk"
 
+
 LICENSE="GPL-3"
 SLOT="0"
 #KEYWORDS="~amd64 ~x86"
