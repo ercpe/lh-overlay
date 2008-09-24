@@ -12,8 +12,8 @@ JAVA_PKG_BSFIX_ALL="no"
 JAVA_PKG_BSFIX_NAME="local.xml"
 
 
-DESCRIPTION=""
-HOMEPAGE=""
+DESCRIPTION="mucommander"
+HOMEPAGE="http://www.mucommander.com"
 #SRC_URI="http://www.${PN}.com/download/${MY_P}-portable.tar.gz"
 ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
 
