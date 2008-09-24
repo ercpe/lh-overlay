@@ -7,7 +7,7 @@ inherit subversion java-pkg-2 java-ant-2
 MY_P="${PN}-${PV//./_}"
 
 
-#JAVA_PKG_BSFIX="off"
+JAVA_PKG_BSFIX="off"
 JAVA_PKG_BSFIX_ALL="no"
 JAVA_PKG_BSFIX_NAME="local.xml"
 

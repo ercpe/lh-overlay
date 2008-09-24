@@ -7,7 +7,7 @@ inherit eutils
 
 DESCRIPTION="Some more nanorc files"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-editors/nanorc/${P}.tar.bz2"
-HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay"
+HOMEPAGE="http://www.j-schmitz.net"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 hppa ia64 mips ppc ppc64 sparc x86 ~x86-fbsd"

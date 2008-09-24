@@ -6,7 +6,7 @@ inherit eutils
 
 DESCRIPTION="Setup a 32bit chroot as service"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sys-apps/32bit_chroot/${P}.tar.bz2"
-HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay"
+HOMEPAGE="http://www.j-schmitz.net"
 RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
