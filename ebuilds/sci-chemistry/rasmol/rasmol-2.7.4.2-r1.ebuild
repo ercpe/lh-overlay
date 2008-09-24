@@ -43,33 +43,14 @@ src_compile() {
 
 	cd src
 
-	if use gtk; then
-		myconf="${myconf} -DGTKWIN"
+	use gtk && myconf="${myconf} -DGTKWIN"
 
-		xmkmf ${myconf}|| die "xmkmf failed with ${myconf}"
-		make clean
-		emake DEPTHDEF=-DTHIRTYTWOBIT CC="$(tc-getCC)" \
-	                CDEBUGFLAGS="${CFLAGS}" \
-	                || die "32-bit make failed"
-	        mv rasmol rasmol.32
-	else
-		xmkmf || die "xmkmf failed with ${myconf}"
-		make clean
-		emake DEPTHDEF=-DEIGHTBIT CC="$(tc-getCC)" \
-			CDEBUGFLAGS="${CFLAGS}" \
-			|| die "8-bit make failed"
-		mv rasmol rasmol.8
-		emake clean
-		emake DEPTHDEF=-DSIXTEENBIT CC="$(tc-getCC)" \
-			CDEBUGFLAGS="${CFLAGS}" \
-			|| die "16-bit make failed"
-		mv rasmol rasmol.16
-		make clean
-		emake DEPTHDEF=-DTHIRTYTWOBIT CC="$(tc-getCC)" \
-			CDEBUGFLAGS="${CFLAGS}" \
-			|| die "32-bit make failed"
-		mv rasmol rasmol.32
-	fi
+	xmkmf ${myconf}|| die "xmkmf failed with ${myconf}"
+	make clean
+	emake DEPTHDEF=-DTHIRTYTWOBIT CC="$(tc-getCC)" \
+	CDEBUGFLAGS="${CFLAGS}" \
+	|| die "32-bit make failed"
+	mv rasmol rasmol.32
 }
 
 src_install () {

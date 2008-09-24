@@ -1,6 +1,15 @@
 # ChangeLog for sci-chemistry/rasmol
-# Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 2002-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/rasmol/ChangeLog,v 1.13 2007/07/22 07:26:04 dberkholz Exp $
+
+  24 Sep 2008; justin Lecher <justin@j-schmitz.net> rasmol-2.7.4.2.ebuild,
+  +rasmol-2.7.4.2-r1.ebuild:
+  Version posted in b.g.o.
+
+*rasmol-2.7.4.2-r1 (24 Sep 2008)
+
+  24 Sep 2008;  <>  rasmol-2.7.4.2-r1.ebuild
+  # INSERT ENTRY HERE
 
 *rasmol-2.7.4.2-r1 (23 Sep 2008)
 
