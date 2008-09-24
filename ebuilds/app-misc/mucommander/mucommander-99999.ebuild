@@ -10,7 +10,6 @@ JAVA_PKG_BSFIX="off"
 JAVA_PKG_BSFIX_ALL="no"
 JAVA_PKG_BSFIX_NAME="local.xml"
 
-
 DESCRIPTION="http://www.mucommander.com"
 HOMEPAGE="http://www.mucommander.com"
 ESVN_REPO_URI="https://svn.${PN}.com/${PN}/trunk"
