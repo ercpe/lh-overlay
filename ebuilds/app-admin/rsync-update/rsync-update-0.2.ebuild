@@ -10,7 +10,7 @@ LICENSE="as-is"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Automatic dump of an SVN repository"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/rsync-update/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay/app-admin/rsync-update"
+HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay/app-admin/rsync-update"
 IUSE=""
 RESTRICT="primaryuri"
 

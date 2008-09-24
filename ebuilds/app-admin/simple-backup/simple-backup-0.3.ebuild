@@ -9,7 +9,7 @@ LICENSE="as-is"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Simple bash-based backup script"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/simple-backup/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay/app-admin/simple-backup"
+HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay/app-admin/simple-backup"
 IUSE=""
 RESTRICT="primaryuri"
 

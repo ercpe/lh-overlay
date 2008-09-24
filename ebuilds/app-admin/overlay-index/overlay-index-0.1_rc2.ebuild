@@ -9,7 +9,7 @@ LICENSE="as-is"
 KEYWORDS="~x86"
 DESCRIPTION="Automatic Ebuild Index Script"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/overlay-index/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay"
+HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay"
 IUSE=""
 RESTRICT="primaryuri"
 

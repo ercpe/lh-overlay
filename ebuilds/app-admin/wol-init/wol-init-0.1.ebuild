@@ -7,7 +7,7 @@ LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Init script which sets up the ethernet devices for wakeonlan"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/wol-init/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net"
+HOMEPAGE="http://www.j-schmitz.net/wiki"
 IUSE=""
 
 RESTRICT="mirror"

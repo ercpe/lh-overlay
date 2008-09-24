@@ -5,7 +5,7 @@
 inherit eutils
 
 DESCRIPTION="A simple bash-based firewall using iptables"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay/walloffire"
+HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay/walloffire"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/net-firewall/walloffire/${P}.tar.bz2"
 RESTRICT="mirror"
 IUSE=""

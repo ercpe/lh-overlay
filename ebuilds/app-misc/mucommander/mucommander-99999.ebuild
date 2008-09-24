@@ -14,8 +14,7 @@ JAVA_PKG_BSFIX_NAME="local.xml"
 
 DESCRIPTION=""
 HOMEPAGE=""
-#SRC_URI="http://www.${PN}.com/download/${MY_P}-portable.tar.gz"
-ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
+ESVN_REPO_URI="https://svn.${PN}.com/${PN}/trunk"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -36,3 +35,8 @@ src_unpack(){
 #	cp ./build/local_template.xml ./local.xml
 }
 
+src_compile(){
+
+	eant compress
+
+}

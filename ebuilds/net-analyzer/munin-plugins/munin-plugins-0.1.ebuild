@@ -9,7 +9,7 @@ LICENSE="as-is"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Collection of 3rd party plugins for net-analyzer/munin"
 SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/net-analyzer/munin-plugins/${P}.tar.bz2"
-HOMEPAGE="http://wiki.j-schmitz.net/wiki/Private_Portage_Overlay/net-analyzer/munin-plugins"
+HOMEPAGE="http://www.j-schmitz.net/wiki/wiki/Private_Portage_Overlay/net-analyzer/munin-plugins"
 IUSE="lighttpd mysql postfix proftpd spamassassin ntp"
 RESTRICT="primaryuri"
 
