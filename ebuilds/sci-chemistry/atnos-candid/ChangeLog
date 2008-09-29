@@ -1,0 +1,8 @@
+# ChangeLog for sci-chemistry/atnos-candid
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Sep 2008; justin Lecher <justin@j-schmitz.net> +metadata.xml,
+  +atnos-candid-1.1.ebuild:
+  Setup sci-chemistry/atnos-candid
+
