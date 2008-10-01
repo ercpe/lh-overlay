@@ -2,14 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
+inherit private
 
 SLOT="0"
 LICENSE="free-noncomm"
 KEYWORDS="-* ~x86 ~amd64"
 DESCRIPTION="The tools package from USF for macromolecular crystallography"
-SRC_URI="ftp://xray.bmc.uu.se/pub/gerard/voidoo/voidoo_linux.tar.gz
-		 ftp://xray.bmc.uu.se/pub/gerard/voidoo/voidoo_etc.tar.gz"
+#SRC_URI="ftp://xray.bmc.uu.se/pub/gerard/voidoo/voidoo_linux.tar.gz
+#		 ftp://xray.bmc.uu.se/pub/gerard/voidoo/voidoo_etc.tar.gz"
+SRC_URI="${PKG_SERVER}/voidoo_linux-${PV}.tar.gz
+	 ${PKG_SERVER}/voidoo_etc-${PV}.tar.gz"
 HOMEPAGE="http://alpha2.bmc.uu.se/usf/voidoo.html"
 IUSE=""
 RESTRICT="mirror"
