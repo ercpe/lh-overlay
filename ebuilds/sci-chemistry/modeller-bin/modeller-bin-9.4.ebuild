@@ -80,7 +80,7 @@ src_install(){
 	fi
 
 	dosym ${IN_PATH}/lib/${EXECUTABLE_TYPE}/_modeller.so \
-		  /usr/$(get_libdir)/python${PYVER}/site-packages/_modeller.so
+		  $(python_get_sitedir)/_modeller.so
 }
 
 pkg_postinst() {
