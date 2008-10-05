@@ -1,14 +1,14 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-im/pyicq-t/pyicq-t-0.8b.ebuild,v 1.2 2008/05/29 17:39:42 hawking Exp $
+# $Header: $
 
 NEED_PYTHON=2.3
 
-inherit eutils multilib python
+inherit eutils multilib python private
 
 DESCRIPTION="Python based jabber transport for ICQ"
 HOMEPAGE="http://code.google.com/p/pyicqt/"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/net-im/pyicq-t/${P}.tar.bz2"
+SRC_URI="${PKG_SERVER}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,15 +23,11 @@ RDEPEND="${DEPEND}
 	webinterface? ( >=dev-python/nevow-0.4.1 )
 	>=dev-python/imaging-1.1"
 
-src_unpack() {
-	unpack ${A} && cd "${S}" || die "unpack failed"
-}
-
 src_install() {
 	local inspath
 
 	python_version
-	inspath=/usr/$(get_libdir)/python${PYVER}/site-packages/${PN}
+	inspath=$(python_get_sitedir)/${PN}
 	insinto ${inspath}
 	doins -r data src tools
 	newins PyICQt.py ${PN}.py
@@ -52,13 +48,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	python_version
-	python_mod_optimize /usr/$(get_libdir)/python${PYVER}/site-packages/${PN}
+	python_mod_optimize $(python_get_sitedir)/${PN}
 
 	elog "A sample configuration file has been installed in /etc/jabber/${PN}.xml."
 	elog "Please edit it and the configuration of your Jabber server to match."
 }
 
 pkg_postrm() {
-	python_mod_cleanup /usr/$(get_libdir)/python*/site-packages/${PN}
+	python_mod_cleanup $(python_get_sitedir)/${PN}
 }
