@@ -54,9 +54,9 @@ src_test(){
 }
 
 src_install(){
-	insinto /usr/$(get_libdir)/python$PYVER/site-packages/aria
+	insinto "$(python_get_sitedir)/${PN}"
 	doins -r src aria2.py
-	insinto /usr/$(get_libdir)/python$PYVER/site-packages/aria/cns
+	insinto "$(python_get_sitedir)/${PN}"/cns
 	doins -r cns/{protocols,toppar,src/helplib}
 
 	if use examples; then
@@ -66,7 +66,7 @@ src_install(){
 
 # ENV
 	cat >> "${T}"/20aria <<- EOF
-	ARIA2="/usr/$(get_libdir)/python$PYVER/site-packages/aria"
+	ARIA2="$(python_get_sitedir)/${PN}"
 	EOF
 
 	doenvd "${T}"/20aria
