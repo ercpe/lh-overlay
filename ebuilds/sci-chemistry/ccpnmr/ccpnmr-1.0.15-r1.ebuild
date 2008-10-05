@@ -74,7 +74,7 @@ src_compile(){
 	GL_LIB = -lglut -lGLU -lGL
 	GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include
 	GL_LIB_FLAGS = -L\$(GL_DIR)/$(get_libdir)
-	CFLAGS = $CFLAGS \$(MALLOC_FLAG) \$(FPIC_FLAG) \$(XOR_FLAG)
+	CFLAGS = ${CFLAGS} \$(MALLOC_FLAG) \$(FPIC_FLAG) \$(XOR_FLAG)
 	EOF
 
 	emake
@@ -83,7 +83,7 @@ src_compile(){
 
 src_install(){
 
-	IN_PATH=/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
+	IN_PATH=$(python_get_sitedir)/${PN}
 
 	cat >> "${T}"/20ccpnmr <<- EOF
 	export CCPNMR_TOP_DIR=${IN_PATH}
@@ -197,9 +197,9 @@ src_install(){
 }
 
 pkg_postinst(){
-	python_mod_optimize "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
+	python_mod_optimize "${ROOT}"$(python_get_sitedir)/${PN}
 }
 
 pkg_postrm() {
-	python_mod_cleanup "${ROOT}"/usr/$(get_libdir)/python${PYVER}/site-packages/ccpnmr
+	python_mod_cleanup "${ROOT}"$(python_get_sitedir)/${PN}
 }
