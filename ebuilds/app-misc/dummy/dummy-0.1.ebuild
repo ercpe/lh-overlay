@@ -34,6 +34,7 @@ src_unpack() {
 }
 
 src_install() {
+	pwd
 	echo $(best_version dev-lang/tk)
 	echo $(has_version dev-lang/tk)
 	get_all_version_components $(best_version dev-lang/tk)
