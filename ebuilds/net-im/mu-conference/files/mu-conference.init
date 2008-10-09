@@ -17,7 +17,7 @@ start() {
 }
 
 stop() {
-	ebegin "Stoping MUC Jabber Transport"
+	ebegin "Stopping MUC Jabber Transport"
 	start-stop-daemon \
 		--stop \
 		--pidfile /var/run/jabber/mu-conference.pid
