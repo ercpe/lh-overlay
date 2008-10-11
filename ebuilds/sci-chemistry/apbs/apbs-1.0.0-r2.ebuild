@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-1.0.0.ebuild,v 1.2 2008/04/30 01:18:01 mr_bones_ Exp $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/apbs/apbs-1.0.0-r1.ebuild,v 1.1 2008/10/11 17:29:20 markusle Exp $
 
 inherit eutils fortran autotools
 
@@ -35,15 +35,12 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-openmpi.patch
 	epatch "${FILESDIR}"/${P}-install-fix.patch
 	epatch "${FILESDIR}"/${P}-libmaloc-noinstall.patch
-
-	sed -e "s:GENTOO_PKG_NAME:${PN}:" -i Makefile.am \
-		|| die "Failed to fix Makefile.am"
-
+	epatch "${FILESDIR}"/${P}-LDFLAGS.patch
 	eautoreconf
 }
 
 src_compile() {
-	local myconf
+	local myconf="--docdir=/usr/share/doc/${PF}"
 	use blas && myconf="${myconf} --with-blas=-lblas"
 
 	# check which mpi version is installed and tell configure
@@ -72,4 +69,6 @@ src_test() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
+	dodoc AUTHORS INSTALL README NEWS ChangeLog \
+		|| die "Failed to install docs"
 }
