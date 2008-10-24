@@ -1,0 +1,8 @@
+# ChangeLog for sci-chemistry/proctools
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Oct 2008; Justin Lecher <justin@j-schmitz.net> +metadata.xml,
+  +proctools-1.5.11.ebuild:
+  Setup sci-chemistry/proctools
+

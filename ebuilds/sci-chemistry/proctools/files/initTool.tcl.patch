@@ -1,0 +1,25 @@
+--- TCL/initTool.tcl.orig	2008-10-22 18:04:04.413326545 +0200
++++ TCL/initTool.tcl	2008-10-22 18:12:14.553277912 +0200
+@@ -108,19 +108,19 @@
+ # define some general variables, adjust defaults and options where needed
+ var setAtt print_command 		class	tools	\
+ 					prettyS {Print command} \
+-					default	{lp -dhp5000}	\
++					default	{lpr}	\
+ 					options {{lp -dhp5000} {lp -dhplj5}} \
+ 					help	{Unix print command}
+ 
+ var setAtt editor 			class	tools	\
+ 					prettyS {External editor} \
+ 					default	{nedit}	\
+-					options {xedit nedit jot emacs kwrite kedit} \
++					options {xedit nedit jot emacs kwrite kedit gedit} \
+ 					help	{Unix external editor}
+ 
+ var setAtt browser 			class	tools	\
+ 					prettyS {External webbrowser} \
+-					default	{mozilla}	\
++					default	{firefox}	\
+ 					options {netscape galeon mozilla} \
+ 					help	{Unix external editor}
+ 
