@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Oct 2008; justin Lecher <justin@j-schmitz.net> ++,
+  -mucommander-bin-20080921.ebuild, -mucommander-bin-20080921-r1.ebuild:
+  bumped tp 0.8.3
+
   29 Sep 2008; justin Lecher <justin@j-schmitz.net>
   mucommander-bin-0.8.2.ebuild:
   fixed icon and desktop entry of version 0.8.2
