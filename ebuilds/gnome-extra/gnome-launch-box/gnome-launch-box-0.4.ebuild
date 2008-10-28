@@ -1,5 +1,6 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Header: $
 
 inherit gnome2
 
@@ -12,16 +13,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=">=x11-libs/gtk+-2.10
+RDEPEND="sys-devel/gettext"
+
+
+DEPEND="${RDEPEND}
+	>=x11-libs/gtk+-2.10
 	>=gnome-base/gnome-vfs-2.10
 	>=gnome-base/libgnomeui-2.10
 	>=gnome-base/gnome-menus-2.10
 	>=gnome-base/gnome-desktop-2.10
 	>=gnome-extra/evolution-data-server-1.8
-	>=gnome-base/gconf-2"
-
-RDEPEND="${DEPEND}
-	  sys-devel/gettext
+	>=gnome-base/gconf-2
 	>=dev-util/intltool-0.35
 	>=dev-util/pkgconfig-0.9"
 
