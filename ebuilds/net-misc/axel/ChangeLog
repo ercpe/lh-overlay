@@ -1,0 +1,8 @@
+# ChangeLog for net-misc/axel
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Oct 2008; justin Lecher <justin@j-schmitz.net> +metadata.xml,
+  +axel-2.0.ebuild:
+  Setup net-misc/axel
+
