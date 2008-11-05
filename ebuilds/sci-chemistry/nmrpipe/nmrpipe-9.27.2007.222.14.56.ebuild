@@ -101,7 +101,7 @@ src_compile() {
 		sed -e "s%/u/delaglio%${NMRBASE}%" -i ${i} || die \
 			"Failed patching scripts."
 	done
-	sed -i "s:${WORKDIR}:/opt/nmrpipe/" font.com
+	sed -i "s:${WORKDIR}:${NMRBASE}:g" font.com
 	# Remove installation log files.
 	cd "${S}"
 	rm *.log || die "Failed to remove installation log."
