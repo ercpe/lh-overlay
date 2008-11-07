@@ -1,0 +1,10 @@
+--- include/almost/rose/rosedb.h.orig	2008-11-07 12:26:56.000000000 +0100
++++ include/almost/rose/rosedb.h	2008-11-07 12:27:04.000000000 +0100
+@@ -21,6 +21,7 @@
+ 
+ #include <almost.h>
+ #include <iterator>
++#include <cstring>
+ 
+ namespace Utils {
+   inline int toinda(char c){
