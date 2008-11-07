@@ -4,6 +4,8 @@
 
 # inherit
 
+MY_PV=${PV%.*}
+
 DESCRIPTION="ProcTool - Process, Manage and Sort NMR experiments"
 HOMEPAGE="http://proteins.dyndns.org/Software/ProcTool/Help/tutorial.html"
 SRC_URI="http://proteins.dyndns.org/Software/ProcTool/procTool1.5.1.11Dec2003.tar"
@@ -35,8 +37,21 @@ src_install(){
 	die
 
 	rm "${S}"/bin/{tools.com~,p2x.sgi}
-	rm "${S}"/PROCTOOL_1.5/sort_fids.sgi
+	rm "${S}"/PROCTOOL_${MY_PV}/sort_fids.sgi
 
-	
+	insinto /opt/proctools
+	doins -r {Icons,TCL,PROCTOOL_${MY_PV}}
+	fperms 755 /opt/proctools/PROCTOOL_${MY_PV}/{nmrManage1.5.1,procTool1.5.1,samples1.5.1,show_procpar,showProt,sort_fids.linux} || \
+	die
+
+	exeinto /opt/proctools/bin
+	doexe bin/*
+
+	cat >> ${T}/45proctools <<- EOF
+	PATH="/opt/proctools/bin"
+	EOF
+
+	doenvd ${T}/45proctools
+
 }
 
