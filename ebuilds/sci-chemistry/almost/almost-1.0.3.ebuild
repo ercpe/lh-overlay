@@ -5,7 +5,7 @@
 inherit eutils
 
 DESCRIPTION="all atom molecular simulation toolkit"
-HOMEPAGE="http://www-almost.ch.cam.ac.uk"
+HOMEPAGE="http://www-almost.ch.cam.ac.uk/site"
 SRC_URI="http://www-almost.ch.cam.ac.uk/site/downloads/${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -23,12 +23,23 @@ src_unpack(){
 	cd "${S}"
 
 	epatch "${FILESDIR}"/gcc-4.3.patch
+
+	eautoreconf
 }
 
 src_compile(){
 
-	econf
+	econf $(use_enable mpi) || \
+	die
 
-	emake -j1 CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
+	use mpi && append-flags -DALM_MPI_FF -DMPICH_IGNORE_CXX_SEEK
 
+	emake CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" || \
+	die
+
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "Install failed"
+	#dodoc README CHANGES || die
 }
