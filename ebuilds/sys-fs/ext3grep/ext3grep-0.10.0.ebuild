@@ -27,9 +27,10 @@ src_compile() {
 
 	econf \
 		$(use_enable pch) \
-		$(use_enable largefile)
+		$(use_enable largefile) || \
+	die
 
-	emake
+	emake || die
 }
 
 
