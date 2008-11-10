@@ -1,0 +1,22 @@
+diff -urN clipper.orig/clipper/ccp4/Makefile.am clipper/clipper/ccp4/Makefile.am
+--- clipper.orig/clipper/ccp4/Makefile.am	2007-05-28 16:38:56.000000000 -0700
++++ clipper/clipper/ccp4/Makefile.am	2007-05-28 16:41:35.000000000 -0700
+@@ -12,6 +12,6 @@
+ 
+ library_includedir = $(pkgincludedir)/ccp4
+ 
+-libclipper_ccp4_la_LDFLAGS = -version-info $(PACKAGE_VERSION)
++libclipper_ccp4_la_LDFLAGS = -version-info $(PACKAGE_VERSION) $(CCP4_LIBS)
+ 
+ ####
+diff -urN clipper.orig/clipper/core/Makefile.am clipper/clipper/core/Makefile.am
+--- clipper.orig/clipper/core/Makefile.am	2007-05-28 16:38:56.000000000 -0700
++++ clipper/clipper/core/Makefile.am	2007-05-28 16:40:33.000000000 -0700
+@@ -29,6 +29,6 @@
+ 
+ lib_LTLIBRARIES = libclipper-core.la
+ 
+-libclipper_core_la_LDFLAGS = -version-info $(PACKAGE_VERSION)
++libclipper_core_la_LDFLAGS = -version-info $(PACKAGE_VERSION) $(FFTW_LIBS)
+ 
+ ####

@@ -1,0 +1,112 @@
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/cif/cif_data_io.cpp /root/work/clipper/cif/cif_data_io.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/cif/cif_data_io.cpp	2006-03-13 14:20:10.000000000 +0100
++++ /root/work/clipper/cif/cif_data_io.cpp	2008-11-10 15:36:09.000000000 +0100
+@@ -49,6 +49,7 @@
+ }
+ #include <vector>
+ #include <fstream>
++#include <cstring>
+ 
+ #ifndef  __MMDB_MMCIF__
+ #include <mmdb/mmdb_mmcif.h>
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/minimol/minimol.cpp /root/work/clipper/minimol/minimol.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/minimol/minimol.cpp	2007-05-24 11:51:50.000000000 +0200
++++ /root/work/clipper/minimol/minimol.cpp	2008-11-10 15:44:34.000000000 +0100
+@@ -41,6 +41,7 @@
+ 
+ #include "minimol.h"
+ 
++#include <string.h>
+ 
+ namespace clipper {
+ 
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdb/clipper_mmdb.cpp /root/work/clipper/mmdb/clipper_mmdb.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdb/clipper_mmdb.cpp	2007-08-01 17:40:38.000000000 +0200
++++ /root/work/clipper/mmdb/clipper_mmdb.cpp	2008-11-10 15:42:09.000000000 +0100
+@@ -42,6 +42,7 @@
+ #include "clipper_mmdb.h"
+ 
+ #include <algorithm>
++#include <string.h>
+ 
+ 
+ namespace clipper {
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdbold/clipper_mmdb.cpp /root/work/clipper/mmdbold/clipper_mmdb.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdbold/clipper_mmdb.cpp	2006-01-23 14:14:00.000000000 +0100
++++ /root/work/clipper/mmdbold/clipper_mmdb.cpp	2008-11-10 15:43:06.000000000 +0100
+@@ -43,6 +43,7 @@
+ 
+ #include <set>
+ #include <algorithm>
++#include <string.h>
+ 
+ 
+ namespace clipper {
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdbold/clipper_mmdb_wrapper.cpp /root/work/clipper/mmdbold/clipper_mmdb_wrapper.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/clipper/mmdbold/clipper_mmdb_wrapper.cpp	2006-01-23 14:14:00.000000000 +0100
++++ /root/work/clipper/mmdbold/clipper_mmdb_wrapper.cpp	2008-11-10 15:43:46.000000000 +0100
+@@ -41,6 +41,7 @@
+ 
+ #include "clipper_mmdb_wrapper.h"
+ 
++#include <string.h>
+ 
+ namespace clipper {
+ 
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cecalc.cpp /root/work/examples/cecalc.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cecalc.cpp	2007-04-04 10:57:34.000000000 +0200
++++ /root/work/examples/cecalc.cpp	2008-11-10 15:52:48.000000000 +0100
+@@ -3,6 +3,8 @@
+ 
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-ccp4.h>
++#include <cstdlib>
++
+ 
+ 
+ int main( int argc, char** argv )
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/examples/chltofom.cpp /root/work/examples/chltofom.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/examples/chltofom.cpp	2006-05-05 17:54:31.000000000 +0200
++++ /root/work/examples/chltofom.cpp	2008-11-10 15:53:17.000000000 +0100
+@@ -3,6 +3,7 @@
+ 
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-ccp4.h>
++#include <cstdlib>
+ 
+ 
+ int main( int argc, char** argv )
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cinvfft.cpp /root/work/examples/cinvfft.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cinvfft.cpp	2006-05-05 17:52:13.000000000 +0200
++++ /root/work/examples/cinvfft.cpp	2008-11-10 15:53:39.000000000 +0100
+@@ -3,6 +3,7 @@
+ 
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-ccp4.h>
++#include <cstdlib>
+ 
+ 
+ int main( int argc, char** argv )
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cphasecombine.cpp /root/work/examples/cphasecombine.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/examples/cphasecombine.cpp	2006-05-05 17:54:35.000000000 +0200
++++ /root/work/examples/cphasecombine.cpp	2008-11-10 15:54:20.000000000 +0100
+@@ -3,7 +3,7 @@
+ 
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-ccp4.h>
+-
++#include <cstdlib>
+ 
+ int main( int argc, char** argv )
+ {
+diff -uarN /var/tmp/portage/sci-libs/clipper-20070907/work/examples/maketestdata.cpp /root/work/examples/maketestdata.cpp
+--- /var/tmp/portage/sci-libs/clipper-20070907/work/examples/maketestdata.cpp	2007-04-12 10:24:16.000000000 +0200
++++ /root/work/examples/maketestdata.cpp	2008-11-10 15:52:16.000000000 +0100
+@@ -9,6 +9,7 @@
+ #include <clipper/contrib/test_contrib.h>
+ 
+ #include <fstream>
++#include <cstdlib>
+ 
+ int main( int argc, char** argv )
+ {
