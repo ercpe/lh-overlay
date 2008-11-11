@@ -1,0 +1,10 @@
+--- src/utils-output.cpp	2006-10-25 19:36:55.000000000 +0200
++++ src/utils-output.cpp.new	2008-11-10 19:53:41.950376469 +0100
+@@ -2,6 +2,7 @@
+ ** output.cpp
+ */
+ #include "utils.h"
++#include <ctime>
+ 
+ const float INV_SQRT_2 = 0.7071;
+ const float INV_SQRT_3 = 0.5774;
