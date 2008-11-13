@@ -1,6 +1,6 @@
 diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-extract-v3.004-prod-src/etc/make.platform.darwin3
 --- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2008-11-13 17:51:34.000000000 +0100
++++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2008-11-13 12:25:32.000000000 +0100
 @@ -91,7 +91,7 @@
  DEFINES=$(GDEFINES) $(LDEFINES)
  
@@ -21,7 +21,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-
  F77_LINKER=f77
 diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-extract-v3.004-prod-src/etc/make.platform.darwin4
 --- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2008-11-13 17:51:34.000000000 +0100
++++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2008-11-13 12:25:32.000000000 +0100
 @@ -92,7 +92,7 @@
  DEFINES=$(GDEFINES) $(LDEFINES)
  
@@ -32,7 +32,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-
  # Collect all include directories from global include directories and
  # include directories specified in module makefile
 @@ -160,7 +160,7 @@
- STATIC_LINKING= 
+ STATIC_LINKING=
  
  # Linker flags
 -LDFLAGS=$(ABI) -w $(STATIC_LINKING)
@@ -42,7 +42,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-
  F77_LINKER=f77
 diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-extract-v3.004-prod-src/etc/make.platform.gnu3
 --- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2008-11-13 17:51:34.000000000 +0100
++++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2008-11-13 12:25:32.000000000 +0100
 @@ -6,6 +6,8 @@
  ##
  ##########################################################################
@@ -61,7 +61,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  
  # Collect all include directories from global include directories and
  # include directories specified in module makefile
-@@ -107,8 +109,8 @@
+@@ -107,7 +109,7 @@
  C_WARNINGS=$(WARNINGS)
  
  # C compiler flags
@@ -71,7 +71,6 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
 +CFLAGS_NONANSI=$(C_OPT) $(ABI) $(NON_ANSI_C_FLAG) $(C_WARNINGS) $(DEFINES) \
                 $(INCLUDES) 
  
- ## C++ compiler
 @@ -128,9 +130,9 @@
  EXT=C
  
@@ -93,12 +92,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  
  # Additional Fortran libraries
  F77LIBS=
-@@ -154,11 +156,11 @@
- #-----Linkers section----------------------------------------------------#
- 
- # Static linking option. If not defined, dynamic linking is used.
--STATIC_LINKING=-static
-+STATIC_LINKING= 
+@@ -157,8 +159,8 @@
+ STATIC_LINKING=-static
  
  # Linker flags
 -LDFLAGS=$(ABI) -w $(STATIC_LINKING)
@@ -110,7 +105,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  F77_LINKER=f77
 diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-extract-v3.004-prod-src/etc/make.platform.gnu4
 --- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2008-11-13 17:51:34.000000000 +0100
++++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2008-11-13 12:25:32.000000000 +0100
 @@ -6,6 +6,8 @@
  ##
  ##########################################################################
@@ -138,7 +133,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  
  # Collect all include directories from global include directories and
  # include directories specified in module makefile
-@@ -108,8 +110,8 @@
+@@ -108,7 +110,7 @@
  C_WARNINGS=$(WARNINGS)
  
  # C compiler flags
@@ -148,7 +143,6 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
 +CFLAGS_NONANSI=$(C_OPT) $(ABI) $(NON_ANSI_C_FLAG) $(C_WARNINGS) $(DEFINES) \
                 $(INCLUDES) 
  
- ## C++ compiler
 @@ -129,9 +131,9 @@
  EXT=C
  
@@ -170,12 +164,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  
  # Additional Fortran libraries
  F77LIBS=
-@@ -155,11 +157,11 @@
- #-----Linkers section----------------------------------------------------#
- 
- # Static linking option. If not defined, dynamic linking is used.
--STATIC_LINKING=-static
-+STATIC_LINKING= 
+@@ -158,8 +160,8 @@
+ STATIC_LINKING=-static
  
  # Linker flags
 -LDFLAGS=$(ABI) -w $(STATIC_LINKING)
@@ -187,7 +177,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  F77_LINKER=f77
 diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile pdb-extract-v3.004-prod-src/Makefile
 --- /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/Makefile	2008-11-13 17:51:06.000000000 +0100
++++ pdb-extract-v3.004-prod-src/Makefile	2008-11-13 12:23:05.000000000 +0100
 @@ -52,7 +52,7 @@
  		echo "------------------------------------------------------------"; \
  		echo "**** Making $$libdir ****"; \

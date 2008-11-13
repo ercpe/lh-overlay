@@ -1,53 +1,11 @@
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-extract-v3.004-prod-src/etc/make.platform.darwin3
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2008-11-13 17:51:34.000000000 +0100
-@@ -91,7 +91,7 @@
- DEFINES=$(GDEFINES) $(LDEFINES)
- 
- ## Global include directories
--GINCLUDES= 
-+GINCLUDES=-I/usr/include/cifparse-obj
- 
- # Collect all include directories from global include directories and
- # include directories specified in module makefile
-@@ -159,7 +159,7 @@
- STATIC_LINKING=
- 
- # Linker flags
--LDFLAGS=$(ABI) -w $(STATIC_LINKING)
-+LDFLAGS=$(LDFLAGS_OPT) $(ABI) -w $(STATIC_LINKING)
- 
- # Fortran linker
- F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-extract-v3.004-prod-src/etc/make.platform.darwin4
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2008-11-13 17:51:34.000000000 +0100
-@@ -92,7 +92,7 @@
- DEFINES=$(GDEFINES) $(LDEFINES)
- 
- ## Global include directories
--GINCLUDES= 
-+GINCLUDES=-I/usr/include/cifparse-obj
- 
- # Collect all include directories from global include directories and
- # include directories specified in module makefile
-@@ -160,7 +160,7 @@
- STATIC_LINKING= 
- 
- # Linker flags
--LDFLAGS=$(ABI) -w $(STATIC_LINKING)
-+LDFLAGS=$(LDFLAGS_OPT) $(ABI) -w $(STATIC_LINKING)
- 
- # Fortran linker
- F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-extract-v3.004-prod-src/etc/make.platform.gnu3
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2008-11-13 17:51:34.000000000 +0100
+diff -ur -x Makefile.platform pdb-extract-v3.004-prod-src.orig/etc/make.platform.gnu3 pdb-extract-v3.004-prod-src/etc/make.platform.gnu3
+--- pdb-extract-v3.004-prod-src.orig/etc/make.platform.gnu3	2005-07-13 06:22:18.000000000 -0700
++++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2005-12-18 23:42:06.000000000 -0800
 @@ -6,6 +6,8 @@
  ##
  ##########################################################################
  
-+LIBDIR=/usr/lib
++LIBDIR= /usr/lib
 +
  #-----Lexer and Parser section-------------------------------------------#
  
@@ -57,7 +15,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  
  ## Global include directories
 -GINCLUDES= 
-+GINCLUDES=-I/usr/include/cifparse-obj
++GINCLUDES= -I/usr/include/cifparse-obj
  
  # Collect all include directories from global include directories and
  # include directories specified in module makefile
@@ -93,29 +51,14 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  
  # Additional Fortran libraries
  F77LIBS=
-@@ -154,11 +156,11 @@
- #-----Linkers section----------------------------------------------------#
- 
- # Static linking option. If not defined, dynamic linking is used.
--STATIC_LINKING=-static
-+STATIC_LINKING= 
- 
- # Linker flags
--LDFLAGS=$(ABI) -w $(STATIC_LINKING)
--LDFLAGS_NO_STATIC=$(ABI) -w
-+LDFLAGS=$(LDFLAGS_OPT) $(ABI) -w $(STATIC_LINKING)
-+LDFLAGS_NO_STATIC=$(LDFLAGS_OPT) $(ABI) -w
- 
- # Fortran linker
- F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-extract-v3.004-prod-src/etc/make.platform.gnu4
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2008-11-13 17:51:34.000000000 +0100
+diff -ur -x Makefile.platform pdb-extract-v3.004-prod-src.orig/etc/make.platform.gnu4 pdb-extract-v3.004-prod-src/etc/make.platform.gnu4
+--- pdb-extract-v3.004-prod-src.orig/etc/make.platform.gnu4	2005-07-13 06:22:18.000000000 -0700
++++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2005-12-18 23:33:50.000000000 -0800
 @@ -6,6 +6,8 @@
  ##
  ##########################################################################
  
-+LIBDIR=/usr/lib
++LIBDIR= /usr/lib
 +
  #-----Lexer and Parser section-------------------------------------------#
  
@@ -134,7 +77,7 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  
  ## Global include directories
 -GINCLUDES= 
-+GINCLUDES=-I/usr/include/cifparse-obj
++GINCLUDES= -I/usr/include/cifparse-obj
  
  # Collect all include directories from global include directories and
  # include directories specified in module makefile
@@ -170,24 +113,9 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  
  # Additional Fortran libraries
  F77LIBS=
-@@ -155,11 +157,11 @@
- #-----Linkers section----------------------------------------------------#
- 
- # Static linking option. If not defined, dynamic linking is used.
--STATIC_LINKING=-static
-+STATIC_LINKING= 
- 
- # Linker flags
--LDFLAGS=$(ABI) -w $(STATIC_LINKING)
--LDFLAGS_NO_STATIC=$(ABI) -w
-+LDFLAGS=$(LDFLAGS_OPT) $(ABI) -w $(STATIC_LINKING)
-+LDFLAGS_NO_STATIC=$(LDFLAGS_OPT) $(ABI) -w
- 
- # Fortran linker
- F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile pdb-extract-v3.004-prod-src/Makefile
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile	2007-09-11 17:19:46.000000000 +0200
-+++ pdb-extract-v3.004-prod-src/Makefile	2008-11-13 17:51:06.000000000 +0100
+diff -ur -x Makefile.platform pdb-extract-v1.700-prod-src.orig/Makefile pdb-extract-v1.700-prod-src/Makefile
+--- pdb-extract-v3.004-prod-src.orig/Makefile   2005-07-13 06:22:16.000000000 -0700
++++ pdb-extract-v3.004-prod-src/Makefile        2005-12-18 23:39:23.000000000 -0800
 @@ -52,7 +52,7 @@
  		echo "------------------------------------------------------------"; \
  		echo "**** Making $$libdir ****"; \
@@ -197,3 +125,4 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile pdb-extract-v3.004-pr
  	done
  
  beta:
+
