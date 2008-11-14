@@ -1,0 +1,11 @@
+--- src/screen.C.orig	2008-11-10 13:16:22.957164237 +0100
++++ src/screen.C	2008-11-10 13:17:34.017152876 +0100
+@@ -1929,7 +1929,7 @@
+ # endif
+ 
+ # if ENABLE_FRILLS
+-  if (option (Opt_urgentOnBell))
++  if (option (Opt_urgentOnBell) && !focus)
+     set_urgency (1);
+ # endif
+ 

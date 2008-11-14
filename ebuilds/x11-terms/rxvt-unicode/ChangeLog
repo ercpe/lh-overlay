@@ -1,0 +1,13 @@
+# ChangeLog for x11-terms/rxvt-unicode
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  14 Nov 2008; justin Lecher <justin@j-schmitz.net>
+  +files/rxvt-unicode-9.02-CVE-2008-1142-DISPLAY.patch,
+  +files/rxvt-unicode-9.05_no-MOTIF-WM-INFO.patch,
+  +files/rxvt-unicode-9.06-font.patch,
+  +files/rxvt-unicode-9.06_no-urgency-if-focused.diff,
+  +files/rxvt-unicode_no-urgency-if-focused.diff,
+  +files/scrolling-one-line.patch, +metadata.xml, +rxvt-unicode-9.06.ebuild:
+  Setup x11-terms/rxvt-unicode
+

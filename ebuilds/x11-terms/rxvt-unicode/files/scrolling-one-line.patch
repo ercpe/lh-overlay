@@ -1,0 +1,13 @@
+--- src/feature.h	2004-08-25 06:16:06.000000000 +0200
++++ ../rxvt-mod/src/feature.h	2004-08-29 23:56:39.288708920 +0200
+@@ -184,8 +184,8 @@
+  * SCROLL_ON_* defines above.). 
+  * Also for modifier+Home/End keys to move to top/bottom
+  */
+-/* #define SCROLL_ON_UPDOWN_KEYS */
+-/* #define SCROLL_ON_HOMEEND_KEYS */
++#define SCROLL_ON_UPDOWN_KEYS
++#define SCROLL_ON_HOMEEND_KEYS
+ 
+ /*
+  * Allow unshifted Next/Prior keys to scroll forward/back
