@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/cns/ChangeLog,v 1.9 2008/01/10 04:43:03 dberkholz Exp $
 
+  19 Nov 2008; justin Lecher <justin@j-schmitz.net>
+  +files/1.2.1-allow-gcc-openmp.patch, +files/cns_solve_env_sh,
+  +cns-1.2.1.ebuild:
+  version 1.2.1 added and src_test fixed
+
   10 Jan 2008; Donnie Berkholz <dberkholz@gentoo.org>;
   +files/1.2-allow-unknown-architectures.patch, cns-1.2-r1.ebuild:
   Add a patch to make CNS compile on unknown architecture/OS combinations, of
