@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Nov 2008; justin Lecher <justin@j-schmitz.net> ++:
+  version bump to 1.12 as dep of coot-0.5
+
 *<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 
   DD MMM YYYY; YOUR_NAME <YOUR_EMAIL> changed_file1, changed_file2 :
