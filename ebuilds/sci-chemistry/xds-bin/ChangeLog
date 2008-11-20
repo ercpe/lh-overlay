@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Nov 2008; justin Lecher <justin@j-schmitz.net> ++,
+  -xds-bin-20071206.ebuild, -xds-bin-20080602.ebuild,
+  -xds-bin-20080714.ebuild:
+  version fixed xds-bin-20080910.ebuild
+
 *<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 
   DD MMM YYYY; YOUR_NAME <YOUR_EMAIL> changed_file1, changed_file2 :
