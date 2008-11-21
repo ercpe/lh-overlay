@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils fortran toolchain-funcs versionator flag-o-matic
+inherit eutils fortran toolchain versionator flag-o-matic
 
 MY_PN="${PN}_solve"
 MY_PV="$(delete_version_separator 2)"
@@ -35,8 +35,7 @@ pkg_setup() {
 	fortran_pkg_setup
 
 	if use openmp; then
-		if [[ gcc-major-version < 4 ]] \
-			|| ( [[ gcc-major-version < 4 ]] && [[ gcc-minor-version < 2 ]] ); then
+		if $(tc_version_is_at_least 4.2); then
 			local msg="Sorry, you need gcc 4.2 or newer to use OpenMP."
 			eerror "$msg"
 			die "$msg"
@@ -72,7 +71,7 @@ src_unpack() {
 
 src_compile() {
 	local GLOBALS
-	local MALIGN=
+	local MALIGN
 	if [[ ${FORTRANC} = g77 ]]; then
 		GLOBALS="-fno-globals"
 		MALIGN='\$(CNS_MALIGN_I86)'
@@ -103,7 +102,7 @@ src_test() {
 	sh -c \
 		"export CNS_G77=ON; source ${T}/cns_solve_env_sh; make run_tests" \
 		|| die "tests failed"
-	einfo "Displaying test result."
+	einfo "Displaying test results..."
 	cat "${S}"/*_g77/test/*.diff-test
 }
 

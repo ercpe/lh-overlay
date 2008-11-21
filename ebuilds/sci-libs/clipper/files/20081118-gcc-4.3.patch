@@ -1,0 +1,32 @@
+--- clipper-2.1/examples/ccad.cpp	2008-01-02 11:16:24.000000000 +0100
++++ clipper-2.1/examples/ccad.cpp.new	2008-11-20 15:52:32.000000000 +0100
+@@ -69,6 +69,7 @@
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-ccp4.h>
+ #include <iostream>
++#include <cstdlib>
+ 
+ 
+ using namespace clipper;
+--- ./clipper-2.1/examples/cmodeltoseq.cpp	2008-06-09 11:09:08.000000000 +0200
++++ ./clipper-2.1/examples/cmodeltoseq.cpp.new	2008-11-20 16:31:05.000000000 +0100
+@@ -5,6 +5,7 @@
+ #include <clipper/clipper-ccp4.h>
+ #include <clipper/clipper-minimol.h>
+ #include <fstream>
++#include <cstdlib>
+ 
+ int main( int argc, char** argv )
+ {
+--- ./clipper-2.1/examples/cncsfrommodel.cpp	2008-11-20 18:02:58.000000000 +0100
++++ ./clipper-2.1/examples/cncsfrommodel.cpp.new	2008-11-20 18:02:53.000000000 +0100
+@@ -4,6 +4,9 @@
+ #include <clipper/clipper.h>
+ #include <clipper/clipper-minimol.h>
+ #include <clipper/clipper-ccp4.h>
++#include <cstdlib>
++#include <algorithm>
++#include <string.h>
+ 
+ 
+ clipper::String chain_sequence( const clipper::MPolymer& mp )

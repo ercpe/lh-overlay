@@ -1,15 +1,24 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/sci-chemistry/coot/coot-0.3.3.ebuild,v 1.1 2007/08/16 06:05:12 dberkholz Exp $
 
-inherit autotools eutils subversion
+inherit autotools eutils
+
+MY_S_PV=${PV}-${PR}
+MY_S_P=${PN}-${MY_S_PV}
+MY_PV=${PV}
+MY_P=${PN}-${MY_PV}
 
 DESCRIPTION="Crystallographic Object-Oriented Toolkit for model building, completion and validation"
 HOMEPAGE="http://www.ysbl.york.ac.uk/~emsley/coot/"
-ESVN_REPO_URI="http://coot.googlecode.com/svn/trunk/"
+if [[ ${MY_PV} = *pre* ]]; then
+	SRC_URI="http://www.ysbl.york.ac.uk/~emsley/software/pre-release/${MY_S_P}.tar.gz"
+else
+	SRC_URI="http://www.ysbl.york.ac.uk/~emsley/software/${MY_P}.tar.gz"
+fi
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 -*"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 RDEPEND=">=sci-libs/gsl-1.3
 	>=x11-libs/gtk+-2.2
@@ -24,28 +33,27 @@ RDEPEND=">=sci-libs/gsl-1.3
 	dev-scheme/net-http
 	dev-scheme/goosh
 	dev-scheme/guile-www
+	>=dev-scheme/guile-lib-0.1.6
 	sci-libs/coot-data
 	sci-chemistry/reduce
 	sci-chemistry/probe
 	>=sci-libs/clipper-20070907
-	<sci-libs/mmdb-1.0.10"
-# These are still required to run autoreconf
-RDEPEND="${RDEPEND}
-	=dev-libs/glib-1.2*
-	=x11-libs/gtkglarea-1.2*"
+	>=sci-libs/mmdb-1.12
+	dev-python/pygtk
+	gnome-base/librsvg
+	>=dev-libs/gmp-4.2.2-r2"
 DEPEND="${RDEPEND}
 	dev-lang/swig"
-S="${WORKDIR}"
+S="${WORKDIR}/${MY_P}"
 
 src_unpack() {
-	subversion_src_unpack
+	unpack ${A}
 	cd "${S}"
 
 	# To send upstream
-#	epatch "${FILESDIR}"/0.5_pre1-gcc-4.3.patch
+	epatch "${FILESDIR}"/${PV}-gcc-4.3.patch
 
-#	epatch "${FILESDIR}"/${PV}-as-needed.patch.bz2
-#	epatch "${FILESDIR}"/${PV}-include-ccp4mg-utils.patch
+	epatch "${FILESDIR}"/${PV}-as-needed.patch
 	epatch "${FILESDIR}"/0.4.1-link-against-guile-gtk-properly.patch
 	epatch "${FILESDIR}"/0.4.1-fix-namespace-error.patch
 
@@ -71,25 +79,30 @@ src_unpack() {
 			-e "s~\(include.*clipper\)/~\1-2/~g" \
 			|| die "sed to find -2 slotted headers failed"
 
+	# So we don't need to depend on crazy old gtk and friends
+	cp "${FILESDIR}"/*.m4 "${S}"/macros/
+
 	cd "${S}"
-	AT_M4DIR="macros" eautoreconf
+	eautoreconf
 }
 
 src_compile() {
 	# All the --with's are used to activate various parts.
 	# Yes, this is broken behavior.
+#	CPPFLAGS="-I/usr/include -I/usr/include/clipper -I/usr/include/gpp4 -I/usr/include/mmdb -I/usr/include/ssm" \
 	econf \
 		--includedir='${prefix}/include/coot' \
 		--with-gtkcanvas-prefix=/usr \
 		--with-clipper-prefix=/usr \
 		--with-mmdb-prefix=/usr \
 		--with-ssmlib-prefix=/usr \
-		--with-guile=/usr \
+		--with-guile \
 		--with-python=/usr \
-		--with-pygtk=/usr \
 		--with-guile-gtk \
 		--with-gtk2 \
+		--with-pygtk \
 		|| die "econf failed"
+
 
 	# Regenerate wrappers, otherwise at least gtk-2 build fails
 	pushd src
@@ -103,11 +116,11 @@ src_compile() {
 	popd
 
 	# Parallel build's broken
-	emake -j1 || die "emake failed"
+	emake || die "emake failed"
 }
 
 src_install() {
-	emake -j1 DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install || die "install failed"
 
 	# Install misses this
 	insinto /usr/share/coot/python
