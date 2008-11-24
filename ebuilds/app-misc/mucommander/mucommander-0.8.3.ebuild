@@ -7,7 +7,7 @@ inherit subversion java-pkg-2 java-ant-2
 
 MY_P="${PN}-${PV//./_}"
 
-DESCRIPTION="mucommander"
+DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"DESCRIPTION="mucommander"
 HOMEPAGE="http://www.mucommander.com"
 ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
 
