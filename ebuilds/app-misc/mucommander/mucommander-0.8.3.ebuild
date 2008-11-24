@@ -13,7 +13,7 @@ ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
 
 LICENSE="GPL-2"
 SLOT="0"
-# KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="=virtual/jdk-1.6*
