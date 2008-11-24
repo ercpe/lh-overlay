@@ -1,0 +1,2 @@
+#!/bin/bash
+$(which java) -jar /usr/share/mucommander/mucommander.jar
