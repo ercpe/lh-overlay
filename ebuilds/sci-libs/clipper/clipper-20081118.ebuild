@@ -11,7 +11,7 @@ DESCRIPTION="Object-oriented libraries for the organisation of crystallographic 
 HOMEPAGE="http://www.ysbl.york.ac.uk/~cowtan/clipper/clipper.html"
 # SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/ALL/${MY_P}-ac.tar.gz"
 SRC_URI="http://www.ysbl.york.ac.uk/~cowtan/clipper/clipper-2.1-081118-ac.tar.gz"
-LICENSE="CCP4"
+LICENSE="LGPL-2.1"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -27,7 +27,7 @@ src_unpack (){
 	unpack ${A}
 
         epatch "${FILESDIR}"/${PV}-as-needed.patch
-        epatch "${FILESDIR}"/gcc-4.3.patch
+        epatch "${FILESDIR}"/${PV}-gcc-4.3.patch
 
 	cd ${S}
 
