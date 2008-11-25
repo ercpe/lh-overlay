@@ -1,11 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Header: $
-
-#EAPI=1
-
 JAVA_PKG_IUSE="doc source"
-#WANT_ANT_TASKS="ant-core"
 
 inherit subversion java-pkg-2 java-ant-2
 
