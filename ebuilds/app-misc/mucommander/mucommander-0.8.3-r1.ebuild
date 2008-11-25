@@ -1,3 +1,7 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 JAVA_PKG_IUSE="doc source"
 
 inherit subversion java-pkg-2 java-ant-2
@@ -38,17 +42,8 @@ src_compile(){
 
 
 src_install() {
-	insinto /usr/$(get_libdir)/mucommander/
+	insinto /usr/share/mucommander/
 	doins dist/mucommander.jar
 
-	cat >> "${T}"/mucommander  <<-EOF
-	#!/bin/bash
-	$(which java) -jar /usr/$(get_libdir)/mucommander/mucommander.jar
-	EOF
-
-	dobin "${T}"/mucommander
-	dodoc readme.txt
-
-	newicon res/images/about.png ${PN}.png
-	make_desktop_entry ${PN} "muCommander" ${PN}
+	dobin "${FILESDIR}"/mucommander
 }
