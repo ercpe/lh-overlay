@@ -13,8 +13,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE=""
-RDEPEND=""
+IUSE="mpi"
+## Upstream only uses sys-cluster/mpich2, so we should first get this to work.
+RDEPEND="mpi? ( sys-cluster/mpich2 )"
 DEPEND="${RDEPEND}"
 
 src_unpack(){
@@ -27,11 +28,18 @@ src_unpack(){
 
 src_compile(){
 
-	econf || \
+	## MPI will be included when any version of mpich2 builds AND works
+	#use mpi && append-flags -DALM_MPI_FF -DMPICH_IGNORE_CXX_SEEK
+
+	#use mpi && myconf="CXX=/usr/bin/mpicxx"
+
+	econf $(use_enable mpi) \
+	      ${myconf} || \
 	die
 
 	emake CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" || \
 	die
+
 }
 
 src_test() {

@@ -27,7 +27,7 @@ RDEPEND=">=sci-libs/gsl-1.3
 	x11-libs/gtkglext
 	virtual/glut
 	virtual/opengl
-	sci-chemistry/ccp4
+	|| ( sci-libs/ccp4-libs  sci-chemistry/ccp4 )
 	dev-lang/python
 	dev-scheme/guile-gui
 	dev-scheme/net-http
@@ -38,7 +38,7 @@ RDEPEND=">=sci-libs/gsl-1.3
 	sci-chemistry/reduce
 	sci-chemistry/probe
 	>=sci-libs/clipper-20070907
-	>=sci-libs/mmdb-1.12
+	|| ( sci-libs/ccp4-libs >=sci-libs/mmdb-1.12 )
 	dev-python/pygtk
 	gnome-base/librsvg
 	>=dev-libs/gmp-4.2.2-r2"
@@ -89,7 +89,6 @@ src_unpack() {
 src_compile() {
 	# All the --with's are used to activate various parts.
 	# Yes, this is broken behavior.
-#	CPPFLAGS="-I/usr/include -I/usr/include/clipper -I/usr/include/gpp4 -I/usr/include/mmdb -I/usr/include/ssm" \
 	econf \
 		--includedir='${prefix}/include/coot' \
 		--with-gtkcanvas-prefix=/usr \
