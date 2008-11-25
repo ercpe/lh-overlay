@@ -1,3 +1,7 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 #EAPI=1
 
 JAVA_PKG_IUSE="doc source"
@@ -7,7 +11,7 @@ inherit subversion java-pkg-2 java-ant-2
 
 MY_P="${PN}-${PV//./_}"
 
-DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"DESCRIPTION="mucommander"
+DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"
 HOMEPAGE="http://www.mucommander.com"
 ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
 
@@ -18,7 +22,8 @@ IUSE=""
 
 DEPEND="=virtual/jdk-1.6*
 		dev-java/ant-core
-		dev-java/ant-junit"
+		dev-java/ant-junit
+	!app-misc/mucommander-bin"
 RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
@@ -36,7 +41,7 @@ src_compile(){
 	java-pkg_jar-from ant-core
 	java-pkg_jar-from ant-junit
 
-	cd ../..
+	cd "${S}"
 	eant nightly
 }
 
@@ -46,5 +51,5 @@ src_install() {
 	newins dist/mucommander.jar mucommander.jar
 
 	exeinto /usr/bin
-	doexe ${FILESDIR}/mucommander
+	doexe "${FILESDIR}"/mucommander
 }
