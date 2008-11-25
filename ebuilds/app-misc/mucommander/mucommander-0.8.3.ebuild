@@ -21,13 +21,13 @@ RDEPEND="${DEPEND}"
 
 RESTRICT="mirror"
 
-src_unpack(){
+src_unpack() {
 	subversion_src_unpack
 	java-pkg_jar-from --build-only ant-core
 }
 
 
-src_compile(){
+src_compile() {
 	cd lib/include/
 	java-pkg_jar-from ant-core
 	java-pkg_jar-from ant-junit
@@ -41,7 +41,7 @@ src_install() {
 	insinto /usr/$(get_libdir)/mucommander/
 	doins dist/mucommander.jar
 
-	cat >> "${T}"/mucommander  <<-EOF
+	cat >> "${T}"/mucommander <<- EOF
 	#!/bin/bash
 	$(which java) -jar /usr/$(get_libdir)/mucommander/mucommander.jar
 	EOF

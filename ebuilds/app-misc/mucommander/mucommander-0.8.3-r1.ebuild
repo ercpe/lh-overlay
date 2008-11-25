@@ -23,15 +23,13 @@ DEPEND="=virtual/jdk-1.6*
 	!app-misc/mucommander-bin"
 RDEPEND="${DEPEND}"
 
-RESTRICT="mirror"
-
-src_unpack(){
+src_unpack() {
 	subversion_src_unpack
 	java-pkg_jar-from --build-only ant-core
 }
 
 
-src_compile(){
+src_compile() {
 	cd lib/include/
 	java-pkg_jar-from ant-core
 	java-pkg_jar-from ant-junit
@@ -42,8 +40,17 @@ src_compile(){
 
 
 src_install() {
-	insinto /usr/share/mucommander/
+	insinto /usr/$(get_libdir)/mucommander/
 	doins dist/mucommander.jar
 
-	dobin "${FILESDIR}"/mucommander
+	cat >> "${T}"/mucommander <<- EOF
+	#!/bin/bash
+	$(which java) -jar /usr/$(get_libdir)/mucommander/mucommander.jar
+	EOF
+
+	dobin "${T}"/mucommander
+	dodoc readme.txt
+
+	newicon res/images/about.png ${PN}.png
+	make_desktop_entry ${PN} "muCommander" ${PN}
 }
