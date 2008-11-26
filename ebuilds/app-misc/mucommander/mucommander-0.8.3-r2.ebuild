@@ -17,7 +17,7 @@ DEPEND="=virtual/jdk-1.6*
 		dev-java/ant-core
 		dev-java/ant-junit
 		dev-java/commons-logging
-		dev-java/icu4j
+		=dev-java/icu4j-3.8*
 		=dev-java/jakarta-oro-2.0*
 		=dev-java/jcifs-1.2*
 		dev-java/jmdns"
