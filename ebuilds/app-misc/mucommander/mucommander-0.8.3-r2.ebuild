@@ -36,17 +36,15 @@ src_compile() {
 	cd lib/include/
 
 	## remove libs provided by the dependencies
+	## commons-net in lib/ is a custom version!
 	rm {commons-logging.jar,icu4j.jar,jakarta-oro.jar,jcifs.jar,jmdns.jar}
 
 	## now link the dependencies
 	java-pkg_jar-from ant-core
 	java-pkg_jar-from ant-junit
 	java-pkg_jar-from commons-logging
-	## commons-net in lib/ is a custom version!
-	#java-pkg_jar-from commons-net
 	java-pkg_jar-from icu4j
 	java-pkg_jar-from jmdns
-	## strange, on these to lines a version is required?!?
 	java-pkg_jar-from jakarta-oro-2.0
 	java-pkg_jar-from jcifs-1.1
 
