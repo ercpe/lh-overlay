@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Nov 2008; justin Lecher <justin@j-schmitz.net>
+  mucommander-0.8.3-r2.ebuild:
+  fix for bug http://bugs.j-schmitz.net/view.php?id=37
+
 *mucommander-0.8.3-r1 (25 Nov 2008)
 
   25 Nov 2008;  <>  mucommander-0.8.3-r1.ebuild

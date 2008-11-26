@@ -31,6 +31,8 @@ src_unpack() {
 
 
 src_compile() {
+	ANT_OPTS="${ANT_OPTS} -Xmx256m"
+
 	cd lib/include/
 
 	## remove libs provided by the dependencies
