@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils flag-o-matic
 
 DESCRIPTION="all atom molecular simulation toolkit"
 HOMEPAGE="http://www-almost.ch.cam.ac.uk/site"
@@ -29,9 +29,9 @@ src_unpack(){
 src_compile(){
 
 	## MPI will be included when any version of mpich2 builds AND works
-	#use mpi && append-flags -DALM_MPI_FF -DMPICH_IGNORE_CXX_SEEK
+	use mpi && append-flags -DALM_MPI_FF -DMPICH_IGNORE_CXX_SEEK
 
-	#use mpi && myconf="CXX=/usr/bin/mpicxx"
+	use mpi && myconf="CXX=/usr/bin/mpicxx"
 
 	econf $(use_enable mpi) \
 	      ${myconf} || \
