@@ -1,0 +1,8 @@
+# ChangeLog for sci-chemistry/aqva
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Nov 2008; justin Lecher <justin@j-schmitz.net> +metadata.xml,
+  +aqva-0.99.ebuild:
+  Setup sci-chemistry/aqva
+
