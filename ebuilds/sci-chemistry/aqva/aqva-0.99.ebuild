@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# inherit
+inherit qt4
 
 DESCRIPTION="Aqva is a molecular graphics program designed for the interactive visualization and analysis of Biomolecules"
 HOMEPAGE="http://www-almost.ch.cam.ac.uk/site/aqva.html"
@@ -14,7 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
-RDEPEND="virtual/glut"
+RDEPEND="virtual/glut
+	 sci-chemistry/almost
+	 sci-biology/ncbi-tools"
+# blast db	 x11-libs/qt-4.4*
+
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/aqvahome
@@ -27,21 +31,14 @@ S="${WORKDIR}"/aqvahome
 #	epatch "${FILESDIR}"/gcc-4.3.patch
 #}
 #
-#src_compile(){
-#
-#	## MPI will be included when any version of mpich2 builds AND works
-#	#use mpi && append-flags -DALM_MPI_FF -DMPICH_IGNORE_CXX_SEEK
-#
-#	#use mpi && myconf="CXX=/usr/bin/mpicxx"
-#
-#	econf $(use_enable mpi) \
-#	      ${myconf} || \
-#	die
-#
-#	emake CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" || \
-#	die
-#
-#}
+src_compile(){
+
+	eqmake4 Aqva4.4.pro
+
+	emake || \
+	die
+
+}
 #
 #src_test() {
 #	emake check
