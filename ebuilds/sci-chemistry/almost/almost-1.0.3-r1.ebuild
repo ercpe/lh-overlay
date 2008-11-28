@@ -37,7 +37,7 @@ src_compile(){
 	      ${myconf} || \
 	die
 
-	emake CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" || \
+	emake CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" || \
 	die
 
 }

@@ -1,0 +1,20 @@
+--- Aqva/Aqva4.4.pro	2008-09-19 12:31:02.000000000 +0200
++++ Aqva/Aqva4.4.pro.new	2008-11-28 13:55:45.000000000 +0100
+@@ -52,7 +52,7 @@
+ 		Algorithm/*.ui \
+ 		Tools/*.ui \
+ 
+-ALMOST = ../contrib/almost-1.0.3/
++ALMOST = /usr
+ 
+ INCPATH += 	$$ALMOST \
+ 		$$ALMOST/include/almost  \
+@@ -72,7 +72,7 @@
+ 
+ }
+ 
+-LIBS          += -L$$ALMOST/src/lib/ -lAlm  -L$$ALMOST/src/forcefield -lnbimpl -L$$ALMOST/src/tinyxml -ltxml  -L$$ALMOST/src/lib/modules/ -lshx  -lbz2 -lz 
++LIBS          += -L$$ALMOST/lib/ -lAlm  -L$$ALMOST/include/forcefield -lnbimpl -L$$ALMOST/include/tinyxml -ltxml  -L$$ALMOST/include/lib/modules/ -lshx  -lbz2 -lz 
+ 
+ QMAKE_CXXFLAGS +=-DALM_AQVA 
+ 
