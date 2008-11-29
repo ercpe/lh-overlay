@@ -1,13 +1,13 @@
---- src/lib/modules/shx/shxmalloc.cpp.orig	2008-11-07 11:41:35.000000000 +0100
-+++ src/lib/modules/shx/shxmalloc.cpp	2008-11-07 11:41:43.000000000 +0100
-@@ -15,6 +15,7 @@
-  ***************************************************************************/
- 
- #include <vector>
-+#include <cstdlib>
- 
- using namespace std;
- 
+#--- src/lib/modules/shx/shxmalloc.cpp.orig	2008-11-07 11:41:35.000000000 +0100
+#+++ src/lib/modules/shx/shxmalloc.cpp	2008-11-07 11:41:43.000000000 +0100
+#@@ -15,6 +15,7 @@
+#  ***************************************************************************/
+# 
+# #include <vector>
+#+#include <cstdlib>
+# 
+# using namespace std;
+# 
 --- include/almost/cheshire/pssi.h.orig	2008-11-07 12:47:11.000000000 +0100
 +++ include/almost/cheshire/pssi.h	2008-11-07 12:47:24.000000000 +0100
 @@ -22,6 +22,7 @@
@@ -28,16 +28,16 @@
  namespace Almost {
  
    namespace Topos {
---- ./include/almost/forcefield/spec.h.orig	2008-11-07 11:57:47.000000000 +0100
-+++ ./include/almost/forcefield/spec.h	2008-11-07 11:58:35.000000000 +0100
-@@ -20,6 +20,7 @@
- #define __SPEC__
- 
- #include <almost.h>
-+#include <typeinfo>
- namespace Almost {
- 
-   struct None{};
+#--- ./include/almost/forcefield/spec.h.orig	2008-11-07 11:57:47.000000000 +0100
+#+++ ./include/almost/forcefield/spec.h	2008-11-07 11:58:35.000000000 +0100
+#@@ -20,6 +20,7 @@
+# #define __SPEC__
+# 
+# #include <almost.h>
+#+#include <typeinfo>
+# namespace Almost {
+# 
+#   struct None{};
 --- include/almost/rose/rosedb.h.orig	2008-11-07 12:26:56.000000000 +0100
 +++ include/almost/rose/rosedb.h	2008-11-07 12:27:04.000000000 +0100
 @@ -21,6 +21,7 @@

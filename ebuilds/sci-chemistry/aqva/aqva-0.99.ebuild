@@ -16,8 +16,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="virtual/glut
 	 sci-chemistry/almost
-	 sci-biology/ncbi-tools"
-# blast db	 x11-libs/qt-4.4*
+	 sci-biology/ncbi-tools
+	 =x11-libs/qt-4.4*"
+#	x11-libs/qt-webkit
+# blast db
 
 DEPEND="${RDEPEND}"
 
@@ -32,6 +34,8 @@ src_unpack(){
 }
 
 src_compile(){
+
+	cd Aqva
 
 	eqmake4 Aqva4.4.pro
 
