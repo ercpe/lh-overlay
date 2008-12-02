@@ -1,0 +1,8 @@
+# ChangeLog for net-misc/lanmap
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Dec 2008; justin Lecher <justin@j-schmitz.net> +metadata.xml,
+  +lanmap-81.ebuild:
+  Setup net-misc/lanmap
+
