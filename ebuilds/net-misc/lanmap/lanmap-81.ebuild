@@ -6,7 +6,7 @@ inherit toolchain-funcs eutils
 
 DESCRIPTION="lanmap sits quietly on a network and builds a picture of what it sees"
 HOMEPAGE="http://www.parseerror.com/lanmap"
-SRC_URI="http://www.parseerror.com/lanmap/rev/lanmap-2006-03-07-rev81.zip"
+SRC_URI="http://www.parseerror.com/${PN}/rev/${PN}-2006-03-07-rev${PV}.zip"
 
 LICENSE="GPL-2"
 
@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND="net-libs/libpcap
 	 media-gfx/graphviz"
+
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${PN}
@@ -29,12 +30,13 @@ src_unpack() {
 }
 
 src_compile() {
-	cd ${S}
 	chmod +x configure
 	econf
-	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS}"
+	emake CC="$(tc-getCC)" || die
 }
 
 src_install() {
-	emake prefix="${D}" install
+	dodir /usr/bin
+	emake prefix="${D}"/usr install || die
+	dodoc {README,TODO}.txt
 }
