@@ -26,7 +26,7 @@ FORTRAN="g77 gfortran"
 
 pkg_nofetch() {
 	einfo "Fill out the form at http://cns.csb.yale.edu/cns_request/"
-	einfo "and place these files: "
+	einfo "and place these files:"
 	einfo "${A}"
 	einfo "in ${DISTDIR}."
 }
@@ -72,7 +72,7 @@ src_unpack() {
 
 src_compile() {
 	local GLOBALS
-	local MALIGN=
+	local MALIGN
 	if [[ ${FORTRANC} = g77 ]]; then
 		GLOBALS="-fno-globals"
 		MALIGN='\$(CNS_MALIGN_I86)'
@@ -103,7 +103,7 @@ src_test() {
 	sh -c \
 		"export CNS_G77=ON; source ${T}/cns_solve_env_sh; make run_tests" \
 		|| die "tests failed"
-	einfo "Displaying test result."
+	einfo "Displaying test results..."
 	cat "${S}"/*_g77/test/*.diff-test
 }
 
