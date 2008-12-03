@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Dec 2008; justin Lecher <justin@j-schmitz.net> files/makefile.patch,
+  +lanmap-81-r2.ebuild:
+  reviewed version to submitt in sunrise
+
   02 Dec 2008; Justin Lecher <justin@j-schmitz.net> lanmap-81.ebuild:
   Bug 249631 submitted
 
