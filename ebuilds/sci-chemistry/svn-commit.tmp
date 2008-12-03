@@ -1,0 +1,7 @@
+asd
+--This line, and those below, will be ignored--
+
+M    cns/cns-1.2.1.ebuild
+AM + cns/cns-1.2.1-r1.ebuild
+M    cns/Manifest
+M    cns/ChangeLog
