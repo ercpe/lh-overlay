@@ -65,16 +65,16 @@ src_install() {
 	make_wrapper 7z "/usr/lib/${PN}/7z"
 
 	if use X; then
-	make_wrapper 7zG "/usr/lib/${PN}/7zG"
+		make_wrapper 7zG "/usr/lib/${PN}/7zG"
 
-	dobin GUI/p7zipForFilemanager
-	exeinto /usr/$(get_libdir)/${PN}
-	doexe bin/7zG
+		dobin GUI/p7zipForFilemanager
+		exeinto /usr/$(get_libdir)/${PN}
+		doexe bin/7zG
 
 	# make_desktop_entry p7zipForFilemanager ad -t7z %U,p7zip Add to Archive ...,p7zip,arch
 
-	insinto /usr/$(get_libdir)/${PN}
-	doins -r GUI/{Lang,help}
+		insinto /usr/$(get_libdir)/${PN}
+		doins -r GUI/{Lang,help}
 	fi
 
 	dobin "${FILESDIR}/p7zip" || die
