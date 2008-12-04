@@ -3,6 +3,10 @@
 # $Header: /var/cvsroot/gentoo-x86/app-arch/p7zip/ChangeLog,v 1.101 2008/11/12 21:45:44 ranger Exp $
 
   04 Dec 2008; justin Lecher (jlec) <justin@j-schmitz.net>
+  p7zip-4.61.ebuild, +p7zip-4.61.ebuild.patch:
+  commited http://bugs.gentoo.org/show_bug.cgi?id=249780
+
+  04 Dec 2008; justin Lecher (jlec) <justin@j-schmitz.net>
   p7zip-4.61.ebuild:
   test echangelog
 

@@ -71,8 +71,6 @@ src_install() {
 		exeinto /usr/$(get_libdir)/${PN}
 		doexe bin/7zG
 
-	# make_desktop_entry p7zipForFilemanager ad -t7z %U,p7zip Add to Archive ...,p7zip,arch
-
 		insinto /usr/$(get_libdir)/${PN}
 		doins -r GUI/{Lang,help}
 	fi
