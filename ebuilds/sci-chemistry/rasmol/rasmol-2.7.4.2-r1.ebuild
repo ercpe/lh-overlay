@@ -20,7 +20,6 @@ IUSE="gtk"
 RDEPEND="x11-libs/libXext
 	x11-libs/libXi
 	sci-libs/cbflib
-	|| ( x11-apps/xdpyinfo x11-apps/xwininfo )
 	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
 	x11-proto/inputproto
@@ -50,18 +49,23 @@ src_compile() {
 	emake DEPTHDEF=-DTHIRTYTWOBIT CC="$(tc-getCC)" \
 	CDEBUGFLAGS="${CFLAGS}" \
 	|| die "32-bit make failed"
-	mv rasmol rasmol.32
 }
 
 src_install () {
-	newbin "${FILESDIR}"/rasmol.sh.debian rasmol
-	insinto /usr/lib/${PN}
+	libdir=$(get_libdir)
+	insinto /usr/${libdir}/${PN}
 	doins doc/rasmol.hlp
-	exeinto /usr/lib/${PN}
-	doexe src/rasmol.{8,16,32}
+	dobin src/rasmol
 	dodoc INSTALL PROJECTS README TODO doc/*.{ps,pdf}.gz doc/rasmol.txt.gz
 	doman doc/rasmol.1
-	insinto /usr/lib/${PN}/databases
+	insinto /usr/${libdir}/${PN}/databases
 	doins data/*
+
+	cat <<- EOF >> "${T}"/envd
+	RASMOLPATH="/usr/${libdir}/rasmol"
+	RASMOLPDBPATH="/usr/${libdir}/rasmol/databases"
+	EOF
+
+	newenvd "${T}"/envd 80rasmol
 	dohtml *html html_graphics
 }

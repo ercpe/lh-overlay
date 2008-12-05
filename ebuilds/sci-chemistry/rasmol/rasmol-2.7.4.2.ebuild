@@ -20,7 +20,6 @@ IUSE="gtk"
 RDEPEND="x11-libs/libXext
 	x11-libs/libXi
 	sci-libs/cbflib
-	|| ( x11-apps/xdpyinfo x11-apps/xwininfo )
 	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
 	x11-proto/inputproto
@@ -73,14 +72,15 @@ src_compile() {
 }
 
 src_install () {
+	local libdr=$(get_libdir)
 	newbin "${FILESDIR}"/rasmol.sh.debian rasmol
-	insinto /usr/lib/${PN}
+	insinto /usr/${libdir}/${PN}
 	doins doc/rasmol.hlp
-	exeinto /usr/lib/${PN}
+	exeinto /usr/${libdir}/${PN}
 	doexe src/rasmol.{8,16,32}
 	dodoc INSTALL PROJECTS README TODO doc/*.{ps,pdf}.gz doc/rasmol.txt.gz
 	doman doc/rasmol.1
-	insinto /usr/lib/${PN}/databases
+	insinto /usr/${libdir}/${PN}/databases
 	doins data/*
 	dohtml *html html_graphics
 }
