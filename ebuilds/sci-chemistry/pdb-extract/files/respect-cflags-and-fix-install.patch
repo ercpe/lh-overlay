@@ -1,5 +1,5 @@
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-extract-v3.004-prod-src/etc/make.platform.darwin3
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2007-09-11 17:19:46.000000000 +0200
+diff -uarN pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-extract-v3.004-prod-src/etc/make.platform.darwin3
+--- pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2007-09-11 17:19:46.000000000 +0200
 +++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin3	2008-11-13 17:51:34.000000000 +0100
 @@ -91,7 +91,7 @@
  DEFINES=$(GDEFINES) $(LDEFINES)
@@ -19,8 +19,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin3 pdb-
  
  # Fortran linker
  F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-extract-v3.004-prod-src/etc/make.platform.darwin4
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2007-09-11 17:19:46.000000000 +0200
+diff -uarN pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-extract-v3.004-prod-src/etc/make.platform.darwin4
+--- pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2007-09-11 17:19:46.000000000 +0200
 +++ pdb-extract-v3.004-prod-src/etc/make.platform.darwin4	2008-11-13 17:51:34.000000000 +0100
 @@ -92,7 +92,7 @@
  DEFINES=$(GDEFINES) $(LDEFINES)
@@ -40,8 +40,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.darwin4 pdb-
  
  # Fortran linker
  F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-extract-v3.004-prod-src/etc/make.platform.gnu3
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2007-09-11 17:19:46.000000000 +0200
+diff -uarN pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-extract-v3.004-prod-src/etc/make.platform.gnu3
+--- pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2007-09-11 17:19:46.000000000 +0200
 +++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu3	2008-11-13 17:51:34.000000000 +0100
 @@ -6,6 +6,8 @@
  ##
@@ -108,8 +108,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu3 pdb-ext
  
  # Fortran linker
  F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-extract-v3.004-prod-src/etc/make.platform.gnu4
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2007-09-11 17:19:46.000000000 +0200
+diff -uarN pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-extract-v3.004-prod-src/etc/make.platform.gnu4
+--- pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2007-09-11 17:19:46.000000000 +0200
 +++ pdb-extract-v3.004-prod-src/etc/make.platform.gnu4	2008-11-13 17:51:34.000000000 +0100
 @@ -6,6 +6,8 @@
  ##
@@ -185,8 +185,8 @@ diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/etc/make.platform.gnu4 pdb-ext
  
  # Fortran linker
  F77_LINKER=f77
-diff -uarN /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile pdb-extract-v3.004-prod-src/Makefile
---- /mnt/tmpfs/pdb-extract-v3.004-prod-src/Makefile	2007-09-11 17:19:46.000000000 +0200
+diff -uarN pdb-extract-v3.004-prod-src/Makefile pdb-extract-v3.004-prod-src/Makefile
+--- pdb-extract-v3.004-prod-src/Makefile	2007-09-11 17:19:46.000000000 +0200
 +++ pdb-extract-v3.004-prod-src/Makefile	2008-11-13 17:51:06.000000000 +0100
 @@ -52,7 +52,7 @@
  		echo "------------------------------------------------------------"; \

@@ -25,6 +25,7 @@ src_unpack() {
 	cd "${S}"
 	epatch "${FILESDIR}"/${P}-gcc-4.3.patch
 	epatch "${FILESDIR}"/${P}-Makefile.patch
+	epatch "${FILESDIR}"/${P}-env.patch
 
 	sed -i "s:GENTOOLIBDIR:${libdir}:g" \
 		pdb-extract-v3.0/Makefile || die "fix libdir"
@@ -55,4 +56,11 @@ src_install() {
 	dodoc README-source README
 	insinto /usr/lib/rcsb/pdb-extract-data
 	doins pdb-extract-data/* || die
+
+	cat >> "${T}"/envd <<- EOF
+	PDB_EXTRACT="/usr/lib/rcsb/"
+	PDB_EXTRACT_ROOT="/usr/"
+	EOF
+
+	newenvd "${T}"/envd 20pdb-extract
 }
