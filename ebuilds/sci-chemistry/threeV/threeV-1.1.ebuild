@@ -37,14 +37,14 @@ src_compile() {
 
 	cd "${S}"/src
 
-	make CC="$(tc-getCXX)" FLAGS="${CXXFLAGS}"
+	emake CC="$(tc-getCXX)" FLAGS="${CXXFLAGS}"
 
 }
 
 src_install() {
 
 	for EXE in bin/*; do
-		newbin ${EXE} ${EXE%.*}
+		newbin ${EXE} ${EXE%.*} || die
 	done
 
 	dodoc AUTHORS ChangeLog NEWS QUICKSTART README TODO VERSION
