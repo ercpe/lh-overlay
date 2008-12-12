@@ -6,4 +6,7 @@
     <note priority="medium" time="1229008746">
         add ssl-admin to sunrise
     </note>
+    <note priority="medium" time="1229013544">
+        update keepassx
+    </note>
 </todo>
