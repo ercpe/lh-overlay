@@ -26,8 +26,24 @@ src_install() {
 	newinitd init.sh firewall
 
 	insinto /etc/walloffire/
-	doins rules/
 	doins walloffire.conf
 
-	dobin firewall.sh
+	dodir /etc/walloffire/rules/started/
+	dodir /etc/walloffire/rules/stopped/
+	
+	insinto /etc/walloffire/rules/started/
+	doins rules/started/*
+
+	insinto /etc/walloffire/rules/stopped/
+	doins rules/stopped/*
+
+	dosbin firewall.sh
+}
+
+pkg_postinst() {
+	echo "";
+	einfo "Remember to adjust the rules in /etc/walloffire/rules/ to your needs";
+	echo "";
+	einfo "To start the firewall at system boot, run: rc-update add firewall boot";
+	echo "";
 }
