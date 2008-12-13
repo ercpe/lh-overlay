@@ -19,7 +19,6 @@ DEPEND="${RDEPEND}"
 
 src_unpack() {
 	unpack ${A}
-	cd "${S}"
 }
 
 src_install() {
@@ -38,7 +37,7 @@ src_install() {
 	doins rules/stopped/*
 
 	insinto /etc/conf.d/
-	doins firewall.conf firewall
+	doins firewall
 
 	dosbin firewall.sh
 }
