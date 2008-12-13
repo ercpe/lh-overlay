@@ -37,6 +37,9 @@ src_install() {
 	insinto /etc/walloffire/rules/stopped/
 	doins rules/stopped/*
 
+	insinto /etc/conf.d/
+	doins firewall.conf firewall
+
 	dosbin firewall.sh
 }
 
