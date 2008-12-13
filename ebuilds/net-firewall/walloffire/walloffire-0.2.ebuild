@@ -25,16 +25,7 @@ src_install() {
 	newinitd init.sh firewall
 
 	insinto /etc/walloffire/
-	doins walloffire.conf
-
-	dodir /etc/walloffire/rules/started/
-	dodir /etc/walloffire/rules/stopped/
-	
-	insinto /etc/walloffire/rules/started/
-	doins rules/started/*
-
-	insinto /etc/walloffire/rules/stopped/
-	doins rules/stopped/*
+	doins -r rules walloffire.conf
 
 	insinto /etc/conf.d/
 	doins firewall
