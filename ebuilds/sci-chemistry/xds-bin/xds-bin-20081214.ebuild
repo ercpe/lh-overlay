@@ -11,7 +11,7 @@ HOMEPAGE="http://www.mpimf-heidelberg.mpg.de/~kabsch/xds/"
 RESTRICT="fetch"
 LICENSE="free-noncomm"
 SLOT="0"
-KEYWORDS="-* ~x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="smp X"
 RDEPEND="X? ( x11-libs/libXdmcp
 			  x11-libs/libXau
@@ -28,8 +28,7 @@ pkg_nofetch(){
 src_install() {
 	exeinto /opt/${PN}
 	doexe XDS-linux_ifc_Intel+AMD/*
-	if use smp
-	then
+	if use smp; then
 		rm "${D}"/opt/${PN}/{xds,mintegrate,mcolspot,xscale}
 		dosym xds_par /opt/${PN}/xds
 		dosym xscale_par /opt/${PN}/xscale
@@ -44,14 +43,13 @@ src_install() {
 	dohtml -r XDS_html_doc/*
 	dodoc XDS_html_doc/html_doc/INPUT_templates/*
 
-	cat>>"${T}"/20xds<<-EOF
+	cat >> "${T}"/20xds <<- EOF
 	PATH="/opt/${PN}/"
 	EOF
 	doenvd "${T}"/20xds
 }
 
-pkg_postinst(){
-	einfo "This package will expire at"
-	einfo "Expiration date: Dezember 31, 2008"
+pkg_postinst() {
+	elog "This package will expire on December 31, 2008"
 }
 
