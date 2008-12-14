@@ -1,0 +1,13 @@
+# C-style INT_MAX is undefined with some versions of g++
+
+--- a/rosetta++/DirectedSimAnnealer.cc	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/DirectedSimAnnealer.cc	2008-12-05 22:55:55.000000000 +0100
+@@ -63,7 +63,7 @@
+ 	e.type = Entry::UNDEF;
+       }
+ 
+-      in.ignore(INT_MAX,'\n');
++      in.ignore(std::numeric_limits<int>::max(),'\n');
+ 
+       return in;
+ 

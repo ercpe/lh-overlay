@@ -1,0 +1,12 @@
+# fix compilation error (ostream not member of std)
+
+--- a/rosetta++/src/utility/file/FileName.cc	2008-04-17 22:26:28.000000000 +0200
++++ b/rosetta++/src/utility/file/FileName.cc	2008-12-04 23:34:00.000000000 +0100
+@@ -25,6 +25,7 @@
+ #include <algorithm>
+ #include <cassert>
+ #include <cctype>
++#include <ostream>
+ 
+ 
+ namespace utility {

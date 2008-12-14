@@ -1,0 +1,24 @@
+# fix compilation error ( initialization of variable "s" bypassed )
+
+--- a/rosetta++/gl_graphics.cc	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/gl_graphics.cc	2008-12-03 15:41:49.000000000 +0100
+@@ -2525,13 +2525,12 @@
+ 	using namespace graphics;
+ 
+ 	switch( key ) {
+-	case 8:
+-		// backspace
+-		int const s( command_string.size() );
+-		if ( s ) {
+-			command_string = command_string.substr(0,s-1);
+-		}
+-		break;
++	case 8: {
++		 // backspace
++		 int const s( command_string.size() );
++		 if ( s ) 
++		      command_string = command_string.substr(0,s-1);
++		} break;
+ 	case 13:
+ 		// enter
+ 		process_command( command_string );

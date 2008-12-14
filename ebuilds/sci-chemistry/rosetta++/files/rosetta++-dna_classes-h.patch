@@ -1,0 +1,12 @@
+# fix compilation error (EXIT_FAILURE undefined)
+
+--- a/rosetta++/dna_classes.h	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/dna_classes.h	2008-12-05 23:20:53.000000000 +0100
+@@ -15,6 +15,7 @@
+ #include <vector>
+ #include <string>
+ #include <iostream> // std::cout default argument
++#include <cstdlib>  // EXIT_FAILURE
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ // Small-scale classes for DNA modes

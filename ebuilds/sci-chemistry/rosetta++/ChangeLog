@@ -1,0 +1,36 @@
+*rosetta++-2.3.0 (03 Dec 2008)
+
+  11 Dec 2008; Hugo Mildenberger <Hugo.Mildenberger@t-online.de>;
+  - Renamed ebuild from 'rosetta' to 'rosetta++'
+  - Renamed ebuild directory, patches and license likewise
+  - Removed explicit sys-apps/* dependencies from DEPEND 
+  - Removed rosetta license copy from files/static/rosetta 
+  - Commented each patch inside the patch itself
+  - Combined several patches against barcode_classes.h into a single file
+  - Removed patch against tools/build/basic.settings
+  - Added patch against tools/build/user.settings and got icc working
+  - Ebuild now compiles ok with:
+    gcc 4.2.4-r1 p1.0, builtin ssp,fortify, pie-9.0.11
+    gcc 4.3.2 p1.1
+    icc 10.1.018
+  - TODO: When using gcc 3.3.6-1, build still fails in dock_ensemble.cc:678,
+    at a suspiciously looking construct (taking address of a temporary?). 
+    Same problem in dock_loop_ensemble.cc, pose_docking_flexible.cc.
+    A similar problem exists in epigraft_functions.hh:59-61. 
+    Perhaps someone experienced with the ObjexxFCL fortran/c++ class 
+    library could fix this?
+  - TODO: The boinc target still does not compile with any compiler, as does
+    the test target, both to an invalid scons build setup. Don't know how
+    to fix this.
+
+  - Thanks to J. Schmitz <jlec@j-schmitz.net> for reviewing and testing
+
+  10 Dec 2008; Hugo Mildenberger <Hugo.Mildenberger@t-online.de>;
+  - Fix typo in SRC_URL and add a warning for RosettaBundle-2.3.0.tar.gz
+  - Filter insane MAKEOPTS -l and --load-average unsupported by scons
+  - Remove license install from src_install
+
+  03 Dec 2008; Hugo Mildenberger <Hugo.Mildenberger@t-online.de>;
+  - Provide ebuild and patches for rosetta++
+  - TODO: scons does not build source code documentation using doxygen
+  - TODO: scons script returns success if a python exception was thrown 

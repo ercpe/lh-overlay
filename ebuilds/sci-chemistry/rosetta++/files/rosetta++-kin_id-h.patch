@@ -1,0 +1,22 @@
+# fix dozens of compilation warnings (suggest parenthesis)
+
+--- a/rosetta++/kin_id.h	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/kin_id.h	2008-12-05 23:22:37.000000000 +0100
+@@ -124,7 +124,7 @@
+ 			Atom_id const & a,
+ 			Atom_id const & b
+ 		) { return a.rsd() < b.rsd() ||
+-					a.rsd() == b.rsd() && a.atomno() < b.atomno(); }
++			   (a.rsd() == b.rsd() && a.atomno() < b.atomno()); }
+ 
+ 	};
+ 
+@@ -241,7 +241,7 @@
+ 			Torsion_id const & a,
+ 			Torsion_id const & b
+ 		) { return a.atom_id() < b.atom_id() ||
+-					a.atom_id() == b.atom_id() && a.type() < b.type(); }
++			   (a.atom_id() == b.atom_id() && a.type() < b.type()); }
+ 
+ 	};
+ 

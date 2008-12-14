@@ -1,0 +1,36 @@
+# - replace binary "&" by boolean "&&" to fix dozens of compiler warnings
+# - fix compiler warning about using unitialized class member vars
+
+--- a/rosetta++/barcode_classes.h	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/barcode_classes.h	2008-12-05 23:57:20.000000000 +0100
+@@ -242,7 +242,7 @@
+ 	}
+ 
+ 	inline bool constraint::sspair_constraint_bonus() const {
+-		return ( torsion == barcode_param::SSPAIR_TORSION & weight < 0.0);
++		return ( torsion == barcode_param::SSPAIR_TORSION && weight < 0.0);
+ 	}
+ 
+ 	inline bool constraint::contact_constraint() const {
+@@ -258,7 +258,7 @@
+ 	}
+ 
+ 	inline bool constraint::beta_pair_constraint_bonus() const {
+-		return ( torsion == barcode_param::BETA_PAIR_ENERGY_TORSION & weight < 0.0);
++		return ( torsion == barcode_param::BETA_PAIR_ENERGY_TORSION && weight < 0.0);
+ 	}
+ 
+ 	// which chi number does this constraint apply to?
+
+
+--- a/rosetta++/barcode_classes.h	2008-04-17 22:27:00.000000000 +0200
++++ b/rosetta++/barcode_classes.h	2008-12-08 00:52:36.000000000 +0100
+@@ -122,6 +122,8 @@
+ 		constraint ():
+ 			float_value(0),
+ 			char_value('-'),
++			char_value1('-'),
++			char_value2('-'),
+ 			int_value(0),
+ 			int_value1(0),
+ 			int_value2(0),

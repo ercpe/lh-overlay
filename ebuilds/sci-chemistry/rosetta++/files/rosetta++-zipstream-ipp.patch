@@ -1,0 +1,24 @@
+# fix dozens of g++ compilation warnings about an empty while loop body, 
+# suggesting to use  " ;" instead of ";"
+
+--- a/rosetta++/src/utility/io/zipstream.ipp	2008-04-17 22:26:30.000000000 +0200
++++ b/rosetta++/src/utility/io/zipstream.ipp	2008-12-05 22:52:20.000000000 +0100
+@@ -543,15 +543,15 @@
+ 			len  =  (uInt)rdbuf()->get_istream().get();
+ 			len += ((uInt)rdbuf()->get_istream().get()) << 8;
+ 			// len is garbage if EOF but the loop below will quit anyway
+-			while ( len-- != 0 && rdbuf()->get_istream().get() != EOF );
++			while ( len-- != 0 && rdbuf()->get_istream().get() != EOF ) ;
+ 		}
+ 		if ( ( flags & detail::gz_orig_name ) != 0 ) {
+ 			// skip the original file name
+-			while ( ( c = rdbuf()->get_istream().get() ) != 0 && c != EOF );
++			while ( ( c = rdbuf()->get_istream().get() ) != 0 && c != EOF ) ;
+ 		}
+ 		if ( ( flags & detail::gz_comment ) != 0 ) {
+ 			// skip the .gz file comment
+-			while ( ( c = rdbuf()->get_istream().get() ) != 0 && c != EOF );
++			while ( ( c = rdbuf()->get_istream().get() ) != 0 && c != EOF ) ;
+ 		}
+ 		if ( ( flags & detail::gz_head_crc ) != 0 ) { // skip the header crc
+ 			for ( len = 0; len < 2; ++len ) rdbuf()->get_istream().get();

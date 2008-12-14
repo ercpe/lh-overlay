@@ -1,0 +1,90 @@
+--- tools/build/user.settings	1970-01-01 01:00:00.000000000 +0100
++++ tools/build/user.settings	2008-12-11 20:25:09.000000000 +0100
+@@ -0,0 +1,87 @@
++#  Gentoo-Linux specific: 
++#      - Always compile debug symbols and never strip, else 
++#        FEATURES=splitdebug installsources" would not work.
++#        Aside from that, Gentoo ebuilds always strip binaries 
++#        during install. 
++#      - Binary programs like icc get installed below /opt
++#        scons ignores PATH, for build reliability reasons
++#        Besides from generally injecting os.path() into the scons
++#        build environment, a probably cleaner solution would
++#        be to install an adapted version of this file, generating
++#        path to icc explicitely from ebuild environment
++
++
++settings = {
++	"gcc, linux" : {
++		"appends" : {
++			"flags" : {
++				"compile" : [ "g" ],
++				"link"    : [ "g", "ggdb" ],
++				},
++		},
++		"removes" : {
++			"flags" : {
++				    "compile" : ["std=c99"],
++			},
++		},
++	},
++
++	"gcc, linux, shared" : {
++		"removes" : {
++			"flags" : {
++				"compile" : [ "s" ],
++				"link"    : [ "static" ],
++			},
++		},
++	},
++
++	"icc, linux" : {
++		"overrides" : {
++			"cc" : ["icc"],
++			"cxx" : ["icpc"],
++			"program_path"  : ["/opt/intel/cc/10.1.018/bin",
++					   "/usr/local/bin",
++					   "/usr/bin", 
++					   "/bin" ],
++		},
++	    "appends" : {
++		    "flags" : {
++				"mode"      : [ "g" ],
++				"link"      : [ "g"],
++		    }
++	    }
++	
++	},
++
++	"icc, linux, debug" : {
++		"appends" : {
++		    "flags" : {
++			"mode"      : [ "O0"],
++		    },
++		},
++	},
++
++	"icc, linux, release" : {
++		"appends" : {
++		    "flags" : {
++			"compile"   : [ "ip" ],
++			"mode"      : [ "O3" ],
++		    },
++		    "defines"       : [ "NDEBUG" ],
++		},
++    },
++
++
++    "icc, linux, profile" : {
++        "appends" : {
++            "flags" : {
++                "compile"   : [ "ip" ],
++                "mode"      : [ "O3","g", "ggdb", "pg" ],
++                "link"      : [ "g", "ggdb", "pg" ],
++            },
++            "defines"       : [ "NDEBUG" ],
++        },
++    },
++
++
++}
