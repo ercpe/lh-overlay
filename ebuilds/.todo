@@ -1,15 +1,18 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="veryhigh" time="1229334191" done="1229338040">
+        app-portage/udept ins overlay
+        <comment>
+            fixed in revision 712
+        </comment>
+    </note>
     <note priority="veryhigh" time="1229009081">
         sci-chemistry/pymol fix svn
     </note>
-    <note priority="veryhigh" time="1229334191">
-        app-portage/udept ins overlay
+    <note priority="veryhigh" time="1229356329">
+        sci-chemistry/nmrpipe fix
     </note>
     <note priority="medium" time="1229008746">
         add ssl-admin to sunrise
-    </note>
-    <note priority="medium" time="1229013544">
-        update keepassx
     </note>
 </todo>
