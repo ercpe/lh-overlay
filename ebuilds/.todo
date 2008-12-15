@@ -3,6 +3,9 @@
     <note priority="veryhigh" time="1229009081">
         sci-chemistry/pymol fix svn
     </note>
+    <note priority="veryhigh" time="1229334191">
+        app-portage/udept ins overlay
+    </note>
     <note priority="medium" time="1229008746">
         add ssl-admin to sunrise
     </note>
