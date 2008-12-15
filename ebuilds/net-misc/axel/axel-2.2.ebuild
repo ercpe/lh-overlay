@@ -36,7 +36,7 @@ src_compile() {
 		${myconf} \
 		|| die
 
-	emake CFLAGS="${CFLAGS}" CC="$(tc-getCC)"|| die "emake failed"
+	emake CFLAGS="${CFLAGS}" CC="$(tc-getCC)" || die "emake failed"
 }
 
 src_install() {
