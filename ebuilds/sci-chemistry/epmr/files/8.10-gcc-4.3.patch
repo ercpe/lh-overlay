@@ -1,0 +1,21 @@
+--- epmr-8.10/src/main.cpp	2008-10-29 00:30:33.000000000 +0100
++++ epmr-8.10/src/main.cpp.new	2008-12-15 12:49:55.000000000 +0100
+@@ -25,6 +25,7 @@
+ 
+ #include "Epmr.h"
+ #include <exception>
++#include <cstring>
+ 
+ using namespace std;
+ 
+--- epmr-8.10/src/MtzInputFile.cpp	2008-12-15 12:54:27.000000000 +0100
++++ epmr-8.10/src/MtzInputFile.cpp.new	2008-12-15 12:54:37.000000000 +0100
+@@ -19,7 +19,7 @@
+ 
+ #include "MtzInputFile.h"
+ #include <iostream>
+-#include <string>
++#include <cstring>
+ 
+ #if defined (__BIG_ENDIAN__)
+ static const short NativeFloatFormat = 1;
