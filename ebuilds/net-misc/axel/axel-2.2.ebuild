@@ -41,10 +41,10 @@ src_compile() {
 
 src_install() {
 	if use kde; then
-		dobin gui/kapt/axel-kapt
-		doman gui/kapt/axel-kapt.1
+		dobin gui/kapt/axel-kapt || die
+		doman gui/kapt/axel-kapt.1 || die
 		insinto /usr/share/applications/
-		doins gui/kapt/axel-kapt.desktop
+		doins gui/kapt/axel-kapt.desktop || die
 	fi
 
 	emake DESTDIR="${D}" install || die "emake install failed"
