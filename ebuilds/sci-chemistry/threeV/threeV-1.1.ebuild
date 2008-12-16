@@ -37,7 +37,7 @@ src_compile() {
 
 	cd "${S}"/src
 
-	emake CC="$(tc-getCXX)" FLAGS="${CXXFLAGS}"
+	emake CC="$(tc-getCXX)" FLAGS="${CXXFLAGS}" || die "failed makeing ${PN}"
 
 }
 
@@ -48,5 +48,4 @@ src_install() {
 	done
 
 	dodoc AUTHORS ChangeLog NEWS QUICKSTART README TODO VERSION
-
 }

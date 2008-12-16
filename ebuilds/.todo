@@ -15,4 +15,10 @@
     <note priority="medium" time="1229008746">
         add ssl-admin to sunrise
     </note>
+    <note priority="medium" time="1229417286">
+        update media-gfx/gimp-lqr-plugin
+    </note>
+    <note priority="medium" time="1229425192">
+        ccp4 update
+    </note>
 </todo>
