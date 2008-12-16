@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-libs/xview/xview-3.2-r6.ebuild,v 1.5 2008/06/18 00:44:24 darkside Exp $
+# $Header: $
 
 inherit eutils
 
@@ -60,9 +60,10 @@ src_unpack() {
 	sed -i -e 's:/usr/X11R6:/usr:' "${S}"/config/XView.cf "${S}"/Build-XView.bash
 
 	# C(XX)FLAGS
-	sed -e "s:DEBUGCFLAGS =.*$:DEBUGCFLAGS = ${CFLAGS} -banana:g" \
-	    -e "s:DEBUGCXXFLAGS =.*$:DEBUGCXXFLAGS = ${CXXFLAGS} -banana:g" \
-	    -i "${S}"/Makefile
+
+#	sed -e "s:CFLAGS =.*$:CFLAGS = ${CFLAGS} -banana:g" \
+#	    -e "s:DEBUGCXXFLAGS =.*$:DEBUGCXXFLAGS = ${CXXFLAGS} -banana:g" \
+#	    -i "${S}"/Imakefile
 }
 
 src_compile() {
@@ -73,8 +74,16 @@ src_compile() {
 	export OPENWINHOME="/usr"
 	export X11DIR="/usr"
 
+	sed -e "s:CXXDEBUGFLAGS =.*$:CXXDEBUGFLAGS = ${CXXFLAGS}:g" \
+	    -e "s:CXX =.*$:CXX = $(tc-getCXX) -m32:g" \
+	    -e "s:CC =.*$:CC = $(tc-getCC) -m32:g" \
+	    -e "s:LD =.*$:LD = $(tc-getLD) -nostdlib -m32:g" \
+	    -e "s:AS =.*$:AS = $(tc-getAS) -m32 -c -x assembler:g" \
+	    -i "${S}"/Makefile
+
+die
 	# Build Makefiles so that we can edit them
-	make Makefiles
+#	make Makefiles
 
 #	find . -iname makefile -exec sed -e "s:CDEBUGFLAGS =.*$:CDEBUGFLAGS = ${CFLAGS} -banana:g" \
 #					 -e "s:CXXDEBUGFLAGS =.*$:CXXDEBUGFLAGS = ${CXXFLAGS} -banana:g" \
@@ -82,14 +91,22 @@ src_compile() {
 
 	# This is crazy and I know it, but wait till you read the code in
 	# Build-LinuxXView.bash.
-	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash libs \
+	bash Build-XView.bash libs \
 		|| die "building libs failed"
-	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash clients \
+	bash Build-XView.bash clients \
 		|| die "building clients failed"
-	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash contrib \
+	bash Build-XView.bash contrib \
 		|| die "building contrib failed"
-	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash olvwm \
+	bash Build-XView.bash olvwm \
 		|| die "building olvwm failed"
+#	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash libs \
+#		|| die "building libs failed"
+#	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash clients \
+#		|| die "building clients failed"
+#	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash contrib \
+#		|| die "building contrib failed"
+#	env CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" bash Build-XView.bash olvwm \
+#		|| die "building olvwm failed"
 }
 
 src_install() {
