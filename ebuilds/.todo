@@ -6,22 +6,28 @@
             fixed in revision 712
         </comment>
     </note>
-    <note priority="veryhigh" time="1229009081">
-        sci-chemistry/pymol fix svn
-    </note>
-    <note priority="veryhigh" time="1229356329">
-        sci-chemistry/nmrpipe fix
-    </note>
-    <note priority="medium" time="1229008746">
-        add ssl-admin to sunrise
-    </note>
     <note priority="medium" time="1229417286" done="1229425217">
         update media-gfx/gimp-lqr-plugin
         <comment>
             bumped in revision 720
         </comment>
     </note>
+    <note priority="veryhigh" time="1229009081">
+        sci-chemistry/pymol fix svn
+    </note>
+    <note priority="veryhigh" time="1229356329">
+        sci-chemistry/nmrpipe fix
+    </note>
+    <note priority="veryhigh" time="1229506058">
+        analysis update
+    </note>
+    <note priority="medium" time="1229008746">
+        add ssl-admin to sunrise
+    </note>
     <note priority="medium" time="1229425192">
         ccp4 update
+    </note>
+    <note priority="medium" time="1229505760">
+        msms src ebuild
     </note>
 </todo>

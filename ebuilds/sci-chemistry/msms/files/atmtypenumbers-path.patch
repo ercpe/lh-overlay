@@ -1,0 +1,22 @@
+--- pdb_to_xyzr	2006-08-24 22:08:38.000000000 +0200
++++ pdb_to_xyzr.new	2008-12-17 20:15:49.000000000 +0100
+@@ -31,7 +31,7 @@
+ nawk 'BEGIN{
+ 	# read radius table and patterns from supplied file
+ 	npats=0
+-	numfile = "./atmtypenumbers"
++	numfile = "../share/msms/atmtypenumbers"
+ 	while ((getline < numfile) > 0) {
+ 		if(NF==0||substr($1,1,1)=="#") continue;
+ 		if($1=="radius") {
+--- pdb_to_xyzrn	2008-12-17 20:16:14.000000000 +0100
++++ pdb_to_xyzrn.new	2008-12-17 20:16:42.000000000 +0100
+@@ -31,7 +31,7 @@
+ nawk 'BEGIN{
+ 	# read radius table and patterns from supplied file
+ 	npats=0
+-	numfile = "./atmtypenumbers"
++	numfile = "../share/msms/atmtypenumbers"
+ 	while ((getline < numfile) > 0) {
+ 		if(NF==0||substr($1,1,1)=="#") continue;
+ 		if($1=="radius") {
