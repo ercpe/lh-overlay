@@ -1,0 +1,289 @@
+# ChangeLog for net-im/gajim
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/net-im/gajim/ChangeLog,v 1.72 2008/08/05 16:57:30 gentoofan23 Exp $
+
+* gajim-0.12 (18 Dec 2008)
+
+  18 Dec 2008; justin Lecher (jlec) <jlec@j-schmitz.net>
+  +files/0.11.3-misc-fixes.patch, +files/gajim-0.11.4-test_fix.patch,
+  +metadata.xml, gajim-0.12:
+  bump to 0.12 bug 251298
+
+  05 Aug 2008; Thomas Anderson <gentoofan23@gentoo.org> metadata.xml:
+  Add USE flag description to metadata as per GLEP 56.
+
+  24 Jan 2008; Christoph Mende <angelos@gentoo.org> gajim-0.11.4.ebuild:
+  Stable on amd64, bug #205253
+
+  23 Jan 2008; Raúl Porcel <armin76@gentoo.org> gajim-0.11.4.ebuild:
+  alpha/sparc stable wrt #205253
+
+  23 Jan 2008; Christian Faulhammer <opfer@gentoo.org> gajim-0.11.4.ebuild:
+  stable x86, bug 205253
+
+  22 Jan 2008; Brent Baude <ranger@gentoo.org> gajim-0.11.4.ebuild:
+  Marking gajim-0.11.4 ppc and ppc64 for bug 205253
+
+  22 Jan 2008; Peter Weller <welp@gentoo.org>
+  +files/gajim-0.11.4-test_fix.patch, gajim-0.11.4.ebuild:
+  Fix tests
+
+*gajim-0.11.4 (07 Dec 2007)
+
+  07 Dec 2007; <welp@gentoo.org> +gajim-0.11.4.ebuild:
+  Bump
+
+  04 Dec 2007; <welp@gentoo.org> files/0.11.3-misc-fixes.patch:
+  Fix typo in patch
+
+  02 Dec 2007; Peter Weller <welp@gentoo.org> files/0.11.3-misc-fixes.patch:
+  OK, fix for real this time...
+
+  02 Dec 2007; Peter Weller <welp@gentoo.org>
+  -files/0.11.3-buddylist-fix.patch, -files/0.11.3-keyTabswitch-fix.patch,
+  +files/0.11.3-misc-fixes.patch, gajim-0.11.3-r1.ebuild:
+  Fix patches wrt bug 200896
+
+  28 Nov 2007; <welp@gentoo.org> files/0.11.3-buddylist-fix.patch,
+  files/0.11.3-keyTabswitch-fix.patch:
+  Fix patches
+
+*gajim-0.11.3-r1 (25 Nov 2007)
+
+  25 Nov 2007; <welp@gentoo.org> +files/0.11.3-buddylist-fix.patch,
+  +files/0.11.3-keyTabswitch-fix.patch, +gajim-0.11.3-r1.ebuild:
+  Revbump with patches wrt bugs 200187 and 200186
+
+  19 Nov 2007; Jeroen Roovers <jer@gentoo.org> gajim-0.11.3.ebuild:
+  Marked ~hppa (bug #199687).
+
+*gajim-0.11.3 (18 Nov 2007)
+
+  18 Nov 2007; <welp@gentoo.org> +gajim-0.11.3.ebuild:
+  Bump wrt bug 199510
+
+*gajim-0.11.2-r1 (23 Oct 2007)
+
+  23 Oct 2007; <welp@gentoo.org> +gajim-0.11.2-r1.ebuild:
+  Revbump to RDEPEND on pyopenssl due to potential security concerns related
+  to python's ssl implementation
+
+*gajim-0.11.2 (10 Oct 2007)
+
+  10 Oct 2007; Peter Weller <welp@gentoo.org> +gajim-0.11.2.ebuild:
+  Bump to 0.11.2.
+
+  01 Jul 2007; Peter Weller <welp@gentoo.org> gajim-0.11.1.ebuild:
+  Clean up old dbus deps wrt bug 183696
+
+  19 Jun 2007; Peter Weller <welp@gentoo.org>
+  -files/gajim-10.1-FLAGS_noOverride.patch,
+  -files/gajim-10.1-Makefile.patch, -gajim-0.10.1.ebuild,
+  -gajim-0.11-r3.ebuild:
+  Removed obsolete versions.
+
+  19 Jun 2007; Raúl Porcel <armin76@gentoo.org> gajim-0.11.1.ebuild:
+  alpha stable
+
+  27 May 2007; Peter Weller <welp@gentoo.org> gajim-0.11.1.ebuild:
+  Added check to ensure that python >=2.5 has USE="sqlite"
+
+  26 May 2007; Peter Weller <welp@gentoo.org> gajim-0.10.1.ebuild,
+  -gajim-0.11.0.7951.ebuild:
+  Removed old version, fixed depend in old version
+
+  20 May 2007; Raúl Porcel <armin76@gentoo.org> gajim-0.11.1.ebuild:
+  Add ~alpha wrt #158541
+
+  04 Apr 2007; Tony Vroon <chainsaw@gentoo.org> gajim-0.11.1.ebuild:
+  Marked stable on PPC. Tested on PowerBook 5,9 connected to ejabberd. As
+  requested by Peter Weller in bug #173376.
+
+  04 Apr 2007; Markus Rothe <corsair@gentoo.org> gajim-0.11.1.ebuild:
+  Stable on ppc64; bug #173376
+
+  04 Apr 2007; Gustavo Zacarias <gustavoz@gentoo.org> gajim-0.11.1.ebuild:
+  Stable on sparc wrt #173376
+
+  04 Apr 2007; Raúl Porcel <armin76@gentoo.org> gajim-0.11.1.ebuild:
+  x86 stable wrt bug 173376
+
+  04 Apr 2007; Peter Weller <welp@gentoo.org> gajim-0.11.1.ebuild:
+  Stable on amd64
+
+*gajim-0.11.1 (03 Mar 2007)
+
+  03 Mar 2007; Peter Weller <welp@gentoo.org> +gajim-0.11.1.ebuild:
+  Bumpz0r'd! 0.11.1 released! :)
+
+*gajim-0.11.0.7951 (07 Feb 2007)
+
+  07 Feb 2007; Peter Weller <welp@gentoo.org> +gajim-0.11.0.7951.ebuild:
+  Bumped - new release
+
+  24 Jan 2007; Markus Rothe <corsair@gentoo.org> gajim-0.11-r3.ebuild:
+  Added ~ppc64
+
+  21 Jan 2007; Peter Weller <welp@gentoo.org> gajim-0.11-r3.ebuild:
+  Added ~x86-fbsd keyword
+
+  20 Jan 2007; Peter Weller (welp) <welp@gentoo.org> gajim-0.10.1.ebuild:
+  Fixed dbus deps wrt bug #158018
+
+  13 Jan 2007; nixnut <nixnut@gentoo.org> gajim-0.11-r3.ebuild:
+  Added ~ppc wrt bug 158541
+
+  10 Jan 2007; Gustavo Zacarias <gustavoz@gentoo.org> gajim-0.11-r3.ebuild:
+  Keyworded ~sparc wrt #158541
+
+  10 Jan 2007; Peter Weller <welp@gentoo.org> gajim-0.11-r3.ebuild:
+  Fixed deps for python-2.5
+
+  09 Jan 2007; Peter Weller <welp@gentoo.org> -gajim-0.8.2.ebuild:
+  Removed obsolete 0.9.x patch
+
+  09 Jan 2007; Peter Weller <welp@gentoo.org> -gajim-0.8.2.ebuild:
+  Removed old version
+
+  08 Jan 2007; Peter Weller (welp) <welp@gentoo.org> gajim-0.11-r3.ebuild:
+  Fixed a couple of thingies here and there
+
+  06 Jan 2007; Bryan Østergaard <kloeri@gentoo.org> gajim-0.10.1.ebuild:
+  Stable on Alpha.
+
+  06 Jan 2007; Peter Weller (welp) <welp@gentoo.org> gajim-0.11-r3.ebuild:
+  Added avahi to IUSE...
+
+  06 Jan 2007; Peter Weller (welp) <welp@gentoo.org>
+  +files/gajim-10.1-FLAGS_noOverride.patch, gajim-0.10.1.ebuild:
+  Added patch to fix bug #144968 for good...
+
+  06 Jan 2007; Alec Warner <antarus@gentoo.org> gajim-0.11-r3.ebuild:
+  dbus needs to die, thanks to drac again for reporting
+
+  06 Jan 2007; Alec Warner <antarus@gentoo.org> gajim-0.11-r3.ebuild:
+  reorder deps to satisfy Drac and prefer new dbus to old for new installs
+
+  06 Jan 2007; Alec Warner <antarus@gentoo.org> gajim-0.11-r3.ebuild:
+  now I can skin myself, re-order || and die to work properly
+
+*gajim-0.11-r3 (06 Jan 2007)
+
+  06 Jan 2007; Alec Warner <antarus@gentoo.org> -gajim-0.11-r1.ebuild,
+  -gajim-0.11-r2.ebuild, +gajim-0.11-r3.ebuild:
+  QA: fix bad usage of !use and !built_with_use, fix two instances of econf
+  with ! use gnome, misc other fixes, must skin welps hide..
+
+  06 Jan 2007; Peter Weller (welp) <welp@gentoo.org> gajim-0.10.1.ebuild:
+  Added pkgconfig dep to gajim-0.10.1 ebuild wrt bug #152529
+
+*gajim-0.11-r2 (05 Jan 2007)
+
+  05 Jan 2007; Peter Weller (welp) <welp@gentoo.org> +gajim-0.11-r2.ebuild:
+  Revbump due to various ebuild changes...
+
+*gajim-0.11-r1 (04 Jan 2007)
+
+  04 Jan 2007; Peter Weller (welp) <welp@gentoo.org> -gajim-0.11.ebuild,
+  +gajim-0.11-r1.ebuild:
+  Revision bump - various ebuild changes. Bug #158541
+
+*gajim-0.11 (03 Jan 2007)
+
+  03 Jan 2007; Peter Weller (welp) <welp@gentoo.org> metadata.xml,
+  +gajim-0.11.ebuild:
+  Ebuild bump. Taken over maintainership
+
+  05 Oct 2006; Gustavo Zacarias <gustavoz@gentoo.org> gajim-0.10.1.ebuild:
+  Stable on sparc
+
+  07 Sep 2006; Gustavo Zacarias <gustavoz@gentoo.org> gajim-0.10.1.ebuild:
+  Keyworded ~sparc
+
+  20 Aug 2006; Thomas Cort <tcort@gentoo.org> gajim-0.10.1.ebuild:
+  Added ~alpha keyword wrt Bug #139446.
+
+  20 Aug 2006; Thomas Cort <tcort@gentoo.org> gajim-0.10.1.ebuild:
+  Stable on amd64 wrt Bug #139446.
+
+  16 Jul 2006; Joshua Jackson <tsunam@gentoo.org> gajim-0.10.1.ebuild:
+  Stable x86; bug #139446
+
+  08 Jul 2006; Gustavo Felisberto <humpback@gentoo.org>;
+  +files/gajim-10.1-Makefile.patch, gajim-0.10.1.ebuild:
+  Fixed problem with Makefile (thanks to Dimitur Kirov in bug #139446) and
+  removed psyco reference as gajim nolonger makes use of it.
+
+  07 Jul 2006; Michael Sterrett <mr_bones_@gentoo.org> gajim-0.10.1.ebuild:
+  fix dep typo
+
+  07 Jul 2006; Luca Barbato <lu_zero@gentoo.org> gajim-0.10.1.ebuild:
+  Marked ppc
+
+*gajim-0.10.1 (06 Jul 2006)
+
+  06 Jul 2006; Gustavo Felisberto <humpback@gentoo.org>; -gajim-0.9.ebuild,
+  -gajim-0.9.1.ebuild, +gajim-0.10.1.ebuild:
+  Adding new very improved version and removed 0.9 releases. Arch teams please
+  see the deps to have this stable. Also I removed the ALPHA keyword because
+  of a dep that was not keyworded.
+
+  24 May 2006; Bryan Østergaard <kloeri@gentoo.org> metadata.xml:
+  Remove svyatogor from metadata.xml, bug 131936.
+
+*gajim-0.9.1 (27 Dec 2005)
+
+  27 Dec 2005; Sergey Kuleshov <svyatogor@gentoo.org> +gajim-0.9.1.ebuild:
+  New version. Bug fixes only.
+
+*gajim-0.9 (25 Dec 2005)
+
+  25 Dec 2005; Sergey Kuleshov <svyatogor@gentoo.org>
+  -files/gajim-0.7.1-multilib.patch, +files/gajim_0.9_muc_disconnect.patch,
+  -gajim-0.7.1.ebuild, -gajim-0.8.ebuild, -gajim-0.8-r1.ebuild,
+  +gajim-0.9.ebuild:
+  New version of Gajim with a lot of new features. Temporarily removed ~amd64
+  from KEYWORDS until gcc4 makes it to unstable. Ebuild by Lukáš Polívka.
+  
+  Removed old unstable ebuilds (previous to 0.8.2).
+
+  26 Sep 2005; Luis Medinas <metalgod@gentoo.org> gajim-0.8.2.ebuild:
+  Marked Stable on amd64
+
+  15 Sep 2005; Aron Griffis <agriffis@gentoo.org> gajim-0.8.2.ebuild:
+  Mark 0.8.2 stable on alpha
+
+*gajim-0.8.2 (12 Sep 2005)
+
+  12 Sep 2005; Sergey Kuleshov <svyatogor@gentoo.org> +gajim-0.8.2.ebuild:
+  New version added - 0.8.2
+
+  28 Aug 2005; Sergey Kuleshov <svyatogor@gentoo.org> gajim-0.8-r1.ebuild:
+  Verify that pygtk was emerged with USE=gnome, cause we need pygton glade modules.
+
+*gajim-0.8-r1 (27 Aug 2005)
+
+  27 Aug 2005; Sergey Kuleshov <svyatogor@gentoo.org> +gajim-0.8-r1.ebuild:
+  New ebuild version wich supports dbus and srv USE flags. Also added ~ppc to
+  use flags, as it is reported to be ok by one of the users.
+
+*gajim-0.8 (24 Aug 2005)
+
+  24 Aug 2005; <sekretarz@gentoo.org> +gajim-0.8.ebuild:
+  Version bump, bug #103097
+
+  28 Jun 2005; Aron Griffis <agriffis@gentoo.org> gajim-0.7.1.ebuild:
+  Fix use invocation, it was completely broken.  Fix indentation
+
+  25 Jun 2005; Simon Stelling <blubb@gentoo.org>
+  +files/gajim-0.7.1-multilib.patch, gajim-0.7.1.ebuild:
+  make gajim multilib-capable
+
+  06 Jun 2005; Sergey Kuleshov <svyatogor@gentoo.org> gajim-0.7.1.ebuild:
+  Added nls and spell USE flags.
+
+*gajim-0.7.1 (05 Jun 2005)
+
+  05 Jun 2005; Sergey Kuleshov <svyatogor@gentoo.org> +gajim-0.7.1.ebuild:
+  Initial commit of gajim jabber client. Closing bug #94181.
+
