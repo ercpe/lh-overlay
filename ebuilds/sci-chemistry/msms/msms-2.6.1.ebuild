@@ -23,11 +23,11 @@ IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-#S="${WORKDIR}"/${PN}
-S="${WORKDIR}"/${PN}
+S="${WORKDIR}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/atmtypenumbers-path.patch
+	epatch "${FILESDIR}"/makefile.patch
 }
 
 src_compile() {
@@ -35,14 +35,16 @@ src_compile() {
 	use x86 && cd ${PN}/i86Linux2
 	emake CC="$(tc-getCC)" \
 	      CFLAGS="${CFLAGS}" \
+	      LDFLAGS="${LDFLAGS}" \
 	msms || die
 }
 
 src_install() {
-	use x86 && newbin ${PN}i86Linux2/msms..2.6.1 msms || die
-	dobin pdb_to_xyzr{,n} || die
+	use x86 && newbin ${PN}/i86Linux2/msms..2.6.1 msms || die "failed installing msms"
+	dobin pdb_to_xyzr{,n} || die "failed installing pdb_to_xyzr{,n}"
 	insinto /usr/share/${PN}
-	doins atmtypenumbers
+	doins atmtypenumbers || die "failed installing atmtypenumbers"
 	dodoc README ReleaseNotes
-	doman ${PN}i86Linux2/msms.1
+	doman msms.1
+	dohtml msms.html
 }

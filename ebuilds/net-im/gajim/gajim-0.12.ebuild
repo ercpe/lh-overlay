@@ -75,6 +75,8 @@ src_unpack() {
 src_compile() {
 	local myconf
 
+	myconf="${myconf} --datarootdir=$(python_get_sitedir)"
+
 	if ! use gnome; then
 		myconf="${myconf} $(use_enable trayicon)"
 		myconf="${myconf} $(use_enable idle)"
