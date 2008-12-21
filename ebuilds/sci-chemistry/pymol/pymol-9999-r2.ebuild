@@ -18,7 +18,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/pmw
-		dev-python/numeric
+		dev-python/numpy
 		dev-lang/tk
 		media-libs/libpng
 		sys-libs/zlib
