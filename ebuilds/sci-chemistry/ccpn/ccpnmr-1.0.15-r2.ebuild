@@ -1,0 +1,191 @@
+# Copyright 1999-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+NEED_PYTHON=2.4
+PYTHON_MODNAME="ccpnmr"
+
+inherit toolchain-funcs distutils check-reqs portability
+
+SLOT="0"
+LICENSE="CCPN"
+KEYWORDS="~x86"
+DESCRIPTION="The Collaborative Computing Project for NMR"
+SRC_URI="ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysis1.0.15.tar.gz
+		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
+HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
+IUSE="examples"
+RESTRICT="mirror"
+DEPEND="${RDEPEND}"
+RDEPEND="virtual/glut
+		 dev-tcltk/tix"
+
+S="${WORKDIR}/${PN}"
+
+pkg_setup(){
+	python_tkinter_exists
+	python_version
+
+	if use examples; then
+	ewarn "The examples are about 523MB large."
+	ewarn "Sure you want to have them?"
+	epause 5
+	CHECKREQS_DISK_USR="1024"
+	CHECKREQS_DISK_VAR="1024"
+	check_reqs
+	fi
+}
+
+src_compile(){
+	tk_ver="$(best_version dev-lang/tk | cut -d- -f3 | cut -d. -f1,2)"
+
+	cd ccpnmr1.0/c
+
+	cat >> environment.txt <<- EOF
+	CC = $(tc-getCC)
+	MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
+	FPIC_FLAG = -fPIC
+	XOR_FLAG =
+	IGNORE_GL_FLAG =
+	GL_FLAG = -DUSE_GL_FALSE
+	GLUT_NEED_INIT = -DNEED_GLUT_INIT
+	GLUT_NOT_IN_GL =
+	GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
+	SHARED_FLAGS = -shared
+	MATH_LIB = -lm
+	X11_DIR = /usr/
+	X11_LIB = -lX11 -lXext
+	X11_INCLUDE_FLAGS = -I\$(X11_DIR)/include
+	X11_LIB_FLAGS = -L\$(X11_DIR)/lib
+	TCL_DIR = /usr
+	TCL_LIB = -ltcl$tk_ver
+	TCL_INCLUDE_FLAGS = -I\$(TCL_DIR)/include
+	TCL_LIB_FLAGS = -L\$(TCL_DIR)/$(get_libdir)
+	TK_DIR = /usr
+	TK_LIB = -ltk$tk_ver
+	TK_INCLUDE_FLAGS = -I\$(TK_DIR)/include
+	TK_LIB_FLAGS = -L\$(TK_DIR)/$(get_libdir)
+	PYTHON_DIR = /usr
+	PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
+	GL_DIR = /usr
+	GL_LIB = -lglut -lGLU -lGL
+	GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include
+	GL_LIB_FLAGS = -L\$(GL_DIR)/$(get_libdir)
+	CFLAGS = $CFLAGS \$(MALLOC_FLAG) \$(FPIC_FLAG) \$(XOR_FLAG)
+	EOF
+
+	emake || die
+	emake links || die
+}
+
+src_install(){
+
+	IN_PATH=$(python_get_sitedir)/${PN}
+
+	cat >> "${T}"/20ccpnmr <<- EOF
+	CCPNMR_TOP_DIR=${IN_PATH}
+	PYTHONPATH=${IN_PATH}/ccpnmr1.0/python
+	LD_LIBRARY_PATH=/usr/$(get_libdir)
+	TCL_LIBRARY=/usr/$(get_libdir)/tcl$tk_ver
+	TK_LIBRARY=/usr/$(get_libdir)/tk$tk_ver
+	EOF
+
+	doenvd "${T}"/20ccpnmr
+
+	einfo "Creating launch wrapper"
+
+	cat >> "${T}"/analysis <<- EOF
+	${python} -O -i \${CCPNMR_TOP_DIR}/ccpnmr1.0/python/ccpnmr/analysis/AnalysisGui.py \$1 \$2 \$3 \$4 \$5
+	EOF
+
+	cat >> "${T}"/dataShifter <<- EOF
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/format/gui/DataShifter.py
+	EOF
+
+	cat >> "${T}"/formatConverter <<- EOF
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/format/gui/FormatConverter.py \$1 \$2
+	EOF
+
+	cat >> "${T}"/pipe2azara <<- EOF
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/analysis/NmrPipeData.py \$1 \$2 \$3
+	EOF
+
+#Perhaps the two update wrapper shouldn't be.
+	cat >> "${T}"/updateAll <<- EOF
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/update/UpdateAuto.py
+	EOF
+
+	cat >> "${T}"/updateCheck <<- EOF
+	${python} -O ${IN_PATH}/ccpnmr1.0/python/ccpnmr/update/UpdatePopup.py
+	EOF
+
+	einfo "Installing wrapper"
+	exeinto ${IN_PATH}/bin
+	doexe "${T}"/analysis || die "Failed to install wrapper."
+	doexe "${T}"/dataShifter || die "Failed to install wrapper."
+	doexe "${T}"/formatConverter || die "Failed to install wrapper."
+	doexe "${T}"/pipe2azara || die "Failed to install wrapper."
+	doexe "${T}"/updateAll || die "Failed to install wrapper."
+	doexe "${T}"/updateCheck || die "Failed to install wrapper."
+
+	for i in analysis dataShifter formatConverter pipe2azara
+		do
+			dosym ${IN_PATH}/bin/$i /usr/bin/$i
+		done
+
+	insinto ${IN_PATH}
+
+	einfo "Installing main files"
+	insopts -v
+	doins -r * || die "main files installation failed"
+
+
+	einfo "Adjusting permissions"
+
+	local FILES="c/ccp/structure/StructUtil.so
+				 c/ccp/structure/StructAtom.so
+				 c/ccp/structure/StructBond.so
+				 c/ccp/structure/StructStructure.so
+				 c/ccpnmr/clouds/Midge.so
+				 c/ccpnmr/clouds/Dynamics.so
+				 c/ccpnmr/clouds/Bacus.so
+				 c/ccpnmr/clouds/AtomCoord.so
+				 c/ccpnmr/clouds/DistConstraintList.so
+				 c/ccpnmr/clouds/DistConstraint.so
+				 c/ccpnmr/clouds/CloudUtil.so
+				 c/ccpnmr/clouds/DistForce.so
+				 c/ccpnmr/clouds/AtomCoordList.so
+				 c/ccpnmr/analysis/ContourFile.so
+				 c/ccpnmr/analysis/ContourLevels.so
+				 c/ccpnmr/analysis/SliceFile.so
+				 c/ccpnmr/analysis/PeakList.so
+				 c/ccpnmr/analysis/ContourStyle.so
+				 c/ccpnmr/analysis/WinPeakList.so
+				 c/memops/global/PdfHandler.so
+				 c/memops/global/TkHandler.so
+				 c/memops/global/FitMethod.so
+				 c/memops/global/BlockFile.so
+				 c/memops/global/MemCache.so
+				 c/memops/global/StoreFile.so
+				 c/memops/global/PsHandler.so
+				 c/memops/global/StoreHandler.so
+				 c/memops/global/GlHandler.so"
+
+	for FILE in ${FILES}
+		do
+			fperms 755 ${IN_PATH}/ccpnmr1.0/${FILE}
+		done
+
+	rm "${D}"${IN_PATH}/{INSTALL,README,installCode.py}
+
+	treecopy $(find . -name doc) "${D}"usr/share/doc/${PF}/html/
+	rm -r $(find "${D}"usr/lib/ -name doc)
+
+	if use examples; then
+		cd "${WORKDIR}"
+		einfo "Installing example files"
+		insopts -v
+		insinto /usr/share/${PF}/
+		doins -r analysisTutorialData || die "tutorial data installation failed"
+	fi
+}
