@@ -8,16 +8,18 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="PFL is an online searchable file/package database for Gentoo"
-SRC_URI="http://files.portagefilelist.de/${P}"
+SRC_URI="http://files.portagefilelist.de/${PN}
+	 http://files.portagefilelist.de/e-file"
 HOMEPAGE="http://www.portagefilelist.de/index.php/Special:PFLQuery"
 IUSE=""
 RESTRICT="mirror"
 
-DEPEND="mp? ( app-arch/pbzip2 )"
+DEPEND=""
 
 
 src_unpack(){
-	cp "${DISTDIR}"/${P} "${WORKDIR}"/${PN}.py
+	cp "${DISTDIR}"/${PN} "${WORKDIR}"/${PN}.py
+	cp "${DISTDIR}"/e-file "${WORKDIR}"/e-file
 }
 
 src_install(){
@@ -34,4 +36,6 @@ src_install(){
 
 	exeinto /usr/lib/${PN}/
 	doexe ${PN}.py
+
+	dobin e-file
 }
