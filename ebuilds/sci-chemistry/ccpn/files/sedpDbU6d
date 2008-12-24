@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export CCPNMR_TOP_DIR=/usr/lib/python2.5/site-packages
+export PYTHONPATH=.:${CCPNMR_TOP_DIR}/ccpnmr2.0/python
+export LD_LIBRARY_PATH=/usr/lib
+export TCL_LIBRARY=/usr/lib/tcl8.4
+export TK_LIBRARY=/usr/lib/tk8.4
+/usr/bin/python2.5 -i -O ${CCPNMR_TOP_DIR}/ccpnmr2.0/python/ccpnmr/analysis/AnalysisGui.py $1 $2 $3 $4 $5 $6

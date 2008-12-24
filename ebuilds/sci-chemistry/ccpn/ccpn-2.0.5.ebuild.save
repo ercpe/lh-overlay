@@ -1,0 +1,225 @@
+<?xml version="1.0" ?>
+<layman>
+  <overlay type = "rsync"
+           src  = "rsync://roslin.kicks-ass.net/roslin"
+           contact = "lazy_bum@o2.pl"
+           name = "roslin">
+    <link> http://roslin.kicks-ass.net/  </link>
+    <description>This is roslin, my small overlay. Enjoy! (:</description>
+
+  </overlay>
+
+	<overlay
+		type = "git"
+		src  = "git://gitorious.org/s3d-gentoo/mainline.git"
+		contact = "sven.eckelmann@gmx.de"
+		status  = "unofficial"
+		name = "s3d">
+
+		<link>
+			http://s3d.berlios.de/
+		</link>
+
+		<description>
+			Gentoo ebuilds for s3d and related packages. s3d is a 3d network display server which can be used as 3d desktop enviroment.
+		</description>
+	</overlay>
+  <overlay
+    type = "git"
+    src  = "git://git.overlays.gentoo.org/proj/desktop-effects.git"
+    contact = "desktop-effects@gentoo.org"
+    status = "official"
+    name = "desktop-effects">
+
+    <description>
+        Experimental overlay for desktop effects packages.
+    </description>
+  </overlay>
+  <overlay
+    type = "git"
+    src  = "git://repo.or.cz/gentoo-interactive-fiction.git"
+    contact = "levertond@googlemail.com"
+    status = "unofficial"
+    name = "interactive-fiction">
+
+    <description>
+      Packages for players and authors of interactive fiction
+    </description>
+  </overlay>
+  <overlay
+    type = "git"
+    src  = "git://repo.or.cz/gentoo-soor-overlay.git"
+    contact = "l.valerimanera@gmail.com"
+    status = "unofficial"
+    name = "soor-overlay">
+
+    <description>
+      Gentoo ebuild overlay with misc stuff that I find interesting.
+    </description>
+  </overlay>
+  <overlay
+    type = "svn"
+    src  = "svn://svn.tuxfamily.org/svnroot/gfgentoo/pgfg"
+    contact = "thelinuxfr@free.fr"
+    status = "unofficial"
+    name = "pgfgentoo">
+
+  <link>http://pgfg.tuxfamily.org</link>
+
+  <description>Overlay Perfect Gnome for Gentoo</description>
+  </overlay>
+
+  <overlay
+    type = "git"
+    src  = "git://zen-sources.org/zen/portage-overlay.git"
+    contact = "rmh3093@gmail.com"
+    status = "unofficial"
+    name = "zen-overlay">
+
+    <description>
+      Experimental overlay for zen related packages.
+    </description>
+  </overlay>
+
+  <overlay
+	type = "git"
+	src = "git://zen-sources.org/zen/THE.git"
+	contact = "rmh3093@gmail.com"
+	status = "unofficial"
+	name = "THE">
+
+    <description>
+      Miscellaneous ebuilds not yet in portage
+    </description>
+  </overlay>
+
+  <overlay
+    type = "git"
+    src  = "git://git.overlays.gentoo.org/proj/ltsp.git"
+    contact = "dberkholz@gentoo.org"
+    status = "official"
+    name = "ltsp">
+
+    <description>
+      Linux Terminal Server Project overlay
+    </description>
+  </overlay>
+
+
+<overlay
+      type = "rsync"
+      src  = "rsync://overlays.biterror.net/ffmpeg-svn"
+      contact = "harley@biterror.net"
+      status = "unoffficial"
+      name = "ffmpeg-svn">
+
+    <link>
+      http://www.thepetersclan.net
+    </link>
+
+    <description>
+      This is a FFMPEG svn and snapshot overlay.
+    </description>
+</overlay>
+  <overlay
+      type = "svn"
+      src  = "svn://svn.ospdev.net/svnroot/arcon/trunk/arcon-overlay"
+      name = "arcon"
+      contact = "non7top@gmail.com">
+
+   <description>
+	Arcon Overlay!
+   </description>
+
+   <link>
+       http://arcong.ath.cx/
+   </link>
+
+  </overlay>
+
+<overlay
+      type = "rsync"
+      src  = "rsync://overlays.biterror.net/gnash-cvs"
+      contact = "gnash@biterror.net"
+      status = "unoffficial"
+      name = "gnash-cvs">
+
+    <link>
+      http://www.thepetersclan.net
+    </link>
+
+    <description>
+      This is a Gnash ( flash player ) cvs and snapshot overlay.
+    </description>
+</overlay>
+  <overlay
+      contact="aross@gentoo.org"
+      name="aross"
+      src="http://overlays.gentoo.org/svn/dev/aross"
+      type="svn"
+      status="official">
+    <link>
+        http://overlays.gentoo.org/dev/aross
+    </link>
+    <description>
+        Personal scratch space.
+    </description>
+  </overlay>
+
+  <overlay
+      contact="dirtyepic@gentoo.org"
+      name="dirtyepic"
+      src="http://overlays.gentoo.org/svn/dev/dirtyepic"
+      type="svn">
+    <link>
+        http://overlays.gentoo.org/dev/dirtyepic
+    </link>
+    <description>
+        Various work-in-progress stuff including GCC-svn and wxGTK.
+    </description>
+  </overlay>
+
+  <overlay
+      contact="xfce@gentoo.org"
+      name="xfce-dev"
+      src="git://git.overlays.gentoo.org/proj/xfce.git"
+      type="git"
+      status="official">
+    <link>
+        http://overlays.gentoo.org/proj/xfce/wiki
+    </link>
+    <description>
+        Experimental ebuilds for the Xfce4 Desktop Environment
+    </description>
+  </overlay>
+
+  <overlay
+      contact="je_fro@gentoo.org"
+      name="je_fro"
+      src="http://overlays.gentoo.org/svn/dev/je_fro"
+      type="svn">
+    <link>
+        http://overlays.gentoo.org/dev/je_fro
+    </link>
+    <description>
+      Helpful ebuilds for the macbook pro, and experimental gentoo-science packages.
+    </description>
+  </overlay>
+
+  <overlay
+      contact="suka@gentoo.org"
+      name="suka"
+      src="http://overlays.gentoo.org/svn/dev/suka"
+      type="svn">
+    <link>
+        http://overlays.gentoo.org/dev/suka
+    </link>
+    <description>
+      experimental stuff of all sorts
+    </description>
+  </overlay>
+
+  <overlay
+      contact="luke_armagetron@dashjr.org"
+      name="luke-jr"
+      src="svn:/
