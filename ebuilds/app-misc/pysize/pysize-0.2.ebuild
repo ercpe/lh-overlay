@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
-
 inherit distutils
 
 DESCRIPTION="Pysize is a graphical and console tool for exploring the size of directories"
@@ -16,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE="gtk ncurses"
-RDEPEND="gtk? ( x11-libs/gtk+:2 )
+RDEPEND="gtk? ( dev-python/pygtk )
 	 ncurses? ( sys-libs/ncurses )
 	 psyco? ( dev-python/psyco )"
 DEPEND="${RDEPEND}"
