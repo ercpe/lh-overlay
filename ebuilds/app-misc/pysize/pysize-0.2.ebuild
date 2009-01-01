@@ -38,7 +38,7 @@ src_unpack() {
 		rm -rf pysize/ui/curses || die
 	fi
 
-	use psyco && epatch "${FILESDIR}"/psyco-dep.patch
+	use ! psyco && epatch "${FILESDIR}"/psyco-dep.patch
 }
 
 
