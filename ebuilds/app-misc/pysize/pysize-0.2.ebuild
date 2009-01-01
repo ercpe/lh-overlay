@@ -1,10 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="1"
 
-inherit distutils eutils
+inherit distutils
 
 DESCRIPTION="Pysize is a graphical and console tool for exploring the size of directories"
 HOMEPAGE="http://guichaz.free.fr/pysize/"
@@ -21,7 +21,9 @@ RDEPEND="gtk? ( x11-libs/gtk+:2 )
 	 psyco? ( dev-python/psyco )"
 DEPEND="${RDEPEND}"
 
-src_prepare() {
+src_unpack() {
+	unpack ${A}
+
 	if ! use gtk; then
 		sed -e '/^from pysize.ui.gtk/d' \
 		    -e "s~'gtk': ui_gtk.run,~~g" \
