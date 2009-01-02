@@ -60,6 +60,7 @@ src_compile () {
 	--enable-cif \
 	--enable-ccp4 \
 	--enable-cns \
+	--enable-mtz \
 	--program-suffix=-2 \
 	|| die
 	# We don't have a cctbx ebuild yet

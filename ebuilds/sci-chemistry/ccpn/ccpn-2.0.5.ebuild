@@ -3,7 +3,7 @@
 # $Header: $
 
 NEED_PYTHON=2.4
-PYTHON_MODNAME="ccpnmr"
+PYTHON_MODNAME="ccpn"
 
 inherit python toolchain-funcs check-reqs portability distutils eutils
 
@@ -14,7 +14,7 @@ DESCRIPTION="The Collaborative Computing Project for NMR"
 SRC_URI="http://www.bio.cam.ac.uk/ccpn/download/ccpnmr/analysis${PV}.tar.gz"
 #		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
 HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
-IUSE="examples numpy opengl"
+IUSE="doc examples numpy opengl"
 RESTRICT="mirror"
 DEPEND="${RDEPEND}"
 RDEPEND="virtual/glut
@@ -70,16 +70,22 @@ src_install(){
 		sed -e "s:GENTOO_SITEDIR:${GENTOO_SITEDIR}:g" \
 		    -e "s:LIBDIR:${LIBDIR}:g" \
 		    "${FILESDIR}"/${wrapper} > "${T}"/${wrapper} || die "Fail fix ${wrapper}"
-		dobin "${T}"/${wrapper} # || die "Failed to install ${wrapper}"
+		dobin "${T}"/${wrapper} || die "Failed to install ${wrapper}"
 	done
 
-	for wrapper in updateAll updateCheck; do
-		sed -e "s:GENTOO_SITEDIR:${GENTOO_SITEDIR}:g" \
-		    -e "s:LIBDIR:${LIBDIR}:g" \
-		    "${FILESDIR}"/${wrapper} > "${T}"/${wrapper} || die "Fail fix ${wrapper}"
-		dosbin "${T}"/${wrapper} # || die "Failed to install ${wrapper}"
-	done
+## It doesn't work without src.
+#	for wrapper in updateAll updateCheck; do
+#		sed -e "s:GENTOO_SITEDIR:${GENTOO_SITEDIR}:g" \
+#		    -e "s:LIBDIR:${LIBDIR}:g" \
+#		    "${FILESDIR}"/${wrapper} > "${T}"/${wrapper} || die "Fail fix ${wrapper}"
+#		dosbin "${T}"/${wrapper} || die "Failed to install ${wrapper}"
+#	done
 
+	use doc && treecopy $(find . -name doc) "${D}"usr/share/doc/${PF}/html/
+
+	ebegin "Removing unneeded docs"
+	find . -name doc -exec rm -rf '{}' \; 2> /dev/null
+	eend
 
 	insinto ${IN_PATH}
 
@@ -124,9 +130,6 @@ src_install(){
 	for FILE in ${FILES}; do
 		fperms 755 ${IN_PATH}/python/${FILE}
 	done
-
-	treecopy $(find "${S}" -name doc) "${D}"usr/share/doc/${PF}/html/
-	rm -r $(find "${D}"usr/lib/ -name doc)
 
 	if use examples; then
 		cd "${WORKDIR}"

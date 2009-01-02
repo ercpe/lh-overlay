@@ -29,19 +29,20 @@ src_unpack(){
 	unpack ${A}
 
 	cd "${S}"
-
+rm -rvf contrib/*
+rm -rvf include/*
 	epatch "${FILESDIR}"/Makefile.patch
+#	epatch "${FILESDIR}"/as-needed.patch
 }
 
 src_compile(){
 
 	cd Aqva
 
-	eqmake4 Aqva4.4.pro
+	LIBS="/mnt/tmpfs/aqvahome/contrib/almost-1.0.3/" eqmake4 Aqva4.4.pro
 
-	emake || \
+	emake -j4 || \
 	die
-
 }
 #
 #src_test() {

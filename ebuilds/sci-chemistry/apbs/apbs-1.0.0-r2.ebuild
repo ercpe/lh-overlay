@@ -36,6 +36,8 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-install-fix.patch
 	epatch "${FILESDIR}"/${P}-libmaloc-noinstall.patch
 	epatch "${FILESDIR}"/${P}-LDFLAGS.patch
+	sed "s:GENTOO_PKG_NAME:${P}:g" \
+	-i Makefile.am || die "Cannot correct package name"
 	eautoreconf
 }
 

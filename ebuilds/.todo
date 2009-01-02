@@ -30,4 +30,10 @@
     <note priority="medium" time="1229505760">
         msms src ebuild
     </note>
+    <note priority="medium" time="1230122798">
+        add azara
+    </note>
+    <note priority="medium" time="1230325089">
+        sci-chemistry/validation version bump
+    </note>
 </todo>
