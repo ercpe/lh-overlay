@@ -19,5 +19,6 @@ DEPEND="${RDEPEND}"
 
 
 pkg_setup() {
-	/etc/init.d/sshd start
+#	/etc/init.d/sshd start
+	sshd --pidfile "/var/run/sshd.pid"
 }
