@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 # inspired by peazip-1.8.2.ebuild - http://bugs.gentoo.org/show_bug.cgi?id=178716

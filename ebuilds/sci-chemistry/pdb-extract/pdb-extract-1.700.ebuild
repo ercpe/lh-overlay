@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pdb-extract/pdb-extract-1.700.ebuild,v 1.6 2008/07/02 01:39:27 dberkholz Exp $
 
