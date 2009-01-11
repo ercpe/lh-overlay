@@ -20,7 +20,7 @@ DEPEND="sci-chemistry/cns
 		>=dev-python/scientificpython-2.7.3
 		>=dev-lang/tk-8.3
 		>=dev-tcltk/tix-8.1.4
-		>=sci-chemistry/ccpnmr-1.0.15-r1
+		>=sci-chemistry/ccpn-1.0.15-r1
 		dev-python/matplotlib"
 RDEPEND="${DEPEND}"
 
