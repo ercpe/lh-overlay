@@ -54,7 +54,7 @@ src_unpack() {
 	fi
 
 	if use apbs; then
-		epatch "${FILESDIR}"/apbs-070604.patch.bz2
+		epatch "${FILESDIR}"/apbs-070604-r3531.patch.bz2
 		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
 			-i modules/pmg_tk/startup/apbs_tools.py || die
 	fi
