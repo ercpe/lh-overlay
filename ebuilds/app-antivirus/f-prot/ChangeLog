@@ -1,0 +1,7 @@
+# ChangeLog for app-antivirus/f-prot
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  13 Jan 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> +metadata.xml:
+  Setup app-antivirus/f-prot
+  Got ebuild from bug #189319
