@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jan 2009; justin Lecher (jlec) <jlec@j-schmitz.net>
+  pymol-9999-r2.ebuild, +files/apbs-070604-r3550.patch.bz2:
+  Another APBS fix for sci-chemistry/pymol-9999-r2
+
   21 Dec 2008; Justin Lecher (jlec) <jlec@j-schmitz.net>
   pymol-1.1-r2.ebuild, pymol-9999-r2.ebuild:
   changed dev-python/numeric to dev-python/numpy

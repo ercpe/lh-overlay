@@ -4,6 +4,7 @@
 
 NEED_PYTHON=2.4
 PYTHON_MODNAME="chempy pmg_tk pymol"
+APBS_PATCH="070604-r3550"
 
 inherit distutils subversion
 
@@ -54,7 +55,7 @@ src_unpack() {
 	fi
 
 	if use apbs; then
-		epatch "${FILESDIR}"/apbs-070604-r3531.patch.bz2
+		epatch "${FILESDIR}"/apbs-${APBS_PATCH}.patch.bz2
 		sed "s:LIBANDPYTHON:$(get_libdir)/python${PYVER}:g" \
 			-i modules/pmg_tk/startup/apbs_tools.py || die
 	fi
