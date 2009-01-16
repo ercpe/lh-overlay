@@ -1,0 +1,11 @@
+Title: This is a private overlay test announcement
+Author: Justin Lecher (jlec) <jlec@j-schmitz.net>
+Content-Type: text/plain
+Posted: 16-Jan-2009
+Revision: 1
+Display-If-Profile: default/linux/x86/2008.0
+Display-If-Profile: default/linux/x86/2008.0/desktop
+Display-If-Profile: default/linux/x86/2008.0/developer
+Display-If-Profile: default/linux/x86/2008.0/server
+
+I just wanted to test the news item stuff.
