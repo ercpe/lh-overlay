@@ -14,7 +14,9 @@ HOMEPAGE="http://www.nagiosexchange.org/cgi-bin/jump.cgi?ID=1539&view=File1"
 IUSE=""
 RESTRICT="mirror"
 
+S="${WORKDIR}"/nagios-plugins-portage
+
 src_install(){
 	exeinto /usr/nagios/libexec
-	doexe check_gentoo_portage
+	doexe check_gentoo_portage || die
 }
