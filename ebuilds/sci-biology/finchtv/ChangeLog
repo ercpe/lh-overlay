@@ -1,0 +1,17 @@
+# ChangeLog for sci-biology/finchtv
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sci-biology/finchtv/ChangeLog,v 1.3 2008/12/20 23:38:57 je_fro Exp $
+
+*finchtv-1.3.1-r1 (20 Dec 2008)
+
+  20 Dec 2008; Jeff Gardner <je_fro@gentoo.org> +finchtv-1.3.1-r1.ebuild:
+  Install in /opt fog bug #251613
+
+  31 Dec 2007; Jeff Gardner <je_fro@gentoo.org> ChangeLog:
+  fixing my email addy in Changelog
+
+*finchtv-1.3.1 (30 Dec 2007)
+
+  30 Dec 2007; <je_fro@gentoo.org> +metadata.xml, +finchtv-1.3.1.ebuild:
+  Initial import from the science overlay.
+
