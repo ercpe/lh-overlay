@@ -14,7 +14,6 @@ IUSE=""
 DEPEND="sys-libs/ncurses
 	!app-admin/procinfo"
 RDEPEND="${DEPEND}"
-RESTRICT="mirror"
 
 src_unpack() {
 	unpack ${A}
@@ -27,7 +26,6 @@ src_unpack() {
 }
 
 src_install() {
-	dobin procinfo
-	doman procinfo.8
+	emake install DESTDIR="${D}" || "install failed"
 }
 
