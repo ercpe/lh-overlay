@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit autotools
+inherit autotools eutils
 
 DESCRIPTION="Procinfo-NG is a complete rewrite of the old system monitoring app procinfo."
 HOMEPAGE="http://sourceforge.net/projects/procinfo-ng/"
@@ -19,11 +19,17 @@ RDEPEND="${DEPEND}
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
+	epatch "${FILESDIR}"/${P}-as-needed.patch
 	# removing -s flag as portage does the stripping part and add support
-	# for custom LDFLAGS.
-	sed -e 's:-s -lncurses:-lncurses ${LDFLAGS}:' \
+	# for custom LDFLAGS. Plus correct for --ass-needed
+	sed -e 's:-s -lncurses:${LDFLAGS}:' \
 		-i configure.in || die "sed configure.in failed"
-	eautoreconf
+	eautoreconf || die
+}
+
+src_compile() {
+	econf || die "configure failed"
+	emake LIBS="-lncurses" || die "compile failed"
 }
 
 src_install() {
