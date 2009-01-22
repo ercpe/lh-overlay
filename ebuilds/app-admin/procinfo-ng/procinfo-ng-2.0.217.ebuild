@@ -4,7 +4,7 @@
 
 inherit autotools eutils
 
-DESCRIPTION="Procinfo-NG is a complete rewrite of the old system monitoring app procinfo."
+DESCRIPTION="Completly rewrite of the old system monitoring app procinfo."
 HOMEPAGE="http://sourceforge.net/projects/procinfo-ng/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="|| ( GPL-2 LGPL-2.1 )"
