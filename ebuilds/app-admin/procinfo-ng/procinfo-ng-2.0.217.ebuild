@@ -24,11 +24,11 @@ src_unpack() {
 	# for custom LDFLAGS. Plus correct for --as-needed
 	sed -e 's:-s -lncurses:${LDFLAGS}:' \
 		-i configure.in || die "sed configure.in failed"
-	eautoreconf || die
+	eautoreconf
 }
 
 src_compile() {
-	econf || die "configure failed"
+	econf
 	emake LIBS="-lncurses" || die "compile failed"
 }
 
