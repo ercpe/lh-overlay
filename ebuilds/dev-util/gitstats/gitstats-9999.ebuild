@@ -39,5 +39,5 @@ src_install() {
 
 	dobin gitstats || die "failed to install ${PN}"
 
-	dodoc doc/{README,TODO.txt,author.txt} || die "doc install failed"
+	dodoc doc/{README,{TODO,author}.txt} || die "doc install failed"
 }
