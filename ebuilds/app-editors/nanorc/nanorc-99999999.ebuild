@@ -5,8 +5,7 @@
 inherit eutils git
 
 DESCRIPTION="Some more nanorc files"
-EGIT_REPO_URI="git+ssh://ssh.j-schmitz.net/git/nanorc.git"
-#SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-editors/nanorc/${P}.tar.bz2"
+EGIT_REPO_URI="git://ssh.j-schmitz.net/nanorc.git"
 HOMEPAGE="http://www.j-schmitz.net"
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,10 +22,6 @@ pkg_setup(){
 	ewarn 'You might want to add CONFIG_PROTECT="/usr/share/nano/ ${CONFIG_PROTECT}"'
 	ewarn "to your make.conf"
 	sleep 5
-}
-
-src_compile() {
-	true
 }
 
 src_install() {
