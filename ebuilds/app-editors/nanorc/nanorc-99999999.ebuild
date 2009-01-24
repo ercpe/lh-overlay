@@ -5,15 +5,13 @@
 inherit eutils git
 
 DESCRIPTION="Some more nanorc files"
-EGIT_REPO_URI="git://ssh.j-schmitz.net/nanorc.git"
+EGIT_REPO_URI="git://git.j-schmitz.net/nanorc.git"
 HOMEPAGE="http://www.j-schmitz.net"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 "
 IUSE=""
-RESTRICT="primaryuri mirror"
 RDEPEND="app-editors/nano"
-DEPEND="${RDEPEND}"
 
 pkg_setup(){
 	ewarn "This package is evil!"
@@ -25,6 +23,24 @@ pkg_setup(){
 }
 
 src_install() {
+
+	cp /etc/nanorc "${S}"
+
+	ebegin "Writing include lines"
+	for nanorc in *nanorc; do
+		if [ $(grep -q "include /usr/share/nano/${nanorc}" "${S}"/nanorc) ]; then
+			einfo "${nanorc} already included"
+		else
+			echo "" >> "${S}"/nanorc
+			echo "#include /usr/share/nano/${nanorc}" >> "${S}"/nanorc
+		fi
+	done
+
+	eend
+
 	insinto /usr/share/nano/
-	doins *
+	doins *nanorc
+
+	insinto /etc/
+	doins nanorc
 }
