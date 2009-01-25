@@ -4,7 +4,7 @@
 
 inherit eutils
 
-DESCRIPTION="Azara is a suite of programmes to process and view NMR data"
+DESCRIPTION="A suite of programmes to process and view NMR data"
 HOMEPAGE="http://www.bio.cam.ac.uk/azara/"
 SRC_URI="http://www.bio.cam.ac.uk/ccpn/download/${PN}/${P}-src.tar.gz"
 
@@ -23,7 +23,7 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 
-	echo "">ENVIRONMENT
+	echo "" > ENVIRONMENT
 
 	epatch "${FILESDIR}"/help-makefile.patch
 }
