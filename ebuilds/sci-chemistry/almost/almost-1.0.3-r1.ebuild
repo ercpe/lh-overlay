@@ -8,7 +8,7 @@ DESCRIPTION="all atom molecular simulation toolkit"
 HOMEPAGE="http://www-almost.ch.cam.ac.uk/site"
 #SRC_URI="http://www-almost.ch.cam.ac.uk/site/downloads/${P}.tar.gz"
 ## Upstream change tarballs w/o revision bump
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/All/${P}.tar.gz"
+SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/ALL/${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
@@ -29,7 +29,7 @@ src_unpack(){
 	cd "${S}"
 
 	epatch "${FILESDIR}"/gcc-4.3.patch
-	epatch "${FILESDIR}"/configure-boost.patch
+#	epatch "${FILESDIR}"/configure-boost.patch
 	eautoreconf || die "Reconfiguration failed"
 }
 
