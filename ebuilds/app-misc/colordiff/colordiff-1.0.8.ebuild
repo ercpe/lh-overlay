@@ -10,10 +10,10 @@ SRC_URI="http://${PN}.sourceforge.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="alpha amd64 ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
+KEYWORDS="amd64 x86"
 IUSE=""
 
-DEPEND="sys-apps/diffutils"
+RDEPEND="sys-apps/diffutils"
 
 src_compile() {
 	true

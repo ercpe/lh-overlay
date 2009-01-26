@@ -2,16 +2,6 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/pdb-extract/ChangeLog,v 1.10 2008/07/02 01:39:27 dberkholz Exp $
 
-*pdb-extract-3.004-r1 (05 Dec 2008)
-
-  05 Dec 2008;  <>  pdb-extract-3.004-r1.ebuild
-  # INSERT ENTRY HERE
-
-  10 Nov 2008; justin Lecher <justin@j-schmitz.net>
-  +files/respect-cflags-and-fix-install.patch, +metadata.xml,
-  +pdb-extract-1.700.ebuild, +pdb-extract-3.004.ebuild:
-  bump to v3.004
-
   02 Jul 2008; Donnie Berkholz <dberkholz@gentoo.org>;
   pdb-extract-1.700.ebuild:
   die on failure to install files.

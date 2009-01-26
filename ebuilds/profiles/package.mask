@@ -1,0 +1,1 @@
+=sci-chemistry/ccpn-2.0.5-r1

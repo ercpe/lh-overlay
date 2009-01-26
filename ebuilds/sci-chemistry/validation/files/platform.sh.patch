@@ -7,7 +7,7 @@
 -#     Check if it is GCC version 3.x
 -      gcc_ver=`gcc --version | grep -e " 3\."`
 +#     Check if it is GCC version 3.x#   Check if it is a Linux platform
-+    Linux)
++#    Linux)
 +#     Check if it is GCC version 4.x
 +      gcc_ver=`gcc --version | grep -e " 4\."`
        if [[ -z $gcc_ver ]]

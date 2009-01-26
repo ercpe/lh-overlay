@@ -5,36 +5,30 @@
 NEED_PYTHON=2.4
 PYTHON_MODNAME="ccpn"
 
-inherit python toolchain-funcs check-reqs portability distutils eutils
+inherit python toolchain-funcs portability distutils eutils
+
+MY_PN="${PN}mr"
 
 SLOT="0"
-LICENSE="CCPN LGPL-2.1"
+LICENSE="|| ( CCPN LGPL-2.1 )"
 KEYWORDS="~x86"
 DESCRIPTION="The Collaborative Computing Project for NMR"
-SRC_URI="http://www.bio.cam.ac.uk/ccpn/download/ccpnmr/analysis${PV}.tar.gz"
-#		 examples? ( ftp://www.bio.cam.ac.uk/pub/ccpnmr/analysisTutorialData.tar.gz )"
+SRC_URI="http://www.bio.cam.ac.uk/ccpn/download/${MY_PN}/analysis${PV}.tar.gz"
 HOMEPAGE="http://www.ccpn.ac.uk/ccpn"
-IUSE="doc examples numpy opengl"
+IUSE="doc numpy opengl"
 RESTRICT="mirror"
-DEPEND="${RDEPEND}"
-RDEPEND="virtual/glut
+RDEPEND="${DEPEND}"
+DEPEND="virtual/glut
 	 dev-tcltk/tix
-	 numpy? ( dev-python/numpy )"
+	 dev-python/numpy"
+# automagic dep, so we DEPEND on it until fixed"
+#	 numpy? ( dev-python/numpy )"
 
-S="${WORKDIR}"/${PN}mr
+S="${WORKDIR}"/${MY_PN}
 
-pkg_setup(){
+pkg_setup() {
 	python_tkinter_exists
 	python_version
-
-	if use examples; then
-	ewarn "The examples are about 523MB in size."
-	ewarn "Sure you want to have them?"
-	epause 5
-	CHECKREQS_DISK_USR="1024"
-	CHECKREQS_DISK_VAR="1024"
-	check_reqs
-	fi
 }
 
 src_unpack() {
@@ -45,7 +39,7 @@ src_unpack() {
 	echo "" > "${S}"/ccpnmr2.0/c/environment.txt || die "failed to kill environment.txt"
 }
 
-src_compile(){
+src_compile() {
 
 	local tk_ver
 	local myconf
@@ -84,30 +78,6 @@ src_compile(){
 	#GLUT_FLAG = $(GLUT_NEED_INIT) $(GLUT_NOT_IN_GL)
 
 
-#	if has_version media-libs/freeglut; then
-#		myconf="${myconf} GLUT_NEED_INIT=\"-DNEED_GLUT_INIT\""
-#	else
-#		myconf="${myconf} GLUT_NEED_INIT="
-#	fi
-#
-#	myconf="${myconf} \
-#		IGNORE_GL_FLAG= \
-#		GL_FLAG=-DUSE_GL_FALSE \
-#		GLUT_NOT_IN_GL= \
-#		'GLUT_FLAG=\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)' \
-#		GL_DIR=/usr \
-#		GL_LIB=\"-lglut -lGLU -lGL\" \
-#		GL_INCLUDE_FLAGS=-I\$(GL_DIR)/include \
-#		GL_LIB_FLAGS=-L\$(GL_DIR)/$(get_libdir)"
-#
-#        else
-#	myconf="${myconf} \
-#		IGNORE_GL_FLAG=-DIGNORE_GL \
-#		GL_FLAG=-DUSE_GL_FALSE \
-#		GLUT_NOT_IN_GL= \
-#		GLUT_FLAG=\"\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)\""
-#        fi
-#
 	if has_version media-libs/freeglut; then
 		GLUT_NEED_INIT="-DNEED_GLUT_INIT"
 	else
@@ -123,12 +93,12 @@ src_compile(){
 		GL_INCLUDE_FLAGS="-I\$(GL_DIR)/include"
 		GL_LIB_FLAGS="-L\$(GL_DIR)/$(get_libdir)"
 
-        else
+	else
 		IGNORE_GL_FLAG="-DIGNORE_GL"
 		GL_FLAG="-DUSE_GL_FALSE"
 		GLUT_NOT_IN_GL=""
 		GLUT_FLAG="\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)"
-        fi
+	fi
 
 	cd ccpnmr2.0/c
 
@@ -167,7 +137,7 @@ src_compile(){
 
 }
 
-src_install(){
+src_install() {
 
 	local IN_PATH
 	local GENTOO_SITEDIR
@@ -185,14 +155,6 @@ src_install(){
 		dobin "${T}"/${wrapper} || die "Failed to install ${wrapper}"
 	done
 
-## It doesn't work without src.
-#	for wrapper in updateAll updateCheck; do
-#		sed -e "s:GENTOO_SITEDIR:${GENTOO_SITEDIR}:g" \
-#		    -e "s:LIBDIR:${LIBDIR}:g" \
-#		    "${FILESDIR}"/${wrapper} > "${T}"/${wrapper} || die "Fail fix ${wrapper}"
-#		dosbin "${T}"/${wrapper} || die "Failed to install ${wrapper}"
-#	done
-
 	use doc && treecopy $(find . -name doc) "${D}"usr/share/doc/${PF}/html/
 
 	ebegin "Removing unneeded docs"
@@ -202,10 +164,8 @@ src_install(){
 	insinto ${IN_PATH}
 
 	ebegin "Installing main files"
-#	insopts -v
 	doins -r ccpnmr2.0/{data,model,python} || die "main files installation failed"
 	eend
-
 
 	einfo "Adjusting permissions"
 
@@ -242,83 +202,4 @@ src_install(){
 	for FILE in ${FILES}; do
 		fperms 755 ${IN_PATH}/python/${FILE}
 	done
-
-	if use examples; then
-		cd "${WORKDIR}"
-		ebegin "Installing example files"
-		insopts -v
-		insinto /usr/share/${PF}/
-		doins -r analysisTutorialData || die "tutorial data installation failed"
-		eend
-	fi
 }
-
-create_env() {
-
-	tk_ver="$(best_version dev-lang/tk | cut -d- -f3 | cut -d. -f1,2)"
-
-	cat >> "${T}"/environment.txt <<- EOF
-		CC = $(tc-getCC)
-		MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
-		FPIC_FLAG = -fPIC
-		SHARED_FLAGS = -shared
-		MATH_LIB = -lm
-		X11_DIR = /usr
-		X11_LIB = -lX11 -lXext
-		X11_INCLUDE_FLAGS = -I\$(X11_DIR)/include
-		X11_LIB_FLAGS = -L\$(X11_DIR)/lib
-		TCL_DIR = /usr
-		TCL_LIB = -ltcl${tk_ver}
-		TCL_INCLUDE_FLAGS = -I\$(TCL_DIR)/include
-		TCL_LIB_FLAGS = -L\$(TCL_DIR)/$(get_libdir)
-		TK_DIR = /usr
-		TK_LIB = -ltk${tk_ver}
-		TK_INCLUDE_FLAGS = -I\$(TK_DIR)/include
-		TK_LIB_FLAGS = -L\$(TK_DIR)/$(get_libdir)
-		PYTHON_DIR = /usr
-		PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
-		CFLAGS = ${CFLAGS} \$(MALLOC_FLAG) \$(FPIC_FLAG) -g
-	EOF
-
-	if use opengl; then
-		cat >> "${T}"/environment.txt <<- EOF
-			IGNORE_GL_FLAG =
-			# special GL flag, should have either USE_GL_TRUE or USE_GL_FALSE
-			# (-D means this gets defined by the compiler so can be checked in source code)
-			# (this relates to glXCreateContext() call in ccpnmr/global/gl_handler.c)
-			# if have problems with USE_GL_TRUE then try GL_FALSE, or vice versa
-			# use below for Linux?
-			#GL_FLAG = -DUSE_GL_FALSE
-			# use below for everything else?
-			#GL_FLAG = -DUSE_GL_TRUE
-			GL_FLAG = -DUSE_GL_FALSE
-			#freeglut with normal glut w/o Needs check!
-			GLUT_NEED_INIT = -DNEED_GLUT_INIT
-			GLUT_NOT_IN_GL =
-			GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
-			GL_DIR = /usr
-			GL_LIB = -lglut -lGLU -lGL
-			GL_INCLUDE_FLAGS = -I\$(GL_DIR)/include
-			GL_LIB_FLAGS = -L\$(GL_DIR)/$(get_libdir)
-		EOF
-	else
-		cat >> "${T}"/environment.txt <<- EOF
-			IGNORE_GL_FLAG = -DIGNORE_GL
-			# special GL flag, should have either USE_GL_TRUE or USE_GL_FALSE
-			# (-D means this gets defined by the compiler so can be checked in source code)
-			# (this relates to glXCreateContext() call in ccpnmr/global/gl_handler.c)
-			# if have problems with USE_GL_TRUE then try GL_FALSE, or vice versa
-			# use below for Linux?
-			#GL_FLAG = -DUSE_GL_FALSE
-			# use below for everything else?
-			#GL_FLAG = -DUSE_GL_TRUE
-			GL_FLAG = -DUSE_GL_FALSE
-			#freeglut with normal glut w/o Needs check!
-			GLUT_NEED_INIT =
-			GLUT_NOT_IN_GL =
-			GLUT_FLAG = \$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)
-		EOF
-	fi
-
-}
-

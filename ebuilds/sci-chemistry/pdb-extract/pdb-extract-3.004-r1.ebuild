@@ -49,7 +49,8 @@ src_compile() {
 }
 
 src_install() {
-	dobin bin/* || die
+	dobin bin/pdb_extract{,_sf} || die
+	newbin bin/extract extract-pdb
 	dolib.a lib/pdb-extract.a || die
 	insinto /usr/include/rcsb
 	doins include/* || die
@@ -63,4 +64,8 @@ src_install() {
 	EOF
 
 	newenvd "${T}"/envd 20pdb-extract
+}
+
+pkg_postinst() {
+	ewarn "We moved extract to extract-pdb due to multiple collision of /usr/bin/extract"
 }
