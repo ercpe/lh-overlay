@@ -23,6 +23,8 @@ RDEPEND="mpi? ( sys-cluster/mpich2 )"
 ## until then we use the shipped one
 DEPEND="${RDEPEND}"
 
+RESTRICT="mirror"
+
 src_unpack(){
 	unpack ${A}
 
