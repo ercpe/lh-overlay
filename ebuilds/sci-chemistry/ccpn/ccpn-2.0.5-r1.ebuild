@@ -41,18 +41,130 @@ src_unpack() {
 	unpack ${A}
 
 	epatch "${FILESDIR}"/missing-link.patch
+
+	echo "" > "${S}"/ccpnmr2.0/c/environment.txt || die "failed to kill environment.txt"
 }
 
 src_compile(){
 
+	local tk_ver
+	local myconf
+
+	tk_ver="$(best_version dev-lang/tk | cut -d- -f3 | cut -d. -f1,2)"
+
+	if use opengl; then
+	# specify whether or not you want to compile GL
+	# use below if you want to compile GL
+	#IGNORE_GL_FLAG =
+	# use below if you want to ignore GL
+	#IGNORE_GL_FLAG = -DIGNORE_GL
+
+	# special GL flag, should have either USE_GL_TRUE or USE_GL_FALSE
+	# (-D means this gets defined by the compiler so can be checked in source code)
+	# (this relates to glXCreateContext() call in ccpnmr/global/gl_handler.c)
+	# if have problems with USE_GL_TRUE then try GL_FALSE, or vice versa
+	# use below for Linux?
+	#GL_FLAG = -DUSE_GL_FALSE
+	# use below for everything else?
+	#GL_FLAG = -DUSE_GL_TRUE
+
+	# use below if your glut does not need to be explicitly initialised
+	#GLUT_NEED_INIT =
+	# use below if your glut needs to be explicitly initialised
+	# looks like need it for freeglut and for OSX glut
+	#GLUT_NEED_INIT = -DNEED_GLUT_INIT
+
+	# whether glut.h is GL/glut.h (normal case) or just glut.h (OSX)
+	# use below if glut.h is in GL directory
+	#GLUT_NOT_IN_GL =
+	# use below if glut.h is not in GL directory (e.g. OSX)
+	#GLUT_NOT_IN_GL = -DGLUT_IN_OWN_DIR
+
+	# special glut flag
+	#GLUT_FLAG = $(GLUT_NEED_INIT) $(GLUT_NOT_IN_GL)
+
+
+#	if has_version media-libs/freeglut; then
+#		myconf="${myconf} GLUT_NEED_INIT=\"-DNEED_GLUT_INIT\""
+#	else
+#		myconf="${myconf} GLUT_NEED_INIT="
+#	fi
+#
+#	myconf="${myconf} \
+#		IGNORE_GL_FLAG= \
+#		GL_FLAG=-DUSE_GL_FALSE \
+#		GLUT_NOT_IN_GL= \
+#		'GLUT_FLAG=\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)' \
+#		GL_DIR=/usr \
+#		GL_LIB=\"-lglut -lGLU -lGL\" \
+#		GL_INCLUDE_FLAGS=-I\$(GL_DIR)/include \
+#		GL_LIB_FLAGS=-L\$(GL_DIR)/$(get_libdir)"
+#
+#        else
+#	myconf="${myconf} \
+#		IGNORE_GL_FLAG=-DIGNORE_GL \
+#		GL_FLAG=-DUSE_GL_FALSE \
+#		GLUT_NOT_IN_GL= \
+#		GLUT_FLAG=\"\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)\""
+#        fi
+#
+	if has_version media-libs/freeglut; then
+		GLUT_NEED_INIT="-DNEED_GLUT_INIT"
+	else
+		GLUT_NEED_INIT=""
+	fi
+
+		IGNORE_GL_FLAG=""
+		GL_FLAG="-DUSE_GL_FALSE"
+		GLUT_NOT_IN_GL=""
+		GLUT_FLAG="\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)"
+		GL_DIR="/usr"
+		GL_LIB="-lglut -lGLU -lGL"
+		GL_INCLUDE_FLAGS="-I\$(GL_DIR)/include"
+		GL_LIB_FLAGS="-L\$(GL_DIR)/$(get_libdir)"
+
+        else
+		IGNORE_GL_FLAG="-DIGNORE_GL"
+		GL_FLAG="-DUSE_GL_FALSE"
+		GLUT_NOT_IN_GL=""
+		GLUT_FLAG="\$(GLUT_NEED_INIT) \$(GLUT_NOT_IN_GL)"
+        fi
+
 	cd ccpnmr2.0/c
 
-	create_env || die "fail to create env"
+	emake \
+		CC="$(tc-getCC)" \
+		MALLOC_FLAG= \
+		FPIC_FLAG="-fPIC" \
+		SHARED_FLAGS="-shared" \
+		MATH_LIB="-lm" \
+		X11_DIR="/usr" \
+		X11_LIB="-lX11 -lXext" \
+		X11_INCLUDE_FLAGS="-I\$(X11_DIR)/include" \
+		X11_LIB_FLAGS="-L\$(X11_DIR)/lib" \
+		TCL_DIR="/usr" \
+		TCL_LIB="-ltcl${tk_ver}" \
+		TCL_INCLUDE_FLAGS="-I\$(TCL_DIR)/include" \
+		TCL_LIB_FLAGS="-L\$(TCL_DIR)/$(get_libdir)" \
+		TK_DIR="/usr" \
+		TK_LIB="-ltk${tk_ver}" \
+		TK_INCLUDE_FLAGS="-I\$(TK_DIR)/include" \
+		TK_LIB_FLAGS="-L\$(TK_DIR)/$(get_libdir)" \
+		PYTHON_DIR="/usr" \
+		PYTHON_INCLUDE_FLAGS="-I\$(PYTHON_DIR)/include/python${PYVER}" \
+		CFLAGS="${CFLAGS} \$(MALLOC_FLAG) \$(FPIC_FLAG)" \
+		GLUT_NEED_INIT="${GLUT_NEED_INIT}" \
+		IGNORE_GL_FLAG="${IGNORE_GL_FLAG}" \
+		GL_FLAG="${GL_FLAG}" \
+		GLUT_NOT_IN_GL="${GLUT_NOT_IN_GL}" \
+		GLUT_FLAG="${GLUT_FLAG}" \
+		GL_DIR="${GL_DIR}" \
+		GL_LIB="${GL_LIB}" \
+		GL_INCLUDE_FLAGS="${GL_INCLUDE_FLAGS}" \
+		GL_LIB_FLAGS="${GL_LIB_FLAGS}" \
+	all links || \
+	die "failed to compile"
 
-	cp "${T}"/environment.txt . || die "fail to setup env"
-
-	emake all links|| die
-#	emake links || die
 }
 
 src_install(){
@@ -147,7 +259,7 @@ create_env() {
 
 	cat >> "${T}"/environment.txt <<- EOF
 		CC = $(tc-getCC)
-		MALLOC_FLAG =
+		MALLOC_FLAG = -DDO_NOT_HAVE_MALLOC
 		FPIC_FLAG = -fPIC
 		SHARED_FLAGS = -shared
 		MATH_LIB = -lm
@@ -165,7 +277,7 @@ create_env() {
 		TK_LIB_FLAGS = -L\$(TK_DIR)/$(get_libdir)
 		PYTHON_DIR = /usr
 		PYTHON_INCLUDE_FLAGS = -I\$(PYTHON_DIR)/include/python${PYVER}
-		CFLAGS = ${CFLAGS} \$(MALLOC_FLAG) \$(FPIC_FLAG)
+		CFLAGS = ${CFLAGS} \$(MALLOC_FLAG) \$(FPIC_FLAG) -g
 	EOF
 
 	if use opengl; then
