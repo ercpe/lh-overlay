@@ -65,4 +65,12 @@ src_install() {
 		dobin "${bin}" || die "failed to install ${bin}"
 	done
 
+	mv "${D}"/usr/bin/{,azara-}extract || die "failed to fix extract collision"
+
+	dodoc CHANGES* README*
+	dohtml html/*
+}
+
+pkg_postinst() {
+	einfo "Due to collision we moved the extract binary to azara-extract"
 }
