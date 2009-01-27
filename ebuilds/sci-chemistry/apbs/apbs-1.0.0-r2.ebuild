@@ -9,7 +9,7 @@ S="${WORKDIR}"/"${MY_P}"
 
 DESCRIPTION=" Software for evaluating the electrostatic properties of nanoscale biomolecular systems"
 LICENSE="BSD"
-HOMEPAGE="http://agave.wustl.edu/apbs/"
+HOMEPAGE="http://apbs.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 SLOT="0"
