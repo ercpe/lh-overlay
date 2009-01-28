@@ -13,9 +13,10 @@ LICENSE="CYANA1.1"
 SLOT="0"
 KEYWORDS="-* ~x86"
 
-IUSE=""
+IUSE="mpi"
 RDEPEND="dev-libs/libg2c"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	virtual/mpi"
 
 src_unpack() {
 	unpack ${A}
@@ -28,17 +29,26 @@ src_unpack() {
 src_compile() {
 	touch etc/config
 
+	DEFS="-Dgnu"
+	FC="$(tc-getFC)"
+
+	if use mpi; then
+		DEFS="${DEFS} -Dmpi -Dgnu_mpi"
+		FC_NOMPI="${FC}"
+		FC="mpif77"
+	fi
+
 	emake -j1 \
 		SYSTEM="gnu" \
 		COMMENT="GNU Fortran 77 compiler" \
-		FC="gfortran" \
+		FC="${FC}" \
 		CC=$(tc-getCC) \
 		CFLAGS="-I/usr/include -L/usr/lib ${CFLAGS}" \
 		FFLAGS="-I/usr/include -L/usr/lib ${FFLAGS}" \
 		FFLAGS2="" \
 		LDFLAGS="${LDFLAGS} -lg2c" \
 		FORK="g77fork.o" \
-		DEFS="-Dgnu" || \
+		DEFS="${DEFS}" || \
 	die "damn"
 }
 
