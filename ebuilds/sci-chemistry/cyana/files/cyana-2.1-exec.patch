@@ -1,0 +1,21 @@
+--- cyana	2004-06-07 06:48:13.000000000 +0200
++++ cyana.new	2009-01-28 11:04:46.000000000 +0100
+@@ -67,17 +67,7 @@
+ 
+ # ------ Set library name ------ 
+ 
+-f=$0
+-if [ `echo $f | sed 's,^/.*,+,'` != "+" ]; then f=`which $0`; fi
+-odir=`pwd`
+-while [ "`ls -l $f | awk '{ print substr($1,1,1) }'`" = "l" ]; do
+-  l=`ls -l $f | awk '{ i = NF; print $i }'`
+-  cd `dirname $f`; cd `dirname $l`; l=`pwd`/`basename $l`
+-  f=$l
+-done
+-cd `dirname $f`
+-libdir=`pwd | sed 's,/src/'${prog}'$,,'`
+-cd $odir
++libdir="/usr/lib/cyana"
+ eval ${PROG}LIB=$libdir
+ export ${PROG}LIB
+ 
