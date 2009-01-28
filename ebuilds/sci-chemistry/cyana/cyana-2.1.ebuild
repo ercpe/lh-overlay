@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs
+inherit eutils toolchain-funcs fortran
 
 DESCRIPTION="Combined assignment and dynamics algorithm for NMR applications"
 HOMEPAGE="http://www.las.jp/english/products/s08_cyana/index.html"
@@ -17,7 +17,8 @@ IUSE=""
 RDEPEND="dev-libs/libg2c"
 DEPEND="${RDEPEND}"
 
-#S="${WORKDIR}"/${PN}-1.1
+#FORTRAN="g77 gfortran ifc"
+FORTRAN="ifc"
 
 src_unpack() {
 	unpack ${A}
@@ -25,22 +26,36 @@ src_unpack() {
 	cd "${S}"
 
 #	epatch "${FILESDIR}/${P}"-exec.patch
+#	epatch "${FILESDIR}/${P}"-etime.patch
 }
 
 src_compile() {
 	touch etc/config
 
+	case ${FORTRANC} in
+		ifort)	SYSTEM="intel"
+			COMMENT="Intel Fortran compiler"
+			FC="ifort"
+			FFLAGS="${FFLAGS}"
+			FFLAGS2=""
+			CC=$(tc-getCC)
+			FORK="g77fork.o"
+			LDFLAGS="${LDFLAGS}"
+			DEFS="-Dintel";;
+	esac
+
+
 	emake -j1 \
-		SYSTEM="gnu" \
-		COMMENT="GNU Fortran 77 compiler" \
-		FC="gfortran" \
+		SYSTEM="${SYSTEM}" \
+		COMMENT="${COMMENT}" \
+		FC="${FC}" \
 		CC=$(tc-getCC) \
 		CFLAGS="${CFLAGS}" \
 		FFLAGS="${FFLAGS}" \
 		FFLAGS2="" \
 		LDFLAGS="${LDFLAGS}" \
-		FORK="g77fork.o" \
-		DEFS="-Dgfortran" || \
+		FORK="${FORK}" \
+		DEFS="${DEFS}" || \
 	die "damn"
 }
 
