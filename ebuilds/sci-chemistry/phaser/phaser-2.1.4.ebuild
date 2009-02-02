@@ -22,7 +22,7 @@ src_compile(){
 
 	local NUMJOBS
 
-	NUMJOBS=$(sed -e 's/.*\(\-j[ 0-9]\+\) .*/\1/; s/--jobs=\?/-j/' <<< ${MAKEOPTS})
+	NUMJOBS=$(sed -e "s/.*-j\([0-9]\+\).*/\1/") <<< ${MAKEOPTS}
 
 	cd src/${PN}
 	mkdir "${WORKDIR}/phaser"
