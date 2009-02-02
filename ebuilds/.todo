@@ -42,4 +42,10 @@
     <note priority="medium" time="1233089458">
         cyana mpi interface
     </note>
+    <note priority="medium" time="1233585713">
+        ccp4 updates and patch
+    </note>
+    <note priority="medium" time="1233585720">
+        phaser include
+    </note>
 </todo>

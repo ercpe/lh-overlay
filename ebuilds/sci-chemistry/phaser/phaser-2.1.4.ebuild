@@ -8,15 +8,25 @@ SLOT="0"
 LICENSE="ccp4"
 KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Phasing macromolecular crystal structures with maximum likelihood methods"
-SRC_URI="ftp://ftp.ccp4.ac.uk/cctbx_based/6.0.2/${P}-cctbx-src.tar.gz"
+SRC_URI="ftp://ftp.ccp4.ac.uk/ccp4/6.1/${P}-cctbx-src.tar.gz"
 HOMEPAGE="http://www-structmed.cimr.cam.ac.uk/phaser/"
 IUSE=""
 RESTRICT="mirror"
 
+DEPEND="dev-util/scons"
+RDEPEND=""
+
 S="${WORKDIR}""/ccp4-6.0.2"
 
 src_compile(){
+
+	local NUMJOBS
+
+	NUMJOBS=$(sed -e 's/.*\(\-j[ 0-9]\+\) .*/\1/; s/--jobs=\?/-j/' <<< ${MAKEOPTS})
+
 	cd src/${PN}
 	mkdir "${WORKDIR}/phaser"
-	./install --force-compile --compiler=$(tc-getCC)  --prefix="${WORKDIR}/phaser"
+	./install --nproc=${NUMJOB} --force-compile --compiler=$(tc-getCC)  --prefix="${WORKDIR}/phaser" \
+		--component="mmtbx" --component="phaser" || die
+
 }
