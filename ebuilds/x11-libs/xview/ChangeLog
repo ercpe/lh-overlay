@@ -2,6 +2,10 @@
 # Copyright 2000-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/x11-libs/xview/ChangeLog,v 1.30 2008/06/18 00:44:24 darkside Exp $
 
+  03 Feb 2009; justin Lecher (jlec) <jlec@j-schmitz.net>
+  xview-3.2-r6.ebuild, -xview-3.2-r7.ebuild, xview-3.2-r8.ebuild:
+  included fix from bug 245409
+
   03 Nov 2008; justin Lecher <justin@j-schmitz.net>
   +files/CAN-2005-0076.patch, +files/lseek.diff, +metadata.xml,
   +xview-3.2-r6.ebuild:

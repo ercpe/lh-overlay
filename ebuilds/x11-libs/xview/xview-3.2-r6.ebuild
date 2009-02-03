@@ -1,15 +1,15 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo-x86/x11-libs/xview/Attic/xview-3.2-r6.ebuild,v 1.6 2008/12/21 09:03:33 ssuominen dead $
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 MY_PN="${P}p1.4-19c"
 GCC_PATCHVER="0.1"
 
 DESCRIPTION="The X Window-System-based Visual/Integrated Environment for Workstations"
 HOMEPAGE="http://physionet.caregroup.harvard.edu/physiotools/xview/"
-LICENSE="sun-openlook"
+LICENSE="XVIEW"
 # We use the xview tarball available from the X organization, but xfree86 appears
 # to be up and available more often so we use that (it's their primary mirror).
 SRC_URI="http://physionet.caregroup.harvard.edu/physiotools/xview/src/${MY_PN}.tar.gz
@@ -18,7 +18,7 @@ SRC_URI="http://physionet.caregroup.harvard.edu/physiotools/xview/src/${MY_PN}.t
 
 SLOT="0"
 IUSE=""
-KEYWORDS="-alpha -amd64 ~ppc ~sparc x86"
+KEYWORDS="-alpha -amd64 ~ppc ~sparc ~x86"
 
 RDEPEND="x11-libs/libXpm
 	x11-proto/xextproto
@@ -31,7 +31,7 @@ DEPEND="${RDEPEND}
 	x11-misc/gccmakedep
 	x11-misc/imake"
 
-S="${WORKDIR}/${MY_PN}"
+S=${WORKDIR}/${MY_PN}
 
 src_unpack() {
 	unpack ${A}
@@ -44,7 +44,6 @@ src_unpack() {
 	#    anyway.
 	#
 	# SRC_PATCH="${PN}_3.2p1.4-16woody2.diff"
-	# epatch "${FILESDIR}"/CAN-2005-0076.patch
 	epatch "${FILESDIR}"/lseek.diff
 	epatch "${DISTDIR}"/${P}-gcc-4.1-v${GCC_PATCHVER}.patch.bz2
 
@@ -57,14 +56,17 @@ src_unpack() {
 	# (#120910) Look for imake in the right place
 	sed -i -e 's:\/X11::' imake || die "imake sed failed"
 
-	sed -i -e 's:/usr/X11R6:/usr:' "${S}"/config/XView.cf "${S}"/Build-XView.bash
+	sed -i -e 's:/usr/X11R6:/usr:' "${S}/config/XView.cf" "${S}/Build-XView.bash"
+
+	# Nasty hacks to force CC and CFLAGS
+	sed -e "s:^\(IMAKEINCLUDE=.*\)\"$:\1 -DCcCmd=$(tc-getCC)\":" \
+		-e "s:usr/lib/X11/config:usr/$(get_libdir)/X11/config:" -i Build-XView.bash
+	sed -e "s:\(.*STD_DEFINES =.*\)$:\1 -D_GNU_SOURCE ${CFLAGS}:" -i config/XView.obj
+	sed -e "s:\(.*define LibXViewDefines .*\)$:\1 -D_GNU_SOURCE ${CFLAGS}:" -i config/XView.cf
+	sed -e "s:^\(MORECCFLAGS.*\)$:\1 -D_GNU_SOURCE ${CFLAGS}:" -i clients/olvwm-4.1/Imakefile
 }
 
 src_compile() {
-	# Create the makefile
-	imake -DUseInstalled -I"${S}"/config -I/usr/$(get_libdir)/X11/config \
-		|| die "imake failed"
-
 	export OPENWINHOME="/usr"
 	export X11DIR="/usr"
 

@@ -10,7 +10,7 @@ GCC_PATCHVER="0.1"
 
 DESCRIPTION="The X Window-System-based Visual/Integrated Environment for Workstations"
 HOMEPAGE="http://physionet.caregroup.harvard.edu/physiotools/xview/"
-LICENSE="sun-openlook"
+LICENSE="XVIEW"
 # We use the xview tarball available from the X organization, but xfree86 appears
 # to be up and available more often so we use that (it's their primary mirror).
 SRC_URI="http://physionet.caregroup.harvard.edu/physiotools/xview/src/${MY_P}.fc8.src.rpm
