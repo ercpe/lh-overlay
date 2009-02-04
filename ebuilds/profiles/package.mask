@@ -1,1 +1,2 @@
 =sci-chemistry/ccpn-2.0.5-r1
+=x11-libs/xview-3.2-r8
