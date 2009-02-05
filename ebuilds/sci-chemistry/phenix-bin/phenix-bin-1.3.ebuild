@@ -17,7 +17,7 @@ IUSE=""
 RESTRICT="fetch"
 
 pkg_nofetch(){
-	einfo "Register here and get a valid download paswort"
+	einfo "Register here and get a valid download password"
 	einfo "http://www.phenix-online.org/phenix_request"
 	einfo "and place ${A} in ${DISTDIR}"
 }
