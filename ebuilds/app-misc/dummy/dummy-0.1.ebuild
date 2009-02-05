@@ -41,5 +41,6 @@ src_install() {
 	mkdir -p "${D}/usr/local/bin/"
 	cp dummy.sh "${D}/usr/local/bin/"
 	chmod +x "${D}/usr/local/bin/dummy.sh"
+	ls -l
 }
 
