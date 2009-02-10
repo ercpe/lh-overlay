@@ -14,6 +14,12 @@ KEYWORDS="amd64 x86"
 IUSE=""
 RESTRICT="mirror"
 
+src_unpack() {
+    unpack ${A}
+    cd "${S}"
+    epatch "${FILESDIR}/00_gentoo_locations.patch"
+}
+
 src_install(){
 	dobin squidview
 	dodoc AUTHORS BUGS COPYING ChangeLog HOWTO
