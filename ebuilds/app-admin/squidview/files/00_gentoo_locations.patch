@@ -1,0 +1,5 @@
+44c44
+< #  define SHAREDIR "/usr/local/share/squidview"
+---
+> #  define SHAREDIR "/usr/share/doc/squidview-0.73"
+
