@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs
+inherit toolchain-funcs eutils
 
 DESCRIPTION="Squidview is an interactive console program which monitors and displays squid logs in a nice fashion, and may then go deeper with searching and reporting functions."
 HOMEPAGE="http://www.rillion.net/squidview/"
