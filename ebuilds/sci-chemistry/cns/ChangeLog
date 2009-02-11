@@ -2,6 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/sci-chemistry/cns/ChangeLog,v 1.9 2008/01/10 04:43:03 dberkholz Exp $
 
+*cns-1.2.1-r2 (08 Feb 2009)
+
+  08 Feb 2009;  <>  cns-1.2.1-r2.ebuild
+  # INSERT ENTRY HERE
+
+*cns-1.2.1-r2 (08 Feb 2009)
+
+  08 Feb 2009;  <>  cns-1.2.1-r2.ebuild
+  # INSERT ENTRY HERE
+
   03 Dec 2008; justin Lecher <justin@j-schmitz.net> ++, ++,
   -cns-1.2.1.ebuild:
   alot of moving

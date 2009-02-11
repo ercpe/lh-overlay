@@ -2,7 +2,7 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  05 Oct 2008; Justin Lecher <justin@j-schmitz.net> metadata.xml,
-  aria-2.2.ebuild:
-  Fixes from BUG 0000015 and other things
+  08 Feb 2009; justin Lecher (jlec) <jlec@j-schmitz.net> ++,
+  -aria-2.2.ebuild:
+  aria-2.2_p2 added
 

@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 NEED_PYTHON=2.3
 
 inherit python eutils
@@ -10,21 +12,21 @@ MY_P="${PN}${PV}"
 SLOT="0"
 LICENSE="cns"
 KEYWORDS="~x86"
-DESCRIPTION="ARIA is a software for automated NOE assignment and NMR structure calculation."
+DESCRIPTION="Software for automated NOE assignment and NMR structure calculation."
 SRC_URI="http://aria.pasteur.fr/archives/${MY_P}.tar.gz"
 HOMEPAGE="http://aria.pasteur.fr/"
 IUSE="examples"
 RESTRICT="fetch"
-DEPEND="sci-chemistry/cns
-		|| ( dev-python/numeric dev-python/numpy )
-		>=dev-python/scientificpython-2.7.3
-		>=dev-lang/tk-8.3
-		>=dev-tcltk/tix-8.1.4
-		>=sci-chemistry/ccpn-1.0.15-r1
-		dev-python/matplotlib"
-RDEPEND="${DEPEND}"
+DEPEND="sci-chemistry/cns[aria]
+	|| ( dev-python/numpy dev-python/numeric )
+	>=dev-python/scientificpython-2.7.3
+	>=dev-lang/tk-8.3
+	>=dev-tcltk/tix-8.1.4
+	>=sci-chemistry/ccpn-2.0.5
+	dev-python/matplotlib[tk]"
+RDEPEND=""
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}2.2"
 
 pkg_nofetch(){
 	einfo "Go to ${HOMEPAGE}, download ${A}"
@@ -33,15 +35,7 @@ pkg_nofetch(){
 
 pkg_setup(){
 	python_version
-
-	if ( ! built_with_use dev-lang/python tk || ! built_with_use dev-python/matplotlib tk ); then
-		ewarn "dev-lang/python and dev-python/matplotlib need to be build with tk"
-		die "NO tk support in either dev-lang/python or dev-python/matplotlib"
-	fi
-	if ( ! built_with_use sci-chemistry/cns aria ); then
-		ewarn "sci-chemistry/cns has to be emerged with USE aria"
-		die "NO aria support in sci-chemistry/cns"
-	fi
+	python_tkinter_exists
 }
 
 src_unpack(){
@@ -50,14 +44,16 @@ src_unpack(){
 }
 
 src_test(){
+	export CCPNMR_TOP_DIR=$(python_get_sitedir)
+        export PYTHONPATH=.:${CCPNMR_TOP_DIR}/ccpn/python
 	${python} check.py || die
 }
 
 src_install(){
 	insinto "$(python_get_sitedir)/${PN}"
-	doins -r src aria2.py
+	doins -r src aria2.py || die "failed to install ${PN}"
 	insinto "$(python_get_sitedir)/${PN}"/cns
-	doins -r cns/{protocols,toppar,src/helplib}
+	doins -r cns/{protocols,toppar,src/helplib} || die "failed to install cns part"
 
 	if use examples; then
 		insinto /usr/share/${P}/
@@ -74,10 +70,13 @@ src_install(){
 # Launch Wrapper
 	cat >> "${T}"/aria <<- EOF
 	#!/bin/sh
-	exec "${python}" -O "${ARIA2}"/aria2.py \$*
+	export CCPNMR_TOP_DIR=$(python_get_sitedir)
+	export PYTHONPATH=.:${CCPNMR_TOP_DIR}/ccpn/python
+	exec "${python}" -O "\${ARIA2}"/aria2.py \$@
 	EOF
 
-	dobin  "${T}"/aria
+	dobin "${T}"/aria || die "failed to install wrapper"
+	dosym aria /usr/bin/aria2
 
 	dodoc COPYRIGHT README
 }
