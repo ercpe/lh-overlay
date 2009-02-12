@@ -50,12 +50,16 @@ src_prepare() {
 
 src_compile() {
 	emake all3 || die "compilation error"
-	use X && emake 7zG || die "error building GUI"
+	if use X; then
+		emake 7zG || die "error building GUI"
+	fi
 }
 
 src_test() {
 	emake test_7z test_7zr || die "test failed"
-	use X && emake test_7zG || die "GUI test failed"
+	if use X; then
+		emake test_7zG || die "GUI test failed"
+	fi
 }
 
 src_install() {
