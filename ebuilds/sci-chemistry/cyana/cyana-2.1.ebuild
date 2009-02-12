@@ -36,8 +36,8 @@ src_compile() {
 		ifort)	SYSTEM="intel"
 			COMMENT="Intel Fortran compiler"
 			FC="ifort"
-			FFLAGS="${FFLAGS}"
-			FFLAGS2=""
+			FFLAGS="${FFLAGS} -fno-second-underscore"
+			FFLAGS2="-fno-second-underscore"
 			CC=$(tc-getCC)
 			FORK="g77fork.o"
 			LDFLAGS="${LDFLAGS}"
