@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 hppa ~ia64 ppc ppc64 sparc ~x86 ~x86-fbsd"
 IUSE="X static doc"
 
-RDEPEND="x11-libs/wxGTK[X]"
+RDEPEND="X? ( x11-libs/wxGTK[X] )"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${PN}_${PV}
