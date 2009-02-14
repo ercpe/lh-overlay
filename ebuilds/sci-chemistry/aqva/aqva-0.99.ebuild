@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit qt4 eutils
 
-DESCRIPTION="Aqva is a molecular graphics program designed for the interactive visualization and analysis of Biomolecules"
+DESCRIPTION="Mmolecular graphics program designed for the interactive visualization and analysis of Biomolecules"
 HOMEPAGE="http://www-almost.ch.cam.ac.uk/site/aqva.html"
 SRC_URI="http://www-almost.ch.cam.ac.uk/site/downloads/aqva.tar.gz"
 
@@ -17,31 +19,31 @@ IUSE=""
 RDEPEND="virtual/glut
 	 sci-chemistry/almost
 	 sci-biology/ncbi-tools
-	 =x11-libs/qt-4.4*"
-#	x11-libs/qt-webkit
+	 x11-libs/qt-gui:4
+	 x11-libs/qt-opengl:4
+	 x11-libs/qt-webkit:4"
+#	 x11-libs/qt-network:4
 # blast db
 
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/aqvahome
 
-src_unpack(){
-	unpack ${A}
-
-	cd "${S}"
+src_prepare() {
 rm -rvf contrib/*
 rm -rvf include/*
 	epatch "${FILESDIR}"/Makefile.patch
-#	epatch "${FILESDIR}"/as-needed.patch
+	epatch "${FILESDIR}"/as-needed.patch
 }
 
 src_compile(){
 
 	cd Aqva
 
-	LIBS="/mnt/tmpfs/aqvahome/contrib/almost-1.0.3/" eqmake4 Aqva4.4.pro
+#	LIBS="/mnt/tmpfs/aqvahome/contrib/almost-1.0.3/" eqmake4 Aqva4.4.pro
+	eqmake4 Aqva4.4.pro
 
-	emake -j4 || \
+	emake -j1 || \
 	die
 }
 #
@@ -55,6 +57,6 @@ src_install() {
 
 	dodoc README NEWS ChangeLog AUTHORS
 
-	insinto /usr/share/doc/${P}/exmaple
+	insinto /usr/share/doc/${P}/example
 	doins -r 1UZC
 }
