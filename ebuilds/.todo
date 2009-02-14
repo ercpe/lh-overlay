@@ -1,9 +1,33 @@
 <?xml version="1.0"?>
 <todo version="0.1.20">
+    <note priority="veryhigh" time="1229009081" done="1234630333">
+        sci-chemistry/pymol fix svn
+        <comment>
+            in sci
+        </comment>
+    </note>
     <note priority="veryhigh" time="1229334191" done="1229338040">
         app-portage/udept ins overlay
         <comment>
             fixed in revision 712
+        </comment>
+    </note>
+    <note priority="veryhigh" time="1229356329" done="1234630347">
+        sci-chemistry/nmrpipe fix
+        <comment>
+            in sci
+        </comment>
+    </note>
+    <note priority="veryhigh" time="1229506058" done="1234630355">
+        analysis update
+        <comment>
+            in sci
+        </comment>
+    </note>
+    <note priority="medium" time="1229008746" done="1234630365">
+        add ssl-admin to sunrise
+        <comment>
+            done
         </comment>
     </note>
     <note priority="medium" time="1229417286" done="1229425217">
@@ -12,32 +36,20 @@
             bumped in revision 720
         </comment>
     </note>
-    <note priority="veryhigh" time="1229009081">
-        sci-chemistry/pymol fix svn
-    </note>
-    <note priority="veryhigh" time="1229356329">
-        sci-chemistry/nmrpipe fix
-    </note>
-    <note priority="veryhigh" time="1229506058">
-        analysis update
+    <note priority="medium" time="1230122798" done="1234630375">
+        add azara
+        <comment>
+            in sci
+        </comment>
     </note>
     <note priority="high" time="1233995957">
         rosetta
-    </note>
-    <note priority="medium" time="1229008746">
-        add ssl-admin to sunrise
     </note>
     <note priority="medium" time="1229425192">
         ccp4 update
     </note>
     <note priority="medium" time="1229505760">
         msms src ebuild
-    </note>
-    <note priority="medium" time="1230122798">
-        add azara
-    </note>
-    <note priority="medium" time="1230325089">
-        sci-chemistry/validation version bump
     </note>
     <note priority="medium" time="1232804352">
         azara extract fix -&gt; dberkholz
@@ -54,10 +66,16 @@
     <note priority="medium" time="1233925799">
         refmac update to 5.5.0078
     </note>
-    <note priority="medium" time="1233925807">
+    <note priority="medium" time="1233925807" done="1234630833">
         eselct refmac
+        <comment>
+            wont fix
+        </comment>
     </note>
     <note priority="medium" time="1234166305">
         http://nmr.cmbi.ru.nl/~jd/aqua/
+    </note>
+    <note priority="verylow" time="1230325089">
+        sci-chemistry/validation version bump
     </note>
 </todo>
