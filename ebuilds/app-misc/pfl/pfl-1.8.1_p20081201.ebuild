@@ -39,4 +39,5 @@ src_install(){
 
 	dobin "e-file"
 
+	dodir /var/lib/pfl/
 }
