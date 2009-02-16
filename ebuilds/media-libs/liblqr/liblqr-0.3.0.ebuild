@@ -14,7 +14,7 @@ IUSE=""
 RDEPEND="dev-libs/glib"
 DEPEND="${RDEPEND}"
 
-S="$WORKDIR/${PN}-1-${PV}"
+S=$WORKDIR/${PN}-1-${PV}
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake intall failed"
