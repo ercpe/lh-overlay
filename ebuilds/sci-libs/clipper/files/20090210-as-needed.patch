@@ -1,0 +1,39 @@
+--- clipper-2.1/clipper/ccp4/Makefile.am	2008-11-18 15:18:55.000000000 +0100
++++ clipper-2.1/clipper/ccp4/Makefile.am.new	2008-11-20 16:03:56.000000000 +0100
+@@ -21,6 +21,6 @@
+ 
+ library_includedir = $(pkgincludedir)/ccp4
+ 
+-libclipper_ccp4_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@
++libclipper_ccp4_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@ $(CCP4_LIBS)
+ 
+ 
+--- clipper-2.1/clipper/core/Makefile.am	2008-11-18 15:18:55.000000000 +0100
++++ clipper-2.1/clipper/core/Makefile.am.new	2008-11-20 16:04:26.000000000 +0100
+@@ -93,6 +93,6 @@
+ 
+ library_includedir = $(pkgincludedir)/core
+ 
+-libclipper_core_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@
++libclipper_core_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@ $(CCP4_LIBS)
+ 
+ 
+--- clipper-2.1/clipper/minimol/Makefile.am	2008-11-20 16:07:58.000000000 +0100
++++ clipper-2.1/clipper/minimol/Makefile.am.new	2008-11-20 16:07:52.000000000 +0100
+@@ -25,6 +25,6 @@
+ 
+ library_includedir = $(pkgincludedir)/minimol
+ 
+-libclipper_minimol_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@
++libclipper_minimol_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@ $(CCP4_LIBS)
+ 
+ 
+--- clipper-2.1/clipper/mmdb/Makefile.am	2008-11-20 16:05:17.000000000 +0100
++++ clipper-2.1/clipper/mmdb/Makefile.am.new	2008-11-20 16:05:06.000000000 +0100
+@@ -15,6 +15,6 @@
+ 
+ library_includedir = $(pkgincludedir)/mmdb
+ 
+-libclipper_mmdb_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@
++libclipper_mmdb_la_LDFLAGS = -version-info @CLIPPER_LT_VERSION@ $(CCP4_LIBS)
+ 
