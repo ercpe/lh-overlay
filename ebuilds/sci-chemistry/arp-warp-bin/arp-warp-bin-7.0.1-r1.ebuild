@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,30 +6,30 @@ NEED_PYTHON=2.4
 
 inherit eutils python
 
-S=${WORKDIR}/arp_warp_${PV}
-
-DESCRIPTION=" ARP/wARP is a software for improvement and interpretation of crystallographic electron density maps"
-SRC_URI="arp_warp_${PV}.tar.gz"
+MY_P="arp_warp_${PV}"
+DESCRIPTION="A software for improvement and interpretation of crystallographic electron density maps"
+SRC_URI="${MY_P}.tar.gz"
 HOMEPAGE="http://www.embl-hamburg.de/ARP/"
 LICENSE="ArpWarp"
 RESTRICT="fetch"
 SLOT="0"
-KEYWORDS="-* ~x86 ~amd64"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE=""
-RDEPEND="|| ( app-shells/tcsh app-shells/csh )
-	 >=sci-chemistry/ccp4-6
-	 sys-apps/gawk"
+RDEPEND="app-shells/tcsh
+	 >=sci-chemistry/ccp4-6"
 DEPEND=""
+S="${WORKDIR}/${MY_P}"
 
 pkg_nofetch(){
-	einfo "Fill out the form at http://www.embl-hamburg.de/ARP/"
-	einfo "and place these files: ${A}"
-	einfo "in ${DISTDIR}"
+	elog "Fill out the form at http://www.embl-hamburg.de/ARP/"
+	elog "and place ${A} in ${DISTDIR}"
 }
 
 src_unpack() {
 	unpack ${A}
-	epatch "${FILESDIR}"/setup-${PV}.patch
+	cd "${S}"
+	epatch "${FILESDIR}"/${PV}-setup.patch
+	epatch "${FILESDIR}"/${PV}-source-ccp4-if-needed.patch
 }
 
 src_install(){
@@ -62,22 +62,24 @@ pkg_postinst(){
 
 	testcommand=$(echo 3 2 | awk '{printf"%3.1f",$1/$2}')
 	if [ $testcommand == "1,5" ];then
-	ewarn "*** ERROR ***"
-	ewarn "   3/2=" $testcommand
-	ewarn "Invalid decimal separator (must be ".")"
-	ewarn "You need to set this correctly!!!"
-	ewarn
-	ewarn "One way of setting the decimal separator is:"
-	ewarn "setenv LC_NUMERIC C' in your .cshrc file"
-	ewarn "\tor"
-	ewarn "export LC_NUMERIC=C' in your .bashrc file"
-	ewarn "Otherwise please consult your system manager"
-	epause 10
+	  ewarn "*** ERROR ***"
+	  ewarn "   3/2=" $testcommand
+	  ewarn "Invalid decimal separator (must be ".")"
+	  ewarn "You need to set this correctly!!!"
+	  ewarn
+	  ewarn "One way of setting the decimal separator is:"
+	  ewarn "setenv LC_NUMERIC C' in your .cshrc file"
+	  ewarn "\tor"
+	  ewarn "export LC_NUMERIC=C' in your .bashrc file"
+	  ewarn "Otherwise please consult your system manager"
+	  epause 10
 	fi
 
 	grep -q sse2 /proc/cpuinfo || einfo "The CPU is lacking SSE2! You should use the cluster at EMBL-Hamburg."
-	einfo ""
-	einfo "The ccp4 interface file could be found in /usr/share/doc/"${P}
+	einfo
+	elog "The ccp4 interface file could be found in /usr/share/doc/"${P}
+	elog "To install, run ccp4i as root, navigate to System Administration,"
+	elog "Install/uninstall tasks, then choose ARP_wARP_CCP4I6.tar.gz."
 }
 
 pkg_postrm() {

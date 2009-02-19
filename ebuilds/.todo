@@ -42,6 +42,12 @@
             in sci
         </comment>
     </note>
+    <note priority="medium" time="1233925807" done="1234630833">
+        eselct refmac
+        <comment>
+            wont fix
+        </comment>
+    </note>
     <note priority="high" time="1233995957">
         rosetta
     </note>
@@ -66,14 +72,14 @@
     <note priority="medium" time="1233925799">
         refmac update to 5.5.0078
     </note>
-    <note priority="medium" time="1233925807" done="1234630833">
-        eselct refmac
-        <comment>
-            wont fix
-        </comment>
-    </note>
     <note priority="medium" time="1234166305">
         http://nmr.cmbi.ru.nl/~jd/aqua/
+    </note>
+    <note priority="medium" time="1234804102">
+        aqva tesing(povray)
+    </note>
+    <note priority="medium" time="1235048901">
+        clipper removal
     </note>
     <note priority="verylow" time="1230325089">
         sci-chemistry/validation version bump

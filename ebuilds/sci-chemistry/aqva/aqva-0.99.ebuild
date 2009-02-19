@@ -15,14 +15,14 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE=""
+IUSE="povray"
 RDEPEND="virtual/glut
 	 sci-chemistry/almost
 	 sci-biology/ncbi-tools
 	 x11-libs/qt-gui:4
 	 x11-libs/qt-opengl:4
-	 x11-libs/qt-webkit:4"
-#	 x11-libs/qt-network:4
+	 x11-libs/qt-webkit:4
+	 povray? ( media-gfx/povraymedia-gfx/povray )"
 # blast db
 
 DEPEND="${RDEPEND}"
@@ -30,33 +30,33 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}"/aqvahome
 
 src_prepare() {
-rm -rvf contrib/*
-rm -rvf include/*
+	rm -rvf contrib/*
+	rm -rvf include/*
 	epatch "${FILESDIR}"/Makefile.patch
 	epatch "${FILESDIR}"/as-needed.patch
 }
 
-src_compile(){
-
+src_configure(){
 	cd Aqva
 
-#	LIBS="/mnt/tmpfs/aqvahome/contrib/almost-1.0.3/" eqmake4 Aqva4.4.pro
-	eqmake4 Aqva4.4.pro
-
-	emake -j1 || \
-	die
+	# eqmake is broken
+	qmake Aqva4.4.pro || die "qmake failed"
 }
-#
-#src_test() {
-#	emake check
-#}
-#
+
+src_compile(){
+	cd Aqva
+
+	emake || die "compile error"
+}
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Install failed"
-
-	dodoc README NEWS ChangeLog AUTHORS
+	dobin Aqva/Aqva4 || die "no {PN} installed"
 
 	insinto /usr/share/doc/${P}/example
 	doins -r 1UZC
+
+	insinto /usr/share/doc/${P}/
+	doins -r cheshire toppar || die "failed to install cheshire"
+
+	dohtml -r help || die "no help"
 }
