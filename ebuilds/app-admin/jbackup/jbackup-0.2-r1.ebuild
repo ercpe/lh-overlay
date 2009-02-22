@@ -29,7 +29,7 @@ src_install() {
 
 	cat >> "${T}"/jbackup <<- EOF
 	#!/bin/bash
-	$(which java) -jar /usr/$(get_libdir)/jbackup/jbackup.jar $@
+	$(which java) -jar /usr/$(get_libdir)/jbackup/jbackup.jar \$@
 	EOF
 
 	dobin "${T}"/jbackup
