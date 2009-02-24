@@ -22,7 +22,7 @@ RDEPEND="virtual/glut
 	 x11-libs/qt-gui:4
 	 x11-libs/qt-opengl:4
 	 x11-libs/qt-webkit:4
-	 povray? ( media-gfx/povraymedia-gfx/povray )"
+	 povray? ( media-gfx/povray )"
 # blast db
 
 DEPEND="${RDEPEND}"
