@@ -45,6 +45,9 @@ src_prepare() {
 	# But we're removing nonfree code just in case sed wasnt enough
 	rm -rf CPP/7zip/Compress/Rar
 
+	# We can be more parallel
+	cp -f makefile.parallel_jobs makefile
+
 	epatch "${FILESDIR}"/${PV}-makefile.patch
 }
 

@@ -8,6 +8,7 @@
   +files/4.65-makefile.patch:
   version bump to 4.65
   USE X changed to wxwindows
+  use parallel makefile
 
   04 Dec 2008; justin Lecher (jlec) <justin@j-schmitz.net>
   p7zip-4.61.ebuild, +p7zip-4.61.ebuild.patch:
