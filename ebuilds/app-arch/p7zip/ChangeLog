@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/app-arch/p7zip/ChangeLog,v 1.101 2008/11/12 21:45:44 ranger Exp $
 
+* p7zip-4.65 (25 Feb 2009)
+
+  25 Feb 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  +files/4.65-makefile.patch:
+  version bump to 4.65
+  USE X changed to wxwindows
+
   04 Dec 2008; justin Lecher (jlec) <justin@j-schmitz.net>
   p7zip-4.61.ebuild, +p7zip-4.61.ebuild.patch:
   commited http://bugs.gentoo.org/show_bug.cgi?id=249780
