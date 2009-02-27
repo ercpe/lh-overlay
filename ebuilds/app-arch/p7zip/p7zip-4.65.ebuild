@@ -67,12 +67,12 @@ src_test() {
 
 src_install() {
 	# this wrappers can not be symlinks, p7zip should be called with full path
-	make_wrapper 7zr "/usr/lib/${PN}/7zr"
-	make_wrapper 7za "/usr/lib/${PN}/7za"
-	make_wrapper 7z "/usr/lib/${PN}/7z"
+	make_wrapper 7zr "/usr/$(get_libdir)/${PN}/7zr"
+	make_wrapper 7za "/usr/$(get_libdir)/${PN}/7za"
+	make_wrapper 7z "/usr/$(get_libdir)/${PN}/7z"
 
 	if use wxwindows; then
-		make_wrapper 7zG "/usr/lib/${PN}/7zG"
+		make_wrapper 7zG "/usr/$(get_libdir)/${PN}/7zG"
 
 		dobin GUI/p7zipForFilemanager
 		exeinto /usr/$(get_libdir)/${PN}
