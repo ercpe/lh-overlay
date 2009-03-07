@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs python
+inherit toolchain-funcs python eutils
 
 SLOT="0"
 LICENSE="ccp4"
@@ -14,7 +14,7 @@ IUSE="openmp"
 RESTRICT="mirror"
 
 DEPEND="dev-util/scons"
-RDEPEND=""
+RDEPEND="sci-libs/cctbx"
 
 S="${WORKDIR}"
 
@@ -23,9 +23,11 @@ src_unpack() {
 	cd "${S}"
 	rm -rf lib/*
 	cp -rf $CCP4/lib/cctbx/cctbx_sources/libtbx "${WORKDIR}"
-	mkdir -p "${WORKDIR}"/scons/src/
 
+	mkdir -p "${WORKDIR}"/scons/src/
 	ln -sf /usr/$(get_libdir)/scons-1.2.0 "${WORKDIR}"/scons/src/engine || die
+
+	epatch "${FILESDIR}"/${PV}-sadf.patch
 }
 
 src_compile(){
@@ -39,7 +41,7 @@ src_compile(){
 	MYCONF="${S}/libtbx/configure.py"
 
 	MYCONF="${MYCONF} --repository ${S}/ccp4-6.1.1/src/${PN}/source --repository /usr/$(get_libdir)/cctbx/cctbx_sources/ \
-	--build=release --command_version_suffix="6.1.1" ccp4io=${CCP4}/$(get_libdir)/cctbx/cctbx_sources/ccp4io/"
+	--build=release ccp4io=${CCP4}/$(get_libdir)/cctbx/cctbx_sources/ccp4io/"
 
 	MAKEOPTS_EXP=${MAKEOPTS/j/j }
 	MAKEOPTS_EXP=${MAKEOPTS_EXP%-l[0-9]*}
@@ -53,9 +55,9 @@ src_compile(){
 	OPTS=${OPTS%,}
 
 	# Fix CXXFLAGS
-#	sed -i \
-#	-e "s:opts = \[.*\]$:opts = \[${OPTS}\]:g" \
-#	"${S}"/libtbx/SConscript
+	sed -i \
+	-e "s:opts = \[.*\]$:opts = \[${OPTS}\]:g" \
+	"${S}"/libtbx/SConscript
 
 	# Get LDFLAGS in format suitable for substitition into SConscript
 	for i in ${LDFLAGS}; do
@@ -64,7 +66,7 @@ src_compile(){
 
 	# Fix LDFLAGS which should be as-needed ready
 	sed -i \
-	-e "s:\"-shared\":${OPTSLD} \"-shared\":g" \
+	-e "s:env_etc.shlinkflags .* \"-shared\":env_etc.shlinkflags = \[ ${OPTSLD} \"-shared\":g" \
 	"${S}"/libtbx/SConscript
 
 	# Get compiler in the right way
@@ -92,6 +94,7 @@ src_compile(){
 }
 
 src_install() {
+	rm lib/libboost*
 	dolib.so lib/*.so || die
 	dolib.a lib/*.a || die
 	dobin exe/phaser || die
