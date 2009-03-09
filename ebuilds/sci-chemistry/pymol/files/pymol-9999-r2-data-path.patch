@@ -37,15 +37,14 @@ diff -urN pymol-9999.orig/modules/pymol/commanding.py pymol-9999/modules/pymol/c
 #         else:
 #             mfile = ''
 #         if object==None: object=''
-diff -urN pymol-9999.orig/modules/pymol/importing.py pymol-9999/modules/pymol/importing.py
---- pymol-9999.orig/modules/pymol/importing.py	2008-01-11 13:23:32.000000000 +0100
-+++ pymol-9999/modules/pymol/importing.py	2008-01-11 13:23:02.000000000 +0100
-@@ -171,7 +171,7 @@
+--- pymol/modules/pymol/importing.py	2009-03-09 09:54:45.000000000 +0100
++++ pymol/modules/pymol/importing.py.new	2009-03-09 09:57:42.000000000 +0100
+@@ -191,7 +191,7 @@
+     '''
          r = DEFAULT_ERROR
-         
          
 -        tables = { 'cmyk' : "$PYMOL_PATH/data/pymol/cmyk.png",
 +        tables = { 'cmyk' : "$PYMOL_DATA/pymol/cmyk.png",
-                       'pymol' : 'pymol',
-                       'rgb' : 'rgb' }
- 
+                    'pymol' : 'pymol',
+                    'rgb' : 'rgb' }
+         
