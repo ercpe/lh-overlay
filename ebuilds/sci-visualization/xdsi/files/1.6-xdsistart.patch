@@ -1,0 +1,28 @@
+--- xdsistart	2009-02-01 09:29:28.000000000 +0100
++++ xdsistart.new	2009-03-13 12:00:24.000000000 +0100
+@@ -5,9 +5,9 @@
+ uname -a
+ echo 'Setting up environment and starting XDSi'
+ 
+-setenv XDSI /home/pk/pkursula/xdsi1.6/linux
+-setenv XDSMANUALS /home/pk/pkursula/xdsi1.6/xds/XDS_html_doc/html_doc/INPUT_templates
+-setenv XDSHOME /usr/local/bin
++setenv XDSI /opt/xdsi/
++setenv XDSMANUALS /usr/share/xds-bin/INPUT_templates/
++setenv XDSHOME /opt/xds-bin
+ 
+ if ($1 > 1)  setenv KOKO $1
+ endif
+
+--- outlier.com	2008-08-14 20:27:39.000000000 +0200
++++ outlier.com.new	2009-03-13 12:30:20.000000000 +0100
+@@ -2,7 +2,7 @@
+ # 
+ while true
+ do
+-/usr/local/bin/xscale
++/opt/xds-bin/xscale
+ grep -c alien XSCALE.LP >> aliens.log
+ grep alien XSCALE.LP >> REMOVE.HKL
+ alien=`grep -c alien XSCALE.LP`
+
