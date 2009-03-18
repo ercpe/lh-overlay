@@ -15,14 +15,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="unicode"
 
-RDEPEND="${DEPEND}"
-DEPEND=">app-benchmarks/acovea-5
+RDEPEND=">app-benchmarks/acovea-5
 	dev-cpp/gtkmm:2.4"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	use unicode && epatch "${FILESDIR}"/${P}-unicode.patch
-	epatch "${FILESDIR}"/${P}-libsigc.patch
-	epatch "${FILESDIR}"/${P}-gcc4.3.patch
+	epatch "${FILESDIR}"/${P}-{libsigc,gcc4.3}.patch
 }
 
 src_install() {
