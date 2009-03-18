@@ -9,10 +9,12 @@ inherit eutils
 DESCRIPTION="Analysis of Compiler Options via Evolutionary Algorithm GUI"
 HOMEPAGE="http://www.coyotegulch.com/products/acovea/"
 SRC_URI="http://www.coyotegulch.com/distfiles/${P}.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="unicode"
+
 RDEPEND="${DEPEND}"
 DEPEND=">app-benchmarks/acovea-5
 	dev-cpp/gtkmm:2.4"
@@ -26,6 +28,6 @@ src_prepare() {
 src_install() {
 	emake DESTDIR="${D}" install || die "installation failed"
 	make_desktop_entry "${PN}" Acovea-gtk \
-	/usr/share/acovea-gtk/pixmaps/acovea_icon_064.png System
+		/usr/share/acovea-gtk/pixmaps/acovea_icon_064.png System
 	dodoc ChangeLog NEWS README || die "no docs sorry!"
 }
