@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="unicode"
 
 RDEPEND=">app-benchmarks/acovea-5
-	dev-cpp/gtkmm:2.4"
+		dev-cpp/gtkmm:2.4"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
