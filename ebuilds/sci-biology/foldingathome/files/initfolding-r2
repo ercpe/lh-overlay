@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cd /opt/foldingathome/client1
-/opt/foldingathome/client1/foldingathome -configonly
-/bin/chown -R foldingathome:nogroup /opt/foldingathome
-

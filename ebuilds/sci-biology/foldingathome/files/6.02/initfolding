@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cd /opt/foldingathome/amd64-smp
-/opt/foldingathome/amd64-smp/fah6 -configonly
-/bin/chown -R foldingathome:nogroup /opt/foldingathome/amd64-smp
-
