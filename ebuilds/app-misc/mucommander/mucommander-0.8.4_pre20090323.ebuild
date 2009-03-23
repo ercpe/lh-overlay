@@ -1,16 +1,18 @@
 JAVA_PKG_IUSE="doc source"
 
-inherit subversion java-pkg-2 java-ant-2
+inherit eutils java-pkg-2 java-ant-2
 
 MY_P="${PN}-${PV//./_}"
 
 DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"
 HOMEPAGE="http://www.mucommander.com"
-ESVN_REPO_URI="https://svn.${PN}.com/${PN}/tags/release_${PV//./_}"
+SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/mucommander/mucommander-0.8.4_pre20090323.tar.bz2"
+
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND="=virtual/jdk-1.6*
@@ -25,7 +27,8 @@ DEPEND="=virtual/jdk-1.6*
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	subversion_src_unpack
+	unpack "${A}"
+	cd "${S}"
 	java-pkg_jar-from --build-only ant-core
 }
 
@@ -49,6 +52,7 @@ src_compile() {
 	java-pkg_jar-from jcifs-1.1
 
 	cd "${S}"
+
 	eant nightly
 }
 
