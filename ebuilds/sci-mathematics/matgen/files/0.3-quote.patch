@@ -1,0 +1,13 @@
+--- src/matgen.c	2001-05-17 20:22:31.000000000 +0200
++++ src/matgen.c.new	2009-03-25 20:21:55.000000000 +0100
+@@ -62,8 +62,8 @@
+        *mt_usage =
+    "matgen 0.3: generates matrices in MatrixMarket file format\n\
+    \b\b\bCopyright (C) 2000,2001 Ricardo Bonon (bonon@users.sourceforge.net)\n\n\
+-   \b\busage : matgen inputfile (for input from file)
+-   \b\b        matgen           (for input from stdin)\n
++   \b\busage : matgen inputfile (for input from file)\
++   \b\b        matgen           (for input from stdin)\n\
+    \b\bman matgen for more info\n";
+   FILE * mt_input;
+ 

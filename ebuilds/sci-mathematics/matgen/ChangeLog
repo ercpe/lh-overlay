@@ -1,0 +1,9 @@
+# ChangeLog for sci-mathematics/matgen
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+* matgen-0.3 (25 Mar 2009)
+
+  25 Mar 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> +metadata.xml:
+  Setup sci-mathematics/matgen
+
