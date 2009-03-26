@@ -1,0 +1,9 @@
+# ChangeLog for www-client/pybugz
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+* pybugz-9999 (26 Mar 2009)
+
+  26 Mar 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> +metadata.xml:
+  Setup www-client/pybugz
+
