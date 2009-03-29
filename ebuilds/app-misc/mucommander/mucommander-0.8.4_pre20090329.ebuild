@@ -6,7 +6,7 @@ MY_P="${PN}-${PV//./_}"
 
 DESCRIPTION="muCommander is a lightweight file manager featuring a Norton Commander style interface"
 HOMEPAGE="http://www.mucommander.com"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/mucommander/mucommander-0.8.4_pre20090209.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/mucommander/mucommander-0.8.4_pre20090329.tar.bz2"
 
 RESTRICT="mirror"
 
