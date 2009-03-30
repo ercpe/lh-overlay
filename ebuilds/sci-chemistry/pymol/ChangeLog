@@ -2,6 +2,12 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  -files/pymol-1.0-r1-data-path.patch, -files/pymol-1.0-r2-data-path.patch,
+  -files/pymol-1.1-r2-data-path.patch, -files/pymol-1.1-r2-shaders.patch,
+  -files/apbs-070604-r3531.patch.bz2, -files/apbs-070604-r3548.patch.bz2:
+  cleaned up old version
+
   15 Jan 2009; justin Lecher (jlec) <jlec@j-schmitz.net>
   pymol-9999-r2.ebuild, +files/apbs-070604-r3550.patch.bz2:
   Another APBS fix for sci-chemistry/pymol-9999-r2
