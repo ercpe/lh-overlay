@@ -10,6 +10,7 @@ SRC_URI="http://www-almost.ch.cam.ac.uk/site/Blast/db/nr.00.tar.gz
 	 http://www-almost.ch.cam.ac.uk/site/Blast/db/nr.01.tar.gz
 	 http://www-almost.ch.cam.ac.uk/site/Blast/db/nr.02.tar.gz"
 
+#ftp://ftp.ncbi.nih.gov/blast/db/
 LICENSE="GPL-2"
 
 SLOT="0"
