@@ -1,0 +1,22 @@
+
+
+0
+http://quietsche-entchen.de/download/tcpproxy-2.0.0-beta15.tar.gz
+mirror
+http://quietsche-entchen.de/cgi-bin/wiki.cgi/proxies/TcpProxy
+GPL-2
+Transparent TCP Proxy
+~x86 ~amd64
+eutils multilib portability toolchain-funcs
+
+
+
+
+
+
+compile install unpack
+
+
+
+
+

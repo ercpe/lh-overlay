@@ -1,0 +1,22 @@
+net-im/jabber-base >=dev-lang/python-2.3
+net-im/jabber-base >=dev-python/twisted-2.2.0 >=dev-python/twisted-words-0.1.0 >=dev-python/twisted-web-0.5.0 webinterface? ( >=dev-python/nevow-0.4.1 ) >=dev-python/imaging-1.1 >=dev-lang/python-2.3
+0
+http://gentoo.j-schmitz.net/portage/distfiles/net-im/pyicq-t//pyicq-t-20080705.tar.bz2
+
+http://code.google.com/p/pyicqt/
+GPL-2
+Python based jabber transport for ICQ
+~amd64 ~x86
+alternatives eutils multilib portability private python toolchain-funcs
+webinterface
+
+
+
+
+
+install postinst postrm
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+
+0
+http://gentoo.j-schmitz.net/portage/distfiles/sci-chemistry/usf-dejavu-bin//dejavu_linux-20081001.tar.gz http://gentoo.j-schmitz.net/portage/distfiles/sci-chemistry/usf-dejavu-bin//dejavu_100_jul08.lib.gz
+mirror
+http://alpha2.bmc.uu.se/usf/xutil.html
+free-noncomm
+The tools package from USF for macromolecular crystallography
+-* ~x86 ~amd64
+private
+
+
+
+
+
+
+install
+
+
+
+
+

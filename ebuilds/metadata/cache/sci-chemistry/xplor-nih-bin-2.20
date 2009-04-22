@@ -1,0 +1,22 @@
+
+X? ( x11-libs/libXdmcp x11-libs/libXau x11-libs/libX11 )
+0
+xplor-nih-2.20-Linux_2.6_x86_64.tar.gz
+fetch
+http://nmr.cit.nih.gov/xplor-nih/
+xplor
+XPLOR-NIH is a structure determination program which builds on the X-PLOR program
+-* ~x86 ~amd64
+alternatives eutils multilib portability python toolchain-funcs
+
+
+
+
+
+
+compile install postinst postrm
+
+
+
+
+

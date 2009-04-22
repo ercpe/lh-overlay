@@ -1,0 +1,22 @@
+sci-chemistry/nmrpipe dev-lang/tk app-shells/tcsh
+sci-chemistry/nmrpipe dev-lang/tk app-shells/tcsh
+0
+http://proteins.dyndns.org/Software/ProcTool/procTool1.5.1.11Dec2003.tar
+
+http://proteins.dyndns.org/Software/ProcTool/Help/tutorial.html
+as-is
+ProcTool - Process, Manage and Sort NMR experiments
+~x86
+
+
+
+
+
+
+
+compile install
+
+
+
+
+

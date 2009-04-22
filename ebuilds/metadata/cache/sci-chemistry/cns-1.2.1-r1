@@ -1,0 +1,22 @@
+app-shells/tcsh !app-text/dos2unix =sys-devel/automake-1.10* >=sys-devel/autoconf-2.61 sys-devel/libtool
+app-shells/tcsh !app-text/dos2unix
+0
+!openmp? ( cns_solve_1.21_all.tar.gz ) openmp? ( cns_solve_1.21_all-mp.tar.gz )
+fetch
+http://cns.csb.yale.edu/
+cns
+Crystallography and NMR System
+~amd64 ~ppc ~x86
+autotools eutils flag-o-matic fortran libtool multilib portability toolchain-funcs versionator
+openmp debug
+
+
+
+
+
+compile info install nofetch postinst setup test unpack
+
+
+
+
+

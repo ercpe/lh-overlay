@@ -1,0 +1,22 @@
+|| ( ( <dev-lang/python-2.5 dev-python/pysqlite ) >=dev-lang/python-2.5 ) dev-python/pygtk sys-devel/gettext dev-util/intltool dev-util/pkgconfig
+gnome? ( dev-python/gnome-python-extras dev-python/gnome-python-desktop ) dbus? ( dev-python/dbus-python dev-libs/dbus-glib ) libnotify? ( x11-libs/libnotify ) xhtml? ( dev-python/docutils ) srv? ( net-dns/bind-tools ) idle? ( x11-libs/libXScrnSaver ) spell? ( app-text/gtkspell ) avahi? ( net-dns/avahi ) dev-python/pyopenssl libsexy? ( dev-python/sexy-python )
+0
+http://www.gajim.org/downloads/gajim-0.12.tar.gz
+
+http://www.gajim.org/
+GPL-2
+Jabber client written in PyGTK
+~amd64 ~x86
+alternatives eutils multilib portability python toolchain-funcs
+avahi dbus gnome idle libnotify libsexy nls spell srv trayicon X xhtml
+
+
+
+
+
+compile install postinst postrm setup unpack
+
+
+
+
+

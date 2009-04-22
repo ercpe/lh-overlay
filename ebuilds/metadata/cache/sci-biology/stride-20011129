@@ -1,0 +1,22 @@
+
+dev-lang/perl
+0
+ftp://ftp.ebi.ac.uk/pub/software/unix/stride/src/stride.tar.gz mirror://gentoo/stride-20060723-update.patch.bz2 http://gentoo.j-schmitz.net/portage/distfiles/sci-biology/stride/stride2pdb-0.01.tar.bz2 http://gentoo.j-schmitz.net/portage/distfiles/sci-biology/stride/stridepdb-0.0.1.tar.bz2
+primaryuri
+http://www.embl-heidelberg.de/argos/stride/stride_info.html
+as-is
+A program for protein secondary structure assignment from atomic coordinates.
+~amd64 ~ppc ~x86
+eutils multilib portability private toolchain-funcs
+
+
+
+
+
+
+install unpack
+
+
+
+
+

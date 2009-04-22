@@ -1,0 +1,22 @@
+
+
+0
+http://www.rillion.net/squidview/squidview-0.73.tar.gz
+mirror
+http://www.rillion.net/squidview/
+GPL
+Squidview is an interactive console program which monitors and displays squid logs in a nice fashion, and may then go deeper with searching and reporting functions.
+amd64 x86
+eutils multilib portability toolchain-funcs
+
+
+
+
+
+
+install unpack
+
+
+
+
+

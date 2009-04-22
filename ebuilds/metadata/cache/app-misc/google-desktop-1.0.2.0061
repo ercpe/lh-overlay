@@ -1,0 +1,22 @@
+virtual/libc x86? ( x11-libs/libX11 x11-libs/libXi ) dev-libs/atk dev-libs/glib x11-libs/gtk+ x11-libs/pango amd64? ( >=app-emulation/emul-linux-x86-xlibs-1.0 ) >=app-arch/rpm2targz-9.0-r1 app-arch/unzip
+virtual/libc x86? ( x11-libs/libX11 x11-libs/libXi ) dev-libs/atk dev-libs/glib x11-libs/gtk+ x11-libs/pango amd64? ( >=app-emulation/emul-linux-x86-xlibs-1.0 )
+0
+http://dl.google.com/linux/rpm/stable/i386/google-desktop-linux-1.0.2.0061.rpm
+fetch strip
+http://desktop.google.com/linux/
+as-is
+Google Desktop
+-* ~x86
+eutils mozextension multilib portability rpm toolchain-funcs
+firefox thunderbird
+
+
+
+
+
+install nofetch setup unpack
+
+
+
+
+

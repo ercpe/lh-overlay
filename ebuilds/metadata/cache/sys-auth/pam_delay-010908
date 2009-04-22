@@ -1,0 +1,22 @@
+sys-libs/pam
+sys-libs/pam
+0
+http://gentoo.j-schmitz.net/portage/distfiles/sys-auth/pam_delay//pam_delay-010908.tar.gz
+mirror
+sys-auth/pam_delay
+GPL-2
+Set the delay on authentication failure to slow down brute-force attacks.
+~amd64 ~x86
+multilib pam private toolchain-funcs
+
+
+
+
+
+
+install postinst setup
+
+
+
+
+

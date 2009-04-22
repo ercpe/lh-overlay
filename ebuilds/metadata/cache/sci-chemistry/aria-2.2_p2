@@ -1,0 +1,22 @@
+sci-chemistry/cns[aria] || ( dev-python/numpy dev-python/numeric ) >=dev-python/scientificpython-2.7.3 >=dev-lang/tk-8.3 >=dev-tcltk/tix-8.1.4 >=sci-chemistry/ccpn-2.0.5 dev-python/matplotlib[tk] >=dev-lang/python-2.3
+>=dev-lang/python-2.3
+0
+http://aria.pasteur.fr/archives/aria2.2_p2.tar.gz
+fetch
+http://aria.pasteur.fr/
+cns
+Software for automated NOE assignment and NMR structure calculation.
+~x86
+alternatives eutils multilib portability python toolchain-funcs
+examples
+
+
+
+2
+
+install nofetch postinst postrm setup test unpack
+
+
+
+
+

@@ -1,0 +1,22 @@
+
+
+0
+http://gentoo.j-schmitz.net/portage/distfiles/sci-chemistry/usf-voidoo-bin//voidoo_linux-20081001.tar.gz http://gentoo.j-schmitz.net/portage/distfiles/sci-chemistry/usf-voidoo-bin//voidoo_etc-20081001.tar.gz
+mirror
+http://alpha2.bmc.uu.se/usf/voidoo.html
+free-noncomm
+The tools package from USF for macromolecular crystallography
+-* ~x86 ~amd64
+private
+
+
+
+
+
+
+install
+
+
+
+
+

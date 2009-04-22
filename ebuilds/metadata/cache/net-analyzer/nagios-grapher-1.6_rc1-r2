@@ -1,0 +1,22 @@
+>=dev-perl/GDGraph-1.43 >=dev-perl/Image-Imlib2-1.13 >=dev-perl/XML-NamespaceSupport-1.09 >=dev-perl/XML-SAX-0.14 >=dev-perl/XML-Dumper-0.81 >=dev-perl/URI-1.3.5 >=dev-lang/perl-5.8.7-r3 >=net-analyzer/rrdtool-1.2.6-r1 >=media-gfx/imagemagick-6.2.5.5 >=net-analyzer/nagios-2.5
+>=dev-perl/GDGraph-1.43 >=dev-perl/Image-Imlib2-1.13 >=dev-perl/XML-NamespaceSupport-1.09 >=dev-perl/XML-SAX-0.14 >=dev-perl/XML-Dumper-0.81 >=dev-perl/URI-1.3.5 >=dev-lang/perl-5.8.7-r3 >=net-analyzer/rrdtool-1.2.6-r1 >=media-gfx/imagemagick-6.2.5.5 >=net-analyzer/nagios-2.5
+0
+http://de.geocities.com/fencheltee84/nagios/nagios-grapher-1.6.tar.gz http://de.geocities.com/fencheltee84/nagios/nagios-grapher-1.6_rc1-r2.gentoo-patchset.tar.gz
+mirror
+http://www.nagiosexchange.org/NagiosGrapher.84.0.html/
+GPL-2
+Nagios Grapher - Daemon and CGIs for getting quite pretty charts out of nagios
+~x86 ~amd64
+eutils multilib portability toolchain-funcs
+
+
+
+
+
+
+compile install postinst setup unpack
+
+
+
+
+

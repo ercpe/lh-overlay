@@ -1,0 +1,22 @@
+app-shells/bash sys-apps/portage
+app-shells/bash sys-apps/portage bash-completion? ( app-admin/eselect )
+0
+http://files.catmur.co.uk/udept/udept-0.5.99.0.2.95.tar.bz2
+
+http://catmur.co.uk/gentoo/udept
+GPL-2
+A Portage analysis toolkit
+~amd64 ~ppc ~mips ~sparc ~x86
+bash-completion eutils multilib portability toolchain-funcs
+bash-completion
+
+
+
+
+
+compile install postinst unpack
+
+
+
+
+

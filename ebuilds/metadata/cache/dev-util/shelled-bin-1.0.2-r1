@@ -1,0 +1,22 @@
+dev-util/eclipse-sdk
+dev-util/eclipse-sdk
+0
+mirror://sourceforge/shelled/shelled_1.0.2a.zip
+mirror
+http://sourceforge.net/projects/shelled/
+GPL-1
+ShellEd is a superb shell script editor for Eclipse.
+~x86
+eutils multilib portability toolchain-funcs
+
+
+
+
+
+
+install
+
+
+
+
+

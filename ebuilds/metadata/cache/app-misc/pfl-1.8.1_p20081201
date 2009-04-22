@@ -1,0 +1,22 @@
+
+
+0
+http://files.portagefilelist.de/pfl-1.8.1 http://files.portagefilelist.de/e-file-20081201
+mirror
+http://www.portagefilelist.de/index.php/Special:PFLQuery
+GPL-2
+PFL is an online searchable file/package database for Gentoo
+~x86 ~amd64
+alternatives multilib python toolchain-funcs
+
+
+
+
+
+
+install postinst postrm unpack
+
+
+
+
+

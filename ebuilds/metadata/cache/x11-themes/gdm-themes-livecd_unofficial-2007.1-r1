@@ -1,0 +1,22 @@
+
+gnome-base/gdm
+0
+http://gentoo.j-schmitz.net/portage/distfiles/x11-themes/gdm-themes-livecd_unofficial//gdm-themes-livecd_unofficial-2007.1-r1.tar.bz2
+mirror
+http://gnome-look.org/content/show.php/Unofficial+Gentoo+2007.1+GDM?content=53701
+GPL-2
+Gentoo LiveCD theme for the GDM Greeter
+alpha amd64 ia64 ppc sparc x86
+private
+
+
+
+
+
+
+install
+
+
+
+
+

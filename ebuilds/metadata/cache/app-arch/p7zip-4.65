@@ -1,0 +1,22 @@
+wxwindows? ( x11-libs/wxGTK[X] )
+wxwindows? ( x11-libs/wxGTK[X] )
+0
+mirror://sourceforge/p7zip/p7zip_4.65_src_all.tar.bz2
+
+http://p7zip.sourceforge.net/
+LGPL-2.1
+Port of 7-Zip archiver for Unix
+~amd64 ~x86
+eutils multilib portability toolchain-funcs wxwidgets
+wxwindows doc kde static
+
+
+
+2
+
+compile install prepare setup test
+
+
+
+
+

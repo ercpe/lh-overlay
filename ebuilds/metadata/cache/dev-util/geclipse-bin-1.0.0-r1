@@ -1,0 +1,22 @@
+dev-util/eclipse-sdk
+dev-util/eclipse-sdk
+0
+mirror://sourceforge/geclipse/net.sf.geclipse_1.0.0_rc1.tar.gz
+mirror
+http://sourceforge.net/projects/geclipse/
+GPL-2
+GEclipse is a ebuild-editor for Eclipse
+~x86
+eutils multilib portability toolchain-funcs versionator
+
+
+
+
+
+
+install setup
+
+
+
+
+
