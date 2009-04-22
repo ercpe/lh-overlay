@@ -40,7 +40,7 @@ src_configure(){
 	cd Aqva
 
 	# eqmake is broken
-	qmake Aqva4.4.pro || die "qmake failed"
+	eqmake4 Aqva4.4.pro || die "qmake failed"
 }
 
 src_compile(){
