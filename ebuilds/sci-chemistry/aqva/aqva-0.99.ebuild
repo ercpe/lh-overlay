@@ -17,13 +17,13 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="povray"
 RDEPEND="virtual/glut
-	 sci-chemistry/almost
-	 sci-biology/ncbi-tools
-	 x11-libs/qt-gui:4
-	 x11-libs/qt-opengl:4
-	 x11-libs/qt-webkit:4
-	 povray? ( media-gfx/povray )"
-# blast db
+	sci-chemistry/almost
+	sci-biology/ncbi-tools
+	x11-libs/qt-gui:4
+	x11-libs/qt-opengl:4
+	x11-libs/qt-webkit:4
+	povray? ( media-gfx/povray )
+	sci-libs/blast-sb"
 
 DEPEND="${RDEPEND}"
 
@@ -39,8 +39,8 @@ src_prepare() {
 src_configure(){
 	cd Aqva
 
-	# eqmake is broken
-	eqmake4 Aqva4.4.pro || die "qmake failed"
+	# eqmake4 is broken
+	qmake Aqva4.4.pro || die "qmake failed"
 }
 
 src_compile(){

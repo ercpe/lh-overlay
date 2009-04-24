@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>no-herd</herd>
+<herd>sci</herd>
 <maintainer>
-  <email>radek@gentoo.org</email>
+  <email>sci@gentoo.org</email>
 </maintainer>
-<use>
-  <flag name='rar'>Adds unfree rar support</flag>
-</use>
 </pkgmetadata>

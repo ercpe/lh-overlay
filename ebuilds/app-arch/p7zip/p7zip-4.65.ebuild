@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="wxwindows doc kde rar static"
 
 RDEPEND="wxwindows? ( x11-libs/wxGTK[X] )
-	kde? ( || ( kde-base/kdebase-meta:3.5 kde-base/kdebase:3.5 >=kde-base/konqueror:3.5 ) )"
+	kde? ( || ( kde-base/kdebase-meta:3.5 kde-base/kdebase:3.5 kde-base/konqueror ) )"
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${PN}_${PV}
@@ -29,10 +29,10 @@ src_prepare() {
 	fi
 
 	# remove non-free RAR codec
-	if use rar; then 
+	if use rar; then
 		ewarn "Adding nonfree RAR decompressor"
 	else
-		sed -e '/Rar/d' -i makefile* 
+		sed -e '/Rar/d' -i makefile*
 		rm -rf CPP/7zip/Compress/Rar
 	fi
 
