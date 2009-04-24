@@ -34,6 +34,7 @@ src_prepare() {
 	else
 		sed -e '/Rar/d' -i makefile*
 		rm -rf CPP/7zip/Compress/Rar
+		epatch "${FILESDIR}"/${PV}-makefile.patch
 	fi
 
 	sed -i \
@@ -56,6 +57,8 @@ src_prepare() {
 
 	# We can be more parallel
 	cp -f makefile.parallel_jobs makefile
+
+	epatch "${FILESDIR}"/${PV}-hardlink.patch
 }
 
 src_compile() {
