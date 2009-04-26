@@ -4,7 +4,7 @@
 
 DESCRIPTION="Community Icons for gajim"
 HOMEPAGE="http://trac.gajim.org/wiki/GajimCommunityArt"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"

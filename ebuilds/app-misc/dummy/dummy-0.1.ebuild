@@ -5,7 +5,7 @@
 inherit eutils versionator
 
 DESCRIPTION="Dummy package to get portage overlay running"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-misc/dummy/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/app-misc/dummy/${P}.tar.bz2"
 HOMEPAGE="http://www.j-schmitz.net"
 
 LICENSE="GPL-2"

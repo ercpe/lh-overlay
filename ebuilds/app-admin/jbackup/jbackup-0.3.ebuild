@@ -4,7 +4,7 @@ MY_P="${PN}-${PV//./_}"
 
 DESCRIPTION="A simple but powerfull backup solution written in java"
 HOMEPAGE="http://www.j-schmitz.net"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/app-admin/jbackup/${PF}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/app-admin/jbackup/${PF}.tar.bz2"
 
 LICENSE="as-is"
 SLOT="0"

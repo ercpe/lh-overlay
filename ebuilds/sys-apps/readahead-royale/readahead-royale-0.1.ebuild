@@ -5,7 +5,7 @@
 inherit eutils
 
 DESCRIPTION="royale readahead after http://forums.gentoo.org/viewtopic-t-478491-start-0.html"
-SRC_URI="http://gentoo.j-schmitz.net/portage/distfiles/sys-apps/readahead-royale/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/sys-apps/readahead-royale/${P}.tar.bz2"
 HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
 RESTRICT="mirror"
 LICENSE="GPL-2"
