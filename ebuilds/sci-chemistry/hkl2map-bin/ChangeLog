@@ -1,0 +1,8 @@
+# ChangeLog for sci-chemistry/hkl2map-bin
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Apr 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  hkl2map-bin-0.2.ebuild:
+  now we know how tow rite ebuilds
+
