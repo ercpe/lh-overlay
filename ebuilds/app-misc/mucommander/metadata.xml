@@ -8,6 +8,7 @@
 	</maintainer>
 	<use>
 		<flag name='7zip'>Use 7z compression for jars</flag>
+		<flag name='excludable-mountpoints'>Johanns special kicks</flag>
 	</use>
 </pkgmetadata>
 
