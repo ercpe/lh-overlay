@@ -5,7 +5,7 @@
 *mucommander-0.8.4_pre20090329-r1 (04 May 2009)
 
   04 May 2009;  <>  mucommander-0.8.4_pre20090329-r1.ebuild
-  # INSERT ENTRY HERE
+  rewritten ebuild with advanced use of java eclass
 
   26 Nov 2008; justin Lecher <justin@j-schmitz.net>
   mucommander-0.8.3-r2.ebuild:

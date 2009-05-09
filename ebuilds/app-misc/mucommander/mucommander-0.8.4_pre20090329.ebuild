@@ -27,7 +27,7 @@ DEPEND="=virtual/jdk-1.6*
 RDEPEND="${DEPEND}"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	java-pkg_jar-from --build-only ant-core
 }
