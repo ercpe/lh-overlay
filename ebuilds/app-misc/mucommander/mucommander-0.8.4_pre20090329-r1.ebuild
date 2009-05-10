@@ -1,14 +1,16 @@
 EAPI="2"
 
+WANT_ANT_TASKS="ant-commons-logging"
 JAVA_PKG_IUSE="doc source"
+JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
 JAVA_ANT_REWRITE_CLASSPATH="true"
-EANT_GENTOO_CLASSPATH="ant-core,ant-junit,commons-logging,icu4j,jmdns,jakarta-oro-2.0,jcifs-1.1"
+EANT_GENTOO_CLASSPATH="ant-core,ant-junit,commons-logging,icu4j,jmdns,jakarta-oro:2.0,jcifs:1.1"
 EANT_BUILD_TARGET="nightly"
 ANT_OPTS="${ANT_OPTS} -Xmx256m"
 
 NEEDED_JARS="ant-bzip2.jar commons-net.jar j2ssh.jar jna.jar yanfs.jar"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit eutils java-pkg-2 java-ant-2 java-utils-2
 
 MY_P="${PN}-${PV//./_}"
 
@@ -36,6 +38,7 @@ RDEPEND="${DEPEND}
 	=virtual/jre-1.6*"
 
 src_prepare() {
+	java-ant_rewrite-classpath
 	java-pkg_jar-from --build-only ant-core
 
 	cd lib/include/
