@@ -1,6 +1,7 @@
 EAPI="2"
 
 WANT_ANT_TASKS="ant-commons-logging"
+EANT_NEEDS_TOOLS="true"
 JAVA_PKG_IUSE="doc source"
 JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
 JAVA_ANT_REWRITE_CLASSPATH="true"
@@ -20,7 +21,8 @@ SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/app-misc/mucomman
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+#KEYWORDS="amd64 x86"
+KEYWORDS="-*"
 IUSE=""
 
 RESTRICT="mirror"
