@@ -1,0 +1,63 @@
+--- src/Makefile	2006-10-25 19:36:55.000000000 +0200
++++ src/Makefile.new	2009-05-14 23:03:25.443027518 +0200
+@@ -18,39 +18,39 @@
+ volume:	vol
+ 
+ cav:	utils-main.o utils-output.o cavities.cpp
+-	$(CC) $(FLAGS) -o Cavities.exe utils-main.o utils-output.o cavities.cpp
+-	chmod 777 Cavities.exe
+-	mv Cavities.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o Cavities utils-main.o utils-output.o cavities.cpp
++	chmod 777 Cavities
++	mv Cavities ../bin
+ 
+ chan:	utils-main.o utils-output.o channel.cpp
+-	$(CC) $(FLAGS) -o Channel.exe utils-main.o utils-output.o channel.cpp
+-	chmod 777 Channel.exe
+-	mv Channel.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o Channel utils-main.o utils-output.o channel.cpp
++	chmod 777 Channel
++	mv Channel ../bin
+ 
+ fsv:	utils-main.o utils-output.o fsv_calc.cpp
+-	$(CC) $(FLAGS) -o FsvCalc.exe utils-main.o utils-output.o fsv_calc.cpp
+-	chmod 777 FsvCalc.exe
+-	mv FsvCalc.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o FsvCalc utils-main.o utils-output.o fsv_calc.cpp
++	chmod 777 FsvCalc
++	mv FsvCalc ../bin
+ 
+ sol:	utils-main.o utils-output.o solvent.cpp
+-	$(CC) $(FLAGS) -o Solvent.exe utils-main.o utils-output.o solvent.cpp
+-	chmod 777 Solvent.exe
+-	mv Solvent.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o Solvent utils-main.o utils-output.o solvent.cpp
++	chmod 777 Solvent
++	mv Solvent ../bin
+ 
+ tun:	utils-main.o utils-output.o tunnel.cpp
+-	$(CC) $(FLAGS) -o Tunnel.exe utils-main.o utils-output.o tunnel.cpp
+-	chmod 777 Tunnel.exe
+-	mv Tunnel.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o Tunnel utils-main.o utils-output.o tunnel.cpp
++	chmod 777 Tunnel
++	mv Tunnel ../bin
+ 
+ vdw:	utils-main.o utils-output.o vdw.cpp
+-	$(CC) $(FLAGS) -o VDW.exe utils-main.o utils-output.o vdw.cpp
+-	chmod 777 VDW.exe
+-	mv VDW.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o VDW utils-main.o utils-output.o vdw.cpp
++	chmod 777 VDW
++	mv VDW ../bin
+ 
+ vol:	utils-main.o utils-output.o volume.cpp
+-	$(CC) $(FLAGS) -o Volume.exe utils-main.o utils-output.o volume.cpp
+-	chmod 777 Volume.exe
+-	mv Volume.exe ../bin
++	$(CC) $(FLAGS) $(LDFLAGS) -o Volume utils-main.o utils-output.o volume.cpp
++	chmod 777 Volume
++	mv Volume ../bin
+ 
+ utils-main.o:	utils-main.cpp
+ 	$(CC) $(FLAGS) -c -o utils-main.o utils-main.cpp

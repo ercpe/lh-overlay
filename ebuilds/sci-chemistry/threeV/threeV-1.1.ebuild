@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs
+inherit base toolchain-funcs
 
 MY_PV="${PV//./_}"
 
@@ -13,39 +13,30 @@ SRC_URI="http://geometry.molmovdb.org/3v/3v-${MY_PV}.tgz"
 LICENSE="GPL-2"
 
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
 PDEPEND="sci-chemistry/msms-bin
-	 sci-chemistry/usf-rave-bin"
+	 sci-chemistry/usf-rave"
 
 S="${WORKDIR}/3v-${PV}"
 
-
-src_unpack() {
-
-	unpack ${A}
-
-	cd "${S}"
-
-	epatch "${FILESDIR}/gcc-4.3.patch"
-}
+PATCHES=( "${FILESDIR}"/{gcc-4.3,${PV}-Makefile}.patch )
 
 src_compile() {
 
 	cd "${S}"/src
 
-	emake CC="$(tc-getCXX)" FLAGS="${CXXFLAGS}" || die "failed makeing ${PN}"
+	emake \
+		CC="$(tc-getCXX)" \
+		FLAGS="${CXXFLAGS}" || \
+		die "failed makeing ${PN}"
 
 }
 
 src_install() {
-
-	for EXE in bin/*; do
-		newbin ${EXE} ${EXE%.*} || die
-	done
-
-	dodoc AUTHORS ChangeLog NEWS QUICKSTART README TODO VERSION
+	dobin bin/* || die
+	dodoc AUTHORS ChangeLog NEWS QUICKSTART README TODO VERSION || die
 }
