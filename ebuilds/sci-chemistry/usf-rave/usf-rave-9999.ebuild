@@ -54,6 +54,12 @@ src_install(){
 	doins ${MY_PN}_doc/*.pdb || die
 	dodoc ${MY_PN}_doc/*.doc || die
 
+	if use examples; then
+		insinto /usr/share/${PN}
+		doins -r exam || die
+	fi
+
+
 	cat>>"${T}"/20${PN}<<-EOF
 	PATH="/opt/${PN}/bin"
 	GKLIB="/opt/usf-lib/"
