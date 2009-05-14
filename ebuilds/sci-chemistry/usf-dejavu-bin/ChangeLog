@@ -1,8 +1,0 @@
-# ChangeLog for sci-chemistry/usf-dejavu-bin
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  01 Oct 2008; justin Lecher <justin@j-schmitz.net>
-  +usf-dejavu-bin-20081001.ebuild:
-  Setup.\nFixed sources because upstream changed. Now it is mirrored
-
