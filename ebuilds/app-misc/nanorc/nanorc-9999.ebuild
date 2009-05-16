@@ -27,7 +27,7 @@ src_install() {
 			sed 's:^include:#include:g' > nanorc.system
 		for i in *.nanorc; do
 			echo ""
-			echo "include /usr/share/${PN}/${i}" >> nanorc.system
+			echo '"include /usr/share/${PN}/${i}"' >> nanorc.system
 		done
 	fi
 
