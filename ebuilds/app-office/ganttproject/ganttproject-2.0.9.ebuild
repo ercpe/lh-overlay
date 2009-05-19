@@ -5,12 +5,7 @@
 EAPI="2"
 
 WANT_ANT_TASKS="ant-commons-logging"
-#JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
-#JAVA_ANT_REWRITE_CLASSPATH="true"
-EANT_GENTOO_CLASSPATH="commons-httpclient:3,apple-java-extensions-bin,commons-logging,commons-transaction,helpgui,poi,jakarta-slide-webdavclient,jdom:1.0,jgoodies-looks:1.2,xml-im-exporter"
-EANT_BUILD_TARGET="build"
-
-NEEDED_JARS="AppleJavaExtensions.jar commons-httpclient.jar commons-httpclient-contrib.jar eclipsito.jar helpgui-1.1.jar jakarta-slide-webdavlib-2.1.jar jdnc-modifBen.jar"
+JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
 
 inherit java-pkg-2 java-ant-2
 
@@ -45,6 +40,8 @@ DEPEND="${COMMON_DEP}
 
 S="${WORKDIR}"/${MY_P}/${PN}-builder
 
+NEEDED_JARS="AppleJavaExtensions.jar commons-httpclient.jar commons-httpclient-contrib.jar eclipsito.jar helpgui-1.1.jar jakarta-slide-webdavlib-2.1.jar jdnc-modifBen.jar"
+
 java_prepare() {
 	sed -e "s:GP_HOME=.:GP_HOME=/usr/share/${PN}/lib:g" \
 		-e "s:cd \${COMMAND_PATH}:cd \${GP_HOME}:g" \
@@ -56,11 +53,79 @@ java_prepare() {
 		has ${jar} "${NEEDED_JARS}" || \
 		{  rm -v ${jar} || die; }
 	done
+	cd "${S}"
 }
 
+JAVA_ANT_REWRITE_CLASSPATH="true"
+#EANT_GENTOO_CLASSPATH="commons-httpclient-3,apple-java-extensions-bin,commons-transaction,helpgui,poi,jakarta-slide-webdavclient,commons-logging,jdom-1.0,jgoodies-looks-1.2,xml-im-exporter"
+EANT_GENTOO_CLASSPATH="commons-transaction,poi,commons-logging,jdom-1.0,jgoodies-looks-1.2,xml-im-exporter"
+
+EANT_BUILD_TARGET="build"
+
 src_install() {
-	newbin dist-bin/${PN}.command ${PN} || die "no bins installed"
-	insinto /usr/share/${PN}/lib
-	doins -r dist-bin/{*.jar,plugins} || die "plugins are missing"
-	dodoc dist-bin/HouseBuildingSample.gan
+	java-pkg_dojar dist-bin/*.jar || die "plugins are missing"
+
+	basedir="/usr/share/${PN}/lib/"
+
+
+	plugin="plugins/net.sourceforge.ganttproject_2.0.0"
+
+	insinto ${basedir}/${plugin}
+	doins -r dist-bin/${plugin}/{data,plugin.xml} || die "plugins are missing"
+
+#	java-pkg_jarinto ${basedir}/${plugin}/lib/core
+#	for jar in ${NEEDED_JARS/eclipsito.jar/};do
+#		java-pkg_dojar dist-bin/${plugin}/lib/core/${jar}
+#	done
+
+	java-pkg_jarinto ${basedir}/${plugin}/lib/core
+	java-pkg_dojar dist-bin/${plugin}/lib/core/*.jar
+
+	java-pkg_jarinto ${basedir}/${plugin}
+	java-pkg_dojar dist-bin/${plugin}/ganttproject.jar
+
+
+	plugin="plugins/org.ganttproject.chart.pert_2.0.0"
+
+	insinto ${basedir}/${plugin}
+	doins -r dist-bin/${plugin}/{resources,plugin.xml} || die "plugins are missing"
+
+	java-pkg_jarinto ${basedir}/${plugin}
+	java-pkg_dojar dist-bin/${plugin}/pert.jar
+
+
+	plugin="plugins/org.ganttproject.impex.htmlpdf_2.0.0"
+
+	insinto ${basedir}/${plugin}
+	doins -r dist-bin/${plugin}/{resource,plugin.xml} || die
+
+	java-pkg_jarinto ${basedir}/${plugin}
+	java-pkg_dojar dist-bin/${plugin}/ganttproject-htmlpdf.jar
+
+	java-pkg_jarinto ${basedir}/${plugin}/lib
+	java-pkg_dojar dist-bin/${plugin}/lib/*.jar
+
+
+	plugin="plugins/org.ganttproject.impex.msproject_2.0.0"
+
+	insinto ${basedir}/${plugin}
+	doins dist-bin/${plugin}/plugin.xml || die
+
+	java-pkg_jarinto ${basedir}/${plugin}
+	java-pkg_dojar dist-bin/${plugin}/ganttproject-msproject.jar
+
+	java-pkg_jarinto ${basedir}/${plugin}/lib/mpxj
+	java-pkg_dojar dist-bin/${plugin}/lib/mpxj/*.jar
+
+	java-pkg_dolauncher ${PN} \
+		--jar "eclipsito.jar" \
+		--main "org.bardsoftware.eclipsito.Boot" \
+		--java_args "-Xmx256m" \
+		--pkg_args "ganttproject-eclipsito-config.xml -log \$LOG_FILE" \
+		--pwd ${basedir} \
+		-pre "${FILESDIR}"/launcher.stub
+
+	dodoc dist-bin/HouseBuildingSample.gan || die
+
+	newbin dist-bin/${PN}.command ${PN}-2
 }
