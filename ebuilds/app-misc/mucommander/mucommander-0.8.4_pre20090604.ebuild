@@ -38,16 +38,35 @@ DEPEND=">=virtual/jdk-1.6
 RDEPEND="${DEPEND}
 	>=virtual/jre-1.4"
 
-src_prepare() {
-	java-ant_rewrite-classpath
+
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
 	java-pkg_jar-from --build-only ant-core
+}
+
+
+src_compile() {
+	ANT_OPTS="${ANT_OPTS} -Xmx256m"
 
 	cd lib/include/
 
-	for jar in *.jar ;do
-		has ${jar} "${NEEDED_JARS}" || \
-		{  rm -v ${jar} || die; }
-	done
+	## remove libs provided by the dependencies
+	## commons-net in lib/ is a custom version!
+	rm {commons-logging.jar,icu4j.jar,jakarta-oro.jar,jcifs.jar,jmdns.jar}
+
+	## now link the dependencies
+	java-pkg_jar-from ant-core
+	java-pkg_jar-from ant-junit
+	java-pkg_jar-from commons-logging
+	java-pkg_jar-from icu4j
+	java-pkg_jar-from jmdns
+	java-pkg_jar-from jakarta-oro-2.0
+	java-pkg_jar-from jcifs-1.1
+
+	cd "${S}"
+
+	eant nightly
 }
 
 
