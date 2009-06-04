@@ -21,8 +21,7 @@ SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/app-misc/mucomman
 
 LICENSE="GPL-2"
 SLOT="0"
-#KEYWORDS="amd64 x86"
-KEYWORDS="-*"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RESTRICT="mirror"
