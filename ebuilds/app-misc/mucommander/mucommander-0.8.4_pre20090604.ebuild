@@ -57,7 +57,7 @@ src_compile() {
 
 	cd "${S}"
 
-	eant nightly
+	eant tgz || die "Could not compile"
 }
 
 
