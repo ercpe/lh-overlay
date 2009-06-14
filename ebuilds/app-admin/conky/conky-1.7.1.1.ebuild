@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="GPL-3 BSD LGPL-2.1 MIT"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="audacious bmpx debug hddtemp ibm ipv6 moc mpd nano-syntax nvidia openmp rss truetype vim-syntax wifi X"
+IUSE="audacious bmpx debug hddtemp ibm ipv6 lua moc mpd nano-syntax nvidia openmp rss truetype vim-syntax wifi X"
 
 DEPEND_COMMON="
 	X? (
@@ -36,7 +36,8 @@ DEPEND_COMMON="
 			)
 	wifi? ( net-wireless/wireless-tools )
 	nvidia? ( media-video/nvidia-settings )
-	!ipv6? ( >=dev-libs/glib-2.0 )"
+	!ipv6? ( >=dev-libs/glib-2.0 )
+	lua? ( >=dev-lang/lua-5.1 )"
 RDEPEND="${DEPEND_COMMON}
 	hddtemp? ( app-admin/hddtemp )
 	vim-syntax? ( || ( app-editors/vim
@@ -68,6 +69,7 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_enable hddtemp ) \
 		$(use_enable ibm) \
+		$(use_enable lua) \
 		$(use_enable moc) \
 		$(use_enable mpd) \
 		$(use_enable nvidia) \
