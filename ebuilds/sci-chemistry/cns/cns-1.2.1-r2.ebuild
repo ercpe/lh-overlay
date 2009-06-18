@@ -119,7 +119,7 @@ src_install() {
 	# Install to locations resembling FHS
 	sed -i \
 		-e "s:${S}:usr:g" \
-		-e "s:^\(setenv CNS_SOLVE.*\):\1\nsetenv CNS_ROOT usr:g" \
+		-e "s:^\(setenv CNS_SOLVE.*\):\1\nsetenv CNS_ROOT /usr:g" \
 		-e "s:^\(setenv CNS_SOLVE.*\):\1\nsetenv CNS_DATA \$CNS_ROOT/share/data:g" \
 		-e "s:^\(setenv CNS_SOLVE.*\):\1\nsetenv CNS_DOC \$CNS_ROOT/share/doc/${PF}:g" \
 		-e "s:CNS_LIB \$CNS_SOLVE/libraries:CNS_LIB \$CNS_DATA/libraries:g" \
