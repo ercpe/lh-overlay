@@ -25,6 +25,7 @@ DEPEND_COMMON="
 		x11-libs/libXrender
 		x11-libs/libXdamage
 		x11-libs/libXft
+		media-libs/imlib2
 		truetype? ( >=media-libs/freetype-2 )
 		audacious? ( >=media-sound/audacious-1.5 )
 		bmpx? ( media-sound/bmpx
@@ -56,7 +57,7 @@ src_configure() {
 	local myconf
 	myconf="--disable-rpath"
 	if useq X; then
-		myconf="${myconf} --enable-x11 --enable-double-buffer --enable-xdamage --enable-own-window"
+		myconf="${myconf} --enable-x11 --enable-double-buffer --enable-xdamage --enable-own-window --enable-imlib2"
 		myconf="${myconf} $(use_enable truetype xft)"
 	else
 		myconf="${myconf} --disable-x11 --disable-double-buffer --disable-xdamage --disable-own-window"
