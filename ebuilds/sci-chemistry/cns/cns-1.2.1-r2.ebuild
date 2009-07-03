@@ -56,14 +56,22 @@ src_unpack() {
 
 	cd "${S}"
 
-	use openmp && append-fflags -fopenmp
-	use openmp && append-ldflags -lgomp
+	epatch "${FILESDIR}"/${PV}-{openmp-lib,verbose}.patch
+
+	if use openmp; then
+		append-flags -fopenmp -Wall
+#	use openmp && append-ldflags -lgomp
+		OMP_LIB="-lgomp"
 
 	# Someone already did the same in the openmp version, apparently
-	use openmp || epatch "${FILESDIR}"/1.2-allow-unknown-architectures.patch
+#	use openmp || epatch "${FILESDIR}"/1.2-allow-unknown-architectures.patch
 
 	# the code uses Intel-compiler-specific directives
-	use openmp && epatch "${FILESDIR}"/${PV}-allow-gcc-openmp.patch
+#	use openmp && epatch "${FILESDIR}"/${PV}-allow-gcc-openmp.patch
+		epatch "${FILESDIR}"/${PV}-allow-gcc-openmp.patch
+	else
+		epatch "${FILESDIR}"/1.2-allow-unknown-architectures.patch
+	fi
 
 	# Set up location for the build directory
 	# Uses obsolete `sort` syntax, so we set _POSIX2_VERSION
@@ -100,6 +108,7 @@ src_compile() {
 		LDFLAGS="${LDFLAGS}" \
 		F77OPT="${FFLAGS:- -O2} ${MALIGN}" \
 		F77STD="${GLOBALS}" \
+		OMP_LIB="${OMP_LIB}" \
 		g77install \
 		|| die "emake failed"
 }
