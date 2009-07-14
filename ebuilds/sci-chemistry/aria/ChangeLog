@@ -1,8 +1,0 @@
-# ChangeLog for sci-chemistry/aria
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  08 Feb 2009; justin Lecher (jlec) <jlec@j-schmitz.net> ++,
-  -aria-2.2.ebuild:
-  aria-2.2_p2 added
-
