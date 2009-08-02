@@ -8,7 +8,7 @@ MY_P="${PN}-${PV//./_}"
 
 DESCRIPTION="Lightweight file manager featuring a Norton Commander style interface"
 HOMEPAGE="http://www.mucommander.com"
-SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/app-misc/mucommander/${PF}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/app-misc/mucommander/${PF}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

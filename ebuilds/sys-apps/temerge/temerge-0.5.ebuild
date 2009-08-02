@@ -5,7 +5,7 @@
 inherit eutils linux-info
 
 DESCRIPTION="temerge script for emerge with tmpfs"
-SRC_URI="http://gentoo.j-schmitz.net/private-overlay/distfiles/sys-apps/temerge/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/sys-apps/temerge/${P}.tar.bz2"
 HOMEPAGE="http://www.j-schmitz.net"
 
 LICENSE="GPL-2"

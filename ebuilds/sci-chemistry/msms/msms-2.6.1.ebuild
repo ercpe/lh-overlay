@@ -11,7 +11,7 @@ DL_URI="http://mgltools.scripps.edu/downloads/tars/releases/MSMSRELEASE/"
 DESCRIPTION="msms is a wrapped version of the msms lib"
 SRC_URI="x86? ( ${DL_URI}REL${PV}/msms_i86Linux2_${PV}.tar.gz )
 	 amd64? ( ${DL_URI}REL${PV}/msms_i86_64Linux2_${PV}.tar.gz )
-	 http://gentoo.j-schmitz.net/private-overlay/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
+	 http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 HOMEPAGE="http://mgltools.scripps.edu"
 
 LICENSE="mgltools"
