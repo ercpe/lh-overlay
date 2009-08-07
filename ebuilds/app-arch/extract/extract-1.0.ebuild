@@ -20,6 +20,11 @@ RDEPEND="app-arch/p7zip app-arch/unzip app-arch/gzip"
 DEPEND="${RDEPEND}"
 
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+}
+
 pkg_setup() {
 	exeinto /bin/
 	doexe extract.sh
