@@ -11,7 +11,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/app-arch/extract/${P}.tar.b
 LICENSE="as-is"
 
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS="x86 amd64"
 
 RESTRICT="mirror"
 
