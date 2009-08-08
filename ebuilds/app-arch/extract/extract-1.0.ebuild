@@ -6,7 +6,7 @@ inherit eutils
 
 DESCRIPTION="Extracts several archive types with one command"
 HOMEPAGE="http://linuxtidbits.wordpress.com/2009/08/04/week-of-bash-scripts-extract/"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/app-arch/extract/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="as-is"
 
