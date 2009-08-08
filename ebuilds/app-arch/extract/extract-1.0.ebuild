@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# inherit
+inherit eutils
 
 DESCRIPTION="Extracts several archive types with one command"
 HOMEPAGE="http://linuxtidbits.wordpress.com/2009/08/04/week-of-bash-scripts-extract/"
@@ -19,9 +19,11 @@ IUSE=""
 RDEPEND="app-arch/p7zip app-arch/unzip app-arch/gzip"
 DEPEND="${RDEPEND}"
 
-pkg_setup() {
+S="${WORKDIR}"/extract-1.0
+
+src_install(){
 	exeinto /usr/lib/extract
 	doexe extract.sh
 
-	dosym /usr/lib/extract/extract.sh /bin/simple-backup	
+	dosym /usr/lib/extract/extract.sh /bin/extract	
 }
