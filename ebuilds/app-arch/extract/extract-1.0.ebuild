@@ -19,13 +19,9 @@ IUSE=""
 RDEPEND="app-arch/p7zip app-arch/unzip app-arch/gzip"
 DEPEND="${RDEPEND}"
 
-
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-}
-
 pkg_setup() {
-	exeinto /bin/
+	exeinto /usr/lib/extract
 	doexe extract.sh
+
+	dosym /usr/lib/extract/extract.sh /bin/simple-backup	
 }
