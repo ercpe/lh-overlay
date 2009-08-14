@@ -14,12 +14,12 @@ IUSE=""
 SRC_URI=""
 
 RDEPEND=">=dev-lang/ruby-1.8.6
-  dev-libs/libpcre
-  dev-ruby/diff-lcs"
+	dev-libs/libpcre
+	dev-ruby/diff-lcs"
 DEPEND="${RDEPEND}
-  dev-ruby/rake
-  dev-ruby/rubygems
-  >=dev-util/ragel-6.3"
+	dev-ruby/rake
+	dev-ruby/rubygems
+	>=dev-util/ragel-6.3"
 
 
 src_compile() {
@@ -31,5 +31,5 @@ src_install() {
 
 einfo "now"
 	gems_src_install
-	dodoc ${S}/README
+	dodoc "${S}"/README
 }
