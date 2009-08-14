@@ -42,7 +42,7 @@ src_compile() {
 		FFLAGS="${FFLAGS}" \
 		FORK="${FORK}" \
 		DEFS="${DEFS}" \
-		LIBS="-L/opt/intel/fce/10.1.018/lib/ -liomp5 -pthread -lguide.so"|| \
+		LIBS="-L/opt/intel/fce/10.1.018/lib/ -liomp5 -pthread -lguide"|| \
 	die "damn"
 
 }
@@ -61,6 +61,7 @@ src_install() {
 		DEFS="${DEFS}" \
 		BINDIR="${D}/usr/bin/" \
 		LIBDIR="${D}/usr/$(get_libdir)/" \
+		LIBS="-L/opt/intel/fce/10.1.018/lib/ -liomp5 -pthread -lguide"|| \
 		install-files
 die
 
