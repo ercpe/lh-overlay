@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="sensord"
+IUSE="debug sensord"
 
 COMMON="sensord? ( net-analyzer/rrdtool )"
 DEPEND="${COMMON}
@@ -56,6 +56,12 @@ src_unpack() {
 	# Respect LDFLAGS
 	sed -i -e 's/\$(LIBDIR)$/\$(LIBDIR) \$(LDFLAGS)/g' Makefile
 	sed -i -e 's/\$(LIBSHSONAME) -o/$(LIBSHSONAME) \$(LDFLAGS) -o/g' lib/Module.mk
+
+	sed -i -e '/^WARN/d' \
+		-e 's|ALL_CFLAGS := -Wall|ALL_CFLAGS := |g' \
+		-e 's:ALL_CFLAGS += -O2:ALL_CFLAGS += :g' \
+		Makefile
+	use debug && sed -1 -e 's|DEBUG := 0|DEBUG := 1|g' Makefile
 }
 
 src_compile()  {
