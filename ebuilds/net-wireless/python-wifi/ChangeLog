@@ -1,0 +1,11 @@
+# ChangeLog for net-wireless/python-wifi
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*python-wifi-0.3.1 (27 Aug 2009)
+
+  27 Aug 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  +python-wifi-0.3.1.ebuild, +metadata.xml:
+  Created by me
+  pending bug ###
+
