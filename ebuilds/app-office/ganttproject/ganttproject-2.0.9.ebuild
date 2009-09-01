@@ -7,7 +7,7 @@ EAPI="2"
 WANT_ANT_TASKS="ant-commons-logging"
 JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
 
-inherit java-pkg-2 java-ant-2
+inherit eutils java-pkg-2 java-ant-2
 
 MY_P="${P}-src"
 
@@ -42,6 +42,8 @@ S="${WORKDIR}"/${MY_P}/${PN}-builder
 
 NEEDED_JARS="AppleJavaExtensions.jar commons-httpclient.jar commons-httpclient-contrib.jar eclipsito.jar helpgui-1.1.jar jakarta-slide-webdavlib-2.1.jar jdnc-modifBen.jar"
 
+JAVA_ANT_ENCODING=UTF-8
+
 java_prepare() {
 	sed -e "s:GP_HOME=.:GP_HOME=/usr/share/${PN}/lib:g" \
 		-e "s:cd \${COMMAND_PATH}:cd \${GP_HOME}:g" \
@@ -53,12 +55,13 @@ java_prepare() {
 		has ${jar} "${NEEDED_JARS}" || \
 		{  rm -v ${jar} || die; }
 	done
-	cd "${S}"
+	cd "${S}"/..
+#	epatch "${FILESDIR}"/${PV}-NONASCII.patch
 }
 
 JAVA_ANT_REWRITE_CLASSPATH="true"
 #EANT_GENTOO_CLASSPATH="commons-httpclient-3,apple-java-extensions-bin,commons-transaction,helpgui,poi,jakarta-slide-webdavclient,commons-logging,jdom-1.0,jgoodies-looks-1.2,xml-im-exporter"
-EANT_GENTOO_CLASSPATH="commons-transaction,poi,commons-logging,jdom-1.0,jgoodies-looks-1.2,xml-im-exporter"
+#EANT_GENTOO_CLASSPATH="commons-transaction,poi,commons-logging,jdom-1.0,jgoodies-looks-1.2,xml-im-exporter"
 
 EANT_BUILD_TARGET="build"
 

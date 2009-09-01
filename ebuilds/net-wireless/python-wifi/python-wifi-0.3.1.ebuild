@@ -19,6 +19,8 @@ IUSE="examples"
 RDEPEND=""
 DEPEND="dev-python/setuptools"
 
+RESTRICT_PYTHON_ABIS="3*"
+
 DOCS="docs/AUTHORS docs/BUGS docs/DEVEL.txt docs/TODO"
 
 src_install() {
