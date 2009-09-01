@@ -1,0 +1,10 @@
+# ChangeLog for gnome-extra/hotssh
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*hotssh-0.2.6 (01 Sep 2009)
+
+  01 Sep 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  +hotssh-0.2.6.ebuild, +metadata.xml:
+  Written by me
+
