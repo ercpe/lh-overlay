@@ -70,7 +70,6 @@ src_install() {
 
 	basedir="/usr/share/${PN}/lib/"
 
-
 	plugin="plugins/net.sourceforge.ganttproject_2.0.0"
 
 	insinto ${basedir}/${plugin}
@@ -87,7 +86,6 @@ src_install() {
 	java-pkg_jarinto ${basedir}/${plugin}
 	java-pkg_dojar dist-bin/${plugin}/ganttproject.jar
 
-
 	plugin="plugins/org.ganttproject.chart.pert_2.0.0"
 
 	insinto ${basedir}/${plugin}
@@ -95,7 +93,6 @@ src_install() {
 
 	java-pkg_jarinto ${basedir}/${plugin}
 	java-pkg_dojar dist-bin/${plugin}/pert.jar
-
 
 	plugin="plugins/org.ganttproject.impex.htmlpdf_2.0.0"
 
@@ -107,7 +104,6 @@ src_install() {
 
 	java-pkg_jarinto ${basedir}/${plugin}/lib
 	java-pkg_dojar dist-bin/${plugin}/lib/*.jar
-
 
 	plugin="plugins/org.ganttproject.impex.msproject_2.0.0"
 
