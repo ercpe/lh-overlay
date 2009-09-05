@@ -2,7 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib python eutils
+EAPI="2"
+SUPPORT_PYTHON_ABIS="1"
+
+inherit distutils
 
 DESCRIPTION="Dwscan displays access point information in a useful manner."
 HOMEPAGE="http://dag.wieers.com/home-made/dwscan/"
@@ -13,20 +16,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=net-wireless/python-wifi-0.3"
-DEPEND="$RDEPEND"
+RDEPEND="$DEPEND"
+DEPEND=">=net-wireless/python-wifi-0.3"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-}
+RESTRICT_PYTHON_ABIS="3*"
 
-src_compile() {
-	emake || die "emake failed"
-}
+DOCS="docs/AUTHORS docs/BUGS docs/DEVEL.txt docs/TODO"
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-
-	dodoc AUTHORS ChangeLog COPYING README TODO WISHLIST
+	distutils_src_install
+	if use examples; then
+		insinto /usr/share/${P}/
+		doins -r examples || die "no examples"
+	fi
 }
