@@ -4,7 +4,7 @@
 
 inherit eutils
 
-DESCRIPTION="Extracts several archive types with one command"
+DESCRIPTION="Strips comments an lines with whitespaces from files"
 HOMEPAGE="http://linuxtidbits.wordpress.com/2009/08/07/week-of-bash-scripts-rps-and-commentstrip/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
