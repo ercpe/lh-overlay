@@ -21,12 +21,17 @@ DEPEND=">=net-wireless/python-wifi-0.3"
 
 RESTRICT_PYTHON_ABIS="3*"
 
-DOCS="docs/AUTHORS docs/BUGS docs/DEVEL.txt docs/TODO"
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+}
+
+src_compile() {
+	emake || die "emake failed"
+}
 
 src_install() {
-	distutils_src_install
-	if use examples; then
-		insinto /usr/share/${P}/
-		doins -r examples || die "no examples"
-	fi
+	emake DESTDIR="${D}" install || die "emake install failed"
+
+	dodoc AUTHORS ChangeLog COPYING README TODO WISHLIST
 }
