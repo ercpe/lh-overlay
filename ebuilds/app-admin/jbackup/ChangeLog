@@ -7,4 +7,4 @@
   07 Sep 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
   +jbackup-0.3.2-r1.ebuild:
   java conform rewrite, which hopefully still works
-
+  commons-cli SLOT fixed to 1

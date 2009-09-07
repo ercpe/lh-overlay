@@ -17,7 +17,7 @@ IUSE="debug"
 
 COMMONS_DEPEND="
 	dev-java/cglib:2.1
-	dev-java/commons-cli:0
+	dev-java/commons-cli:1
 	dev-java/log4j:0[javamail]
 	dev-java/xpp3:0
 	>=dev-java/xstream-1.3"
