@@ -1,6 +1,7 @@
 EAPI="2"
 
 WANT_ANT_TASKS="ant-commons-net"
+JAVA_PKG_IUSE="source"
 
 inherit java-pkg-2 java-ant-2
 
@@ -44,4 +45,6 @@ src_install() {
 
 	java-pkg_dolauncher ${PN} \
 		--jar ${PN}.jar
+
+	use source && java-pkg_dosource source
 }
