@@ -5,7 +5,7 @@
 EAPI="2"
 
 WANT_ANT_TASKS="ant-commons-logging"
-JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
+#JAVA_ANT_IGNORE_SYSTEM_CLASSES="true"
 JAVA_PKG_IUSE="source"
 
 inherit eutils java-pkg-2 java-ant-2
@@ -96,7 +96,7 @@ src_install() {
 	java-pkg_dolauncher ${PN} \
 		--jar "eclipsito.jar" \
 		--main "org.bardsoftware.eclipsito.Boot" \
-		--java_args "-Xmx256m" \
+		--java_args "-Xmx256m -Dorg.ganttproject.resourcebase=/usr/share/${PN}/lib/plugins/net.sourceforge.ganttproject_2.0.0/data/resources/" \
 		--pkg_args "ganttproject-eclipsito-config.xml -log \${HOME}/.${PN}.log" \
 		--pwd ${basedir}
 
