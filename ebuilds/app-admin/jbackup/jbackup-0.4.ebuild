@@ -19,6 +19,7 @@ IUSE="debug"
 COMMONS_DEPEND="
 	dev-java/commons-cli:1
 	dev-java/log4j:0
+	dev-java/cglib:2.2
 	dev-java/commons-net
 	=dev-java/commons-lib-1.2.7
 	>=dev-java/xstream-1.3"
@@ -38,7 +39,7 @@ EANT_BUILD_TARGET="build-dist"
 use debug && EANT_BUILD_TARGET="build-dist-debug"
 
 JAVA_ANT_REWRITE_CLASSPATH="true"
-EANT_GENTOO_CLASSPATH="cglib-2.1,commons-cli-1,commons-net,log4j,xpp3,xstream,commons-lib"
+EANT_GENTOO_CLASSPATH="cglib-2.2,commons-cli-1,commons-net,log4j,xpp3,xstream,commons-lib"
 
 src_install() {
 	java-pkg_dojar release/jbackup.jar
