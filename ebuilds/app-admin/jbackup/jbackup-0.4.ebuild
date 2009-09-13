@@ -44,8 +44,7 @@ EANT_GENTOO_CLASSPATH="cglib-2.2,commons-cli-1,commons-net,log4j,xpp3,xstream,co
 src_install() {
 	java-pkg_dojar release/jbackup.jar
 
-	java-pkg_dolauncher ${PN} \
-		--jar ${PN}.jar
+	java-pkg_dolauncher ${PN} --main net.jschmitz.jbackup.Startup
 
 	use source && java-pkg_dosource source
 }
