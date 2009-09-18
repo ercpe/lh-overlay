@@ -39,4 +39,6 @@ src_compile() {
 src_install() {
 	dobin ${PN} || die
 	dodoc AUTHORS README docs/* || die
+	insinto /usr/share/${PN}/
+	doins -r examples misc || die
 }
