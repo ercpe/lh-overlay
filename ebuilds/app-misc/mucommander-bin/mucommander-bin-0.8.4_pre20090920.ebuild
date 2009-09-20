@@ -17,15 +17,15 @@ IUSE=""
 
 RESTRICT="mirror"
 
-DEPEND=">=virtual/jdk-1.5"
-
-RDEPEND="${DEPEND} >=virtual/jre-1.4 !app-misc/mucommander"
+DEPEND=">=virtual/jdk-1.5 dev-java/java-config"
+RDEPEND="${DEPEND} !app-misc/mucommander"
 
 S="${WORKDIR}/${P}"
 
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
+	jar xf mucommander.jar icon32_24.png
 }
 
 src_compile() {
@@ -41,6 +41,6 @@ src_install() {
 
 	dodoc readme.txt
 
-#	newicon res/images/about.png ${PN}.png
-#	make_desktop_entry ${PN} "muCommander" ${PN}
+	newicon ${S}/icon32_24.png ${PN}.png
+	make_desktop_entry mucommander "muCommander" ${PN}.png
 }
