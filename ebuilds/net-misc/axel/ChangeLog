@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/net-misc/axel/ChangeLog,v 1.47 2009/02/07 10:28:35 drizzt Exp $
 
+  29 Sep 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> -axel-2.4.ebuild:
+  removed old version
+
   17 Jun 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
   +files/2.4-as-needed.patch, +axel-2.4-r1.ebuild:
   axel as-needed fix
