@@ -40,4 +40,3 @@ pkg_postinst() {
 	ewarn "the Device section of your XF86Config:"
 	ewarn "Option \"HWCursor\" \"false\""
 }
-
