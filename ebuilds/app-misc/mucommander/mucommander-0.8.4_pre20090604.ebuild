@@ -29,13 +29,11 @@ DEPEND=">=virtual/jdk-1.6
 RDEPEND="${DEPEND}
 	>=virtual/jre-1.4"
 
-
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
 	java-pkg_jar-from --build-only ant-core
 }
-
 
 src_compile() {
 	ANT_OPTS="${ANT_OPTS} -Xmx256m"
@@ -59,7 +57,6 @@ src_compile() {
 
 	eant tgz || die "Could not compile"
 }
-
 
 src_install() {
 	java-pkg_dojar dist/mucommander.jar
