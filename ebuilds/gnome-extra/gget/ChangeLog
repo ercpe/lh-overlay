@@ -1,0 +1,11 @@
+# ChangeLog for gnome-extra/gget
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gget-0.0.4 (03 Oct 2009)
+
+  03 Oct 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> +gget-0.0.4.ebuild,
+  +metadata.xml:
+  initial creation
+  bug 287574
+
