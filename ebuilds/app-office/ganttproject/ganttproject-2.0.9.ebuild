@@ -51,6 +51,9 @@ NEEDED_JARS="commons-httpclient-contrib.jar eclipsito.jar jdnc-modifBen.jar jaka
 JAVA_ANT_ENCODING=UTF-8
 
 java_prepare() {
+#	pushd ${WORKDIR}
+#	epatch "${FILESDIR}"/${PV}-include.patch
+#	popd
 	sed -e "s:GP_HOME=.:GP_HOME=/usr/share/${PN}/lib:g" \
 		-e "s:cd \${COMMAND_PATH}:cd \${GP_HOME}:g" \
 		-i ganttproject.command || die
@@ -96,9 +99,10 @@ src_install() {
 	java-pkg_dolauncher ${PN} \
 		--jar "eclipsito.jar" \
 		--main "org.bardsoftware.eclipsito.Boot" \
-		--java_args "-Xmx256m -Dorg.ganttproject.resourcebase=/usr/share/${PN}/lib/plugins/net.sourceforge.ganttproject_2.0.0/data/resources/" \
+		--java_args "-Xmx256m" \
 		--pkg_args "ganttproject-eclipsito-config.xml -log \${HOME}/.${PN}.log" \
 		--pwd ${basedir}
+# -Dorg.ganttproject.resourcebase=/usr/share/${PN}/lib/plugins/net.sourceforge.ganttproject_2.0.0/data/resources/" \
 
 	dodoc dist-bin/HouseBuildingSample.gan || die
 
