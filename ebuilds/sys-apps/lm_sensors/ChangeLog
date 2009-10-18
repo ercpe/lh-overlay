@@ -2,8 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  18 Aug 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> ChangeLog:
-  version bump
+*lm_sensors-3.1.1-r1 (18 Oct 2009)
+
+  18 Oct 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
+  lm_sensors-3.1.1.ebuild, +lm_sensors-3.1.1-r1.ebuild:
+  QA fix
 
   18 Aug 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
   -lm_sensors-3.1.0.ebuild,

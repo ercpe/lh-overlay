@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib
 
 DESCRIPTION="Hardware Monitoring user-space utilities"
@@ -22,45 +24,24 @@ RDEPEND="${COMMON}
 		dev-lang/perl
 		virtual/logger"
 
-pkg_setup() {
-	linux-info_pkg_setup
+CONFIG_CHECK="HWMON I2C_CHARDEV I2C"
 
-	if ! linux_chkconfig_present HWMON; then
-		eerror
-		eerror "${P} requires CONFIG_HWMON to be enabled."
-		eerror
-		die "CONFIG_HWMON not detected"
-	fi
-	if ! linux_chkconfig_present I2C_CHARDEV; then
-		ewarn
-		ewarn "sensors-detect requires CONFIG_I2C_CHARDEV to be enabled."
-		ewarn
-	fi
-	if ! linux_chkconfig_present I2C; then
-		ewarn
-		ewarn "${P} requires CONFIG_I2C to be enabled for most sensors."
-		ewarn
-	fi
-}
-
-src_unpack() {
-	unpack ${A}
-
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}"/${PN}-${PV}-sensors-detect-gentoo.patch
 
 	if use sensord; then
-		sed -i -e 's:^#\(PROG_EXTRA\):\1:' "${S}"/Makefile
+		sed -i -e 's:^#\(PROG_EXTRA\):\1:' "${S}"/Makefile || die
 	fi
 
 	# Respect LDFLAGS
-	sed -i -e 's/\$(LIBDIR)$/\$(LIBDIR) \$(LDFLAGS)/g' Makefile
-	sed -i -e 's/\$(LIBSHSONAME) -o/$(LIBSHSONAME) \$(LDFLAGS) -o/g' lib/Module.mk
+	sed -i -e 's/\$(LIBDIR)$/\$(LIBDIR) \$(LDFLAGS)/g' Makefile || die
+	sed -i -e 's/\$(LIBSHSONAME) -o/$(LIBSHSONAME) \$(LDFLAGS) -o/g' lib/Module.mk || die
 
-	sed -i -e '/^WARN/d' \
+	sed -i \
+		-e '/^WARN/d' \
 		-e 's|ALL_CFLAGS := -Wall|ALL_CFLAGS := |g' \
 		-e 's:ALL_CFLAGS += -O2:ALL_CFLAGS += :g' \
-		Makefile
+		Makefile || die
 	use debug && sed -1 -e 's|DEBUG := 0|DEBUG := 1|g' Makefile
 }
 
@@ -88,22 +69,19 @@ src_install() {
 		newinitd "${FILESDIR}"/sensord-init.d sensord
 	fi
 
-	dodoc CHANGES CONTRIBUTORS INSTALL README*
-
-	dodoc doc/donations doc/fancontrol.txt doc/fan-divisors \
-		doc/progs doc/temperature-sensors doc/vid
-
-	dohtml doc/lm_sensors-FAQ.html doc/useful_addresses.html
+	dodoc \
+		CHANGES CONTRIBUTORS INSTALL README* \
+		doc/{donations,fancontrol.txt,fan-divisors,progs,temperature-sensors,vid} \
+		|| die
 
 	docinto chips
-	dodoc doc/chips/*
+	dodoc doc/chips/* || die
 
 	docinto developers
-	dodoc doc/developers/applications
+	dodoc doc/developers/applications || die
 }
 
 pkg_postinst() {
-	elog
 	elog "Please run \`/usr/sbin/sensors-detect' in order to setup"
 	elog "/etc/conf.d/lm_sensors."
 	elog
@@ -122,5 +100,4 @@ pkg_postinst() {
 	elog
 	elog "Please refer to the lm_sensors documentation for more information."
 	elog "(http://www.lm-sensors.org/wiki/Documentation)"
-	elog
 }
