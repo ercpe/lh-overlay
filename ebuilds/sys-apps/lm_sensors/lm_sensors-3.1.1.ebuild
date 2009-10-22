@@ -1,6 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/lm_sensors/lm_sensors-3.1.1.ebuild,v 1.2 2008/08/13 16:13:57 armin76 Exp $
 
 inherit eutils flag-o-matic linux-info toolchain-funcs multilib
 
@@ -11,9 +11,9 @@ SRC_URI="http://dl.lm-sensors.org/lm-sensors/releases/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~sparc ~x86"
 
-IUSE="debug sensord"
+IUSE="sensord"
 
 COMMON="sensord? ( net-analyzer/rrdtool )"
 DEPEND="${COMMON}
@@ -22,26 +22,10 @@ RDEPEND="${COMMON}
 		dev-lang/perl
 		virtual/logger"
 
-pkg_setup() {
-	linux-info_pkg_setup
-
-	if ! linux_chkconfig_present HWMON; then
-		eerror
-		eerror "${P} requires CONFIG_HWMON to be enabled."
-		eerror
-		die "CONFIG_HWMON not detected"
-	fi
-	if ! linux_chkconfig_present I2C_CHARDEV; then
-		ewarn
-		ewarn "sensors-detect requires CONFIG_I2C_CHARDEV to be enabled."
-		ewarn
-	fi
-	if ! linux_chkconfig_present I2C; then
-		ewarn
-		ewarn "${P} requires CONFIG_I2C to be enabled for most sensors."
-		ewarn
-	fi
-}
+CONFIG_CHECK="~HWMON ~I2C_CHARDEV ~I2C"
+WARNING_HWMON="${PN} requires CONFIG_HWMON to be enabled for use."
+WARNING_I2C_CHARDEV="sensors-detect requires CONFIG_I2C_CHARDEV to be enabled."
+WARNING_I2C="${PN} requires CONFIG_I2C to be enabled for most sensors."
 
 src_unpack() {
 	unpack ${A}
@@ -50,18 +34,12 @@ src_unpack() {
 	epatch "${FILESDIR}"/${PN}-${PV}-sensors-detect-gentoo.patch
 
 	if use sensord; then
-		sed -i -e 's:^#\(PROG_EXTRA\):\1:' "${S}"/Makefile
+		sed -i -e 's:^# \(PROG_EXTRA\):\1:' "${S}"/Makefile
 	fi
 
 	# Respect LDFLAGS
 	sed -i -e 's/\$(LIBDIR)$/\$(LIBDIR) \$(LDFLAGS)/g' Makefile
 	sed -i -e 's/\$(LIBSHSONAME) -o/$(LIBSHSONAME) \$(LDFLAGS) -o/g' lib/Module.mk
-
-	sed -i -e '/^WARN/d' \
-		-e 's|ALL_CFLAGS := -Wall|ALL_CFLAGS := |g' \
-		-e 's:ALL_CFLAGS += -O2:ALL_CFLAGS += :g' \
-		Makefile
-	use debug && sed -1 -e 's|DEBUG := 0|DEBUG := 1|g' Makefile
 }
 
 src_compile()  {
