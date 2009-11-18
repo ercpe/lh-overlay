@@ -6,7 +6,7 @@
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 DESCRIPTION="Checks for security updates insite the portage system."
 #SRC_URI="http://www.nagiosexchange.org/cgi-bin/jump.cgi?ID=1539&view=File1"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/net-analyzer/${PN}/${P}.tar.bz2"
