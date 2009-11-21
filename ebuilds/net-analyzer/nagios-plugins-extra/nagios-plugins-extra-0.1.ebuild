@@ -20,4 +20,7 @@ src_install(){
 	doexe check_gentoo_portage || die
 	doexe check_apachestatus.pl || die
 	doexe check_apachestatus_auto.pl || die
+
+    dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
+    dosym /usr/$(get_libdir)/nagios/plugins/utils.pm /usr/$(get_libdir)/nagios/plugins/extra/utils.pm
 }
