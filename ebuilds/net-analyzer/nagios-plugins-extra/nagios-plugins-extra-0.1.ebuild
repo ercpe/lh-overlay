@@ -19,4 +19,5 @@ src_install(){
 	exeinto /usr/$(get_libdir)/nagios/plugins/extra/
 	doexe check_gentoo_portage || die
 	doexe check_apachestatus.pl || die
+	doexe check_apachestatus_auto.pl || die
 }
