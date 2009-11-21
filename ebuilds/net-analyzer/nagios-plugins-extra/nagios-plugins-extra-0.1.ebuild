@@ -23,4 +23,7 @@ src_install(){
 
     dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
     dosym /usr/$(get_libdir)/nagios/plugins/utils.pm /usr/$(get_libdir)/nagios/plugins/extra/utils.pm
+
+	chown -R root:nagios "${D}"/usr/$(get_libdir)/nagios/plugins || die "Failed chown of ${D}usr/$(get_libdir)/nagios/plugins"
+    chmod -R o-rwx "${D}"/usr/$(get_libdir)/nagios/plugins || die "Failed chmod of ${D}usr/$(get_libdir)/nagios/plugins"
 }
