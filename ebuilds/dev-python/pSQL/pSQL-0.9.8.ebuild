@@ -19,6 +19,7 @@ DEPEND="${RDEPEND}"
 src_unpack() {
 	unpack "${A}"
 	cd "${S}"
+	epatch "${FILESDIR}/01-datetime.patch"
 }
 
 src_install() {
@@ -26,4 +27,5 @@ src_install() {
 	insinto $(python_get_sitedir)/pSQL
 	
 	doins pSQL.py
+	touch ${D}/$(python_get_sitedir)/pSQL/__init__.py
 }
