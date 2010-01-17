@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="AS-IS"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="app-portage/portage-utils app-portage/gentoolkit"
 DEPEND="${RDEPEND}"
 
 RESTRICT="mirror"
