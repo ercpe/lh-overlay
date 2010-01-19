@@ -10,11 +10,11 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${PF}.tar
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-LICENSE="AS-IS"
+LICENSE="as-is"
 IUSE=""
 
 RDEPEND="app-portage/portage-utils app-portage/gentoolkit"
-DEPEND="${RDEPEND}"
+DEPEND=""
 
 RESTRICT="mirror"
 
@@ -22,15 +22,6 @@ pkg_setup() {
 	ewarn "This package contains potentially dangerous scripts. Use it with care!"
 }
 
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-}
-
 src_install() {
-	exeinto /usr/sbin
-	
-	for x in autounmask regen-meta-flat rebuild-all; do
-		doexe "$x"
-	done 
+	dosbin autounmask regen-meta-flat rebuild-all || die
 }
