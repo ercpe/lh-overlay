@@ -10,14 +10,19 @@ KEYWORDS="x86 amd64"
 DESCRIPTION="A set of extra nagios plugins"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/net-analyzer/${PN}/${P}.tar.bz2"
 HOMEPAGE="http://www.j-schmitz.net/"
-IUSE="fail2ban"
+IUSE="fail2ban bind pnp4nagios"
 RESTRICT="mirror"
 
-DEPEND="fail2ban? ( app-admin/sudo net-analyzer/fail2ban )"
+DEPEND="fail2ban? ( app-admin/sudo net-analyzer/fail2ban )
+		pnp4nagios? ( net-analyzer/pnp4nagios )
+		bind? ( net-dns/bind )
+		net-dns/bind-tools"
 
 S="${WORKDIR}"/nagios-plugins-extra
+SP="${WORKDIR}"/pnp-templates
 
-CHECK_SCRIPTS="check_gentoo_portage check_apachestatus.pl check_apachestatus_auto.pl check_fw_conntrack.sh check_mysql_status.sh check_mem.sh"
+CHECK_SCRIPTS="check_gentoo_portage check_apachestatus.pl check_fw_conntrack.sh check_mysql_status.sh check_mem.sh check_dnsbl.sh"
+TEMPLATES="check_memory.php check_mysql_status.php check_bind.php"
 
 src_install(){
 	exeinto /usr/$(get_libdir)/nagios/plugins/extra/
@@ -28,6 +33,23 @@ src_install(){
 
 	if use fail2ban; then
 		inst_check check_fail2ban.sh
+	fi
+
+	if use bind; then
+		inst_check check_bind.sh
+	fi
+
+	if use pnp4nagios; then
+		cd $SP
+		insinto /usr/share/pnp/templates/
+
+		for x in $TEMPLATES; do
+			doins $x
+		done
+		
+		insinto /etc/pnp/check_commands/
+		doins check_nrpe.cfg
+		dosym /etc/pnp/check_commands/check_nrpe.cfg /etc/pnp/check_commands/check_nrpe_args.cfg
 	fi
 
     dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
