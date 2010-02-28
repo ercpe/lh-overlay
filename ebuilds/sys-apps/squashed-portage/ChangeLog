@@ -4,5 +4,9 @@
 
   28 Feb 2010; Justin Lecher (jlec) <jlec@gentoo.org>
   squashed-portage-9999.ebuild:
+  Missing sys-fs/squashfs-tools added to RDEPEND
+
+  28 Feb 2010; Justin Lecher (jlec) <jlec@gentoo.org>
+  squashed-portage-9999.ebuild:
   First working version
 

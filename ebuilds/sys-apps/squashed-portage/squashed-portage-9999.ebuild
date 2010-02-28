@@ -1,3 +1,7 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 EAPI="3"
 
 inherit git multilib prefix
@@ -13,8 +17,8 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 IUSE=""
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
+RDEPEND="sys-fs/squashfs-tools:0"
+DEPEND=""
 
 src_prepare() {
 	eprefixify *
@@ -28,3 +32,4 @@ src_install() {
 	newconfd ${PN}.conf ${PN} || die
 	dobin get-squashed-portage || die
 }
+
