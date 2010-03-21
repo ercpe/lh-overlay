@@ -3,7 +3,6 @@
 # $Header: $
 
 EAPI=2
-
 inherit
 
 MY_PV=${PV/_beta/b}
