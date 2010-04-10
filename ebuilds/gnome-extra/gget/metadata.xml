@@ -10,8 +10,5 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
-	<use>
-		<flag name='epiphany'>Support for epiphany</flag>
-	</use>
 </pkgmetadata>
 

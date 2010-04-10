@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>no-herd</herd>
-<maintainer>
-  <email>jlec@j-schmitz.net</email>
-</maintainer>
-<maintainer>
-  <email>johann@j-schmitz.net</email>
-</maintainer>
-<!-- <longdescription>Long description of the package</longdescription> -->
-<!--
-<use>
-  <flag name='flag'>Description of how USE='flag' affects this package.</flag>
-  <flag name='userland_GNU'>Description of how USERLAND='GNU' affects this package.</flag>
-</use>
--->
+	<herd>last-hope</herd>
+	<maintainer>
+		<email>jlec@j-schmitz.net</email>
+		<name>Justin Lecher (jlec)</name>
+	</maintainer>
+	<maintainer>
+		<email>johann@j-schmitz.net</email>
+		<name>Johann Schmitz</name>
+	</maintainer>
 </pkgmetadata>
+

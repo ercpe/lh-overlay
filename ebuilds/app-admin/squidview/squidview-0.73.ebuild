@@ -5,7 +5,7 @@
 
 inherit toolchain-funcs eutils
 
-DESCRIPTION="Squidview is an interactive console program which monitors and displays squid logs in a nice fashion, and may then go deeper with searching and reporting functions."
+DESCRIPTION="An interactive console program which monitors and displays squid logs in a nice fashion."
 HOMEPAGE="http://www.rillion.net/squidview/"
 SRC_URI="http://www.rillion.net/squidview/${PN}-${PV}.tar.gz"
 LICENSE="GPL"

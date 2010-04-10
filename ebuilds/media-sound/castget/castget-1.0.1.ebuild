@@ -4,7 +4,7 @@
 
 inherit eutils toolchain-funcs
 
-DESCRIPTION="castget is a simple, command-line based RSS enclosure downloader. It is primarily intended for automatic, unattended downloading of podcasts."
+DESCRIPTION="A simple, command-line based RSS downloader, perfect for automatic, unattended downloading of podcasts."
 HOMEPAGE="http://www.nongnu.org/castget/"
 SRC_URI="http://savannah.nongnu.org/download/castget/${P}.tar.gz"
 

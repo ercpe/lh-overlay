@@ -4,14 +4,11 @@
 	<herd>last-hope</herd>
 	<maintainer>
 		<email>jlec@j-schmitz.net</email>
-		<name>Justin Lecher</name>
+		<name>Justin Lecher (jlec)</name>
 	</maintainer>
 	<maintainer>
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
-	<use>
-		<flag name='povray'>Use povray as renderer</flag>
-	</use>
 </pkgmetadata>
 

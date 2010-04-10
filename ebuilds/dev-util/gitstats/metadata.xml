@@ -6,5 +6,9 @@
 		<email>jlec@j-schmitz.net</email>
 		<name>Justin Lecher (jlec)</name>
 	</maintainer>
+	<maintainer>
+		<email>johann@j-schmitz.net</email>
+		<name>Johann Schmitz</name>
+	</maintainer>
 </pkgmetadata>
 

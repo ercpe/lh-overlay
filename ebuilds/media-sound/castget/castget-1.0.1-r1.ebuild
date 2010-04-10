@@ -4,7 +4,7 @@
 
 inherit base
 
-DESCRIPTION="A simple, command-line based RSS enclosure downloader, primarily intended for automatic, unattended downloading of podcasts."
+DESCRIPTION="A simple, command-line based RSS downloader, perfect for automatic, unattended downloading of podcasts."
 HOMEPAGE="http://www.nongnu.org/castget/"
 SRC_URI="http://savannah.nongnu.org/download/${PN}/${P}.tar.gz"
 
