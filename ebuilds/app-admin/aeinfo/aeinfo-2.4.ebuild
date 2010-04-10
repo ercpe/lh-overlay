@@ -29,4 +29,3 @@ src_install(){
 	dohtml -r htdocs/*
 	dodoc TODO README*
 }
-

@@ -1,6 +1,6 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-wireless/ralink-rt61/ralink-rt61-1.1.2.2-r1.ebuild,v 1.0 2008/10/16 15:32:07 genstef-wolk-J.Chen(Ralink)-rufnut Exp $
+# $Header: $
 
 inherit eutils linux-mod
 
@@ -21,7 +21,6 @@ SLOT="0"
 DEPEND=""
 RDEPEND="net-wireless/wireless-tools
 	!net-wireless/rt61"
-
 
 S="${WORKDIR}/${MY_P}"
 

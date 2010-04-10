@@ -25,5 +25,5 @@ src_install(){
 	exeinto /usr/lib/stripcomments
 	doexe stripcomments.sh
 
-	dosym /usr/lib/stripcomments/stripcomments.sh /bin/stripcomments	
+	dosym /usr/lib/stripcomments/stripcomments.sh /bin/stripcomments
 }

@@ -15,7 +15,6 @@ IUSE=""
 
 RDEPEND="sys-devel/gettext"
 
-
 DEPEND="${RDEPEND}
 	>=x11-libs/gtk+-2.10
 	>=gnome-base/gnome-vfs-2.10

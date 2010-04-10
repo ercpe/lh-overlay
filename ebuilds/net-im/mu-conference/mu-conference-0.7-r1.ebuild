@@ -24,7 +24,6 @@ DEPEND="dev-libs/expat
 
 IUSE="mysql"
 
-
 S="${WORKDIR}/${PN}_${PV}"
 
 src_unpack() {
@@ -90,4 +89,3 @@ pkg_postinst() {
 	elog "2. Set a common secret in mu-conference.xml and router.xml"
 	elog
 }
-

@@ -25,7 +25,6 @@ QA_PRESTRIPPED="/opt/usf-sbin/zprof
 	/opt/usf-sbin/mseqpro
 	/opt/usf-sbin/mseq2alsc"
 
-
 src_install(){
 	exeinto /opt/${PN}
 

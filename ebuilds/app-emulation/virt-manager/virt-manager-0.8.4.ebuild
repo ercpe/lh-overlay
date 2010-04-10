@@ -32,4 +32,3 @@ RDEPEND=">=dev-lang/python-2.4.0
 	policykit? ( gnome-extra/polkit-gnome )"
 DEPEND="${RDEPEND}
 	app-text/rarian"
-

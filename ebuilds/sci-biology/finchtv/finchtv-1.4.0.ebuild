@@ -1,6 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sci-biology/finchtv/finchtv-1.3.1-r1.ebuild,v 1.1 2008/12/20 23:38:57 je_fro Exp $
+# $Header: $
 
 DESCRIPTION="A cross-platform graphical viewer for chromatogram files."
 HOMEPAGE="http://www.geospiza.com/finchtv/"

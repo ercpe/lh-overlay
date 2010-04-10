@@ -25,7 +25,6 @@ QA_PRESTRIPPED="/opt/usf-dejavu/o2d
 	/opt/usf-dejavu/dejavu
 	/opt/usf-dejavu/dejana"
 
-
 src_install(){
 	exeinto /opt/${PN}
 	doexe ${MY_PN}_etc/make_sse || die

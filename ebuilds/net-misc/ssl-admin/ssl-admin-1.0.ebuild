@@ -36,4 +36,3 @@ src_install(){
 	fowners root:wheel /usr/bin/ssl-admin
 	doman man1/ssl-admin.1 man5/ssl-admin.conf.5 || die "man page installation failed"
 }
-

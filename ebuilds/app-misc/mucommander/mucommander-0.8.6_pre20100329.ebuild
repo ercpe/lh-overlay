@@ -1,3 +1,7 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 EAPI="2"
 
 JAVA_PKG_IUSE="doc source"
@@ -20,7 +24,6 @@ RESTRICT="mirror"
 DEPEND=">=virtual/jdk-1.6
 		dev-java/ant-core:0
 		dev-java/ant-junit:0"
-		
 
 RDEPEND="${DEPEND}
 	>=virtual/jre-1.5
@@ -50,7 +53,7 @@ src_compile() {
 	# now link the dependencies
 	for x in ant-core ant-junit commons-logging commons-collections commons-httpclient-3 icu4j \
 				commons-codec jmdns jakarta-oro-2.0 jcifs-1.1; do
-		java-pkg_jar-from "${x}"					
+		java-pkg_jar-from "${x}"
 	done
 
 	cd "${S}"

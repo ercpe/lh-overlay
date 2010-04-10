@@ -59,11 +59,9 @@ src_install(){
 		doins -r exam || die
 	fi
 
-
 	cat>>"${T}"/20${PN}<<-EOF
 	PATH="/opt/${PN}/bin"
 	GKLIB="/opt/usf-lib/"
 	EOF
 	doenvd "${T}"/20${PN}
 }
-

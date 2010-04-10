@@ -30,6 +30,6 @@ src_compile() {
 
 src_install() {
 	dobin visitors
-	dodoc AUTHORS COPYING Changelog README TODO
+	dodoc AUTHORS Changelog README TODO
 	dohtml doc.html graph.png visitors.css
 }

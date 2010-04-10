@@ -45,7 +45,7 @@ src_install() {
 
 pkg_postinst() {
 	echo
-	elog "See README-FIRST in /usr/share/skipfish/dictionaries/ to pick a dictionary and use with -W option:" 
+	elog "See README-FIRST in /usr/share/skipfish/dictionaries/ to pick a dictionary and use with -W option:"
 	elog " skipfish -W /usr/share/skipfish/dictionaries/<dictionary_name>"
 	echo
 }

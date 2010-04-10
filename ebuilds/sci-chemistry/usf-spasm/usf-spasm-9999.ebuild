@@ -26,7 +26,6 @@ QA_PRESTRIPPED="/opt/usf-spasm/spasm
 	/opt/usf-spasm/makrig
 	/opt/usf-spasm/dejana"
 
-
 src_install(){
 	exeinto /opt/${PN}
 

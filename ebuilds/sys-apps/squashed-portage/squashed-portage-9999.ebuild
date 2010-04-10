@@ -8,7 +8,7 @@ inherit git multilib prefix
 
 EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
 
-DESCRIPTION="Tools to handle squashed portagey"
+DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="N/N"
 SRC_URI=""
 
@@ -32,4 +32,3 @@ src_install() {
 	newconfd ${PN}.conf ${PN} || die
 	dobin get-squashed-portage || die
 }
-

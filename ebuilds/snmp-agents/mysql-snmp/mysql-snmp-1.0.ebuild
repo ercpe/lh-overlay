@@ -1,9 +1,6 @@
-# Copyright 1999-2010 Chris Gianelloni
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id $
-
-# mysql-snmp-9999       -> latest git
-# mysql-snmp-VER        -> normal MIB release
+# $Header: $
 
 EAPI="2"
 

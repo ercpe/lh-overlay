@@ -24,14 +24,11 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/TOOLS"
 
-
 src_compile(){
 	einfo "It is binary distributed"
 }
 
-
 src_install(){
-
 	make all && \
 	make linux || \
 	die
@@ -54,4 +51,3 @@ src_install(){
 	doenvd ${T}/45proctools
 
 }
-

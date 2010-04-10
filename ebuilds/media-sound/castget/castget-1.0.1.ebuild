@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,6 @@ DEPEND=">=dev-libs/glib-2 dev-libs/libxml2 media-libs/id3lib"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${P}
-
 
 src_unpack() {
 	unpack ${A}

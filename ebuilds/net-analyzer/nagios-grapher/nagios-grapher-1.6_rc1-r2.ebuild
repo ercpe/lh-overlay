@@ -1,7 +1,6 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-# cvahldieck 2007-04
 
 inherit eutils
 
@@ -27,7 +26,6 @@ DEPEND=">=dev-perl/GDGraph-1.43
 		>=media-gfx/imagemagick-6.2.5.5
 		>=net-analyzer/nagios-2.5"
 RDEPEND="${DEPEND}"
-
 
 pkg_setup() {
 	enewgroup nagios
@@ -107,4 +105,3 @@ pkg_postinst() {
 	einfo "Just in case: the docs are located in /usr/share/doc/${PF}"
 	einfo
 }
-

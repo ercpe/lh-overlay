@@ -33,5 +33,5 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 
-	dodoc AUTHORS ChangeLog COPYING README TODO WISHLIST
+	dodoc AUTHORS ChangeLog README TODO WISHLIST
 }

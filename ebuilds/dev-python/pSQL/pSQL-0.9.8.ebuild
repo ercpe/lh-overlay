@@ -25,7 +25,7 @@ src_unpack() {
 src_install() {
 	dodir $(python_get_sitedir)/pSQL || die "dodir failed"
 	insinto $(python_get_sitedir)/pSQL
-	
+
 	doins pSQL.py
 	touch ${D}/$(python_get_sitedir)/pSQL/__init__.py
 }

@@ -50,7 +50,7 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}"/${PV}-configure_at.patch \
-		"${FILESDIR}"/${PV}-Makefile_at.patch 
+		"${FILESDIR}"/${PV}-Makefile_at.patch
 #		"${FILESDIR}"/${PV}-Makefile_at-f2c.patch 
 #		"${FILESDIR}"/${PV}-f2c.patch
 	cd src && rm -rf byacc c9x-complex carpack cblas cifparse clapack mopac6 netcdf reduce ucpp-1.3

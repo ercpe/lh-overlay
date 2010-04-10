@@ -19,11 +19,10 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/WorkBench-${PV}"
 
-
 src_install() {
 	insinto $(python_get_sitedir)/${PN}
 	doins -r ${S}/Source/*
-	
+
 	cat >> "${T}"/pysvn-workbench <<- EOF
 #!/bin/bash
 python -O $(python_get_sitedir)/${PN}/wb_main.py

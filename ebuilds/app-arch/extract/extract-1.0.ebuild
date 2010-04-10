@@ -25,5 +25,5 @@ src_install(){
 	exeinto /usr/lib/extract
 	doexe extract.sh
 
-	dosym /usr/lib/extract/extract.sh /bin/extract	
+	dosym /usr/lib/extract/extract.sh /bin/extract
 }

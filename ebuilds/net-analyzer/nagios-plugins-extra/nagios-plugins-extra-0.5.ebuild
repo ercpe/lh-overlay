@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools
+inherit eutils
 
 SLOT="0"
 LICENSE="AS-IS"
@@ -46,14 +46,14 @@ src_install(){
 		for x in $TEMPLATES; do
 			doins $x
 		done
-		
+
 		insinto /etc/pnp/check_commands/
 		doins check_nrpe.cfg
 		dosym /etc/pnp/check_commands/check_nrpe.cfg /etc/pnp/check_commands/check_nrpe_args.cfg
 	fi
 
-    dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
-    dosym /usr/$(get_libdir)/nagios/plugins/utils.pm /usr/$(get_libdir)/nagios/plugins/extra/utils.pm
+	dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
+	dosym /usr/$(get_libdir)/nagios/plugins/utils.pm /usr/$(get_libdir)/nagios/plugins/extra/utils.pm
 }
 
 pkg_postinst() {

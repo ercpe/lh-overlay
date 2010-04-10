@@ -50,7 +50,6 @@ src_install(){
 	exeinto /opt/${PN}/bin."${MY_VER}"
 	doexe bin."${MY_VER}"/*
 
-
 	insinto /opt/${PN}/
 	doins -r arch databases dataconversion helplib nmrlib python tcl test toppar xtal_info xtallib
 
@@ -64,7 +63,6 @@ src_install(){
 #	done
 
 	#str=$(/bin/sh ./bin/xplor -sh-env)
-
 
 #	if [ $? -eq 0 ]; then
 #		die #eval $str

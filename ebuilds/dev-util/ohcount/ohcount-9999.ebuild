@@ -1,3 +1,7 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 EGIT_REPO_URI="git://labs.ohloh.net/git/ohcount.git"
 
 GEM_SRC="${WORKDIR}/${P}/pkg/${PN}-2.0.1"
@@ -20,7 +24,6 @@ DEPEND="${RDEPEND}
 	dev-ruby/rake
 	dev-ruby/rubygems
 	>=dev-util/ragel-6.3"
-
 
 src_compile() {
 	rake || die "compilation failed."

@@ -1,3 +1,7 @@
+# Copyright 1999-2010 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
 EAPI="2"
 
 JAVA_PKG_IUSE=""
@@ -24,7 +28,7 @@ S="${WORKDIR}/muCommander-0_8_4" #oh, i'm sorry :)
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 	jar xf mucommander.jar icon32_24.png
 }
 
@@ -41,6 +45,6 @@ src_install() {
 
 	dodoc readme.txt
 
-	newicon ${S}/icon32_24.png ${PN}.png
+	newicon "${S}/icon32_24.png" "${PN}.png"
 	make_desktop_entry mucommander "muCommander" ${PN}.png
 }

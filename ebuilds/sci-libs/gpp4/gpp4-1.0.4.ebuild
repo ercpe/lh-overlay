@@ -17,10 +17,7 @@ IUSE=""
 RDEPEND=""
 DEPEND="${RDEPEND}"
 
-
 src_install(){
-
 	emake DESTDIR="${D}" install || \
 	die
-
 }

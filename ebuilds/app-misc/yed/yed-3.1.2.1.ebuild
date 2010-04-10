@@ -41,7 +41,7 @@ src_unpack() {
 }
 
 src_compile() {
-    :;
+	:;
 }
 
 src_install() {

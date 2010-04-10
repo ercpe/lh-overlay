@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
-
 SLOT="0"
 LICENSE="MestRec"
 KEYWORDS="~x86"
