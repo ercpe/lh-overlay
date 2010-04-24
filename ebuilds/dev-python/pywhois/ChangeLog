@@ -1,0 +1,6 @@
+# ChangeLog for dev-python/pywhois
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Apr 2010; Johann Schmitz <johann@j-schmitz> +pywhois-0.1-r13.ebuild:
+  Initial commit.
