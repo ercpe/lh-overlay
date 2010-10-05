@@ -29,22 +29,21 @@ S="${WORKDIR}/${P}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	jar xf mucommander.jar icon32_24.png
+	jar xf mucommander.jar images/mucommander/icon32_24.png
 }
 
 src_compile() {
-	# nothing to do
-	echo ""
+	echo ""	# nothing to do
 }
 
 src_install() {
 	java-pkg_dojar mucommander.jar
 
 	## create a launcher
-	java-pkg_dolauncher mucommander --java_args "-Djava.system.class.loader=com.mucommander.file.AbstractFileClassLoader"
+	java-pkg_dolauncher mucommander --java_args "-Djava.system.class.loader=com.mucommander.commons.file.AbstractFileClassLoader"
 
 	dodoc readme.txt
 
-	newicon ${S}/icon32_24.png ${PN}.png
-	make_desktop_entry mucommander "muCommander" ${PN}.png
+	newicon ${S}/images/mucommander/icon32_24.png ${PN}.png
+	make_desktop_entry mucommander "muCommander" /usr/share/pimaps/${PN}.png
 }
