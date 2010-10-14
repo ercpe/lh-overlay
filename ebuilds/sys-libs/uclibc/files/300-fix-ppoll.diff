@@ -1,279 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  
-  
 
-
-  
-
-  <head>
-    <title>
-      /trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff – OpenWrt
-    </title>
-        <link rel="search" href="/search" />
-        <link rel="help" href="/wiki/TracGuide" />
-        <link rel="alternate" href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff?format=txt" type="text/plain" title="Plain Text" /><link rel="alternate" href="/export/23450/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
-        <link rel="up" href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1" title="Parent directory" />
-        <link rel="start" href="/wiki" />
-        <link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/diff.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/browser.css" type="text/css" />
-        <link rel="shortcut icon" href="/chrome/common/trac.ico" type="image/x-icon" />
-        <link rel="icon" href="/chrome/common/trac.ico" type="image/x-icon" />
-      <link type="application/opensearchdescription+xml" rel="search" href="/search/opensearch" title="Search OpenWrt" />
-    <script type="text/javascript" src="/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/chrome/common/js/trac.js"></script><script type="text/javascript" src="/chrome/common/js/search.js"></script><script type="text/javascript" src="/chrome/common/js/diff.js"></script>
-    <!--[if lt IE 7]>
-    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
-        $(".trac-toggledeleted").show().click(function() {
-                  $(this).siblings().find(".trac-deleted").toggle();
-                  return false;
-        }).click();
-        $("#jumploc input").hide();
-        $("#jumploc select").change(function () {
-          this.parentNode.parentNode.submit();
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <div id="banner">
-      <div id="header">
-        <a id="logo" href="https://openwrt.org/"><img src="https://openwrt.org/openwrt-logo.png" alt="OpenWrt" height="98" width="386" /></a>
-      </div>
-      <form id="search" action="/search" method="get">
-        <div>
-          <label for="proj-search">Search:</label>
-          <input type="text" id="proj-search" name="q" size="18" value="" />
-          <input type="submit" value="Search" />
-        </div>
-      </form>
-      <div id="metanav" class="nav">
-    <ul>
-      <li class="first"><a href="/login">Login</a></li><li><a href="/prefs">Preferences</a></li><li><a href="/wiki/TracGuide">Help/Guide</a></li><li class="last"><a href="/about">About Trac</a></li>
-    </ul>
-  </div>
-    </div>
-    <div id="mainnav" class="nav">
-    <ul>
-      <li class="first"><a href="/wiki">Wiki</a></li><li><a href="/timeline">Timeline</a></li><li><a href="/roadmap">Roadmap</a></li><li class="active"><a href="/browser">Browse Source</a></li><li><a href="/report">View Tickets</a></li><li><a href="/newticket">New Ticket</a></li><li class="last"><a href="/search">Search</a></li>
-    </ul>
-  </div>
-    <div id="main">
-      <div id="ctxtnav" class="nav">
-        <h2>Context Navigation</h2>
-          <ul>
-              <li class="first"><a href="/changeset/16166/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff">Last Change</a></li><li><a href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff?annotate=blame&amp;rev=16166" title="Annotate each line with the last changed revision (this can be time consuming...)">Annotate</a></li><li class="last"><a href="/log/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff">Revision Log</a></li>
-          </ul>
-        <hr />
-      </div>
-    <div id="content" class="browser">
-      <h1>
-    <a class="pathentry first" title="Go to root directory" href="/browser">root</a><span class="pathentry sep">/</span><a class="pathentry" title="View trunk" href="/browser/trunk">trunk</a><span class="pathentry sep">/</span><a class="pathentry" title="View toolchain" href="/browser/trunk/toolchain">toolchain</a><span class="pathentry sep">/</span><a class="pathentry" title="View uClibc" href="/browser/trunk/toolchain/uClibc">uClibc</a><span class="pathentry sep">/</span><a class="pathentry" title="View patches-0.9.30.1" href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1">patches-0.9.30.1</a><span class="pathentry sep">/</span><a class="pathentry" title="View 300-fix-ppoll.diff" href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff">300-fix-ppoll.diff</a>
-    <br style="clear: both" />
-  </h1>
-      <div id="jumprev">
-        <form action="" method="get">
-          <div>
-            <label for="rev">
-              View revision:</label>
-            <input type="text" id="rev" name="rev" size="6" />
-          </div>
-        </form>
-      </div>
-      <div id="jumploc">
-        <form action="" method="get">
-          <div class="buttons">
-            <label for="preselected">Visit:</label>
-            <select id="preselected" name="preselected">
-              <option selected="selected"></option>
-              <optgroup label="branches">
-                <option value="/browser/trunk">trunk</option><option value="/browser/branches/8.09">branches/8.09</option><option value="/browser/branches/backfire">branches/backfire</option><option value="/browser/branches/kamikaze-before-brng">branches/kamikaze-before-brng</option><option value="/browser/branches/packages_8.09">branches/packages_8.09</option><option value="/browser/branches/whiterussian">branches/whiterussian</option>
-              </optgroup><optgroup label="tags">
-                <option value="/browser/tags/8.09?rev=15317">tags/8.09</option><option value="/browser/tags/8.09.1?rev=16279">tags/8.09.1</option><option value="/browser/tags/8.09.2?rev=18961">tags/8.09.2</option><option value="/browser/tags/8.09_rc1?rev=13118">tags/8.09_rc1</option><option value="/browser/tags/8.09_rc2?rev=14166">tags/8.09_rc2</option><option value="/browser/tags/backfire_10.03?rev=20742">tags/backfire_10.03</option><option value="/browser/tags/kamikaze_7.06?rev=7431">tags/kamikaze_7.06</option><option value="/browser/tags/kamikaze_7.07?rev=8640">tags/kamikaze_7.07</option><option value="/browser/tags/kamikaze_7.09?rev=11162">tags/kamikaze_7.09</option><option value="/browser/tags/whiterussian_0.9?rev=6268">tags/whiterussian_0.9</option><option value="/browser/tags/whiterussian_rc1?rev=1284">tags/whiterussian_rc1</option><option value="/browser/tags/whiterussian_rc2?rev=1498">tags/whiterussian_rc2</option><option value="/browser/tags/whiterussian_rc3?rev=1922">tags/whiterussian_rc3</option><option value="/browser/tags/whiterussian_rc4?rev=2552">tags/whiterussian_rc4</option><option value="/browser/tags/whiterussian_rc5?rev=3506">tags/whiterussian_rc5</option><option value="/browser/tags/whiterussian_rc6?rev=5461">tags/whiterussian_rc6</option>
-              </optgroup>
-            </select>
-            <input type="submit" value="Go!" title="Jump to the chosen preselected path" />
-          </div>
-        </form>
-      </div>
-      <table id="info" summary="Revision info">
-        <tr>
-          <th scope="col">
-            Revision <a href="/changeset/16166">16166</a>, <span title="968 bytes">0.9 KB</span>
-            (checked in by hcg, <a class="timeline" href="/timeline?from=2009-05-29T09%3A40%3A29%2B0200&amp;precision=second" title="2009-05-29T09:40:29+0200 in Timeline">17 months</a> ago)
-          </th>
-        </tr>
-        <tr>
-          <td class="message searchable">
-              <p>
-[uClibc 0.9.29 0.9.30.1] Add the missing 5th arg to the ppoll syscall.<br />
-Fixes the uclibc error that ppoll returns -EINVAL.<br />
-Thanks to Geoff Levand &lt;geoffrey.levand@…&gt;<br />
-</p>
-          </td>
-        </tr>
-      </table>
-      <div id="preview" class="searchable">
-    <div class="diff">
-  <ul class="entries">
-      <li class="entry">
-        <h2>
-          <a>libc/sysdeps/linux/common/ppoll.c</a>
-        </h2>
-        <pre>
 It will match kernel's sigset_t starting from 0.9.31.
 
 Please try attached patch.
 -- 
 vda
-</pre>
-        <table class="inline" summary="Differences" cellspacing="0">
-              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
-              <thead>
-                <tr>
-                  <th title="File uClibc.0/libc/sysdeps/linux/common/ppoll.c">
-                      old
-                  </th>
-                  <th title="File uClibc.1/libc/sysdeps/linux/common/ppoll.c">
-                      new
-                  </th>
-                  <th> </th>
-                </tr>
-              </thead>
-            <tbody class="unmod">
-                  <tr>
-                          <th>17</th><th>17</th><td class="l"><span>&nbsp; &nbsp;Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA</span> </td>
-                  </tr><tr>
-                          <th>18</th><th>18</th><td class="l"><span>&nbsp; &nbsp;02111-1307 USA.&nbsp; */</span> </td>
-                  </tr><tr>
-                          <th>19</th><th>19</th><td class="l"><span></span> </td>
-                  </tr>
-            </tbody><tbody class="add">
-                  <tr class="last first">
-                          <th> </th><th>20</th><td class="r"><ins>#include &lt;signal.h&gt;</ins> </td>
-                  </tr>
-            </tbody><tbody class="unmod">
-                  <tr>
-                          <th>20</th><th>21</th><td class="l"><span>#include &lt;sys/syscall.h&gt;</span> </td>
-                  </tr><tr>
-                          <th>21</th><th>22</th><td class="l"><span>#include &lt;sys/poll.h&gt;</span> </td>
-                  </tr><tr>
-                          <th>22</th><th>23</th><td class="l"><span></span> </td>
-                  </tr>
-            </tbody>
-              <tbody class="skipped">
-                <tr>
-                  <th><a href="#L26">…</a></th>
-                  <th><a href="#L27">…</a></th>
-                  <td> </td>
-                </tr>
-              </tbody>
-            <tbody class="unmod">
-                  <tr>
-                          <th>26</th><th>27</th><td class="l"><span></span> </td>
-                  </tr><tr>
-                          <th>27</th><th>28</th><td class="l"><span># define __NR___libc_ppoll __NR_ppoll</span> </td>
-                  </tr><tr>
-                          <th>28</th><th>29</th><td class="l"><span>static __always_inline</span> </td>
-                  </tr>
-            </tbody><tbody class="mod">
-                      <tr class="first">
-                        <th>29</th><th> </th><td class="l"><span>_syscall<del>4</del>(int, __libc_ppoll, struct pollfd *, fds,</span> </td>
-                      </tr>
-                      <tr class="last">
-                        <th> </th><th>30</th><td class="r"><span>_syscall<ins>5</ins>(int, __libc_ppoll, struct pollfd *, fds,</span> </td>
-                      </tr>
-            </tbody><tbody class="unmod">
-                  <tr>
-                          <th>30</th><th>31</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; nfds_t, nfds, const struct timespec *, timeout,</span> </td>
-                  </tr>
-            </tbody><tbody class="mod">
-                      <tr class="first">
-                        <th>31</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; const __sigset_t *, sigmask<del></del>)</span> </td>
-                      </tr>
-                      <tr class="last">
-                        <th> </th><th>32</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; const __sigset_t *, sigmask<ins>, size_t, sigsetsize</ins>)</span> </td>
-                      </tr>
-            </tbody><tbody class="unmod">
-                  <tr>
-                          <th>32</th><th>33</th><td class="l"><span></span> </td>
-                  </tr><tr>
-                          <th>33</th><th>34</th><td class="l"><span>int</span> </td>
-                  </tr><tr>
-                          <th>34</th><th>35</th><td class="l"><span>ppoll (struct pollfd *fds, nfds_t nfds, const struct timespec *timeout,</span> </td>
-                  </tr>
-            </tbody>
-              <tbody class="skipped">
-                <tr>
-                  <th><a href="#L43">…</a></th>
-                  <th><a href="#L44">…</a></th>
-                  <td> </td>
-                </tr>
-              </tbody>
-            <tbody class="unmod">
-                  <tr>
-                          <th>43</th><th>44</th><td class="l"><span>&nbsp; &nbsp; &nbsp; timeout = &amp;tval;</span> </td>
-                  </tr><tr>
-                          <th>44</th><th>45</th><td class="l"><span>&nbsp; &nbsp; }</span> </td>
-                  </tr><tr>
-                          <th>45</th><th>46</th><td class="l"><span></span> </td>
-                  </tr>
-            </tbody><tbody class="mod">
-                      <tr class="first">
-                        <th>46</th><th> </th><td class="l"><span>&nbsp; return __libc_ppoll(fds, nfds, timeout, sigmask<del></del>);</span> </td>
-                      </tr>
-                      <tr class="last">
-                        <th> </th><th>47</th><td class="r"><span>&nbsp; return __libc_ppoll(fds, nfds, timeout, sigmask<ins>, _NSIG / 8</ins>);</span> </td>
-                      </tr>
-            </tbody><tbody class="unmod">
-                  <tr>
-                          <th>47</th><th>48</th><td class="l"><span>}</span> </td>
-                  </tr><tr>
-                          <th>48</th><th>49</th><td class="l"><span>libc_hidden_def(ppoll)</span> </td>
-                  </tr><tr>
-                          <th>49</th><th>50</th><td class="l"><span></span> </td>
-                  </tr>
-            </tbody>
-        </table>
-      </li>
-  </ul>
-</div>
-      </div>
-      <div id="help">
-        <strong>Note:</strong> See <a href="/wiki/TracBrowser">TracBrowser</a>
-        for help on using the browser.
-      </div>
-      <div id="anydiff">
-        <form action="/diff" method="get">
-          <div class="buttons">
-            <input type="hidden" name="new_path" value="/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff" />
-            <input type="hidden" name="old_path" value="/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff" />
-            <input type="hidden" name="new_rev" />
-            <input type="hidden" name="old_rev" />
-            <input type="submit" value="View changes..." title="Select paths and revs for Diff" />
-          </div>
-        </form>
-      </div>
-    </div>
-    <div id="altlinks">
-      <h3>Download in other formats:</h3>
-      <ul>
-        <li class="first">
-          <a rel="nofollow" href="/browser/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff?format=txt">Plain Text</a>
-        </li><li class="last">
-          <a rel="nofollow" href="/export/23450/trunk/toolchain/uClibc/patches-0.9.30.1/300-fix-ppoll.diff">Original Format</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-    <div id="footer" lang="en" xml:lang="en"><hr />
-      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
-      <p class="left">
-        Powered by <a href="/about"><strong>Trac 0.11.7</strong></a><br />
-        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
-      </p>
-      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.com/">http://trac.edgewall.com/</a></p>
-    </div>
-  </body>
-</html>
+
+--- uClibc.0/libc/sysdeps/linux/common/ppoll.c
++++ uClibc.1/libc/sysdeps/linux/common/ppoll.c
+@@ -17,6 +17,7 @@
+    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+    02111-1307 USA.  */
+ 
++#include <signal.h>
+ #include <sys/syscall.h>
+ #include <sys/poll.h>
+ 
+@@ -26,9 +27,9 @@
+ 
+ # define __NR___libc_ppoll __NR_ppoll
+ static __always_inline
+-_syscall4(int, __libc_ppoll, struct pollfd *, fds,
++_syscall5(int, __libc_ppoll, struct pollfd *, fds,
+ 	nfds_t, nfds, const struct timespec *, timeout,
+-	const __sigset_t *, sigmask)
++	const __sigset_t *, sigmask, size_t, sigsetsize)
+ 
+ int
+ ppoll (struct pollfd *fds, nfds_t nfds, const struct timespec *timeout,
+@@ -43,7 +44,7 @@
+       timeout = &tval;
+     }
+ 
+-  return __libc_ppoll(fds, nfds, timeout, sigmask);
++  return __libc_ppoll(fds, nfds, timeout, sigmask, _NSIG / 8);
+ }
+ libc_hidden_def(ppoll)
+ 

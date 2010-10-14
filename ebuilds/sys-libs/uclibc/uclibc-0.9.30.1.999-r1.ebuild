@@ -173,7 +173,7 @@ src_unpack() {
 
 	sed -i 's:getline:get_line:' extra/scripts/unifdef.c #277186
 
-	epatch "${FILESDIR}/300-fix-ppoll.diff"
+	patch -p1 -i "${FILESDIR}/300-fix-ppoll.diff" || die
 
 	########## CPU SELECTION ##########
 
