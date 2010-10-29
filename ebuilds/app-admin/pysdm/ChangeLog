@@ -1,0 +1,10 @@
+# ChangeLog for app-admin/pysdm
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Oct 2010; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  New addition
+
+  29 Oct 2010; Justin Lecher <jlec@gentoo.org> +Manifest:
+  New addition
+
