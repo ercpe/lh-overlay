@@ -9,11 +9,14 @@ HOMEPAGE="http://www.j-schmitz.net/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${PF}.tar.bz2"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="as-is"
 IUSE=""
 
-RDEPEND="app-portage/portage-utils app-portage/gentoolkit"
+RDEPEND="
+	app-portage/eix
+	app-portage/gentoolkit
+	app-portage/portage-utils"
 DEPEND=""
 
 RESTRICT="mirror"
