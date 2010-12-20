@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=dev-libs/apr-util-1.3.9"
+RDEPEND=">=dev-libs/apr-util-1.3.9 >=www-servers/apache-2.2 =dev-libs/apr_memcache-0.7.0"
 
 APACHE2_MOD_CONF="70_${PN}"
 APACHE2_MOD_DEFINE="MEMCACHED_CACHE"
