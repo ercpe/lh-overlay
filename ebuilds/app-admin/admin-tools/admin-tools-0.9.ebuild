@@ -21,6 +21,8 @@ DEPEND=""
 
 RESTRICT="mirror"
 
+S="${WORKDIR}"/${PN}
+
 pkg_setup() {
 	ewarn "This package contains potentially dangerous scripts. Use it with care!"
 }
