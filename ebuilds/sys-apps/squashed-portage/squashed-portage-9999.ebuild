@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ inherit git multilib prefix
 EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
 
 DESCRIPTION="Tools to handle squashed portage"
-HOMEPAGE="N/N"
+HOMEPAGE="http://www.j-schmitz.net"
 SRC_URI=""
 
 SLOT="0"

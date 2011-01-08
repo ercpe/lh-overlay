@@ -1,6 +1,14 @@
 # ChangeLog for sys-apps/squashed-portage
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Jan 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild,
+  metadata.xml:
+  Set HOMEPAGE to j-schmitz.net, fixed metadata.xml
+
+  08 Jan 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild,
+  metadata.xml:
+  Set HOMEPAGE to j-schmitz.net, fixed metadata.xml
 
   28 Feb 2010; Justin Lecher (jlec) <jlec@gentoo.org>
   squashed-portage-9999.ebuild:
