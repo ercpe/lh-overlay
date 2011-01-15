@@ -10,7 +10,7 @@ SRC_URI="http://pypi.python.org/packages/source/a/autumn/${P}.tar.gz"
 
 SLOT="0"
 KEYWORDS="amd64 ~x86"
-LICENSE="AS-IS"
+LICENSE="MIT"
 IUSE=""
 
 RDEPEND=""
