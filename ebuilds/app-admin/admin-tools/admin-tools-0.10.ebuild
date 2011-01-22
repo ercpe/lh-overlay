@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,10 +21,13 @@ DEPEND=""
 
 RESTRICT="mirror"
 
+S="${WORKDIR}"/${PN}
+
 pkg_setup() {
 	ewarn "This package contains potentially dangerous scripts. Use it with care!"
 }
 
 src_install() {
-	dosbin autounmask regen-meta-flat rebuild-all adduse.py || die
+	dosbin autounmask regen-meta-flat rebuild-all adduse.py resume-list || die
+	dodoc ChangeLog || die
 }
