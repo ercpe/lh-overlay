@@ -1,0 +1,15 @@
+# ChangeLog for sys-devel/libtool
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libtool-2.4-r1 (25 Jan 2011)
+
+  25 Jan 2011; Justin Lecher <jlec@gentoo.org>
+  +files/1.5.20/libtool-1.5.20-version-checking.patch,
+  +files/1.5.20/CVS/Entries, +files/1.5.20/CVS/Repository,
+  +files/1.5.20/CVS/Root,
+  +files/1.5.20/libtool-1.5.20-override-LD_LIBRARY_PATH.patch,
+  +files/1.5.20/libtool-1.5.20-use-linux-version-in-fbsd.patch,
+  +libtool-2.4-r1.ebuild, +metadata.xml:
+  Fix for bgo #349078
+
