@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	sed \
-		-e 's:-pthreads|--thread-safe|-threads:-pthreads|--thread-safe|-threads|-openmp|-fopenmp:g' \
+		-e 's:|-threads:|-threads|-fopenmp|-openmp:g' \
 		-i libltdl/config/ltmain.sh || die
 	if ! use vanilla ; then
 		epunt_cxx
