@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Jan 2011; Justin Lecher <jlec@gentoo.org> libtool-2.4-r1.ebuild:
+  Corrected keywords
+
 *libtool-2.4-r1 (25 Jan 2011)
 
   25 Jan 2011; Justin Lecher <jlec@gentoo.org>
