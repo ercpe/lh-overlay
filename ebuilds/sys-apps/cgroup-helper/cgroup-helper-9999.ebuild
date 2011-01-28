@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="3"
 
 inherit subversion eutils linux-info
 
@@ -20,7 +20,6 @@ IUSE=""
 CONFIG_CHECK="~CGROUPS ~CGROUP_CPUACCT"
 
 src_install() {
-
 	dosbin cgroup_helper_clean || die "dosbin failed"
 	newinitd initd-cgroup_helper ${PN} || die "newinitd failed"
 	newconfd confd-cgroup_helper ${PN} || die "newconfd failed"

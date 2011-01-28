@@ -2,6 +2,13 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Jan 2011; Justin Lecher <jlec@gentoo.org> cgroup-helper-9999.ebuild,
+  +metadata.xml:
+  Missing metadata.xml added
+
+  28 Jan 2011; Justin Lecher <jlec@gentoo.org> cgroup-helper-9999.ebuild:
+  Cleaned unneded line and quoting
+
 *cgroup-helper-9999 (09 Jan 2011)
 
   09 Jan 2011; Justin Lecher <jlec@gentoo.org> +cgroup-helper-9999.ebuild:
