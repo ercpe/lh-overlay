@@ -1,0 +1,27 @@
+diff -Nur ./svr-session.c ../dropbear-0.52.new/svr-session.c
+--- svr-session.c	2008-11-11 14:09:03.000000000 +0000
++++ svr-session.c	2008-12-31 00:29:13.000000000 +0000
+@@ -129,17 +129,18 @@
+ 	} else if (ses.authstate.authdone) {
+ 		/* user has authenticated */
+ 		snprintf(fmtbuf, sizeof(fmtbuf),
+-				"exit after auth (%s): %s", 
+-				ses.authstate.pw_name, format);
++				"exit after auth from %s (%s): %s", 
++				svr_ses.addrstring, ses.authstate.pw_name, format);
+ 	} else if (ses.authstate.pw_name) {
+ 		/* we have a potential user */
+ 		snprintf(fmtbuf, sizeof(fmtbuf), 
+-				"exit before auth (user '%s', %d fails): %s",
+-				ses.authstate.pw_name, ses.authstate.failcount, format);
++				"exit before auth from %s (user '%s', %d fails): %s",
++				svr_ses.addrstring, ses.authstate.pw_name, ses.authstate.failcount, 
++                                format);
+ 	} else {
+ 		/* before userauth */
+ 		snprintf(fmtbuf, sizeof(fmtbuf), 
+-				"exit before auth: %s", format);
++				"exit before auth from %s: %s", svr_ses.addrstring, format);
+ 	}
+ 
+ 	_dropbear_log(LOG_INFO, fmtbuf, param);
