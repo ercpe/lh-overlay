@@ -1,6 +1,9 @@
 # ChangeLog for sci-libs/gpp4
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Feb 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Metadata.xml fixed
 
   20 Nov 2008; justin Lecher <justin@j-schmitz.net> +metadata.xml,
   +gpp4-1.0.4.ebuild:
