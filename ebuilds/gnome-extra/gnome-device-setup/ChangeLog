@@ -1,6 +1,9 @@
 # ChangeLog for gnome-extra/gnome-device-setup
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Feb 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Metadata.xml fixed
 
 *gnome-device-setup-0.2.1 (17 Jun 2009)
 
