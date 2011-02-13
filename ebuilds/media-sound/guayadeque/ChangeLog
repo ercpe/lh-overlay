@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/guayadeque
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*guayadeque-0.2.7 (13 Feb 2011)
+
+  13 Feb 2011; Justin Lecher <jlec@gentoo.org> +guayadeque-0.2.7.ebuild,
+  +metadata.xml:
+  New adition
+
