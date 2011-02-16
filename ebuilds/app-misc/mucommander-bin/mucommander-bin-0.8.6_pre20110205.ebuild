@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -44,6 +44,6 @@ src_install() {
 
 	dodoc readme.txt
 
-	newicon ${S}/images/mucommander/icon32_24.png ${PN}.png
+	newicon "${S}"/images/mucommander/icon32_24.png ${PN}.png
 	make_desktop_entry mucommander "muCommander" /usr/share/pimaps/${PN}.png
 }
