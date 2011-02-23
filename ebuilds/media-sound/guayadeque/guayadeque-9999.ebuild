@@ -9,14 +9,14 @@ WX_GTK_VER="2.8"
 inherit cmake-utils wxwidgets subversion
 
 DESCRIPTION="Music management program designed for all music enthusiasts"
-HOMEPAGE="http://sourceforge.net/projects/guayadeque/"
+HOMEPAGE="http://guayadeque.org"
 ESVN_REPO_URI="https://guayadeque.svn.sourceforge.net/svnroot/guayadeque/Trunk"
 ESVN_PROJECT="guayadeque-svn"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="ipod"
+IUSE="indicate ipod"
 
 # No test available, Making src_test fail
 RESTRICT="test"
@@ -24,21 +24,21 @@ RESTRICT="test"
 RDEPEND="
 	dev-db/sqlite:3
 	dev-libs/glib:2
-	dev-libs/libindicate
 	media-libs/flac
 	media-libs/gstreamer
-	media-libs/libgpod
 	media-libs/taglib
 	net-misc/curl
 	sys-apps/dbus
-	x11-libs/wxGTK:2.8[gstreamer]"
+	x11-libs/wxGTK:2.8[X,gstreamer]
+	indicate? (	dev-libs/libindicate )
+	ipod? ( media-libs/libgpod )"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 	dev-util/pkgconfig
 	dev-util/cmake"
 
 # echo $(cat po/CMakeLists.txt | grep ADD_SUBDIRECTORY | sed 's#ADD_SUBDIRECTORY( \(\w\+\) )#\1#')
-LANGS="cs de es fr hu is it nb nl ru sv th uk"
+LANGS="es uk it de fr is nb th cs ru hu sv nl"
 for l in ${LANGS}; do
 	IUSE="$IUSE linguas_${l}"
 done
@@ -51,5 +51,18 @@ src_prepare() {
 				-i po/CMakeLists.txt || die
 		fi
 	done
+
+	if ! use ipod; then
+		sed \
+			-e '/PKG_CHECK_MODULES( LIBGPOD/,/^ENDIF/d' \
+			-i CMakeLists.txt || die
+	fi
+
+	if ! use indicate; then
+		sed \
+			-e '/PKG_CHECK_MODULES( LIBINDICATE/,/^ENDIF/d' \
+			-i CMakeLists.txt || die
+	fi
+
 	base_src_prepare
 }

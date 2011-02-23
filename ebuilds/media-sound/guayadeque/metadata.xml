@@ -3,17 +3,10 @@
 <pkgmetadata>
 	<herd>no-herd</herd>
 	<maintainer>
-		<email>jlec@j-schmitz.net</email>
-		<name>Justin Lecher (jlec)</name>
+		<email>jlec@gentoo.org</email>
+		<name>Justin Lecher</name>
 	</maintainer>
-	<maintainer>
-		<email>johann@j-schmitz.net</email>
-		<name>Johann Schmitz</name>
-	</maintainer>
-<!--
-	<use>
-		<flag name=''></flag>
-	</use>
--->
+<use>
+  <flag name='indicate'>App indicator support via dev-libs/libindicate</flag>
+</use>
 </pkgmetadata>
-
