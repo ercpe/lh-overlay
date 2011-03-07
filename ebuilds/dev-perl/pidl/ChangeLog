@@ -1,0 +1,10 @@
+# ChangeLog for dev-perl/pidl
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pidl-0.02 (07 Mar 2011)
+
+  07 Mar 2011; Justin Lecher <jlec@gentoo.org> +pidl-0.02.ebuild,
+  +metadata.xml:
+  Initial commit
+
