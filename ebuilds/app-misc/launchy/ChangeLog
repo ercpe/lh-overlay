@@ -1,6 +1,13 @@
-# ChangeLog for <CATEGORY>/<PACKAGE_NAME>
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for app-misc/launchy
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*launchy-2.5 (10 Mar 2011)
+
+  10 Mar 2011; Justin Lecher <jlec@gentoo.org> -launchy-2.1.2.ebuild,
+  +launchy-2.5.ebuild, -files/launchy-makefile.patch, -files/metadata.xml,
+  metadata.xml:
+  Version Bump
 
 *<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 
