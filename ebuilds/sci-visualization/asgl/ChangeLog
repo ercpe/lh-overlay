@@ -1,6 +1,10 @@
-# ChangeLog for <CATEGORY>/<PACKAGE_NAME>
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for sci-visualization/asgl
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  14 Mar 2011; Justin Lecher <jlec@gentoo.org> +files/1.3.2-gentoo.patch,
+  asgl-1.3.2.ebuild:
+  Remove fortran.eclass, respect *FLAGS
 
 *<PACKAGE_NAME>-<PACKAGE_VERSION>-<PACKAGE_RELEASE> (DD MMM YYYY)
 

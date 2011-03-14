@@ -1,38 +1,50 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit fortran eutils
+EAPI="4"
 
-FORTRAN="g77 gfortran"
+inherit eutils multilib toolchain-funcs
 
-SLOT="0"
+DESCRIPTION="Program for preparing all sorts of PostScript plots from simple data files."
+HOMEPAGE="http://salilab.org/asgl"
+SRC_URI="ftp://salilab.org/${PN}/${P}.tar.gz"
+
 LICENSE="GPL-2"
-KEYWORDS="~x86"
-DESCRIPTION="ASGL is a program for preparing all sorts of PostScript plots from simple data files."
-SRC_URI="ftp://salilab.org/asgl/asgl-1.3.2.tar.gz"
-HOMEPAGE="http://salilab.org/asgl/"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
-RESTRICT="mirror"
+SLOT="0"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+src_prepare(){
+	epatch \
+		"${FILESDIR}/exec_bits.patch" \
+		"${FILESDIR}/${PV}-gentoo.patch"
+	sed '/strip/d' -i scripts/Makefile.include1 || die
+}
 
-src_unpack(){
-	unpack ${A}
-	epatch "${FILESDIR}/exec_bits.patch"
-	cd ${P}
+get_fcomp() {
+	case $(tc-getFC) in
+	*gfortran* )
+	FCOMP="gfortran" ;;
+	ifort )
+	FCOMP="ifc" ;;
+	* )
+	FCOMP=$(tc-getFC) ;;
+	esac
 }
 
 src_compile(){
-	export ASGL_EXECUTABLE_TYPE=$FORTRANC
-	export ASGLINSTALL="${D}/usr/lib/libasgl"
-	emake -j1 opt
-#	emake -j1 man
+	get_fcomp
+	emake -j1 \
+		ASGL_EXECUTABLE_TYPE=${FCOMP} \
+		ASGLINSTALL="${D}/usr/$(get_libdir)/libasgl" \
+		opt || die
 }
 
 src_install(){
-	emake -j1 install
+	emake -j1 \
+		ASGLINSTALL="${D}/usr/$(get_libdir)/libasgl" \
+		install || die
 	dosym /usr/lib/libasgl/asgl /usr/bin/
 	dosym /usr/lib/libasgl/asgl_gfortran /usr/bin/
 	dosym /usr/lib/libasgl/setasgl /usr/bin/
