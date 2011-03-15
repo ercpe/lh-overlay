@@ -25,9 +25,7 @@ DEPEND="${RDEPEND}
 	|| ( app-arch/xz-utils app-arch/lzma-utils )"
 
 src_prepare() {
-	sed \
-		-e 's:|-threads:|-threads|-fopenmp|-openmp:g' \
-		-i libltdl/config/ltmain.sh || die
+	epatch "${FILESDIR}"/${PV}-Preserve-OpenMP-flags-in-library-link-mode.patch
 	if ! use vanilla ; then
 		epunt_cxx
 		cd libltdl/m4
