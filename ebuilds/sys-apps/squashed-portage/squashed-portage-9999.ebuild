@@ -9,7 +9,7 @@ inherit git multilib prefix
 EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
 
 DESCRIPTION="Tools to handle squashed portage"
-HOMEPAGE="http://www.j-schmitz.net"
+HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
 SRC_URI=""
 
 SLOT="0"

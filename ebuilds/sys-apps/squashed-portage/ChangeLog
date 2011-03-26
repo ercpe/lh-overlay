@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Mar 2011; Johann Schmitz <johann@j-schmitz.net> squashed-portage-9999.ebuild,
+  metadata.xml:
+  Updated HOMEPAGE in ebuild
+
   08 Jan 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild,
   metadata.xml:
   Set HOMEPAGE to j-schmitz.net, fixed metadata.xml
