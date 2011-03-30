@@ -10,5 +10,8 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
+	<use>
+		<flag name='povray'>Add support for povray raytracer for HQ images</flag>
+	</use>
 </pkgmetadata>
 
