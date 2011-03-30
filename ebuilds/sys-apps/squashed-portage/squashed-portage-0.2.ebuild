@@ -4,16 +4,14 @@
 
 EAPI="3"
 
-inherit git multilib prefix
-
-EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
+inherit eutils multilib prefix
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
-SRC_URI=""
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 IUSE=""
 
@@ -31,4 +29,7 @@ src_install() {
 	newinitd ${PN}.init ${PN} || die
 	newconfd ${PN}.conf ${PN} || die
 	dobin get-squashed-portage || die
+
+	exeinto /usr/$(get_libdir)/${PN}/
+	doexe fetch-squashed-portage.py || die
 }
