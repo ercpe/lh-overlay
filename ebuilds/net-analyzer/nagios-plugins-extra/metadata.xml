@@ -10,5 +10,10 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
+	<use>
+		<flag name='bind'>bind plugin</flag>
+		<flag name='fail2ban'>fail2ban plugin</flag>
+		<flag name='pnp4nagios'>pnp4nagios plugin</flag>
+	</use>
 </pkgmetadata>
 

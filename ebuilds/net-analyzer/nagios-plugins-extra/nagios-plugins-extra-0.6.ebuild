@@ -1,11 +1,11 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils
 
 SLOT="0"
-LICENSE="AS-IS"
+LICENSE="as-is"
 KEYWORDS="x86 amd64"
 DESCRIPTION="A set of extra nagios plugins"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/net-analyzer/${PN}/${P}.tar.bz2"
@@ -17,6 +17,7 @@ DEPEND="fail2ban? ( app-admin/sudo net-analyzer/fail2ban )
 		pnp4nagios? ( net-analyzer/pnp4nagios )
 		bind? ( net-dns/bind )
 		net-dns/bind-tools"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/nagios-plugins-extra
 SP="${WORKDIR}"/pnp-templates
