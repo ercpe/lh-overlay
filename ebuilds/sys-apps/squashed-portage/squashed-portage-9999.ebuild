@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI="4"
 
 inherit git multilib prefix
 
@@ -22,13 +22,16 @@ DEPEND=""
 
 src_prepare() {
 	eprefixify *
-	sed -e "s:GENTOOLIBDIR:$(get_libdir):g" -i get-squashed-portage
+	sed -e "s:GENTOOLIBDIR:$(get_libdir):g" -i get-squashed-portage || die
 }
 
 src_install() {
 	dodir /var/portage
 	keepdir /var/portage
-	newinitd ${PN}.init ${PN} || die
-	newconfd ${PN}.conf ${PN} || die
-	dobin get-squashed-portage || die
+	newinitd ${PN}.init ${PN}
+	newconfd ${PN}.conf ${PN}
+	dobin get-squashed-portage
+
+	exeinto /usr/$(get_libdir)/${PN}/
+	doexe fetch-squashed-portage.py
 }

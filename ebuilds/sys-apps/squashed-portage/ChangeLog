@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Fix 9999 to match new HEAD
+
 *squashed-portage-0.2 (30 Mar 2011)
 
   30 Mar 2011; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.2.ebuild,
