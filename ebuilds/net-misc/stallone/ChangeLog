@@ -1,0 +1,8 @@
+# ChangeLog for net-misc/stallone
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Mar 2011; Justin Lecher <jlec@gentoo.org> stallone-0.4.0.ebuild,
+  +metadata.xml:
+  Fixed license
+
