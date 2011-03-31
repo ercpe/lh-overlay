@@ -1,0 +1,7 @@
+# ChangeLog for app-admin/squidview
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Mar 2011; Justin Lecher <jlec@gentoo.org> squidview-0.73.ebuild:
+  Corrected license
+
