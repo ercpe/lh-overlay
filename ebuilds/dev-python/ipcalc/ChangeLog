@@ -1,0 +1,8 @@
+# ChangeLog for dev-python/ipcalc
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Mar 2011; Justin Lecher <jlec@gentoo.org> ipcalc-0.3.ebuild,
+  +metadata.xml:
+  Fixed up ebuild
+
