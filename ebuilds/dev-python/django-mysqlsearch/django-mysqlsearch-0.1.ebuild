@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit distutils
 
-DESCRIPTION="A django application for building search functionality based on the mysql fulltext indexes. Works with all kind of MySQL table types (but focusd on InnoDB)."
+DESCRIPTION="A django application for building search functionality based on the mysql fulltext indexes"
 HOMEPAGE="http://www.j-schmitz.net/projects/django-mysqlsearch/"
 SRC_URI="http://www.j-schmitz.net/releases/django-mysqlsearch/${P}.tar.gz"
 
