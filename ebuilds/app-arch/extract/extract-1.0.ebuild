@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,21 +9,18 @@ HOMEPAGE="http://linuxtidbits.wordpress.com/2009/08/04/week-of-bash-scripts-extr
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="as-is"
-
 SLOT="0"
 KEYWORDS="x86 amd64"
+IUSE=""
 
 RESTRICT="mirror"
 
-IUSE=""
-RDEPEND="app-arch/p7zip app-arch/unzip app-arch/gzip"
+RDEPEND="
+	app-arch/p7zip
+	app-arch/unzip
+	app-arch/gzip"
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}"/extract-1.0
-
 src_install(){
-	exeinto /usr/lib/extract
-	doexe extract.sh
-
-	dosym /usr/lib/extract/extract.sh /bin/extract
+	newbin extract.sh extract || die
 }
