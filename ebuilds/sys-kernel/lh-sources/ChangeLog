@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Cleanup metadata.xml
+
 *lh-sources-2.6.38-r1 (30 Mar 2011)
 
   30 Mar 2011; Justin Lecher <jlec@gentoo.org> lh-sources-2.6.37.ebuild,
