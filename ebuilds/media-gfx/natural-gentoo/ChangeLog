@@ -1,6 +1,9 @@
 # ChangeLog for media-gfx/natural-gentoo
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  31 Mar 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Add missing USE description for grub
 
 * natural-gentoo-7.1-r1 (24 Feb 2009)
 

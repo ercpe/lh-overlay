@@ -10,5 +10,8 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
+	<use>
+		<flag name='grub'>Install grub splash screen</flag>
+	</use>
 </pkgmetadata>
 
