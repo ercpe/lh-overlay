@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,7 +21,7 @@ S="${WORKDIR}/WorkBench-${PV}"
 
 src_install() {
 	insinto $(python_get_sitedir)/${PN}
-	doins -r ${S}/Source/*
+	doins -r "${S}"/Source/*
 
 	cat >> "${T}"/pysvn-workbench <<- EOF
 #!/bin/bash
