@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="3"
 
 inherit eutils
 
@@ -13,23 +15,20 @@ RESTRICT="mirror"
 LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 SLOT="0"
+IUSE="mysql"
 
 DEPEND="dev-libs/expat
-	>=dev-libs/glib-2
+	dev-libs/glib:2
 	net-dns/libidn
 	dev-perl/Digest-SHA1
 	dev-perl/XML-Simple
 	|| ( net-im/jabberd net-im/jabberd2 )
 	mysql? ( virtual/mysql )"
-
-IUSE="mysql"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}_${PV}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-
+src_prepare() {
 	# Fix missing header in src/conference_user.c in order to
 	# make emerge happy and avoid QA notice.
 	sed -i "/conference.h/ i #define _XOPEN_SOURCE" src/conference_user.c
@@ -40,10 +39,6 @@ src_unpack() {
 		# Makefile is broken. Should not always link against mysql
 		sed -i 's/$(mysql_config --libs)//' src/Makefile
 	fi
-}
-
-src_compile() {
-	emake || die
 }
 
 src_install() {
