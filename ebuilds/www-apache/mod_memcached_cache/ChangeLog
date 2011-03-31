@@ -1,0 +1,8 @@
+# ChangeLog for www-apache/mod_memcached_cache
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Mar 2011; Justin Lecher <jlec@gentoo.org>
+  mod_memcached_cache-0.1.0.ebuild, +metadata.xml:
+  Added metadata.xml
+
