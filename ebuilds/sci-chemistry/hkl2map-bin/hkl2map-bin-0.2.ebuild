@@ -1,21 +1,25 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils
 
 DESCRIPTION="HKL2MAP is a graphical user-interface for macromolecular phasing."
-SRC_URI="hkl2map-0.2.tgz
-		 script? ( http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz )"
 HOMEPAGE="http://schneider.group.ifom-ieo-campus.it/hkl2map/index.html"
+SRC_URI="
+	hkl2map-0.2.tgz
+	http://schneider.group.ifom-ieo-campus.it/hkl2map/phs2mtz"
+
 RESTRICT="fetch"
 LICENSE="as-is"
 SLOT="0"
 KEYWORDS="-* ~x86"
-IUSE="script"
-RDEPEND="sci-chemistry/shelx
-		 >=dev-lang/tk-8.3
-		 script? ( sci-chemistry/ccp4 )"
+IUSE=""
+
+RDEPEND="
+	sci-chemistry/shelx
+	>=dev-lang/tk-8.3
+	sci-chemistry/ccp4"
 DEPEND=""
 
 pkg_nofetch(){
@@ -37,10 +41,8 @@ src_unpack(){
 }
 
 src_install() {
-	newbin hkl2map-0.2-dist hkl2map
-	if use script; then
-		dobin "${WORKDIR}"/phs2mtz
-	fi
+	newbin hkl2map-0.2-dist hkl2map || die
+	dobin "${WORKDIR}"/phs2mtz || die
 }
 
 pkg_postinst(){
