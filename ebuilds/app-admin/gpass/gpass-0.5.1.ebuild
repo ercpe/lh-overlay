@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="3"
+
 inherit eutils gnome2
 
 DESCRIPTION="A password manager for GNOME."
@@ -15,21 +17,23 @@ IUSE="static"
 
 USE_DESTDIR="1"
 
-RDEPEND=">=dev-libs/glib-2
-	>=gnome-base/gconf-2
-	>=gnome-base/libglade-2
-	>=gnome-base/libgnomeui-2
-	>=x11-libs/gtk+-2.6
+RDEPEND="
+	dev-libs/glib:2
+	gnome-base/gconf:2
+	gnome-base/libglade:2.0
+	gnome-base/libgnomeui
+	x11-libs/gtk+:2
 	app-crypt/mhash
 	dev-libs/libmcrypt"
-
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
-src_compile() {
+src_configure() {
 	econf \
 		$(use_enable static)
+}
 
+src_compile() {
 	emake LDFLAGS="-export-dynamic" || die "emake failed"
 }
 
