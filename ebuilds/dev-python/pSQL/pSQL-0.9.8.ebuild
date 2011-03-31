@@ -1,6 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+PYTHON_DEPEND="2"
 
 inherit eutils python
 
@@ -17,7 +19,7 @@ RDEPEND="dev-python/mysql-python"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}/01-datetime.patch"
 }
@@ -27,5 +29,5 @@ src_install() {
 	insinto $(python_get_sitedir)/pSQL
 
 	doins pSQL.py
-	touch ${D}/$(python_get_sitedir)/pSQL/__init__.py
+	touch "${D}"/$(python_get_sitedir)/pSQL/__init__.py
 }
