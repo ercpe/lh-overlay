@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Technologies, Inc.
+# Copyright 1999-2011 Gentoo Technologies, Inc.
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -28,8 +28,7 @@ DEPEND="${RDEPEND}
 
 src_compile() {
 	econf \
-		$(use_enable static) \
-		|| die "econf failed"
+		$(use_enable static)
 
 	emake LDFLAGS="-export-dynamic" || die "emake failed"
 }
@@ -38,4 +37,3 @@ src_install() {
 	gnome2_src_install
 	dodoc AUTHORS TODO README INSTALL NEWS
 }
-
