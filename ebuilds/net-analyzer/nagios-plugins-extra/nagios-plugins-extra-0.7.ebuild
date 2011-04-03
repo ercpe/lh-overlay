@@ -17,13 +17,12 @@ DEPEND="fail2ban? ( app-admin/sudo net-analyzer/fail2ban )
 		pnp4nagios? ( net-analyzer/pnp4nagios )
 		bind? ( net-dns/bind )
 		net-dns/bind-tools"
-RDEPEND="${DEPEND}"
 
 S="${WORKDIR}"/nagios-plugins-extra
 SP="${WORKDIR}"/pnp-templates
 
-CHECK_SCRIPTS="check_gentoo_portage check_apachestatus.pl check_fw_conntrack.sh check_mysql_status.sh check_mem.sh check_dnsbl.sh check_traffic_proc.py"
-TEMPLATES="check_memory.php check_mysql_status.php check_bind.php"
+CHECK_SCRIPTS="check_gentoo_portage check_apachestatus.pl check_fw_conntrack.sh check_mysql_status.sh check_mem.sh check_dnsbl.sh check_traffic_proc.py check_entropy.sh"
+TEMPLATES="check_apache.php check_bind.php check_conntrack.php check_cpu.php check_fail2ban.php check_maillog.php check_mailstats.php check_memcached.php check_memory.php check_mysql_snmp.php check_mysql_status.php check_nrpe.cfg check_spamassassin.php check_traffic.php"
 
 src_install(){
 	exeinto /usr/$(get_libdir)/nagios/plugins/extra/
