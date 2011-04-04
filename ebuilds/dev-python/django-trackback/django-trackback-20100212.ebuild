@@ -22,5 +22,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/mysqlsearch/
+	python_mod_optimize $(python_get_sitedir)/${PN}/
 }
