@@ -22,5 +22,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/${PN}/
+	python_mod_optimize $(python_get_sitedir)/trackback/
 }
