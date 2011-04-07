@@ -5,7 +5,7 @@
 inherit eutils
 
 DESCRIPTION="A set of useful tools to make your (gentoo) admin life easier"
-HOMEPAGE="http://www.j-schmitz.net/"
+HOMEPAGE="http://www.j-schmitz.net/projects/admin-tools/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${PF}.tar.bz2"
 
 SLOT="0"
