@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>jlec@j-schmitz.net</email>
+		<name>Justin Lecher (jlec)</name>
+	</maintainer>
+	<maintainer>
+		<email>johann@j-schmitz.net</email>
+		<name>Johann Schmitz</name>
+	</maintainer>
+	<use>
+		<flag name='sudo'>use sudo when invoking abi and abu rules</flag>
+	</use>
+</pkgmetadata>
+
