@@ -1,8 +1,13 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit distutils
+EAPI="3"
+
+PYTHON_DEPEND="2"
+SUPPORT_PYTHON_ABIS="1"
+
+inherit python
 
 DESCRIPTION="A python module to plot graphics in an easy and intuitive way"
 HOMEPAGE="https://launchpad.net/cairoplot/"
@@ -16,21 +21,25 @@ IUSE=""
 RDEPEND="dev-python/pycairo"
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	unpack ${A}
-	cd "cairoplot-${PV}"
-}
+S="${WORKDIR}"/cairoplot-${PV}
 
 src_compile() {
 	echo -n ""
 }
 
 src_install() {
-	cd "cairoplot-${PV}"
-	insinto $(python_get_sitedir)
-	doins ${PN}.py || die
+	installation() {
+		insinto $(python_get_sitedir)
+		doins ${PN}.py
+	}
+	python_execute_function installation
+	dodoc NEWS TODO || die
 }
 
 pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/${PN}.py
+	python_mod_optimize ${PN}.py
+}
+
+pkg_postrm() {
+	python_mod_cleanup ${PN}.py
 }
