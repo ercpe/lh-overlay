@@ -2,6 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="3"
+
+PYTHON_DEPEND="2"
+SUPPORT_PYTHON_ABIS="1"
+RESTRICT_PYTHON_ABIS="3.*"
+
 inherit distutils
 
 DESCRIPTION="A django application for building search functionality based on the mysql fulltext indexes"
@@ -16,20 +22,6 @@ IUSE=""
 RDEPEND=">dev-python/django-1.2"
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${P}"
-}
+S="${WORKDIR}"/${P}
 
-src_compile() {
-	echo "" # dont ask me....
-}
-
-src_install() {
-	#cd "${P}" # and this...
-	distutils_src_install
-}
-
-pkg_postinst() {
-	python_mod_optimize $(python_get_sitedir)/mysqlsearch/
-}
+PYTHON_MODNAME=mysqlsearch
