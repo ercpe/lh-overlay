@@ -2,6 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*extract-2 (23 Apr 2011)
+
+  23 Apr 2011; Justin Lecher <jlec@gentoo.org> +extract-2.ebuild:
+  Version Bump
+
   31 Mar 2011; Justin Lecher <jlec@gentoo.org> extract-1.0.ebuild:
   Fixed up ebuild
 
