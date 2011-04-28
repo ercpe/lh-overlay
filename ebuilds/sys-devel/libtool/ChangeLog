@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2011; Justin Lecher <jlec@gentoo.org> libtool-2.4-r1.ebuild:
+  Merged tree changes
+
   15 Mar 2011; Justin Lecher <jlec@gentoo.org>
   +files/2.4-Preserve-OpenMP-flags-in-library-link-mode.patch,
   libtool-2.4-r1.ebuild:
