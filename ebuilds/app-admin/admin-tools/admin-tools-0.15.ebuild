@@ -29,5 +29,4 @@ pkg_setup() {
 
 src_install() {
 	dosbin autounmask regen-meta-flat rebuild-all adduse.py resume-list ps_mem.py || die
-	dodoc ChangeLog || die
 }
