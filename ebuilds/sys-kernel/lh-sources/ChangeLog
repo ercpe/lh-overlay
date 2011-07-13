@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*lh-sources-2.6.39-r3 (13 Jul 2011)
+
+  13 Jul 2011; Justin Lecher <jlec@gentoo.org> +lh-sources-2.6.39-r3.ebuild,
+  metadata.xml:
+  Bump to genpatches 5
+
   25 Jun 2011; Justin Lecher <jlec@gentoo.org> -lh-sources-2.6.35-r15.ebuild,
   -lh-sources-2.6.37.ebuild, -lh-sources-2.6.37-r1.ebuild,
   -lh-sources-2.6.37-r2.ebuild, -lh-sources-2.6.38.ebuild,

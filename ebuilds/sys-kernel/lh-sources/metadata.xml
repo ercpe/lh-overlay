@@ -5,7 +5,7 @@
 	<maintainer>
 		<email>jlec@gentoo.org</email>
 	</maintainer>
-<use>
-	<flag name='deblob'>Remove binary blobs from kernel sources to provide libre license compliance.</flag>
-</use>
+	<use>
+		<flag name="deblob">Remove binary blobs from kernel sources to provide libre license compliance.</flag>
+	</use>
 </pkgmetadata>
