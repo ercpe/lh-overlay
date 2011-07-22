@@ -6,7 +6,7 @@ EAPI="2"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
 K_GENPATCHES_VER="1"
-K_DEBLOB_AVAILABLE="1"
+K_DEBLOB_AVAILABLE="0"
 UNIPATCH_LIST="${FILESDIR}"/${PV}-file-caching.patch
 inherit kernel-2
 detect_version

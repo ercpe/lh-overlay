@@ -2,6 +2,15 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*lh-sources-3.0 (22 Jul 2011)
+
+  22 Jul 2011; Justin Lecher <jlec@gentoo.org> +files/3.0-file-caching.patch,
+  -files/2.6.35-file-caching.patch, -files/2.6.37-file-caching.patch,
+  -files/2.6.38-file-caching.patch, -lh-sources-2.6.39.ebuild,
+  -lh-sources-2.6.39-r1.ebuild, -lh-sources-2.6.39-r2.ebuild,
+  +lh-sources-3.0.ebuild:
+  Version Bump
+
 *lh-sources-2.6.39-r3 (13 Jul 2011)
 
   13 Jul 2011; Justin Lecher <jlec@gentoo.org> +lh-sources-2.6.39-r3.ebuild,
