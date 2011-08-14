@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*squashed-portage-0.3 (14 Aug 2011)
+
+  14 Aug 2011; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.3.ebuild,
+  squashed-portage-9999.ebuild, metadata.xml:
+  Version Bump, creates non existing subdirs before mount
+
   30 Mar 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Fix 9999 to match new HEAD
 
