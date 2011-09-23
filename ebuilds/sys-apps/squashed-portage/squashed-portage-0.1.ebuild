@@ -18,6 +18,8 @@ IUSE=""
 RDEPEND="sys-fs/squashfs-tools:0"
 DEPEND=""
 
+RESTRICT="mirror"
+
 src_prepare() {
 	eprefixify *
 	sed -e "s:GENTOOLIBDIR:$(get_libdir):g" -i get-squashed-portage

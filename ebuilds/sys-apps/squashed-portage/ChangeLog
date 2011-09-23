@@ -2,6 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Sep 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-0.1.ebuild,
+  squashed-portage-0.2.ebuild, squashed-portage-0.3.ebuild,
+  squashed-portage-9999.ebuild:
+  Define default SRC_URI, #161
+
 *squashed-portage-0.3 (14 Aug 2011)
 
   14 Aug 2011; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.3.ebuild,
