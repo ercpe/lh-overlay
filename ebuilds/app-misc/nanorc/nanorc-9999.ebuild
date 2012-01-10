@@ -1,33 +1,31 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit git
+EPAI=4
 
-EGIT_REPO_URI="git://j-schmitz.net/nanorc"
+inherit git-2
 
-DESCRIPTION="our nanorc files"
-HOMEPAGE="http://j-schmitz.net"
+DESCRIPTION="Our collected nanorc files"
+HOMEPAGE="http://j-schmitz.net/"
 SRC_URI=""
+EGIT_REPO_URI="git://j-schmitz.net/nanorc"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
-
 src_install() {
 	insinto /usr/share/${PN}
-	doins *.nanorc || die
+	doins *.nanorc
 
-	if [[ -f /etc/nanorc ]]; then
-		cat /etc/nanorc | \
+	if [[ -f "${EPREFIX}"/etc/nanorc ]]; then
+		cat "${EPREFIX}"/etc/nanorc | \
 			sed 's:^include:#include:g' > nanorc.system
 		for i in *.nanorc; do
 			echo "" >> nanorc.system
-			echo "include \"/usr/share/${PN}/${i}\"" >> nanorc.system
+			echo "include \"${EPREFIX}/usr/share/${PN}/${i}\"" >> nanorc.system
 		done
 	fi
 

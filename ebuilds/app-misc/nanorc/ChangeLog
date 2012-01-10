@@ -1,6 +1,10 @@
 # ChangeLog for app-misc/nanorc
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Jan 2012; Justin Lecher <jlec@gentoo.org> nanorc-9999.ebuild,
+  metadata.xml:
+  Moved to eapi=4
 
 *nanorc-9999 (16 May 2009)
 
