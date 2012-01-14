@@ -1,11 +1,11 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/gentoo-sources-2.6.37.ebuild,v 1.2 2011/01/21 01:07:10 mpagano Exp $
 
 EAPI="2"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="8"
+K_GENPATCHES_VER="3"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_LIST="${FILESDIR}"/${PV}-file-caching.patch
 inherit kernel-2
