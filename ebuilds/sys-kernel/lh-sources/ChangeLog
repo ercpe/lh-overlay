@@ -2,6 +2,16 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Jan 2012; Justin Lecher <jlec@gentoo.org>
+  +files/3.1.10-file-caching.patch, +lh-sources-3.1.10-r1.ebuild:
+  Version Bump
+
+*lh-sources-3.1.10-r1 (30 Jan 2012)
+
+  30 Jan 2012; Justin Lecher <jlec@gentoo.org>
+  +files/3.1.10-file-caching.patch, +lh-sources-3.1.10-r1.ebuild:
+  Correct gtk dependency, #401045
+
 *lh-sources-3.2.1-r2 (24 Jan 2012)
 
   24 Jan 2012; Justin Lecher <jlec@gentoo.org> -lh-sources-3.2.1-r1.ebuild,
