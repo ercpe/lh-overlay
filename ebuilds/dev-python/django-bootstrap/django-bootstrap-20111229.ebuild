@@ -15,6 +15,7 @@ PYTHON_MODNAME="bootstrap"
 DESCRIPTION="Django Form wrapper for Twitter-Bootstrap"
 HOMEPAGE="https://github.com/earle/django-bootstrap"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
+RESTRICT="primaryuri"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
