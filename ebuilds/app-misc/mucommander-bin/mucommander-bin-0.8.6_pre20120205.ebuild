@@ -45,5 +45,5 @@ src_install() {
 	dodoc readme.txt
 
 	newicon "${S}"/images/mucommander/icon32_24.png ${PN}.png
-	make_desktop_entry mucommander "muCommander" /usr/share/pimaps/${PN}.png
+	make_desktop_entry mucommander "muCommander" /usr/share/pixmaps/${PN}.png
 }
