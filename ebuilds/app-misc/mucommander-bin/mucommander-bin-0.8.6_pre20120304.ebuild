@@ -29,7 +29,7 @@ S="${WORKDIR}/${P}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	jar xf mucommander.jar images/mucommander/icon32_24.png
+	jar xf mucommander.jar images/mucommander/icon48_24.png
 }
 
 src_compile() {
@@ -44,6 +44,6 @@ src_install() {
 
 	dodoc readme.txt
 
-	newicon "${S}"/images/mucommander/icon32_24.png ${PN}.png
+	newicon "${S}"/images/mucommander/icon48_24.png ${PN}.png
 	make_desktop_entry mucommander "muCommander" /usr/share/pixmaps/${PN}.png
 }
