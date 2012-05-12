@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*lh-sources-3.3.5 (12 May 2012)
+
+  12 May 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.3.5.ebuild:
+  Version BUmp
+
 *lh-sources-3.3.4 (28 Apr 2012)
 
   28 Apr 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.3.4.ebuild:
