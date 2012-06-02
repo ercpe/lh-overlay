@@ -1,6 +1,9 @@
 # ChangeLog for app-admin/gpass
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  02 Jun 2012; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Thin manifest
 
   31 Mar 2011; Justin Lecher <jlec@gentoo.org> gpass-0.5.1.ebuild:
   Fixed up ebuild
