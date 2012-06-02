@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
+  Thin manifest
+
 *admin-tools-0.18 (29 Apr 2012)
 
   29 Apr 2012; Justin Lecher <jlec@gentoo.org> +admin-tools-0.18.ebuild:
