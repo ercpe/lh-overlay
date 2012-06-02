@@ -1,15 +1,15 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=4
 
 PYTHON_DEPEND="2"
 
-inherit autotools python
+inherit python
 
 DESCRIPTION="Storage Device Manager"
-HOMEPAGE="http://pysdm.sourceforge.net"
+HOMEPAGE="http://pysdm.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 SLOT="0"
@@ -17,11 +17,9 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE=""
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
-
 pkg_setup() {
 	python_set_active_version 2
+	python_pkg_setup
 }
 
 src_prepare() {
@@ -33,7 +31,7 @@ src_install() {
 	emake \
 		DESTDIR="${ED}" \
 		pysdmdir="$(python_get_sitedir)/${PN}" \
-		install || die
+		install
 
 	cat > "${ED}"/usr/bin/${PN} <<- EOF
 	#!/bin/bash
