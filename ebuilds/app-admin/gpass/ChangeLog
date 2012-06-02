@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
+  Recreate full Manifest
+
   02 Jun 2012; Justin Lecher <jlec@gentoo.org> metadata.xml:
   Thin manifest
 
