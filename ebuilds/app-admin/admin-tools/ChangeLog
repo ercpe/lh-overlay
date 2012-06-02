@@ -3,6 +3,9 @@
 # $Header: $
 
   02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
+  Recreate full Manifest
+
+  02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
   Thin manifest
 
 *admin-tools-0.18 (29 Apr 2012)
