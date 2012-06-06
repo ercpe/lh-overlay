@@ -18,6 +18,7 @@ IUSE=""
 RDEPEND="
 	app-portage/eix
 	app-portage/gentoolkit
+	app-admin/lib_users
 	app-portage/portage-utils"
 DEPEND=""
 

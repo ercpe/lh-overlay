@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Jun 2012; Justin Lecher <jlec@gentoo.org> admin-tools-0.18.ebuild:
+  Add missing dep on app-admin/lib_users
+
   02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
   Recreate full Manifest
 
