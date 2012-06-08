@@ -16,7 +16,7 @@ EGIT_COMMIT="d9e1171a476d0a3575d1db25a71d5d68d7d69e1c"
 
 LICENSE="GPL-2"
 SLOT="3.10"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd ~x86-fbsd"
+KEYWORDS=""
 IUSE="doc +introspection python"
 
 RDEPEND="dev-libs/atk[introspection?]
