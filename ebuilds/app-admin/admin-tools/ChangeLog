@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*admin-tools-0.19 (17 Jun 2012)
+
+  17 Jun 2012; Justin Lecher <jlec@gentoo.org> +admin-tools-0.19.ebuild:
+  Version Bump, fixes bug 191 and 193
+
   06 Jun 2012; Justin Lecher <jlec@gentoo.org> admin-tools-0.18.ebuild:
   Add missing dep on app-admin/lib_users
 
