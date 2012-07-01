@@ -1,0 +1,14 @@
+# ChangeLog for sys-process/itop
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  01 Jul 2012; Justin Lecher <jlec@gentoo.org> itop-9999.ebuild:
+  Fix license to MIT
+
+*itop-9999 (30 Jun 2012)
+
+  30 Jun 2012; Justin Lecher <jlec@gentoo.org> +itop-9999.ebuild,
+  +metadata.xml:
+  Add live version, still wrong license,
+  https://github.com/kargig/itop/issues/1
+

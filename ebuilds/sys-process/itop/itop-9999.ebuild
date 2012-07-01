@@ -12,7 +12,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://github.com/kargig/itop.git"
 
 SLOT="0"
-LICENSE="as-is"
+LICENSE="MIT"
 KEYWORDS=""
 IUSE=""
 
