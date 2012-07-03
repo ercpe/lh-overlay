@@ -12,7 +12,6 @@ DESCRIPTION="GNOME GUI Builder"
 HOMEPAGE="http://glade.gnome.org/"
 SRC_URI=""
 EGIT_REPO_URI="git://git.gnome.org/glade"
-EGIT_COMMIT="d9e1171a476d0a3575d1db25a71d5d68d7d69e1c"
 
 LICENSE="GPL-2"
 SLOT="3.10"
