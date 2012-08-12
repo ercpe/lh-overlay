@@ -1,0 +1,37 @@
+PJNMR
+COPYRIGHT NOTICE
+
+© January 2002
+PJNMR (Pure Java NMR)
+Paul-Jean Letourneau / Robert Boyko / Brian Sykes
+Department of Biochemistry
+University of Alberta
+Edmonton, Alberta, Canada   T6G 2H7
+Phone: (780) 492-5460
+brian.sykes@ualberta.ca
+
+The complete PJNMR suite of programs may be freely used by individuals in academic institutions wishing to conduct research or perform database inquiries provided that suitable acknowledgment of both the program and its authors is given.
+
+Any publications arising from the use of PJNMR (or any derivatives thereof) should reference the program using the information given above.
+
+Neither PJNMR nor portions of the programs contained within PJNMR may be incorporated into other programs or sold for profit without express written consent from the authors.
+
+Individuals are, however, permitted to alter the source code of the program under the condition that the above copyright is recognized, that these changes are reported promptly to the authors and that this copyright message is not altered or suppressed.
+USER AGREEMENT
+
+The recipient of the PJNMR software* package agrees to the following:
+
+   1. The recipient's right to use this Software is non-transferable and its use is limited to those CPU's located at the recipient's research site or institution.
+
+   2. Any changes or modifications made by the recipient to the Software, its documentation or its databases must be reported (in writing) to Brian D Sykes at the Dept. of Biochemistry (University of Alberta).
+
+   3. Title and ownership rights to this Software and any derivatives of it remain solely with the Dept. of Biochemistry at the University of Alberta. The Software or any of its derivatives may not be sold, tendered or traded for profit by the recipient.
+
+   4. Any results of significant scientific merit obtained through the use of this product must acknowledge the PJNMR Software package and its authors. (See above.)
+
+   5. The recipient shall appropriately notify other users of the Software of the details and restrictions outlined in this agreement. 
+
+*The term "Software" herein shall mean all computer programs, recompiled versions of these programs, derivative works, support material, documentation, manuals and databases pertaining to the PJNMR package.
+
+e-mail: robert.boyko@ualberta.ca
+
