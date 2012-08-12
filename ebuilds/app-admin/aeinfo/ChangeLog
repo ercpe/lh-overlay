@@ -1,6 +1,11 @@
-# ChangeLog for <CATEGORY>/<PACKAGE_NAME>
+# ChangeLog for app-admin/aeinfo
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  12 Aug 2012; Justin Lecher <jlec@gentoo.org> aeinfo-2.4.ebuild,
+  +files/aeinfo-2.4-gcc-4.7.patch, +files/aeinfo-2.4-makefile.patch:
+  Enhance DESCRIPTION, move to virtual/libusb; add fix for gcc-4.7; respect all
+  FLAGS
 
   02 Jun 2012; Justin Lecher <jlec@gentoo.org> Manifest:
   Recreate full Manifest

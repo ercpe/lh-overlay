@@ -1,0 +1,116 @@
+ ipc.h     |    1 +
+ parsers.h |   46 +++++++++++++++++++++++-----------------------
+ 2 files changed, 24 insertions(+), 23 deletions(-)
+
+diff --git a/ipc.h b/ipc.h
+index 38362cc..4f7d948 100644
+--- a/ipc.h
++++ b/ipc.h
+@@ -11,6 +11,7 @@
+ #include <string>
+ #include <fstream>
+ #include <sstream>
++#include <string.h>
+ 
+ using namespace std;
+ 
+diff --git a/parsers.h b/parsers.h
+index 130f31a..841a910 100644
+--- a/parsers.h
++++ b/parsers.h
+@@ -13,7 +13,7 @@
+  *  these classes here...
+  */
+ 
+-
++#include <stdlib.h>
+ 
+ /** Occurs at unparsable input.
+  */
+@@ -43,12 +43,12 @@ long parseLong ( string s )
+   while( till != rend
+          && (*till == ' ' || *till == '\t' || *till == '\n' || *till == '\r') ) {
+     ++till;
+-  }
++  }
+ 
+   string tmp = s.substr(0,rend - till);
+   const char * txt = tmp.c_str();
+   char * err;
+-  long ret = strtol(txt,&err,10);
++  long ret = strtol(txt,&err,10);
+   if( (*txt == '\0')
+       || ((*txt != '\0') && (*err == '\0')) ) {
+     // parsing was OK
+@@ -88,15 +88,15 @@ class ValueParser
+ public:
+   ValueParser ()
+   {
+-  }
++  }
+ 
+-  /** GCC wants this
+-   *  thanks to "schnetzer"
++  /** GCC wants this
++   *  thanks to "schnetzer"
+    */
+-  virtual ~ValueParser ()
+-  {
+-  } 
+-  
++  virtual ~ValueParser ()
++  {
++  } 
++  
+   virtual T parse ( string s ) 
+   {
+     return T(0);
+@@ -120,7 +120,7 @@ string ValueParser<string>:: parse ( string s )
+  */
+ template <>
+ int ValueParser<int>:: parse ( string s )
+-{
++{
+   return (int)parseLong(s);
+ }
+ 
+@@ -183,19 +183,19 @@ class LinearTransformParser
+   : public ValueParser<T>
+ {
+   float m;
+-  float t;
+-  int precision;
++  float t;
++  int precision;
+   
+ public:
+-  LinearTransformParser ( float m, float t )
+-    : m(m), t(t), precision(3)
+-  {
+-  }
+-
+-  LinearTransformParser ( float m, float t, int precision )
+-    : m(m), t(t), precision(precision)
+-  {
+-  }
++  LinearTransformParser ( float m, float t )
++    : m(m), t(t), precision(3)
++  {
++  }
++
++  LinearTransformParser ( float m, float t, int precision )
++    : m(m), t(t), precision(precision)
++  {
++  }
+   
+   virtual T parse ( string s ) 
+   {
+@@ -206,7 +206,7 @@ public:
+   
+   virtual void unparse ( ostream &ostr, const T& v ) const 
+   {
+-    float transformed = (v - t) / m;
++    float transformed = (v - t) / m;
+ 
+     ostr << setprecision(precision) << transformed;
+   }

@@ -1,0 +1,47 @@
+ Makefile |   30 +++++++++++++++++++++++-------
+ 1 files changed, 23 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 1cd2f3b..aeeadfe 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,16 +1,32 @@
+-all: html
+-	g++ -Wno-deprecated -DUSE_COLORS -lusb global.cpp -o aeinfo
+-	g++ -Wno-deprecated -lusb -lpthread aquaerod.cpp -o aquaerod
++SRCS	= global.cpp aquaerod.cpp
++OBJS	= ${SRCS:.cpp=.o}
++
++# clear out all suffixes
++.SUFFIXES:
++# list only those we use
++.SUFFIXES: .o .cpp
++
++# define a suffix rule for .c -> .o
++.cpp.o :
++	$(CXX) -Wno-deprecated $(CXXFLAGS) -c $<
++
++all: html aeinfo aquaerod
++
++aeinfo: global.o
++	$(CXX) -Wno-deprecated $(CXXFLAGS) $(LDFLAGS) -DUSE_COLORS global.o -o aeinfo `pkg-config --libs libusb`
++
++aquaerod: aquaerod.o
++	$(CXX) -Wno-deprecated $(CXXFLAGS) $(LDFLAGS) aquaerod.o -o aquaerod `pkg-config --libs libusb` -lpthread
+ 
+ static: html
+-	g++ -static -Wno-deprecated -DUSE_COLORS -lusb global.cpp -o aeinfo
+-	g++ -static -Wno-deprecated -lusb -lpthread aquaerod.cpp -o aquaerod
++	$(CXX) -static -Wno-deprecated $(CFLAGS) -DUSE_COLORS -lusb global.cpp -o aeinfo
++	$(CXX) -static -Wno-deprecated $(CFLAGS) -lusb -lpthread aquaerod.cpp -o aquaerod
+ 
+ cygwin:
+-	g++ -DWINDOWS -lsetupapi global.cpp -o aeinfo
++	$(CXX) -DWINDOWS -lsetupapi global.cpp -o aeinfo
+ 
+ nocolors:
+-	g++ -lusb global.cpp -o aeinfo
++	$(CXX) -lusb global.cpp -o aeinfo
+ 
+ doc:
+ 	doxygen
