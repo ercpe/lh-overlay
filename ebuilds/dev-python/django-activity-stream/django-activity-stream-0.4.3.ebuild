@@ -19,7 +19,7 @@ RESTRICT="primaryuri"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-LICENSE="AS-IS"
+LICENSE="as-is"
 IUSE=""
 
 RDEPEND=">dev-python/django-1.2"
