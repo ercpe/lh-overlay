@@ -1,23 +1,29 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+EAPI=4
+
+inherit eutils multilib
+
+DESCRIPTION="A set of extra nagios plugins"
+HOMEPAGE="http://www.j-schmitz.net/projects/nagios-plugins-extra/"
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="as-is"
 KEYWORDS="x86 amd64"
-DESCRIPTION="A set of extra nagios plugins"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
-HOMEPAGE="http://www.j-schmitz.net/projects/nagios-plugins-extra/"
 IUSE="fail2ban bind pnp4nagios sensors"
+
 RESTRICT="mirror"
 
-DEPEND="fail2ban? ( app-admin/sudo net-analyzer/fail2ban )
-		pnp4nagios? ( net-analyzer/pnp4nagios )
-		bind? ( net-dns/bind )
-		sensors? ( sys-apps/lm_sensors dev-python/pysensors )
-		net-dns/bind-tools"
+DEPEND=""
+RDEPEND="
+	net-dns/bind-tools
+	bind? ( net-dns/bind )
+	fail2ban? ( app-admin/sudo net-analyzer/fail2ban )
+	pnp4nagios? ( net-analyzer/pnp4nagios )
+	sensors? ( sys-apps/lm_sensors dev-python/pysensors )"
 
 S="${WORKDIR}"/nagios-plugins-extra
 SP="${WORKDIR}"/pnp-templates
@@ -68,7 +74,7 @@ pkg_postinst() {
 }
 
 inst_check() {
-	doexe $1 || die
+	doexe $1
 	chown -R root:nagios "${D}"/usr/$(get_libdir)/nagios/plugins/extra/$1 || die "Failed chown of ${D}usr/$(get_libdir)/nagios/plugins/extra/$1"
 	chmod -R o-rwx "${D}"/usr/$(get_libdir)/nagios/plugins/extra/$1 || die "Failed chmod of ${D}usr/$(get_libdir)/nagios/plugins/extra/$1"
 }

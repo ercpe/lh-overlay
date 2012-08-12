@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
 	<maintainer>
 		<email>jlec@j-schmitz.net</email>
 		<name>Justin Lecher (jlec)</name>
@@ -11,9 +10,9 @@
 		<name>Johann Schmitz</name>
 	</maintainer>
 	<use>
-		<flag name='bind'>bind plugin</flag>
-		<flag name='fail2ban'>fail2ban plugin</flag>
-		<flag name='pnp4nagios'>pnp4nagios plugin</flag>
+		<flag name="bind">bind plugin</flag>
+		<flag name="fail2ban">fail2ban plugin</flag>
+		<flag name="pnp4nagios">pnp4nagios plugin</flag>
+		<flag name="sensors">sensors plugin</flag>
 	</use>
 </pkgmetadata>
-

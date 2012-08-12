@@ -1,6 +1,13 @@
 # ChangeLog for net-analyzer/nagios-plugins-extra
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  12 Aug 2012; Justin Lecher <jlec@gentoo.org>
+  -nagios-plugins-extra-0.4.ebuild, -nagios-plugins-extra-0.5.ebuild,
+  -nagios-plugins-extra-0.6.ebuild, -nagios-plugins-extra-0.7.ebuild,
+  nagios-plugins-extra-0.8.ebuild, nagios-plugins-extra-0.9.ebuild,
+  metadata.xml:
+  Dropped old; bumped EAPI; add missing inherit from multilib.eclass
 
   30 Mar 2011; Justin Lecher <jlec@gentoo.org> nagios-plugins-extra-0.4.ebuild,
   nagios-plugins-extra-0.5.ebuild, nagios-plugins-extra-0.6.ebuild,
