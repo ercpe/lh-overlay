@@ -1,11 +1,12 @@
-
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=4
+
 inherit toolchain-funcs eutils
 
-DESCRIPTION="An interactive console program which monitors and displays squid logs in a nice fashion."
+DESCRIPTION="CLI to monitors and displays squid logs in a nice fashion"
 HOMEPAGE="http://www.rillion.net/squidview/"
 SRC_URI="http://www.rillion.net/squidview/${PN}-${PV}.tar.gz"
 
@@ -16,9 +17,7 @@ IUSE=""
 
 RESTRICT="mirror"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}/00_gentoo_locations.patch"
 }
 
