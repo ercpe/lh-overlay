@@ -1,24 +1,29 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-misc/dropbear/dropbear-0.52.ebuild,v 1.10 2010/04/20 08:04:34 vapier Exp $
 
-inherit eutils savedconfig pam
+EAPI=4
+
+inherit eutils savedconfig pam user
 
 DESCRIPTION="small SSH 2 client/server designed for small memory environments"
 HOMEPAGE="http://matt.ucc.asn.au/dropbear/dropbear.html"
-SRC_URI="http://matt.ucc.asn.au/dropbear/releases/${P}.tar.bz2
+SRC_URI="
+	http://matt.ucc.asn.au/dropbear/releases/${P}.tar.bz2
 	http://matt.ucc.asn.au/dropbear/testing/${P}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 m68k ~mips ppc ppc64 s390 sh sparc x86"
+KEYWORDS="amd64 x86"
 IUSE="bsdpty minimal multicall pam static syslog zlib"
 
-DEPEND="zlib? ( sys-libs/zlib )
-	pam? ( virtual/pam )"
+DEPEND="
+	pam? ( virtual/pam )
+	zlib? ( sys-libs/zlib )"
 RDEPEND="${DEPEND}
 	pam? ( >=sys-auth/pambase-20080219.1 )"
-PROVIDE="virtual/ssh"
+
+REQUIRED_USE="^^ ( pam static )"
 
 set_options() {
 	use minimal \
@@ -29,49 +34,43 @@ set_options() {
 }
 
 pkg_setup() {
-	if use pam && use static ; then
-		die "USE='pam static' makes no sense ... pick one"
-	fi
-
 	enewgroup sshd 22
 	enewuser sshd 22 -1 /var/empty sshd
 }
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	epatch "${FILESDIR}"/dropbear-0.46-dbscp.patch
-	epatch "${FILESDIR}"/dropbear-0.52-fail2ban.patch
-	sed -i \
+src_prepare() {
+	epatch \
+		"${FILESDIR}"/dropbear-0.46-dbscp.patch \
+		"${FILESDIR}"/dropbear-0.52-fail2ban.patch
+	sed \
 		-e '/SFTPSERVER_PATH/s:".*":"/usr/lib/misc/sftp-server":' \
 		-e '/XAUTH_COMMAND/s:/X11R6/:/:' \
-		options.h
-	sed -i \
+		-i options.h || die
+	sed \
 		-e '/pam_start/s:sshd:dropbear:' \
-		svr-authpam.c || die
+		-i svr-authpam.c || die
 	restore_config options.h
 }
 
-src_compile() {
-	if use static && use pam ; then
-		ewarn "You cannot have USE='static pam'.  Assuming static is more important."
-	fi
+src_configure() {
 	econf \
 		$(use_enable zlib) \
 		$(use_enable pam) \
 		$(use_enable !bsdpty openpty) \
-		$(use_enable syslog) \
-		|| die
+		$(use_enable syslog)
 	set_options
-	emake ${makeopts} PROGRAMS="${progs}" || die "make ${makeopts} failed"
+}
+
+src_compile() {
+	emake ${makeopts} PROGRAMS="${progs}"
 }
 
 src_install() {
 	set_options
-	emake install DESTDIR="${D}" ${makeopts} PROGRAMS="${progs}" || die "make install failed"
+	emake install DESTDIR="${D}" ${makeopts} PROGRAMS="${progs}"
 	doman *.8
-	newinitd "${FILESDIR}"/dropbear.init.d dropbear || die
-	newconfd "${FILESDIR}"/dropbear.conf.d dropbear || die
+	newinitd "${FILESDIR}"/dropbear.init.d dropbear
+	newconfd "${FILESDIR}"/dropbear.conf.d dropbear
 	dodoc CHANGES README TODO SMALL MULTI
 
 	# The multi install target does not install the links
