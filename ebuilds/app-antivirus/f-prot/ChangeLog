@@ -1,6 +1,11 @@
 # ChangeLog for app-antivirus/f-prot
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  12 Aug 2012; Justin Lecher <jlec@gentoo.org> -f-prot-6.0.2.ebuild,
+  f-prot-6.0.2-r1.ebuild, metadata.xml:
+  Remove old-style virtuals; fix install path of binary; bump EAPI to 4; drop
+  old
 
   13 Jan 2009; Justin Lecher (jlec) <jlec@j-schmitz.net> +metadata.xml:
   Setup app-antivirus/f-prot
