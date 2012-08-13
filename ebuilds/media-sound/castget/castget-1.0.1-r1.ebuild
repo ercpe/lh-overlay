@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=4
 
 DESCRIPTION="Command-line based RSS downloader"
 HOMEPAGE="http://www.nongnu.org/castget/"
@@ -18,6 +18,6 @@ RDEPEND="
 	dev-libs/libxml2
 	media-libs/id3lib"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}"/${P}
