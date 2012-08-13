@@ -1,35 +1,38 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=4
+
 inherit gnome2
 
-DESCRIPTION="Application launcher for GNOME."
+DESCRIPTION="Application launcher for GNOME"
 HOMEPAGE="http://developer.imendio.com/projects/gnome-launch-box"
 SRC_URI="http://ftp.imendio.com/pub/imendio/${PN}/src/${P}.tar.gz"
-LICENSE="GPL-2"
 
 SLOT="0"
+LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="sys-devel/gettext"
-
+RDEPEND="
+	gnome-base/gnome-vfs:2
+	gnome-base/libgnomeui
+	gnome-base/gnome-menus:0
+	gnome-base/gnome-desktop:2
+	gnome-extra/evolution-data-server
+	gnome-base/gconf
+	x11-libs/gtk+:2"
 DEPEND="${RDEPEND}
-	>=x11-libs/gtk+-2.10
-	>=gnome-base/gnome-vfs-2.10
-	>=gnome-base/libgnomeui-2.10
-	>=gnome-base/gnome-menus-2.10
-	>=gnome-base/gnome-desktop-2.10
-	>=gnome-extra/evolution-data-server-1.8
-	>=gnome-base/gconf-2
-	>=dev-util/intltool-0.35
-	>=dev-util/pkgconfig-0.9"
+	dev-util/intltool
+	sys-devel/gettext
+	virtual/pkgconfig"
 
-src_unpack() {
-	gnome2_src_unpack
-
+src_prepare() {
 	# Fix tests
-	echo "data/90-gnome-launch-box.xml.in" >> po/POTFILES.in
-	echo "src/lb-main.c" >> po/POTFILES.in
+	cat >> po/POTFILES.in <<- EOF
+	data/90-gnome-launch-box.xml.in
+	src/lb-main.c
+	EOF
+	gnome2_src_prepare
 }

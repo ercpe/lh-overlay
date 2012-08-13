@@ -1,6 +1,10 @@
 # ChangeLog for gnome-extra/gnome-launch-box
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  13 Aug 2012; Justin Lecher <jlec@gentoo.org> gnome-launch-box-0.4.ebuild,
+  metadata.xml:
+  Bumped to EAPI 4; fixed deps
 
   10 Feb 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
   Metadata.xml fixed
