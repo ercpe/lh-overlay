@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/dev-util/glade/ChangeLog,v 1.164 2012/05/16 14:25:45 aballier Exp $
 
+  10 Oct 2012; Justin Lecher <jlec@gentoo.org>
+  +files/glade-3.12.1-doc-version.patch:
+  Add missing patch
+
   14 Aug 2012; Justin Lecher <jlec@gentoo.org>
   -files/glade-3.12.1-doc-version.patch, glade-9999.ebuild, -files:
   Drop uneeded patch
