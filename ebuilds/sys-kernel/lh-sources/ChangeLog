@@ -1,0 +1,8 @@
+
+
+*lh-sources-3.6.1 (11 Oct 2012)
+
+  11 Oct 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.1.ebuild,
+  +metadata.xml:
+  New version including BFQ scheduler
+
