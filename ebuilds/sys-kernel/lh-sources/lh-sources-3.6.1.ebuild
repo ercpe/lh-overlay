@@ -13,9 +13,9 @@ detect_version
 detect_arch
 
 UNIPATCH_LIST="
-	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-$(get_version_component_range 1-2).patch
-	"${DISTDIR}"/0002-block-introduce-the-BFQ-v5-I-O-sched-for-$(get_version_component_range 1-2).patch"
-UNIPATCH_DOCS="${DISTDIR}/README.BFQ"
+	"${FILESDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-$(get_version_component_range 1-2).patch
+	"${FILESDIR}"/0002-block-introduce-the-BFQ-v5-I-O-sched-for-$(get_version_component_range 1-2).patch"
+UNIPATCH_DOCS="${FILESDIR}/README.BFQ"
 PATCH_DEPTH="1"
 
 KEYWORDS="~amd64 ~x86"
@@ -30,7 +30,8 @@ BFQ_URI="
 	${BFQ_URI_BASE}/0002-block-introduce-the-BFQ-v5-I-O-sched-for-$(get_version_component_range 1-2).patch
 	${BFQ_URI_BASE}/README.BFQ
 	"
-SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${BFQ_URI}"
+#SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${BFQ_URI}"
+SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 pkg_postinst() {
 	kernel-2_pkg_postinst
