@@ -28,10 +28,10 @@ src_prepare() {
 src_install() {
 	dodir /var/portage
 	keepdir /var/portage
-	newinitd ${PN}.init ${PN}
-	newconfd ${PN}.conf ${PN}
-	dobin get-squashed-portage
+	newinitd ${PN}.init ${PN} || die
+	newconfd ${PN}.conf ${PN} || die
+	dobin get-squashed-portage || die
 
 	exeinto /usr/$(get_libdir)/${PN}/
-	doexe fetch-squashed-portage.py
+	doexe fetch-squashed-portage.py || die
 }
