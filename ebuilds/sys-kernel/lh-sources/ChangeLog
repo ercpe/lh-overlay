@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.6.2 (14 Oct 2012)
+
+  14 Oct 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.2.ebuild:
+  Version Bump
+
   11 Oct 2012; Justin Lecher <jlec@gentoo.org> lh-sources-3.6.1.ebuild,
   +files/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-3.6.patch,
   +files/0002-block-introduce-the-BFQ-v5-I-O-sched-for-3.6.patch,
