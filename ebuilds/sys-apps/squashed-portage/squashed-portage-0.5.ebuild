@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 IUSE=""
 
-RDEPEND="sys-fs/squashfs-tools:0"
+RDEPEND="sys-fs/squashfs-tools:0 dev-lang/python:2.7"
 DEPEND=""
 
 RESTRICT="mirror"
