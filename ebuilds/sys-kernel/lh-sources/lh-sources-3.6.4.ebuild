@@ -30,13 +30,20 @@ BFQ_URI="
 	${BFQ_URI_BASE}/0002-block-introduce-the-BFQ-v5-I-O-sched-for-$(get_version_component_range 1-2).patch
 	${BFQ_URI_BASE}/README.BFQ
 	"
+
+LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
+
 #SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${BFQ_URI}"
-SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
+SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${LOGO_URI}"
 
 pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
+}
+
+src_prepare() {
+	cp "${DISTDIR}"/lh-logo_linux_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
 }
 
 pkg_postrm() {

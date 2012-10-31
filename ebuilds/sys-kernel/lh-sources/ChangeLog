@@ -1,5 +1,8 @@
 
 
+  31 Oct 2012; Justin Lecher <jlec@gentoo.org> lh-sources-3.6.4.ebuild:
+  Add gentoo logo
+
 *lh-sources-3.6.4 (31 Oct 2012)
 
   31 Oct 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.4.ebuild:
