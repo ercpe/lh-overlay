@@ -1,5 +1,15 @@
 
 
+*lh-sources-3.6.5-r1 (05 Nov 2012)
+
+  05 Nov 2012; Justin Lecher <jlec@gentoo.org> -lh-sources-3.6.1.ebuild,
+  -lh-sources-3.6.2.ebuild, -lh-sources-3.6.4.ebuild, -lh-sources-3.6.5.ebuild,
+  +lh-sources-3.6.5-r1.ebuild, +files/lh-sources-3.6.5-armv6.patch,
+  -files/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-3.6.patch,
+  -files/0002-block-introduce-the-BFQ-v5-I-O-sched-for-3.6.patch,
+  -files/README.BFQ:
+  Inlcude arm patches and mirror bfq patches
+
 *lh-sources-3.6.5 (01 Nov 2012)
 
   01 Nov 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.5.ebuild:
