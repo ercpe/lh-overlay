@@ -6,11 +6,12 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="6"
+K_GENPATCHES_VER="8"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
 detect_arch
+
 KMAIN_VER=$(get_version_component_range 1-2)
 
 BFQ_URI_PATCH_LEVEL="5"
