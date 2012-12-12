@@ -5,20 +5,21 @@
 EAPI=5
 
 ETYPE="sources"
-K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="6"
+K_WANT_GENPATCHES="base"
+K_GENPATCHES_VER="1"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
 detect_arch
+
 KMAIN_VER=$(get_version_component_range 1-2)
 
-BFQ_URI_PATCH_LEVEL="5"
+BFQ_URI_PATCH_LEVEL="5r1"
 AUFS_URI_PATCH_LEVEL="121104"
 
 BFQ_PATCH_LIST="
-	${WORKDIR}/bfq-patches/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-${KMAIN_VER}.patch
-	${WORKDIR}/bfq-patches/0002-block-introduce-the-BFQ-v5-I-O-sched-for-${KMAIN_VER}.patch"
+	${WORKDIR}/bfq-patches/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
+	${WORKDIR}/bfq-patches/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch"
 BFQ_DOC="${WORKDIR}/bfq-patches/README.BFQ"
 
 # http://unicorn.drogon.net/rpi/linux-arm.patch
@@ -48,12 +49,12 @@ DESCRIPTION="Full sources including the Gentoo patchset and the BFQ patchset for
 
 BFQ_URI_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
-	${BFQ_URI_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v5-${KMAIN_VER}.patch
-	${BFQ_URI_BASE}/0002-block-introduce-the-BFQ-v5-I-O-sched-for-${KMAIN_VER}.patch
+	${BFQ_URI_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
+	${BFQ_URI_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch
 	${BFQ_URI_BASE}/README.BFQ
 	"
 
-BFQ_URI_BASE="bfq-patches-${KMAIN_VER}.tar.xz"
+BFQ_URI_BASE="bfq-patches-v${BFQ_URI_PATCH_LEVEL}.tar.xz"
 BFQ_URI="http://dev.gentoo.org/~jlec/distfiles/${BFQ_URI_BASE}"
 
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"

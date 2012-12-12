@@ -1,5 +1,14 @@
 
 
+*lh-sources-3.7.0 (12 Dec 2012)
+*lh-sources-3.6.10 (12 Dec 2012)
+
+  12 Dec 2012; Justin Lecher <jlec@gentoo.org> -lh-sources-3.6.5-r1.ebuild,
+  -lh-sources-3.6.6.ebuild, -lh-sources-3.6.8.ebuild,
+  +lh-sources-3.6.10.ebuild, +lh-sources-3.7.0.ebuild,
+  +files/lh-sources-3.7-armv6.patch:
+  Version Bump
+
 *lh-sources-3.6.8 (30 Nov 2012)
 
   30 Nov 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.8.ebuild:
