@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>jlec@j-schmitz.net</email>
-		<name>Justin Lecher (jlec)</name>
-	</maintainer>
-	<maintainer>
-		<email>johann@j-schmitz.net</email>
-		<name>Johann Schmitz</name>
-	</maintainer>
-	<use>
-		<flag name="deblob">Remove binary blobs from kernel sources to provide libre license compliance.</flag>
-	</use>
+  <maintainer>
+    <email>jlec@j-schmitz.net</email>
+    <name>Justin Lecher (jlec)</name>
+  </maintainer>
+  <maintainer>
+    <email>johann@j-schmitz.net</email>
+    <name>Johann Schmitz</name>
+  </maintainer>
+  <use>
+    <flag name="deblob">Remove binary blobs from kernel sources to provide libre license compliance.</flag>
+  </use>
 </pkgmetadata>

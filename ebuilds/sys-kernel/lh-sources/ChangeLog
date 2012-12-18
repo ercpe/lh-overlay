@@ -1,5 +1,11 @@
 
 
+*lh-sources-3.6.11 (18 Dec 2012)
+
+  18 Dec 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.11.ebuild,
+  metadata.xml:
+  Version Bump
+
 *lh-sources-3.7.0 (12 Dec 2012)
 *lh-sources-3.6.10 (12 Dec 2012)
 
