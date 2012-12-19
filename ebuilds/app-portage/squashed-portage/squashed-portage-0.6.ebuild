@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit eutils multilib prefix
+inherit multilib prefix
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
@@ -28,10 +28,10 @@ src_prepare() {
 src_install() {
 	dodir /var/portage
 	keepdir /var/portage
-	newinitd ${PN}.init ${PN} || die
-	newconfd ${PN}.conf ${PN} || die
-	dobin get-squashed-portage || die
+	newinitd ${PN}.init ${PN}
+	newconfd ${PN}.conf ${PN}
+	dobin get-squashed-portage
 
 	exeinto /usr/$(get_libdir)/${PN}/
-	doexe fetch-squashed-portage.py || die
+	doexe fetch-squashed-portage.py
 }
