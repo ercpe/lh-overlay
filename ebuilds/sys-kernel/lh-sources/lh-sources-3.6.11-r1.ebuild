@@ -35,8 +35,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI} ${B
 KEYWORDS="~amd64 ~x86"
 IUSE="deblob module"
 
-RDEPEND="sys-fs/aufs-util"
-DEPEND=""
+PDEPEND="sys-fs/aufs-util"
 
 AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
