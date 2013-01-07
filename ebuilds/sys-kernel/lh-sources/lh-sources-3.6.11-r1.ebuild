@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/gentoo-sources-3.6.1.ebuild,v 1.1 2012/10/07 19:36:37 mpagano Exp $
 
@@ -24,8 +24,7 @@ BFQ_URI_PATCH_LEVEL="5r1"
 BFQ_TARBALL="bfq-patches-v${BFQ_URI_PATCH_LEVEL}.tar.xz"
 BFQ_URI="http://dev.gentoo.org/~jlec/distfiles/${BFQ_TARBALL}"
 
-
-DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the ${KMAIN_VER} kernel tree"
+DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
 	http://algo.ing.unimo.it/people/paolo/disk_sched
