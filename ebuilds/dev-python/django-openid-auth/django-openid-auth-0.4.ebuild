@@ -24,4 +24,4 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${P}
 
-PYTHON_MODNAME=mysqlsearch
+PYTHON_MODNAME=django_openid_auth
