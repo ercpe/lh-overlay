@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.7.3 (18 Jan 2013)
+
+  18 Jan 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.7.3.ebuild:
+  Version BUmp
+
 *lh-sources-3.7.2 (12 Jan 2013)
 
   12 Jan 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.7.2.ebuild:
