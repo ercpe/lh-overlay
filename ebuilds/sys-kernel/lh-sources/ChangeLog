@@ -1,5 +1,9 @@
 
 
+  18 Jan 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.7.3.ebuild,
+  metadata.xml:
+  Merge in latest tree changes
+
 *lh-sources-3.7.3 (18 Jan 2013)
 
   18 Jan 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.7.3.ebuild:
