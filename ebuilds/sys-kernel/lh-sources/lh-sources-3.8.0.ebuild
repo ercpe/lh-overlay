@@ -22,7 +22,7 @@ AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
 
 BFQ_URI_PATCH_LEVEL="6"
-BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
+BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
 	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch

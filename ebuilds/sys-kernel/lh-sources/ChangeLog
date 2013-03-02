@@ -1,5 +1,8 @@
 
 
+  02 Mar 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.8.0.ebuild:
+  Update to new upstream url
+
 *lh-sources-3.7.9 (20 Feb 2013)
 
   20 Feb 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.7.9.ebuild:
