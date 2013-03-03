@@ -5,8 +5,8 @@
 EAPI=5
 
 ETYPE="sources"
-K_WANT_GENPATCHES="base"
-K_GENPATCHES_VER="4"
+K_WANT_GENPATCHES="base extras"
+K_GENPATCHES_VER="3"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
@@ -14,16 +14,19 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.7.1
+AUFS_VERSION=3.8.0
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
-# git archive -v --remote=git://aufs.git.sourceforge.net/gitroot/aufs/aufs3-standalone.git aufs3.6 > ${AUFS_TARBALL}
+# git archive -v --remote=git://aufs.git.sourceforge.net/gitroot/aufs/aufs3-standalone.git aufs3.7 > ${AUFS_TARBALL}
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
 
-BFQ_URI_PATCH_LEVEL="5r1"
-BFQ_TARBALL="bfq-patches-v${BFQ_URI_PATCH_LEVEL}.tar.xz"
-BFQ_URI="http://dev.gentoo.org/~jlec/distfiles/${BFQ_TARBALL}"
+BFQ_URI_PATCH_LEVEL="6"
+BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
+BFQ_URI="
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch
+	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
@@ -33,19 +36,19 @@ HOMEPAGE="
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI} ${BFQ_URI}"
 
 KEYWORDS="~amd64 ~x86"
-IUSE="deblob module"
+IUSE="deblob module proc"
 
-PDEPEND="sys-fs/aufs-util"
+PDEPEND=">=sys-fs/aufs-util-3.7"
 
 AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
 	"${WORKDIR}"/aufs3-base.patch"
-#	${WORKDIR}/aufs3-proc_map.patch"
 
 BFQ_PATCH_LIST="
-	${WORKDIR}/bfq-patches/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
-	${WORKDIR}/bfq-patches/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch"
-BFQ_DOC="${WORKDIR}/bfq-patches/README.BFQ"
+	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
+	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch"
+
+BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 
 # http://unicorn.drogon.net/rpi/linux-arm.patch
 ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
@@ -56,12 +59,18 @@ PATCH_DEPTH="1"
 
 src_unpack() {
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
+	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
-	unpack ${BFQ_TARBALL}
 	kernel-2_src_unpack
 }
 
 src_prepare() {
+	if ! use module; then
+		sed -e 's:tristate:bool:g' -i "${WORKDIR}"/fs/aufs/Kconfig || die
+	fi
+	if ! use proc; then
+		sed '/config AUFS_PROC_MAP/,/^$/d' -i "${WORKDIR}"/fs/aufs/Kconfig || die
+	fi
 	cp -i "${WORKDIR}"/include/linux/aufs_type.h include/linux/aufs_type.h || die
 	cp -i "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
 	cp -ri "${WORKDIR}"/{Documentation,fs} . || die
@@ -73,6 +82,9 @@ pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
+	if ! has_version sys-fs/aufs-util; then
+		einfo "In order to use aufs FS you need to install sys-fs/aufs-util"
+	fi
 }
 
 pkg_postrm() {

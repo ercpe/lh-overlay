@@ -1,5 +1,13 @@
 
 
+*lh-sources-3.8.1 (03 Mar 2013)
+
+  03 Mar 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.6.11-r1.ebuild,
+  -lh-sources-3.7.2.ebuild, -lh-sources-3.7.3.ebuild, -lh-sources-3.7.4.ebuild,
+  -lh-sources-3.7.6.ebuild, -lh-sources-3.7.7.ebuild, -lh-sources-3.7.8.ebuild,
+  -lh-sources-3.7.9.ebuild, -lh-sources-3.8.0.ebuild, +lh-sources-3.8.1.ebuild:
+  Version Bump and remove old to fix CVE-2013-1763, #460126
+
   02 Mar 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.8.0.ebuild:
   Update to new upstream url
 
