@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="3"
+K_GENPATCHES_VER="4"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
@@ -24,14 +24,16 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
 BFQ_URI_PATCH_LEVEL="6"
 BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch -> \
+		0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch -> \
+		0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
 	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
-	http://algo.ing.unimo.it/people/paolo/disk_sched
+	http://www.algogroup.unimo.it/people/paolo/disk_sched
 	http://aufs.sourceforge.net/"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI} ${BFQ_URI}"
 
@@ -44,9 +46,9 @@ AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
 	"${WORKDIR}"/aufs3-base.patch"
 
-BFQ_PATCH_LIST="
-	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch
-	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch"
+_BFQ_PATCH_LIST="
+	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
+	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1"
 
 BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 
@@ -55,12 +57,13 @@ ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
 
 UNIPATCH_LIST="${BFQ_PATCH_LIST} ${ARM_PATCH_LIST} ${AUFS_PATCH_LIST}"
 UNIPATCH_DOCS="${BFQ_DOC}"
-PATCH_DEPTH="1"
 
 src_unpack() {
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
 	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
+	mkdir "${WORKDIR}"/patches || die
+	cp ${_BFQ_PATCH_LIST} "${WORKDIR}"/patches || die
 	kernel-2_src_unpack
 }
 
