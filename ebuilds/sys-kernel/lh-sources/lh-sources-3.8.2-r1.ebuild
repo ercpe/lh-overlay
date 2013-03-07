@@ -14,7 +14,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.8.0
+AUFS_VERSION=3.8.2
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://aufs.git.sourceforge.net/gitroot/aufs/aufs3-standalone.git aufs3.7 > ${AUFS_TARBALL}
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
