@@ -77,7 +77,6 @@ src_prepare() {
 	cp -i "${WORKDIR}"/include/linux/aufs_type.h include/linux/aufs_type.h || die
 	cp -i "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
 	cp -ri "${WORKDIR}"/{Documentation,fs} . || die
-	sed -i "s:__user::g" include/uapi/linux/aufs_type.h || die
 	cp "${DISTDIR}"/lh-logo_linux_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
 }
 
@@ -85,9 +84,8 @@ pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
-	if ! has_version sys-fs/aufs-util; then
+	has_version sys-fs/aufs-util || \
 		einfo "In order to use aufs FS you need to install sys-fs/aufs-util"
-	fi
 }
 
 pkg_postrm() {
