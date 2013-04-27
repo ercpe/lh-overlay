@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.8.10 (27 Apr 2013)
+
+  27 Apr 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.8.10.ebuild:
+  Bump to linux 3.8.10 and latest aufs3 release
+
 *lh-sources-3.8.8 (18 Apr 2013)
 
   18 Apr 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.8.8.ebuild:
