@@ -1,5 +1,9 @@
 
 
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org>
+  +files/lh-sources-3.9-armv6.patch:
+  Add missing patch
+
   30 Apr 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.0.ebuild:
   Fix hacky naming of patches
 
