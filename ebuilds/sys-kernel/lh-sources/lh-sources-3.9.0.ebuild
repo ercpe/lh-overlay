@@ -47,8 +47,8 @@ AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-base.patch"
 
 _BFQ_PATCH_LIST="
-	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
-	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1"
+	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-3.8.patch1
+	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-3.8.patch1"
 
 BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 

@@ -1,5 +1,8 @@
 
 
+  30 Apr 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.0.ebuild:
+  Fix hacky naming of patches
+
 *lh-sources-3.9.0 (30 Apr 2013)
 
   30 Apr 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.0.ebuild:
