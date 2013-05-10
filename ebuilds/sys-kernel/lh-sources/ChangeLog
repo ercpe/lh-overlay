@@ -1,5 +1,15 @@
 
 
+  10 May 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.1.ebuild,
+  +lh-sources-3.9.1-r1.ebuild:
+  Fix to new genpatch releases
+
+*lh-sources-3.9.1-r1 (10 May 2013)
+
+  10 May 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.1.ebuild,
+  +lh-sources-3.9.1-r1.ebuild:
+  Fix to new genpatch releases
+
 *lh-sources-3.9.1 (09 May 2013)
 
   09 May 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.1.ebuild:
