@@ -1,10 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-inherit git-2 multilib prefix
+PYTHON_COMPAT=( python{2_6,2_7} )
+
+inherit git-2 multilib prefix python-single-r1
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
@@ -16,7 +18,10 @@ KEYWORDS=""
 LICENSE="GPL-3"
 IUSE=""
 
-RDEPEND="sys-fs/squashfs-tools:0"
+RDEPEND="
+	dev-python/progressbar[${PYTHON_USEDEP}]
+	sys-fs/squashfs-tools:0
+	virtual/python-argparse[${PYTHON_USEDEP}]"
 DEPEND=""
 
 RESTRICT="mirror"
