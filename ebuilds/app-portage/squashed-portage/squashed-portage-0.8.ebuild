@@ -6,15 +6,14 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit git-2 multilib prefix python-single-r1
+inherit multilib prefix python-single-r1
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
-SRC_URI=""
-EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
+SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.xz"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"
 IUSE="zsync"
 

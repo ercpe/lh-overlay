@@ -9,4 +9,7 @@
     <email>johann@j-schmitz.net</email>
     <name>Johann Schmitz</name>
   </maintainer>
+  <use>
+    <flag name="zsync">Use alternate zsync based fetcher</flag>
+  </use>
 </pkgmetadata>
