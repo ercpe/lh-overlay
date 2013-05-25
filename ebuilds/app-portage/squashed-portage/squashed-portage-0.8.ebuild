@@ -13,7 +13,7 @@ HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.xz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 LICENSE="GPL-3"
 IUSE="zsync"
 
