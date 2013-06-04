@@ -1,16 +1,19 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 
 JAVA_PKG_IUSE=""
 
 inherit eutils java-pkg-2 versionator
 
+PRE="$(get_version_component_range 4)"
+UPSTREAM_DATE="${PRE:3:4}-${PRE:7:2}-${PRE:9:2}"
+
 DESCRIPTION="Lightweight file manager featuring a Norton Commander style interface"
 HOMEPAGE="http://www.mucommander.com"
-SRC_URI="http://www.mucommander.com/download/nightly/mucommander-current.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://www.mucommander.com/download/nightly/archive/${UPSTREAM_DATE}/mucommander-current.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
