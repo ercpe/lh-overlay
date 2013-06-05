@@ -22,7 +22,8 @@ IUSE=""
 
 RESTRICT="mirror"
 
-DEPEND=">=virtual/jdk-1.5 dev-java/java-config"
+DEPEND=">=virtual/jdk-1.5
+	dev-java/java-config"
 RDEPEND="${DEPEND}"
 
 MY_PN="muCommander"
@@ -32,13 +33,13 @@ MY_P="${MY_PN}-${MY_PV}"
 S="${WORKDIR}/${MY_P}"
 
 src_install() {
-	jar xf mucommander.jar images/mucommander/icon48_24.png
-	java-pkg_dojar mucommander.jar
+	jar xf mucommander.jar images/${MY_PN,,}/icon48_24.png || die
+	java-pkg_dojar ${MY_PN,,}.jar
 
-	java-pkg_dolauncher mucommander --java_args "-Djava.system.class.loader=com.mucommander.commons.file.AbstractFileClassLoader"
+	java-pkg_dolauncher ${MY_PN,,} --java_args "-Djava.system.class.loader=com.mucommander.commons.file.AbstractFileClassLoader"
 
 	dodoc readme.txt
 
-	newicon "${S}"/images/mucommander/icon48_24.png ${PN}.png
-	make_desktop_entry mucommander "muCommander" ${PN}.png
+	newicon "${S}/images/mucommander/icon48_24.png" ${PN}.png
+	make_desktop_entry ${MY_PN,,} "${MY_PN}" ${PN}
 }
