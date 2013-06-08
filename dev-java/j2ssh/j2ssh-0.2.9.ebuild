@@ -39,9 +39,9 @@ src_prepare() {
 src_compile() {
 	eant build
 
-	! use ant && ( rm -r "${S}/dist/lib/${PN}-ant-${PV}.jar" || die )
+	! use ant && ( rm -r "${S}/dist/lib/${PN}-ant.jar" || die )
 }
 
 src_install() {
-	java-pkg_dojar "${S}/dist/lib/*.jar"
+	java-pkg_dojar ${S}/dist/lib/*.jar
 }
