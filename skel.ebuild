@@ -16,7 +16,7 @@
 # It is suggested that you use the latest EAPI approved by the Council.
 # The PMS contains specifications for all EAPIs. Eclasses will test for this
 # variable if they need to use EAPI > 0 features.
-EAPI=4
+EAPI=5
 
 # inherit lists eclasses to inherit functions from. Almost all ebuilds should
 # inherit eutils, as a large amount of important functionality has been
@@ -77,7 +77,7 @@ SLOT="0"
 # KEYWORDS would be set like this: KEYWORDS="-* x86"
 # DO NOT USE KEYWORDS="*".  This is deprecated and only for backward
 # compatibility reasons.
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 
 # Comprehensive list of any and all USE flags leveraged in the ebuild,
 # with the exception of any ARCH specific flags, i.e. "ppc", "sparc",
