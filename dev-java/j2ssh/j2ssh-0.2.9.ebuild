@@ -30,16 +30,20 @@ src_prepare() {
 	rm "commons-logging.jar" || die
 	java-pkg_jar-from commons-logging
 
-	use ant && java-pkg_jar-from ant-core
-	! use ant && ( rm -r "${S}/src/com/sshtools/ant" || die )
+	if use ant; then
+		java-pkg_jar-from ant-core
+	else
+		rm -r "${S}/src/com/sshtools/ant" || die
+	fi
 
-	sed -i -e 's/-${j2ssh.version.major}.${j2ssh.version.minor}.${j2ssh.version.build}.jar/.jar/g' "${S}/build.xml" || die
+	sed -i -e 's/-${j2ssh.version.major}.${j2ssh.version.minor}.${j2ssh.version.build}.jar/.jar/g' \
+		"${S}/build.xml" || die
 }
 
 src_compile() {
 	eant build
 
-	! use ant && ( rm -r "${S}/dist/lib/${PN}-ant.jar" || die )
+	use ant || ( rm -r "${S}/dist/lib/${PN}-ant.jar" || die )
 }
 
 src_install() {
