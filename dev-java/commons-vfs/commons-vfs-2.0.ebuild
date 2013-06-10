@@ -36,7 +36,7 @@ S="${WORKDIR}/${P}"
 src_compile() {
 	local build_dir="${S}"/build
 	local dist_dir="${S}"/gdist
-	local classpath="-classpath $(java-pkg_getjars commons-logging,commons-net,commons-httpclient:3,jsch,commons-collections,ant-core,jackrabbit-bin):${build_dir}:./lib"
+	local classpath="-classpath $(java-pkg_getjars commons-logging,commons-net,commons-httpclient-3,jsch,commons-collections,ant-core,jackrabbit-bin):${build_dir}:./lib"
 	mkdir "${build_dir}" "${dist_dir}" || die
 
 	ejavac ${classpath} -nowarn -d "${build_dir}" $(find core/src/main/java -name "*.java") || die
