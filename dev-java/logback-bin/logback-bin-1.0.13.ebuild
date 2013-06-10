@@ -12,7 +12,7 @@ DESCRIPTION="A generic, reliable, fast & flexible logging framework for Java"
 HOMEPAGE="http://logback.qos.ch/"
 SRC_URI="http://logback.qos.ch/dist/${MY_PN}-${PV}.tar.gz"
 
-LICENSE="( EPL-1.0 ) || ( LGPL-2.1 )"
+LICENSE="|| ( EPL-1.0 LGPL-2.1 )"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
