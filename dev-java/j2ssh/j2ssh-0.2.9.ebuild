@@ -26,6 +26,7 @@ DEPEND="${CDEPEND}
 S="${WORKDIR}/${PN}"
 
 src_prepare() {
+	epatch "${FILESDIR}/${PV}-extras.patch"
 	cd "${S}/lib/" || die
 	rm "commons-logging.jar" || die
 	java-pkg_jar-from commons-logging
