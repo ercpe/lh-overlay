@@ -2,26 +2,24 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=5
 
-PYTHON_DEPEND="2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.*"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit distutils
+inherit distutils-r1
 
-DESCRIPTION="A library that can be used to add OpenID support to Django applications."
+DESCRIPTION="OpenID support to Django applications"
 HOMEPAGE="https://launchpad.net/django-openid-auth"
 SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${PN}-${PV}.tar.gz"
 
 SLOT="0"
-KEYWORDS="amd64 ~x86"
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="dev-python/django dev-python/python-openid"
+RDEPEND="
+	dev-python/django[${PYTHON_USEDEP}]
+	dev-python/python-openid[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${P}
-
-PYTHON_MODNAME=django_openid_auth
