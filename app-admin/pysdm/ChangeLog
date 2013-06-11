@@ -1,6 +1,10 @@
 # ChangeLog for app-admin/pysdm
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Jun 2013; Justin Lecher <jlec@gentoo.org> pysdm-0.4.1.ebuild,
+  metadata.xml:
+  Bump to EAPI=5 and python-single-r1.eclass
 
   02 Jun 2012; Justin Lecher <jlec@gentoo.org> pysdm-0.4.1.ebuild:
   Move to EAPI=4, clean ebuild
