@@ -10,7 +10,7 @@ DESCRIPTION="Unrar java implementation"
 HOMEPAGE="https://github.com/edmund-wagner/junrar/"
 SRC_URI="https://github.com/edmund-wagner/${PN}/archive/${P}.tar.gz"
 
-LICENSE=""
+LICENSE="unRAR"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
