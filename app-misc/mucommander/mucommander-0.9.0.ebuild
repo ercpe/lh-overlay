@@ -55,7 +55,7 @@ BIN_S="${WORKDIR}/binary"
 src_unpack() {
 	unpack "${PN}-${UPSTREAM_PV}-src.tar.gz"
 	for mod in collections conf file io runtime util; do
-		unzip -n "${DISTDIR}/com.${PN}.commons.${mod}-sources.jar" -d "${S}/main/" || die 
+		unzip -n "${DISTDIR}/com.${PN}.commons.${mod}-sources.jar" -d "${S}/main/" || die
 	done
 
 	unzip -n "${DISTDIR}/${PN}-${UPSTREAM_PV}.jar" -d "${BIN_S}" || die
@@ -65,7 +65,7 @@ src_prepare() {
 	# remove implementation for other OS 
 	rm -r "${S}"/main/com/${PN}/desktop/{windows,osx,openvms} || die
 	rm -r "${S}"/main/com/${PN}/ui/macosx || die
-	rm ${S}/main/com/${PN}/commons/file/util/{Kernel32,Kernel32API,Shell32,Shell32API}.java || die 
+	rm "${S}"/main/com/${PN}/commons/file/util/{Kernel32,Kernel32API,Shell32,Shell32API}.java || die
 
 	epatch "${FILESDIR}/${PV}-remove-unsupported-desktops.patch"
 	epatch "${FILESDIR}/${PV}-fix-ftp-client.patch"
@@ -117,7 +117,7 @@ src_compile() {
 src_install() {
 	java-pkg_dojar "${S}/dist/${PN}.jar"
 	java-pkg_dolauncher ${PN} --main "com.mucommander.Launcher"
-		
+
 	newicon "${S}"/build/images/mucommander/icon48_24.png ${PN}.png
 	make_desktop_entry ${UPSTREAM_PN} "${UPSTREAM_PN}" ${PN}
 }

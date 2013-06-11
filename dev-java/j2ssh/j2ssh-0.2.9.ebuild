@@ -48,5 +48,5 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_dojar ${S}/dist/lib/*.jar
+	java-pkg_dojar "${S}"/dist/lib/*.jar
 }
