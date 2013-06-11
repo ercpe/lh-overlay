@@ -29,8 +29,7 @@ src_compile() {
 	local dist_dir="${S}"/dist
 	mkdir ${dist_dir} || die
 
-	cd "${S}/src/com/sun/gssapi/" && CODEMGR_WS="${S}" emake || die
-	cd "${S}" || die
+	CODEMGR_WS="${S}" emake -C "${S}/src/com/sun/gssapi/" || die
 
 	local classpath="-classpath ${build_dir}/com/sun/gssapi/:${build_dir}/com/sun/gssapi/mechs/dummy"
 	ejavac ${classpath} -nowarn -d "${build_dir}" $(find src/ -name "*.java")
