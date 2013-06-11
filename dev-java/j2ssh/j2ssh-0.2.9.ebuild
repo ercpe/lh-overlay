@@ -37,14 +37,17 @@ src_prepare() {
 		rm -r "${S}/src/com/sshtools/ant" || die
 	fi
 
-	sed -i -e 's/-${j2ssh.version.major}.${j2ssh.version.minor}.${j2ssh.version.build}.jar/.jar/g' \
-		"${S}/build.xml" || die
+	sed \
+		-e 's/-${j2ssh.version.major}.${j2ssh.version.minor}.${j2ssh.version.build}.jar/.jar/g' \
+		-i "${S}/build.xml" || die
 }
 
 src_compile() {
 	eant build
 
-	use ant || ( rm -r "${S}/dist/lib/${PN}-ant.jar" || die )
+	if use ant; then
+		rm -r "${S}/dist/lib/${PN}-ant.jar" || die
+	fi
 }
 
 src_install() {
