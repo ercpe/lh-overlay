@@ -1,0 +1,14 @@
+diff --git a/main/com/mucommander/commons/file/impl/ftp/FTPFile.java b/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
+index 259e375..e74d78d 100644
+--- a/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
++++ b/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
+@@ -1203,7 +1203,7 @@ public class FTPFile extends ProtocolFile implements ConnectionHandlerFactory {
+ 
+             // If not, throw an exception using the reply string
+             if(!FTPReply.isPositiveCompletion(replyCode)) {
+-                if(replyCode==FTPReply.CODE_503 || replyCode==FTPReply.NEED_PASSWORD || replyCode==FTPReply.NOT_LOGGED_IN)
++                if(replyCode==FTPReply.BAD_COMMAND_SEQUENCE || replyCode==FTPReply.NEED_PASSWORD || replyCode==FTPReply.NOT_LOGGED_IN)
+                     throwAuthException(ftpClient.getReplyString());
+                 else
+                     throw new IOException(ftpClient.getReplyString());
+

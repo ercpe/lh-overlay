@@ -1,35 +1,3 @@
-diff --git a/main/com/mucommander/commons/file/FileFactory.java b/main/com/mucommander/commons/file/FileFactory.java
-index dd95acb..d52572e 100644
---- a/main/com/mucommander/commons/file/FileFactory.java
-+++ b/main/com/mucommander/commons/file/FileFactory.java
-@@ -123,11 +123,11 @@ public class FileFactory {
-         registerProtocol(FileProtocols.SFTP, new com.mucommander.commons.file.impl.sftp.SFTPProtocolProvider());
-         if(JavaVersion.JAVA_1_6.isCurrentOrHigher()) {
-             // Hadoop requires Java 1.6
--            registerProtocol(FileProtocols.HDFS, new com.mucommander.commons.file.impl.hadoop.HDFSProtocolProvider());
-+//            registerProtocol(FileProtocols.HDFS, new com.mucommander.commons.file.impl.hadoop.HDFSProtocolProvider());
- //            registerProtocol(FileProtocols.S3, new com.mucommander.commons.file.impl.hadoop.S3ProtocolProvider());
-         }
--        registerProtocol(FileProtocols.S3, new com.mucommander.commons.file.impl.s3.S3ProtocolProvider());
--        registerProtocol(FileProtocols.VSPHERE, new com.mucommander.commons.file.impl.vsphere.VSphereProtocolProvider());
-+//        registerProtocol(FileProtocols.S3, new com.mucommander.commons.file.impl.s3.S3ProtocolProvider());
-+//        registerProtocol(FileProtocols.VSPHERE, new com.mucommander.commons.file.impl.vsphere.VSphereProtocolProvider());
- 
-         // Register built-in archive file formats, order for TarArchiveFile and GzipArchiveFile/Bzip2ArchiveFile is important:
-         // TarArchiveFile must match 'tar.gz'/'tar.bz2' files before GzipArchiveFile/Bzip2ArchiveFile does.
-diff --git a/main/com/mucommander/commons/file/impl/ftp/FTPFile.java b/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
-index 259e375..e74d78d 100644
---- a/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
-+++ b/main/com/mucommander/commons/file/impl/ftp/FTPFile.java
-@@ -1203,7 +1203,7 @@ public class FTPFile extends ProtocolFile implements ConnectionHandlerFactory {
- 
-             // If not, throw an exception using the reply string
-             if(!FTPReply.isPositiveCompletion(replyCode)) {
--                if(replyCode==FTPReply.CODE_503 || replyCode==FTPReply.NEED_PASSWORD || replyCode==FTPReply.NOT_LOGGED_IN)
-+                if(replyCode==FTPReply.BAD_COMMAND_SEQUENCE || replyCode==FTPReply.NEED_PASSWORD || replyCode==FTPReply.NOT_LOGGED_IN)
-                     throwAuthException(ftpClient.getReplyString());
-                 else
-                     throw new IOException(ftpClient.getReplyString());
 diff --git a/main/com/mucommander/commons/file/impl/local/LocalFile.java b/main/com/mucommander/commons/file/impl/local/LocalFile.java
 index 49f3266..e0bf995 100644
 --- a/main/com/mucommander/commons/file/impl/local/LocalFile.java
@@ -541,23 +509,7 @@ index fc61dac..30536b7 100644
  
          // This block is executed only if integrity check has been enabled (disabled by default)
          if(integrityCheckEnabled) {
-diff --git a/main/com/mucommander/ui/dialog/server/ServerConnectDialog.java b/main/com/mucommander/ui/dialog/server/ServerConnectDialog.java
-index 50e678f..bcdd5ae 100644
---- a/main/com/mucommander/ui/dialog/server/ServerConnectDialog.java
-+++ b/main/com/mucommander/ui/dialog/server/ServerConnectDialog.java
-@@ -100,10 +100,10 @@ public class ServerConnectDialog extends FocusDialog implements ActionListener,
-         this.tabbedPane = new JTabbedPane(JTabbedPane.TOP);
- 
-         addTab(FileProtocols.FTP, new FTPPanel(this, mainFrame), selectPanelClass);
--        addTab(FileProtocols.HDFS, new HDFSPanel(this, mainFrame), selectPanelClass);
-+        //addTab(FileProtocols.HDFS, new HDFSPanel(this, mainFrame), selectPanelClass);
-         addTab(FileProtocols.HTTP, new HTTPPanel(this, mainFrame), selectPanelClass);
-         addTab(FileProtocols.NFS, new NFSPanel(this, mainFrame), selectPanelClass);
--        addTab(FileProtocols.S3, new S3Panel(this, mainFrame), selectPanelClass);
-+        //addTab(FileProtocols.S3, new S3Panel(this, mainFrame), selectPanelClass);
-         addTab(FileProtocols.SFTP, new SFTPPanel(this, mainFrame), selectPanelClass);
-         addTab(FileProtocols.SMB, new SMBPanel(this, mainFrame), selectPanelClass);
- 
+
 diff --git a/main/com/mucommander/ui/notifier/GrowlNotifier.java b/main/com/mucommander/ui/notifier/GrowlNotifier.java
 index 9cb68ae..bf4d758 100644
 --- a/main/com/mucommander/ui/notifier/GrowlNotifier.java

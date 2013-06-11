@@ -25,7 +25,7 @@ SRC_URI="http://www.mucommander.com/download/${PN}-${UPSTREAM_PV}-src.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="" #amd64 x86
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="
@@ -50,6 +50,7 @@ DEPEND="${CDEPEND}
 
 MY_P="${UPSTREAM_PN}-${UPSTREAM_PV}"
 S="${WORKDIR}/${MY_P}"
+BIN_S="${WORKDIR}/binary"
 
 src_unpack() {
 	unpack "${PN}-${UPSTREAM_PV}-src.tar.gz"
@@ -57,7 +58,7 @@ src_unpack() {
 		unzip -n "${DISTDIR}/com.${PN}.commons.${mod}-sources.jar" -d "${S}/main/" || die 
 	done
 
-	unzip -n "${DISTDIR}/${PN}-${UPSTREAM_PV}.jar" -d "${WORKDIR}/binary" || die
+	unzip -n "${DISTDIR}/${PN}-${UPSTREAM_PV}.jar" -d "${BIN_S}" || die
 }
 
 src_prepare() {
@@ -66,27 +67,46 @@ src_prepare() {
 	rm -r "${S}"/main/com/${PN}/ui/macosx || die
 	rm ${S}/main/com/${PN}/commons/file/util/{Kernel32,Kernel32API,Shell32,Shell32API}.java || die 
 
-	# vSphere/s3,hadoop stuff not available atm
-	rm -r "${S}"/main/com/${PN}/commons/file/impl/{vsphere,s3,hadoop} || die
-	rm "${S}"/main/com/${PN}/ui/dialog/server/{HDFSPanel,S3Panel}.java || die
+	epatch "${FILESDIR}/${PV}-remove-unsupported-desktops.patch"
+	epatch "${FILESDIR}/${PV}-fix-ftp-client.patch"
 
 	# junrar changed the namespace but upstream source doesn't reflect this yet
-	sed -i -e "s/de.innosystec.unrar/com.github.junrar/g" $(find ${S}/main/com/${PN}/commons/file/impl/rar -name "*.java") || die
+	sed -i -e "s/de.innosystec.unrar/com.github.junrar/g" \
+		$(find ${S}/main/com/${PN}/commons/file/impl/rar -name "*.java") || die
 
-	epatch "${FILESDIR}/${PV}-remove-unsupported-desktops.patch"
+	rm -r "${S}"/main/com/${PN}/commons/file/impl/{s3,hadoop,vsphere} || die
+	rm "${S}"/main/com/${PN}/ui/dialog/server/{S3Panel,HDFSPanel}.java || die
+
+	sed -i -e 's/registerProtocol(FileProtocols.S3.*//g' \
+		"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
+	sed -i -e 's/addTab(FileProtocols.S3.*//g' \
+		"${S}"/main/com/${PN}/ui/dialog/server/ServerConnectDialog.java || die
+	sed -i -e 's/registerProtocol(FileProtocols.HDFS.*//g' \
+		"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
+	sed -i -e 's/addTab(FileProtocols.HDFS.*//g' \
+		"${S}"/main/com/${PN}/ui/dialog/server/ServerConnectDialog.java || die
+	sed -i -e 's/registerProtocol(FileProtocols.VSPHERE.*//g' \
+		"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
 }
 
 src_compile() {
 	local build_dir="${S}"/build
 	local dist_dir="${S}"/dist
-	local deps="$(java-pkg_getjars slf4j,icu4j-49,jna,commons-collections,jcifs-1.1,j2ssh,junrar,yanfs,commons-net,commons-compress,ant-core,jmdns,logback-bin)"
-	local classpath="-classpath ${deps}"
 	mkdir ${build_dir} ${dist_dir} || die
+
+	local deps="$(java-pkg_getjars commons-collections,commons-net,commons-compress,ant-core)"
+	deps="${deps}:$(java-pkg_getjars slf4j,icu4j-49,jna,jcifs-1.1,j2ssh,junrar,yanfs,jmdns,logback-bin)"
+	local classpath="-classpath ${deps}"
+
 	ejavac ${classpath} -nowarn -d "${build_dir}" $(find main/ -name "*.java")
 
-	cp -r ${WORKDIR}/binary/{META-INF,images,themes,dictionary.txt,license.txt,*.properties,*.xml} ${build_dir} || die
-	cp ${WORKDIR}/binary/com/${PN}/commons/file/icon/impl/link.png ${build_dir}/com/${PN}/commons/file/icon/impl/ || die
-	cp ${WORKDIR}/binary/com/${PN}/commons/file/mime.types ${build_dir}/com/${PN}/commons/file/ || die
+	# some required resources aren't available in the source jar but in the binary
+	cp -r ${BIN_S}/{META-INF,images,themes,dictionary.txt,license.txt,*.properties,*.xml} \
+		${build_dir} || die
+	cp ${BIN_S}/com/${PN}/commons/file/icon/impl/link.png \
+		${build_dir}/com/${PN}/commons/file/icon/impl/ || die
+	cp ${BIN_S}/com/${PN}/commons/file/mime.types \
+		${build_dir}/com/${PN}/commons/file/ || die
 
 	local manifest="${build_dir}/META-INF/MANIFEST.MF"
 	sed -i -e "s/Build-Date:.*/Build-Date: $(date +%Y%m%d)/g" ${manifest} && \
