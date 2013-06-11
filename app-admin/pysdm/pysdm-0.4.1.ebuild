@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
-PYTHON_DEPEND="2"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit python
+inherit python-single-r1
 
 DESCRIPTION="Storage Device Manager"
 HOMEPAGE="http://pysdm.sourceforge.net/"
@@ -17,13 +17,7 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE=""
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
 src_prepare() {
-	echo "true" > py-compile
 	sed "s:constants.data_dir:\"${EPREFIX}/usr/share/${PN}\":g" -i pysdm/pysdm.py || die
 }
 
@@ -35,14 +29,6 @@ src_install() {
 
 	cat > "${ED}"/usr/bin/${PN} <<- EOF
 	#!/bin/bash
-	$(PYTHON) -O $(python_get_sitedir)/${PN}/${PN}.py
+	${PYTHON} -O $(python_get_sitedir)/${PN}/${PN}.py
 	EOF
-}
-
-pkg_postinst() {
-	python_mod_optimize ${PN}
-}
-
-pkg_postrm() {
-	python_mod_cleanup ${PN}
 }

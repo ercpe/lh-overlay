@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 
-inherit git cmake-utils
+inherit git-2 cmake-utils
 #inherit git
 
 DESCRIPTION="Qt password manager compatible with its Win32 and Pocket PC versions"
@@ -24,12 +24,8 @@ DEPEND="
 	|| ( >=x11-libs/libXtst-1.1.0 <x11-proto/xextproto-7.1.0 )"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	git_src_unpack
-}
-
 src_install() {
 	insinto /usr
-	doins -r share || die
-	dobin ${CMAKE_BUILD_DIR}/src/${PN} || die
+	doins -r share
+	dobin "${CMAKE_BUILD_DIR}"/src/${PN}
 }
