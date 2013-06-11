@@ -12,7 +12,7 @@ DESCRIPTION="Simple Logging Facade for Java"
 HOMEPAGE="http://www.slf4j.org/"
 SRC_URI="http://www.${PN}.org/dist/${P}.tar.gz"
 
-LICENSE="AS-IS"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="simple log4j nop jcl migrator"
@@ -38,7 +38,7 @@ _build_sub() {
 	local src_dir="${base_dir}/src/main/java"
 	local classpath="-classpath "
 	local jars=""
-	
+
 	if [ "${sub_name}" != "api" ]; then
 		jars="${jars}${pkg_dist_dir}/${PN}-api.jar:"
 	fi
@@ -57,14 +57,14 @@ _build_sub() {
 
 	mkdir "${build_dir}" || die
 	ejavac ${classpath} -nowarn -d "${build_dir}" $(find ${src_dir} -name "*.java") || die
-	
+
 	jar cfm "${pkg_dist_dir}/${my_name}.jar" "${base_dir}/src/main/resources/META-INF/MANIFEST.MF" -C ${build_dir} . || die "Creating ${my_name} jar failed"
 }
 
 src_compile() {
 	mkdir "${pkg_dist_dir}" || die
 	_build_sub "api"
-	
+
 	use simple && _build_sub "simple"
 	use nop && _build_sub "nop"
 	use log4j && _build_sub "log4j12"
