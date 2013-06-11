@@ -1,5 +1,14 @@
 
 
+  11 Jun 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.8.4.ebuild,
+  -lh-sources-3.8.5.ebuild, -lh-sources-3.8.5-r1.ebuild,
+  -lh-sources-3.8.6.ebuild, -lh-sources-3.8.7.ebuild, -lh-sources-3.8.8.ebuild,
+  -lh-sources-3.8.10.ebuild, -lh-sources-3.9.0.ebuild,
+  -lh-sources-3.9.0-r1.ebuild, -lh-sources-3.9.1.ebuild,
+  -lh-sources-3.9.1-r1.ebuild, -lh-sources-3.9.2.ebuild,
+  -lh-sources-3.9.3.ebuild, -lh-sources-3.9.4.ebuild, lh-sources-3.9.5.ebuild:
+  Drop old; fix quoting
+
 *lh-sources-3.9.5 (09 Jun 2013)
 
   09 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.5.ebuild:

@@ -46,16 +46,17 @@ AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
 	"${WORKDIR}"/aufs3-base.patch"
 
-_BFQ_PATCH_LIST="
-	${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
-	${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1"
+_BFQ_PATCH_LIST=(
+	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
+	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
+	)
 
 BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 
 # http://unicorn.drogon.net/rpi/linux-arm.patch
 ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
 
-UNIPATCH_LIST="${BFQ_PATCH_LIST} ${ARM_PATCH_LIST} ${AUFS_PATCH_LIST}"
+UNIPATCH_LIST="${BFQ_PATCH_LIST[@]} ${ARM_PATCH_LIST} ${AUFS_PATCH_LIST}"
 UNIPATCH_DOCS="${BFQ_DOC}"
 
 src_unpack() {
