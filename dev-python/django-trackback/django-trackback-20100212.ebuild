@@ -1,25 +1,21 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=5
 
-PYTHON_DEPEND="2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.*"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit distutils
+inherit distutils-r1
 
-PYTHON_MODNAME="trackback"
-
-DESCRIPTION="A django application for sending and receiving trackbacks"
+DESCRIPTION="Sending and receiving trackbacks in Django"
 HOMEPAGE="http://code.google.com/p/django-trackback/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">dev-python/django-1.2"
+RDEPEND=">dev-python/django-1.2[${PYTHON_USEDEP}]"
 DEPEND=""
