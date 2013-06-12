@@ -64,7 +64,7 @@ src_unpack() {
 	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
 	mkdir "${WORKDIR}"/patches || die
-	cp ${_BFQ_PATCH_LIST} "${WORKDIR}"/patches || die
+	cp ${_BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
 	kernel-2_src_unpack
 }
 
