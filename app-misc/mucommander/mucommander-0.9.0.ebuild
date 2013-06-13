@@ -38,6 +38,7 @@ CDEPEND="
 	dev-java/jmdns
 	dev-java/jna
 	dev-java/j2ssh
+	dev-java/junrar
 	dev-java/logback-bin
 	dev-java/slf4j[simple]
 	dev-java/yanfs
