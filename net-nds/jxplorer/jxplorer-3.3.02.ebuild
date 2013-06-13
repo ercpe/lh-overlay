@@ -10,8 +10,8 @@ inherit eutils java-pkg-2 java-ant-2 prefix
 DESCRIPTION="A fully functional ldap browser written in java."
 HOMEPAGE="http://jxplorer.org/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}-project.zip"
-
 LICENSE="CAOSL"
+
 IUSE="test"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -28,30 +28,20 @@ JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="javahelp"
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-disable-jxworkbench.patch
-
-	# Contains stuff for javahelp
-	mkdir dist || die
-	cp jars/help.jar dist || die
-
 	rm -v jars/*.jar || die
+	sed -i -e 's/<fileset dir="${jasper}.*//g' "${S}/build.xml" || die
 
 	if use !test ; then
-		find . -iname '*Test*.java' -delete
+		find . -iname '*Test*.java' -delete || die
 	fi
 }
 
-src_compile() {
-	use test && EANT_GENTOO_CLASSPATH_EXTRA=$(java-pkg_getjars --build-only junit)
-	java-pkg-2_src_compile
-}
-
 src_test(){
-	ANT_TASKS="ant-junit" java-pkg-2_src_test
+	ANT_TASKS="ant-junit" eant test
 }
 
 src_install() {
-	java-pkg_dojar jars/${PN}.jar dist/help.jar
+	java-pkg_dojar jars/${PN}.jar
 
 	dodir /usr/share/${PN}
 	for i in "icons images htmldocs language templates plugins security.default csvconfig.txt.default"
