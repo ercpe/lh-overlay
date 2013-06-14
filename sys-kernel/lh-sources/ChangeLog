@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.9.6 (14 Jun 2013)
+
+  14 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.6.ebuild:
+  Bump to latest genpatches
+
   12 Jun 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.5.ebuild:
   Moved BFQ patch into an array
 
