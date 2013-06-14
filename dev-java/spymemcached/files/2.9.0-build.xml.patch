@@ -1,0 +1,57 @@
+diff --git a/build.xml b/build.xml
+index 9c2cbcf..fce519a 100644
+--- a/build.xml
++++ b/build.xml
+@@ -81,6 +81,8 @@
+   <property name="javac.debug" value="on"/>
+   <property name="build.encoding" value="ISO-8859-1"/>
+ 
++  <path id="spymemcached.common.classpath"></path>
++
+   <!-- Checking code style -->
+   <property name="checkstyle.xml" value="${etc.dir}/checkstyle.xml" />
+   <property name="checkstyle.format.xsl" value="${etc.dir}/checkstyle-noframes.xsl" />
+@@ -390,7 +392,7 @@
+     </exec>
+   </target>
+ 
+-  <target name="compile" depends="ivy-init, gen-version, ivy-retrieve"
++  <target name="compile"
+       description="Compile and run the project">
+     <mkdir dir="${build.classes}" />
+     <javac
+@@ -405,7 +407,7 @@
+         source="1.6">
+       <classpath refid="${name}.common.classpath" />
+     </javac>
+-
++<!--
+     <javac
+         encoding="${build.encoding}"
+         srcdir="${build.src.dir}"
+@@ -420,6 +422,7 @@
+     </javac>
+     <move file="${build.src.dir}/net/spy/memcached/changelog.txt"
+         tofile="${build.classes}/net/spy/memcached/changelog.txt" />
++-->
+   </target>
+ 
+   <target name="srcjar" depends="init,jar"
+@@ -434,7 +437,7 @@
+     </jar>
+   </target>
+ 
+-  <target name="jar" depends="compile,compile-test" description="Creates a jar file for the library">
++  <target name="jar" depends="compile" description="Creates a jar file for the library">
+     <mkdir dir="${build.dir}/jars" />
+     <jar jarfile="${build.dir}/jars/${name}-${version}.jar" basedir="${build.classes}">
+       <manifest>
+@@ -445,7 +448,7 @@
+         <attribute name="Main-Class" value="net.spy.memcached.BuildInfo" />
+       </manifest>
+     </jar>
+-    <jar jarfile="${build.dir}/jars/${name}-test-${version}.jar" basedir="${build.test.classes}"/>
++<!--    <jar jarfile="${build.dir}/jars/${name}-test-${version}.jar" basedir="${build.test.classes}"/>-->
+   </target>
+ 
+   <target name="package" depends="jar,srcjar,docsjar"
