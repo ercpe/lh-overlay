@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils java-pkg-2 java-ant-2 
+inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="A low level toolset of Java components focused on HTTP and associated protocols"
 HOMEPAGE="http://hc.apache.org/index.html"
