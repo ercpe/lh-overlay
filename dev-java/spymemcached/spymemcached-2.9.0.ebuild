@@ -12,7 +12,6 @@ DESCRIPTION="A simple, asynchronous, single-threaded memcached client written in
 HOMEPAGE="https://code.google.com/p/spymemcached/"
 SRC_URI="https://github.com/dustin/${UPSTREAM_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
