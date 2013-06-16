@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/iharder/${PN}/${UPSTREAM_MAIN_PV}/Base64-v${PV}.zi
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=virtual/jre-1.5"

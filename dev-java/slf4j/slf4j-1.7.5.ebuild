@@ -14,7 +14,7 @@ SRC_URI="http://www.${PN}.org/dist/${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="simple log4j nop jcl migrator"
 
 RDEPEND="${CDEPEND}

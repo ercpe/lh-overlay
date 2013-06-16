@@ -77,7 +77,7 @@ SLOT="0"
 # KEYWORDS would be set like this: KEYWORDS="-* x86"
 # DO NOT USE KEYWORDS="*".  This is deprecated and only for backward
 # compatibility reasons.
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 
 # Comprehensive list of any and all USE flags leveraged in the ebuild,
 # with the exception of any ARCH specific flags, i.e. "ppc", "sparc",

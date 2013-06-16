@@ -15,7 +15,7 @@ SRC_URI="http://archive.apache.org/dist/${MY_PN}/${PV}/binaries/${MY_PN}-standal
 
 LICENSE="Apache-2.0"
 SLOT="1"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=virtual/jre-1.5"

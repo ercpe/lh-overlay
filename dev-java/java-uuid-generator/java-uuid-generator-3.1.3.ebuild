@@ -12,7 +12,7 @@ SRC_URI="https://github.com/cowtowncoder/${PN}/archive/${P}.tar.gz"
 
 LICENSE="|| ( Apache-2.0 LGPL-2.1 )"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="dev-java/log4j"

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/edmund-wagner/${PN}/archive/${P}.tar.gz"
 
 LICENSE="unRAR"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="dev-java/commons-logging
