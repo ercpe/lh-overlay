@@ -1,0 +1,85 @@
+# HG changeset patch
+# User David Kocher <dkocher@sudo.ch>
+# Date 1349092685 -7200
+# Node ID 676772499358222f110b4a13803a55bfe8904452
+# Parent  48f82ab19546739f756d7bd8db77a905e1e97349
+Use java.util.UUID.
+
+diff -r 48f82ab19546739f756d7bd8db77a905e1e97349 -r 676772499358222f110b4a13803a55bfe8904452 src/org/jets3t/servlets/gatekeeper/impl/DefaultTransactionIdProvider.java
+--- a/src/org/jets3t/servlets/gatekeeper/impl/DefaultTransactionIdProvider.java	Mon Oct 01 11:40:23 2012 +0200
++++ b/src/org/jets3t/servlets/gatekeeper/impl/DefaultTransactionIdProvider.java	Mon Oct 01 13:58:05 2012 +0200
+@@ -18,14 +18,13 @@
+  */
+ package org.jets3t.servlets.gatekeeper.impl;
+ 
+-import javax.servlet.ServletConfig;
+-import javax.servlet.ServletException;
+-
+ import org.jets3t.service.utils.gatekeeper.GatekeeperMessage;
+ import org.jets3t.servlets.gatekeeper.ClientInformation;
+ import org.jets3t.servlets.gatekeeper.TransactionIdProvider;
+-import org.safehaus.uuid.UUID;
+-import org.safehaus.uuid.UUIDGenerator;
++
++import javax.servlet.ServletConfig;
++import javax.servlet.ServletException;
++import java.util.UUID;
+ 
+ /**
+  * Default TransactionIdProvider implementation that generated random-based UUIDs using the
+@@ -48,11 +47,9 @@
+     /**
+      * Returns a random-based UUID.
+      */
+-    public String getTransactionId(GatekeeperMessage requestMessage, ClientInformation clientInformation)
+-    {
++    public String getTransactionId(GatekeeperMessage requestMessage, ClientInformation clientInformation) {
+         // Generate a UUID based on a random generation.
+-        UUID uuid = UUIDGenerator.getInstance().generateRandomBasedUUID();
+-        return uuid.toString();
++        return UUID.randomUUID().toString();
+     }
+ 
+ }
+diff -r 48f82ab19546739f756d7bd8db77a905e1e97349 -r 676772499358222f110b4a13803a55bfe8904452 src/org/jets3t/servlets/gatekeeper/impl/ExternalUuidProvider.java
+--- a/src/org/jets3t/servlets/gatekeeper/impl/ExternalUuidProvider.java	Mon Oct 01 11:40:23 2012 +0200
++++ b/src/org/jets3t/servlets/gatekeeper/impl/ExternalUuidProvider.java	Mon Oct 01 13:58:05 2012 +0200
+@@ -18,14 +18,13 @@
+  */
+ package org.jets3t.servlets.gatekeeper.impl;
+ 
+-import javax.servlet.ServletConfig;
+-import javax.servlet.ServletException;
+-
+ import org.jets3t.service.utils.gatekeeper.GatekeeperMessage;
+ import org.jets3t.servlets.gatekeeper.ClientInformation;
+ import org.jets3t.servlets.gatekeeper.TransactionIdProvider;
+-import org.safehaus.uuid.UUID;
+-import org.safehaus.uuid.UUIDGenerator;
++
++import javax.servlet.ServletConfig;
++import javax.servlet.ServletException;
++import java.util.UUID;
+ 
+ /**
+  * Uses an externally provided UUID obtained from an application property <tt>externalUUID</tt>
+@@ -44,16 +43,14 @@
+      * is returned as the transaction ID. If the property is not availble a new random-based
+      * UUID is generated using the JUG library.
+      */
+-    public String getTransactionId(GatekeeperMessage requestMessage, ClientInformation clientInformation)
+-    {
++    public String getTransactionId(GatekeeperMessage requestMessage, ClientInformation clientInformation) {
+         // Use the external UUID as a transaction ID, if it's available.
+         String externalUuid = requestMessage.getApplicationProperties().getProperty("externalUUID");
+-        if (externalUuid != null && externalUuid.length() > 0) {
++        if(externalUuid != null && externalUuid.length() > 0) {
+             return externalUuid;
+         }
+         // Use a generated UUID based on a random generation as a fallback if the external UUID isn't available.
+-        UUID uuid = UUIDGenerator.getInstance().generateRandomBasedUUID();
+-        return uuid.toString();
++        return UUID.randomUUID().toString();
+     }
+ 
+ }
