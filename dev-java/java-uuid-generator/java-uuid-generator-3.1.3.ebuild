@@ -6,7 +6,7 @@ EAPI=5
 
 inherit eutils java-pkg-2 java-ant-2
 
-DESCRIPTION="A library for generating all 3 types of UUIDs on Java."
+DESCRIPTION="A library for generating all 3 types of UUIDs on Java"
 HOMEPAGE="http://wiki.fasterxml.com/JugHome"
 SRC_URI="https://github.com/cowtowncoder/${PN}/archive/${P}.tar.gz"
 
