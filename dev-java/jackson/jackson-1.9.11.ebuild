@@ -18,16 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=virtual/jre-1.5
-	dev-java/jsr311-api"
-DEPEND="${RDEPEND}
-	>=virtual/jdk-1.5
-	dev-java/ant-nodeps"
+RDEPEND=">=virtual/jre-1.5"
+DEPEND=">=virtual/jdk-1.5"
 
 S="${WORKDIR}/${PN}-src-${PV}"
 
 src_install() {
-	dodoc README.txt release-notes/{VERSION,CREDITS} || die
+	dodoc README.txt release-notes/{VERSION,CREDITS}
 	for i in jaxrs {mapper,core}-{asl,lgpl} ; do
 		java-pkg_newjar build/${PN}-${i}-${PV}.jar ${PN}-${i}.jar
 	done
