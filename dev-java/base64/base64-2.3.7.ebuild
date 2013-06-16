@@ -10,7 +10,7 @@ UPSTREAM_MAIN_PV=$(get_version_component_range 1-2)
 
 DESCRIPTION="A Base64 encode written in java"
 HOMEPAGE="http://iharder.sourceforge.net/current/java/base64/"
-SRC_URI="mirror://sourceforge/iharder/${PN}/${UPSTREAM_MAIN_PV}/Base64-v${PV}.zip"
+SRC_URI="mirror://sourceforge/iharder/${PN}/${UPSTREAM_MAIN_PV}/Base64-v${PV}.zip -> ${P}.zip"
 
 LICENSE="public-domain"
 SLOT="0"
