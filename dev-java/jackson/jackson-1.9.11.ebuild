@@ -13,7 +13,10 @@ DESCRIPTION="High-performance JSON processor"
 HOMEPAGE="http://jackson.codehaus.org"
 SRC_URI="http://jackson.codehaus.org/${PV}/${PN}-src-${PV}.tar.gz"
 
-LICENSE="|| ( Apache-2.0 LGPL-2.1 )"
+# LICENSE is "|| ( Apache-2.0 LGPL-2.1 )", but the build scripts spits out
+# different jars for the two licenses. This should be reworked to either create
+# only one jar, or find a way to install the jars based on the accepted licenses.
+LICENSE="Apache-2.0 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
