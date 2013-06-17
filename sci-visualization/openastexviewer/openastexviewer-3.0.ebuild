@@ -59,4 +59,6 @@ src_install() {
 
 	newicon src/astex_logo.png ${PN}.png
 	make_desktop_entry ${PN} ${PN} ${PN}
+
+	dodoc "${S}"/src/COPYING.LESSER
 }
