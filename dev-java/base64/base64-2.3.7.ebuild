@@ -3,6 +3,7 @@
 # $Header: $
 
 EAPI=5
+JAVA_PKG_IUSE="doc source"
 
 inherit eutils java-pkg-2 versionator
 
@@ -37,4 +38,7 @@ src_compile() {
 src_install() {
 	jar cf "${PN}.jar" -C "${S}/build" . || die "jar failed"
 	java-pkg_dojar "${PN}.jar"
+
+	use doc && java-pkg_dohtml -r api/
+	use source && java-pkg_dosrc *.java
 }
