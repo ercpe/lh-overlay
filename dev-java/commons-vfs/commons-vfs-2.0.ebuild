@@ -15,7 +15,7 @@ SRC_URI="mirror://apache/${PN/-//}/source/${P}-src.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="examples"
 
 COMMON_DEP="
 	dev-java/commons-logging
@@ -33,17 +33,32 @@ DEPEND=">=virtual/jdk-1.5
 
 S="${WORKDIR}/${P}"
 
+EANT_BUILD_XML="core/build.xml"
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+EANT_GENTOO_CLASSPATH="
+	commons-collections
+	commons-httpclient-3
+	commons-logging
+	commons-net
+	jackrabbit-bin-1
+	jsch"
+
 src_compile() {
-	local build_dir="${S}"/build
-	local dist_dir="${S}"/gdist
-	local classpath="-classpath $(java-pkg_getjars commons-logging,commons-net,commons-httpclient-3,jsch,commons-collections,ant-core,jackrabbit-bin-1):${build_dir}:./lib"
-	mkdir "${build_dir}" "${dist_dir}" || die
+	EANT_BUILD_TARGET="jar"
+	use doc && EANT_BUILD_TARGET="${EANT_BUILD_TARGET} javadoc"
+	java-pkg-2_src_compile
+}
 
-	ejavac ${classpath} -nowarn -d "${build_dir}" $(find core/src/main/java -name "*.java") || die
-
-	jar cf "${dist_dir}/${PN}.jar" -C ${build_dir} . || die "jar failed"
+src_prepare() {
+	cp "${FILESDIR}/${PV}-core-build.xml" "${S}"/core/build.xml || die
 }
 
 src_install() {
-	java-pkg_dojar "${S}/gdist/${PN}.jar"
+	java-pkg_newjar "${S}/core/target/${PN}2-${PV}.jar" "${PN}.jar"
+
+	use doc && java-pkg_dohtml -r "${S}/core/target/site/apidocs"
+	use source && java-pkg_dosrc "${S}/core/src/main/java/"
+	use examples && java-pkg_doexamples "${S}/examples/src/main/java/"
+
+	dodoc "${S}"/{README,NOTICE,RELEASE-NOTES}.txt
 }
