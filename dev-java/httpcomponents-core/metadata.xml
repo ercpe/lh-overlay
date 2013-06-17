@@ -9,5 +9,8 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
+	<use>
+		<flag name='examples'>Installs example java files</flag>
+	</use>
 </pkgmetadata>
 

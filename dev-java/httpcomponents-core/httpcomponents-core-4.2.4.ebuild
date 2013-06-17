@@ -4,6 +4,8 @@
 
 EAPI=5
 
+JAVA_PKG_IUSE="source"
+
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="A low level toolset of Java components focused on HTTP and associated protocols"
@@ -14,14 +16,12 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE=""
+IUSE="examples"
 
 RDEPEND=">=virtual/jre-1.5"
 DEPEND=">=virtual/jdk-1.5"
 
 EANT_BUILD_TARGET="package"
-
-#EANT_GENTOO_CLASSPATH="${S}/httpcore/target/httpcore-4.2.4.jar"
 
 java_prepare() {
 	cp "${FILESDIR}/maven-build.xml" "${S}/build.xml" || die
@@ -35,4 +35,12 @@ src_install() {
 	for mod in httpcore httpcore-nio; do
 		java-pkg_newjar "${S}/${mod}/target/${mod}-${PV}.jar" ${mod}.jar
 	done
+
+	use source && java-pkg_dosrc "${S}/httpcore/src/main/java/" \
+		"${S}/httpcore-nio/src/main/java/"
+
+	use examples && java-pkg_doexamples "${S}/httpcore/src/examples/" \
+		"${S}/httpcore-nio/src/examples/"
+	
+	dodoc "${S}"/{README,RELEASE_NOTES,NOTICE}.txt
 }
