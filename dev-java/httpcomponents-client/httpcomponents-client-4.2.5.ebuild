@@ -4,6 +4,8 @@
 
 EAPI=5
 
+JAVA_PKG_IUSE="source examples"
+
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="A low level toolset of Java components focused on HTTP and associated protocols"
@@ -13,7 +15,7 @@ SRC_URI="mirror://apache/${PN/-//http}/source/${P}-src.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="examples"
 
 CDEPEND="dev-java/commons-logging
 	dev-java/commons-codec
@@ -44,4 +46,7 @@ src_install() {
 	for mod in httpclient httpmime; do
 		java-pkg_newjar "${S}/${mod}/target/${mod}-${PV}.jar" ${mod}.jar
 	done
+
+	use source && java-pkg_dosrc "${S}"/{httpclient,httpmime}/src/main/java/
+	use examples && java-pkg_doexamples "${S}"/{httpclient,httpmime}/src/examples/
 }

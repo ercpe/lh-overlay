@@ -4,6 +4,8 @@
 
 EAPI=5
 
+JAVA_PKG_IUSE="source doc examples"
+
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Java implementation of the SSH protocol"
@@ -25,15 +27,14 @@ DEPEND="${CDEPEND}
 
 S="${WORKDIR}/${PN}"
 
+EANT_BUILD_TARGET="build"
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+EANT_GENTOO_CLASSPATH="commons-logging"
+
 src_prepare() {
 	epatch "${FILESDIR}/${PV}-extras.patch"
-	cd "${S}/lib/" || die
-	rm "commons-logging.jar" || die
-	java-pkg_jar-from commons-logging
 
-	if use ant; then
-		java-pkg_jar-from ant-core
-	else
+	if ! use ant; then
 		rm -r "${S}/src/com/sshtools/ant" || die
 	fi
 
@@ -43,13 +44,18 @@ src_prepare() {
 }
 
 src_compile() {
-	eant build
+	use ant && EANT_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH} ant-core"
+	java-pkg-2_src_compile
 
-	if use ant; then
-		rm -r "${S}/dist/lib/${PN}-ant.jar" || die
+	if ! use ant; then
+		rm -rv "${S}/dist/lib/${PN}-ant.jar" || die
 	fi
 }
 
 src_install() {
 	java-pkg_dojar "${S}"/dist/lib/*.jar
+
+	use doc && java-pkg_dohtml -r docs/
+	use source && java-pkg_dosrc "${S}"/src/
+	use examples && java-pkg_doexamples "${S}"/examples/
 }
