@@ -4,6 +4,8 @@
 
 EAPI=5
 
+JAVA_PKG_IUSE="doc"
+
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="A library for generating all 3 types of UUIDs on Java"
@@ -31,5 +33,7 @@ src_prepare() {
 
 src_install() {
 	java-pkg_newjar "${S}/target/${P}.jar" ${PN}.jar
-}
 
+	use doc && java-pkg_dohtml -r "${S}/target/site/apidocs"
+	dodoc "${S}"/release-notes/{CREDITS,FAQ,USAGE,VERSION} "${S}"/README
+}
