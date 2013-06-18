@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Jun 2013; johann@j-schmitz.net +files/0.6-build.xml, junrar-0.6.ebuild:
+  Make use of an ant build script to simplify the build process. Install
+  doc/source if requested
+
   11 Jun 2013; Justin Lecher <jlec@gentoo.org> junrar-0.6.ebuild, metadata.xml:
   Add license
-

@@ -4,7 +4,9 @@
 
 EAPI=5
 
-inherit eutils java-pkg-2
+JAVA_PKG_IUSE="source doc"
+
+inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Unrar java implementation"
 HOMEPAGE="https://github.com/edmund-wagner/junrar/"
@@ -25,17 +27,18 @@ DEPEND="
 
 S="${WORKDIR}/${PN}-${P}"
 
-src_compile() {
-	local build_dir="${S}"/build
-	local dist_dir="${S}"/dist
-	local classpath="-classpath $(java-pkg_getjars commons-logging,commons-vfs):${build_dir}:./lib"
-	mkdir "${build_dir}" "${dist_dir}" || die
+EANT_BUILD_XML="unrar/build.xml"
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+EANT_GENTOO_CLASSPATH="commons-logging
+	commons-vfs"
 
-	ejavac ${classpath} -nowarn -d "${build_dir}" $(find unrar/src/main/java -name "*.java") || die
-
-	jar cf "${dist_dir}/${PN}.jar" -C ${build_dir} . || die "jar failed"
+src_prepare() {
+	cp "${FILESDIR}/${PV}-build.xml" "${S}"/unrar/build.xml || die
 }
 
 src_install() {
-	java-pkg_dojar "${S}/dist/${PN}.jar"
+	java-pkg_newjar "${S}/unrar/target/${P}.jar" "${PN}.jar"
+
+	use source && java-pkg_dosrc unrar/src/main/java
+	use doc && java-pkg_dojavadoc "${S}/unrar/target/site/apidocs"
 }
