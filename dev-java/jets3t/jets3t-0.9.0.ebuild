@@ -4,6 +4,8 @@
 
 EAPI=5
 
+JAVA_PKG_IUSE="doc source"
+
 inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Java implementation for Amazon S3"
@@ -33,6 +35,7 @@ S="${WORKDIR}/${P}"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_BUILD_TARGET="rebuild-service"
+EANT_DOC_TARGET=""
 COMMON_CLASSPATH="commons-codec
 	commons-logging
 	java-xmlbuilder
@@ -45,6 +48,9 @@ COMMON_CLASSPATH="commons-codec
 src_unpack() {
 	unpack ${A}
 	unzip -n "${S}/src.zip" -d "${S}" || die
+	if use doc; then
+		unzip -n "${S}/api-docs.zip" -d "${S}" || die
+	fi
 	rm -r "${S}"/libs/* || die
 }
 
@@ -65,9 +71,12 @@ src_compile() {
 	local classpath="${COMMON_CLASSPATH}"
 	use servlet && classpath="${classpath} servlet-api-2.4"
 
-	EANT_GENTOO_CLASSPATH="${classpath}" java-pkg-2_src_compile
+	EANT_GENTOO_CLASSPATH="${classpath}"
+	java-pkg-2_src_compile
 }
 
 src_install() {
 	java-pkg_newjar "${S}/jars/${P}.jar" "${PN}.jar"
+	use source && java-pkg_dosrc "${S}/src"
+	use doc && java-pkg_dohtml -r "${S}"/api-docs
 }
