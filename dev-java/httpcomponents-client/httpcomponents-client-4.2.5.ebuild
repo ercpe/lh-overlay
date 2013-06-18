@@ -4,7 +4,7 @@
 
 EAPI=5
 
-JAVA_PKG_IUSE="source"
+JAVA_PKG_IUSE="source examples"
 
 inherit eutils java-pkg-2 java-ant-2
 
@@ -46,7 +46,7 @@ src_install() {
 	for mod in httpclient httpmime; do
 		java-pkg_newjar "${S}/${mod}/target/${mod}-${PV}.jar" ${mod}.jar
 	done
-	
+
 	use source && java-pkg_dosrc "${S}"/{httpclient,httpmime}/src/main/java/
 	use examples && java-pkg_doexamples "${S}"/{httpclient,httpmime}/src/examples/
 }
