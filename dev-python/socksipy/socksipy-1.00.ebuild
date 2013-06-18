@@ -15,21 +15,14 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}/SocksiPy%20${PV}/SocksiPy.tar.gz -> ${
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-
 IUSE=""
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+DEPEND="${PYTHON_DEPS}"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/"
 
-src_compile() {
-	:;
-}
-
 src_install() {
-	python_install() {
-		insinto "$(python_get_sitedir)"
-		doins socks.py
-	}
-
-	python_foreach_impl python_install
+	python_foreach_impl python_domodule socks.py
 }
