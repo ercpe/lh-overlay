@@ -4,18 +4,19 @@
 
 EAPI=5
 
-JAVA_PKG_IUSE=""
+JAVA_PKG_IUSE="doc"
 
-inherit eutils java-pkg-2
+inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Simple Logging Facade for Java"
 HOMEPAGE="http://www.slf4j.org/"
-SRC_URI="http://www.${PN}.org/dist/${P}.tar.gz"
+SRC_URI="http://www.${PN}.org/dist/${P}.tar.gz
+	http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}-build-scripts.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="simple log4j nop jcl migrator"
+IUSE="simple log4j nop jcl"
 
 RDEPEND="${CDEPEND}
 	log4j? ( dev-java/log4j )
@@ -27,51 +28,33 @@ DEPEND="${CDEPEND}
 
 S="${WORKDIR}/${P}"
 
-pkg_dist_dir="${S}/dist"
+JAVA_ANT_REWRITE_CLASSPATH="yes"
 
-_build_sub() {
-	local sub_name="$1"
-	local my_name="${PN}-${sub_name}"
-	einfo "Compiling ${my_name}"
-	local base_dir="${S}/${my_name}"
-	local build_dir="${base_dir}/build"
-	local src_dir="${base_dir}/src/main/java"
-	local classpath="-classpath "
-	local jars=""
-
-	if [ "${sub_name}" != "api" ]; then
-		jars="${jars}${pkg_dist_dir}/${PN}-api.jar:"
-	fi
-
-	if [ "${sub_name}" == "log4j12" ]; then
-		jars="${jars}$(java-pkg_getjars log4j)"
-	elif [ "${sub_name}" == "jcl" ]; then
-		jars="${jars}$(java-pkg_getjars commons-logging)"
-	fi
-
-	if [ "${jars}" != "" ]; then
-		classpath="${classpath} ${jars}"
-	else
-		classpath=""
-	fi
-
-	mkdir "${build_dir}" || die
-	ejavac ${classpath} -nowarn -d "${build_dir}" $(find ${src_dir} -name "*.java") || die
-
-	jar cfm "${pkg_dist_dir}/${my_name}.jar" "${base_dir}/src/main/resources/META-INF/MANIFEST.MF" -C ${build_dir} . || die "Creating ${my_name} jar failed"
+src_prepare() {
+	_remove_target() {
+		sed -i -e "s/.*slf4j-${1}.*//g" "${S}"/build.xml || die
+	}
+	use simple || _remove_target "simple"
+	use nop || _remove_target "nop"
+	use jcl || _remove_target "jcl"
+	use log4j || _remove_target "ext"
 }
 
 src_compile() {
-	mkdir "${pkg_dist_dir}" || die
-	_build_sub "api"
-
-	use simple && _build_sub "simple"
-	use nop && _build_sub "nop"
-	use log4j && _build_sub "log4j12"
-	use jcl && _build_sub "jcl"
-	use migrator && _build_sub "migrator"
+	use jcl && EANT_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH} commons-logging"
+	use log4j && EANT_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH} log4j"
+	java-pkg-2_src_compile
 }
 
 src_install() {
-	java-pkg_dojar ${pkg_dist_dir}/*.jar
+	_inst() {
+		java-pkg_newjar "${PN}-${1}/target/${PN}-${1}-${PV}.jar" "${PN}-${1}.jar"
+	}
+	_inst "api"
+	use simple && _inst "simple"
+	use nop && _inst "nop"
+	use jcl && _inst "jcl"
+	use log4j && _inst "log4j12"
+
+	use doc && java-pkg_dohtml -r "${S}/apidocs"
 }
