@@ -1,7 +1,7 @@
-diff --git a/main/com/mucommander/commons/file/impl/local/LocalFile.java b/main/com/mucommander/commons/file/impl/local/LocalFile.java
+diff --git a/src/main/com/mucommander/commons/file/impl/local/LocalFile.java b/src/main/com/mucommander/commons/file/impl/local/LocalFile.java
 index 49f3266..e0bf995 100644
---- a/main/com/mucommander/commons/file/impl/local/LocalFile.java
-+++ b/main/com/mucommander/commons/file/impl/local/LocalFile.java
+--- a/src/main/com/mucommander/commons/file/impl/local/LocalFile.java
++++ b/src/main/com/mucommander/commons/file/impl/local/LocalFile.java
 @@ -52,8 +52,8 @@ import com.mucommander.commons.file.ProtocolFile;
  import com.mucommander.commons.file.UnsupportedFileOperation;
  import com.mucommander.commons.file.UnsupportedFileOperationException;
@@ -240,10 +240,10 @@ index 49f3266..e0bf995 100644
              // else fall back to java.io.File#renameTo
          }
  
-diff --git a/main/com/mucommander/commons/file/impl/local/UNCFile.java b/main/com/mucommander/commons/file/impl/local/UNCFile.java
+diff --git a/src/main/com/mucommander/commons/file/impl/local/UNCFile.java b/src/main/com/mucommander/commons/file/impl/local/UNCFile.java
 index 291e87d..5e52f7f 100644
---- a/main/com/mucommander/commons/file/impl/local/UNCFile.java
-+++ b/main/com/mucommander/commons/file/impl/local/UNCFile.java
+--- a/src/main/com/mucommander/commons/file/impl/local/UNCFile.java
++++ b/src/main/com/mucommander/commons/file/impl/local/UNCFile.java
 @@ -31,8 +31,8 @@ import com.mucommander.commons.file.impl.local.LocalFile.LocalInputStream;
  import com.mucommander.commons.file.impl.local.LocalFile.LocalOutputStream;
  import com.mucommander.commons.file.impl.local.LocalFile.LocalRandomAccessInputStream;
@@ -429,10 +429,10 @@ index 291e87d..5e52f7f 100644
          }
          finally {
              if(br!=null)
-diff --git a/main/com/mucommander/desktop/DesktopManager.java b/main/com/mucommander/desktop/DesktopManager.java
+diff --git a/src/main/com/mucommander/desktop/DesktopManager.java b/src/main/com/mucommander/desktop/DesktopManager.java
 index 5aeea3d..a660bcb 100644
---- a/main/com/mucommander/desktop/DesktopManager.java
-+++ b/main/com/mucommander/desktop/DesktopManager.java
+--- a/src/main/com/mucommander/desktop/DesktopManager.java
++++ b/src/main/com/mucommander/desktop/DesktopManager.java
 @@ -38,10 +38,10 @@ import com.mucommander.desktop.kde.ConfiguredKde3DesktopAdapter;
  import com.mucommander.desktop.kde.ConfiguredKde4DesktopAdapter;
  import com.mucommander.desktop.kde.GuessedKde3DesktopAdapter;
@@ -463,10 +463,10 @@ index 5aeea3d..a660bcb 100644
  
  
  
-diff --git a/main/com/mucommander/job/TransferFileJob.java b/main/com/mucommander/job/TransferFileJob.java
+diff --git a/src/main/com/mucommander/job/TransferFileJob.java b/src/main/com/mucommander/job/TransferFileJob.java
 index fc61dac..30536b7 100644
---- a/main/com/mucommander/job/TransferFileJob.java
-+++ b/main/com/mucommander/job/TransferFileJob.java
+--- a/src/main/com/mucommander/job/TransferFileJob.java
++++ b/src/main/com/mucommander/job/TransferFileJob.java
 @@ -27,7 +27,7 @@ import java.security.NoSuchAlgorithmException;
  import org.slf4j.Logger;
  import org.slf4j.LoggerFactory;
@@ -510,10 +510,10 @@ index fc61dac..30536b7 100644
          // This block is executed only if integrity check has been enabled (disabled by default)
          if(integrityCheckEnabled) {
 
-diff --git a/main/com/mucommander/ui/notifier/GrowlNotifier.java b/main/com/mucommander/ui/notifier/GrowlNotifier.java
+diff --git a/src/main/com/mucommander/ui/notifier/GrowlNotifier.java b/src/main/com/mucommander/ui/notifier/GrowlNotifier.java
 index 9cb68ae..bf4d758 100644
---- a/main/com/mucommander/ui/notifier/GrowlNotifier.java
-+++ b/main/com/mucommander/ui/notifier/GrowlNotifier.java
+--- a/src/main/com/mucommander/ui/notifier/GrowlNotifier.java
++++ b/src/main/com/mucommander/ui/notifier/GrowlNotifier.java
 @@ -20,7 +20,7 @@ package com.mucommander.ui.notifier;
  
  import com.mucommander.commons.runtime.OsFamilies;
