@@ -9,5 +9,8 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
+	<use>
+	    <flag name="s3">Adds support for the Amazon S3 storage system</flag>
+	</use>
 </pkgmetadata>
 

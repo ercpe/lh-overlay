@@ -75,9 +75,11 @@ src_prepare() {
 
 	# junrar changed the namespace but upstream source doesn't reflect this yet
 	sed -i -e "s/de.innosystec.unrar/com.github.junrar/g" \
-		$(find ${S}/main/com/${PN}/commons/file/impl/rar -name "*.java") || die
+		$(find "${S}"/main/com/${PN}/commons/file/impl/rar -name "*.java") || die
 
-	if ! use s3; then
+	if use s3; then
+		epatch "${FILESDIR}/${PV}-fix-s3impl.patch"
+	else
 		rm -r "${S}"/main/com/${PN}/commons/file/impl/s3 || die
 		sed -i -e 's/registerProtocol(FileProtocols.S3.*//g' \
 			"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
@@ -91,7 +93,7 @@ src_prepare() {
 		"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
 	sed -i -e 's/addTab(FileProtocols.HDFS.*//g' \
 		"${S}"/main/com/${PN}/ui/dialog/server/ServerConnectDialog.java || die
-	
+
 	rm -r "${S}"/main/com/${PN}/commons/file/impl/vsphere || die
 	sed -i -e 's/registerProtocol(FileProtocols.VSPHERE.*//g' \
 		"${S}"/main/com/${PN}/commons/file/FileFactory.java || die
@@ -104,9 +106,9 @@ src_compile() {
 
 	local deps="$(java-pkg_getjars commons-collections,commons-net,commons-compress,ant-core)"
 	deps="${deps}:$(java-pkg_getjars slf4j,icu4j-49,jna,jcifs-1.1,j2ssh,junrar,yanfs,jmdns,logback-bin)"
-	
+
 	use s3 && deps="${deps}:$(java-pkg_getjars jets3t)"
-	
+
 	local classpath="-classpath ${deps}"
 
 	ejavac ${classpath} -nowarn -d "${build_dir}" $(find main/ -name "*.java")
