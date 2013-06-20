@@ -37,7 +37,7 @@ src_prepare() {
 	use simple || _remove_target "simple"
 	use nop || _remove_target "nop"
 	use jcl || _remove_target "jcl"
-	use log4j || _remove_target "ext"
+	use log4j || _remove_target "log4j12"
 }
 
 src_compile() {
