@@ -24,7 +24,6 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
-	http://www.algogroup.unimo.it/people/paolo/disk_sched
 	http://aufs.sourceforge.net/"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI} ${BFQ_URI}"
 
