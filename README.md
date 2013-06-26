@@ -7,5 +7,6 @@ Home of the only ebuild for the great mucommander, and several other not well-kn
 - [A complete list of all ebuilds in the overlay](http://j-schmitz.net/gentoo/last-hope )
 - [Follow us on twitter](https://twitter.com/#!/LastHopeOverlay)
 
+The overlay is in the the layman's global repository.xml, so you can simply run `layman -a last-hope` to install the overlay.
 
-Fork us, we will merge.
+If you wish to contribute to the overlays fork us, we will merge.
