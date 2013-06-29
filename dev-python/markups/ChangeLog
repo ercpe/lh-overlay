@@ -1,0 +1,8 @@
+# ChangeLog for dev-python/markups
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*markups-0.2.4 (29 Jun 2013)
+
+  29 Jun 2013; johann@j-schmitz.net +markups-0.2.4.ebuild, +metadata.xml:
+  Added improved ebuild for the markups package
