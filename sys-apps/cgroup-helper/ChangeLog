@@ -1,6 +1,10 @@
 # ChangeLog for sys-apps/cgroup-helper
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  02 Jul 2013; Justin Lecher <jlec@gentoo.org> cgroup-helper-9999.ebuild,
+  metadata.xml:
+  Bump to EAPI=5
 
   28 Jan 2011; Justin Lecher <jlec@gentoo.org> cgroup-helper-9999.ebuild,
   +metadata.xml:
