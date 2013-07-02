@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,18 +10,18 @@ DESCRIPTION="A simple bash-based firewall using iptables"
 HOMEPAGE="http://www.j-schmitz.net/"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/net-firewall/walloffire/${P}.tar.xz"
 
-RESTRICT="mirror"
-
 IUSE=""
-LICENSE="as-is"
+LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="x86 amd64"
 
-RDEPEND=">=net-firewall/iptables-1.3.8"
+RDEPEND="
+	>=net-firewall/iptables-1.3.8
+	>=sys-apps/openrc-0.11"
 DEPEND=""
 
 src_prepare() {
-	has_version ">=sys-apps/openrc-0.11" && sed '/need net/d' -i init.sh
+	sed '/need net/d' -i init.sh || die
 }
 
 src_install() {
@@ -30,8 +30,7 @@ src_install() {
 	insinto /etc/walloffire/
 	doins -r rules walloffire.conf
 
-	insinto /etc/conf.d/
-	doins firewall
+	doconfd firewall
 
 	dosbin firewall.sh
 }
