@@ -1,6 +1,10 @@
 # ChangeLog for sci-mathematics/matgen
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  02 Jul 2013; Justin Lecher <jlec@gentoo.org> matgen-0.3.ebuild,
+  -files/metadata.xml, metadata.xml:
+  Bump to EAPI=5 and autotools-utils.eclass
 
 * matgen-0.3 (25 Mar 2009)
 
