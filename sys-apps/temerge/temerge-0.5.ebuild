@@ -1,10 +1,12 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=5
+
 inherit eutils linux-info
 
-DESCRIPTION="temerge script for emerge with tmpfs"
+DESCRIPTION="emerge on tmpfs"
 SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/sys-apps/temerge/${P}.tar.bz2"
 HOMEPAGE="http://www.j-schmitz.net"
 
@@ -12,9 +14,6 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-RESTRICT="mirror"
-RDEPEND=""
-DEPEND=""
 
 CONFIG_CHECK="~TMPFS"
 
