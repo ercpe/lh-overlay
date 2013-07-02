@@ -1,15 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI=5
 
-PYTHON_DEPEND="2"
-SUPPORT_PYTHON_ABIS="1"
-RESTRICT_PYTHON_ABIS="3.*"
-PYTHON_EXPORT_PHASE_FUNCTIONS="1"
+PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit python
+inherit python-r1
 
 DESCRIPTION="Access point information in a useful manner"
 HOMEPAGE="http://dag.wieers.com/home-made/dwscan/"
@@ -23,11 +20,7 @@ IUSE=""
 DEPEND=""
 RDEPEND=">=net-wireless/python-wifi-0.3"
 
-src_configure() {
-:
-}
-
 src_install() {
-	python_src_install
-	dodoc AUTHORS ChangeLog README TODO WISHLIST || die
+	python_parallel_foreach_impl python_doscript ${PN}
+	dodoc AUTHORS ChangeLog README TODO WISHLIST
 }

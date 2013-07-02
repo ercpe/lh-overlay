@@ -1,6 +1,11 @@
 # ChangeLog for dev-python/pSQL
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Jun 2013; Justin Lecher <jlec@gentoo.org> -pSQL-0.9.8.ebuild,
+  +pSQL-1.2.0.ebuild, -files/01-datetime.patch, -files/metadata.xml,
+  metadata.xml:
+  Version Bump; bump to EAPI=5 and new python r1 eclasses
 
   31 Mar 2011; Justin Lecher <jlec@gentoo.org> pSQL-0.9.8.ebuild:
   Fixed up ebuild

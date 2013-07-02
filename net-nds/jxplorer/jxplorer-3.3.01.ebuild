@@ -1,8 +1,8 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/net-nds/jxplorer/jxplorer-3.2-r2.ebuild,v 1.2 2012/04/25 06:42:24 jlec Exp $
+# $Header: $
 
-EAPI="4"
+EAPI=5
 JAVA_PKG_IUSE="doc source"
 
 inherit eutils java-pkg-2 java-ant-2 prefix
@@ -10,10 +10,11 @@ inherit eutils java-pkg-2 java-ant-2 prefix
 DESCRIPTION="A fully functional ldap browser written in java."
 HOMEPAGE="http://jxplorer.org/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV}-project.zip"
+
 LICENSE="CAOSL"
-IUSE=""
+IUSE="test"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND=">=virtual/jre-1.5
 	>=dev-java/javahelp-2.0.02_p46"
@@ -21,7 +22,7 @@ DEPEND=">=virtual/jdk-1.5
 	test? ( =dev-java/junit-3.8* )
 	${RDEPEND}"
 
-S=${WORKDIR}/${PN}
+S="${WORKDIR}/${PN}"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="javahelp"
@@ -30,7 +31,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-disable-jxworkbench.patch
 
 	# Contains stuff for javahelp
-	mkdir dist
+	mkdir dist || die
 	cp jars/help.jar dist || die
 
 	rm -v jars/*.jar || die
@@ -41,7 +42,7 @@ src_prepare() {
 }
 
 src_compile() {
-	EANT_GENTOO_CLASSPATH_EXTRA=$(java-pkg_getjars --build-only junit)
+	use test && EANT_GENTOO_CLASSPATH_EXTRA=$(java-pkg_getjars --build-only junit)
 	java-pkg-2_src_compile
 }
 

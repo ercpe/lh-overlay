@@ -1,6 +1,12 @@
 # ChangeLog for dev-python/autumn
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*autumn-0.6.5.1 (11 Jun 2013)
+
+  11 Jun 2013; Justin Lecher <jlec@gentoo.org> -autumn-0.5.1.ebuild,
+  +autumn-0.6.5.1.ebuild, metadata.xml:
+  Version Bump; bump to EAPI=5 and new python r1 eclasses
 
   13 Apr 2011; Justin Lecher <jlec@gentoo.org> autumn-0.5.1.ebuild:
   Fix for python ABI stuff

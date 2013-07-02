@@ -1,6 +1,10 @@
 # ChangeLog for app-misc/alix-leds
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 Jul 2013; Justin Lecher <jlec@gentoo.org> alix-leds-0.1.ebuild,
+  metadata.xml:
+  Bump to latest EPAI and drop old
 
   31 Mar 2011; Justin Lecher <jlec@gentoo.org> +metadata.xml:
   Added metadata.xml

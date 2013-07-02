@@ -1,5 +1,53 @@
 
 
+*lh-sources-3.10.0 (01 Jul 2013)
+
+  01 Jul 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.0.ebuild,
+  -files/lh-sources-3.6-armv6.patch, -files/lh-sources-3.7-armv6.patch,
+  -files/lh-sources-3.8-armv6.patch, +files/lh-sources-3.10-armv6.patch:
+  Version BUmp
+
+*lh-sources-3.9.8 (28 Jun 2013)
+
+  28 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.8.ebuild:
+  Bump to linux 3.9.8 and latest genpatches
+
+*lh-sources-3.9.7 (22 Jun 2013)
+
+  22 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.7.ebuild:
+  Bump to latest genpatches
+
+*lh-sources-3.9.7 (21 Jun 2013)
+
+  21 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.7.ebuild:
+  Bump to linux-3.9.7; drop BFQ patches
+*lh-sources-3.9.6-r1 (15 Jun 2013)
+
+  15 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.6-r1.ebuild:
+  Bump to BFQ-6-r2
+
+*lh-sources-3.9.6 (14 Jun 2013)
+
+  14 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.6.ebuild:
+  Bump to latest genpatches
+
+  12 Jun 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.5.ebuild:
+  Moved BFQ patch into an array
+
+  11 Jun 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.8.4.ebuild,
+  -lh-sources-3.8.5.ebuild, -lh-sources-3.8.5-r1.ebuild,
+  -lh-sources-3.8.6.ebuild, -lh-sources-3.8.7.ebuild, -lh-sources-3.8.8.ebuild,
+  -lh-sources-3.8.10.ebuild, -lh-sources-3.9.0.ebuild,
+  -lh-sources-3.9.0-r1.ebuild, -lh-sources-3.9.1.ebuild,
+  -lh-sources-3.9.1-r1.ebuild, -lh-sources-3.9.2.ebuild,
+  -lh-sources-3.9.3.ebuild, -lh-sources-3.9.4.ebuild, lh-sources-3.9.5.ebuild:
+  Drop old; fix quoting
+
+*lh-sources-3.9.5 (09 Jun 2013)
+
+  09 Jun 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.5.ebuild:
+  Bump to latest genpatches
+
 *lh-sources-3.9.4 (26 May 2013)
 
   26 May 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.4.ebuild:

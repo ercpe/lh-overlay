@@ -1,13 +1,13 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=5
 
 if [[ ${PV} == 9999* ]]
 then
 	EGIT_REPO_URI="git://github.com/masterzen/mysql-snmp.git"
-	inherit git eutils multilib
+	inherit git-2 eutils multilib
 	SRC_URI=""
 	S=${WORKDIR}/${PN}
 else
@@ -18,15 +18,16 @@ fi
 DESCRIPTION="AgentX subagent for net-snmp to get MySQL statistics"
 HOMEPAGE="http://github.com/masterzen/mysql-snmp"
 
-LICENSE="GPL-2"
 SLOT="0"
+LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # We do not need anything to build, since we're just a perl script.
 DEPEND=""
 # We do not need mysql, since we use the perl DBI
-RDEPEND="dev-lang/perl
+RDEPEND="
+	dev-lang/perl
 	>=net-analyzer/net-snmp-5.4.2[perl]
 	dev-perl/DBI
 	dev-perl/Unix-Syslog
@@ -43,9 +44,9 @@ src_unpack() {
 
 src_install() {
 	# Do not use make install, since it installs the MIB
-	newsbin mysql-agent ${PN} || die
-	newman mysql-agent.1 ${PN}.1 || die
-	newinitd "${FILESDIR}"/${PN}.rc ${PN} || die
-	newconfd "${FILESDIR}"/${PN}.confd ${PN} || die
+	newsbin mysql-agent ${PN}
+	newman mysql-agent.1 ${PN}.1
+	newinitd "${FILESDIR}"/${PN}.rc ${PN}
+	newconfd "${FILESDIR}"/${PN}.confd ${PN}
 	dodoc README
 }
