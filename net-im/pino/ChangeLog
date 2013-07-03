@@ -1,9 +1,0 @@
-
-
-*pino-9999 (01 Jan 2012)
-*pino-0.3_pre120101 (01 Jan 2012)
-
-  01 Jan 2012; Justin Lecher <jlec@gentoo.org> +pino-0.3_pre120101.ebuild,
-  +pino-9999.ebuild, +files/gold.patch, +metadata.xml:
-  Added on request of johann
-
