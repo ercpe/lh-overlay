@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=5
 
 DESCRIPTION="JNMR (Pure Java NMR) is an NMR pulse sequence simulation tool"
 HOMEPAGE="http://www.nanuc.ca/downloads/pjnmr.php"
