@@ -1,19 +1,19 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 
 inherit eutils multilib toolchain-funcs
 
-DESCRIPTION="Program for preparing all sorts of PostScript plots from simple data files."
+DESCRIPTION="Program for preparing all sorts of PostScript plots from simple data files"
 HOMEPAGE="http://salilab.org/asgl"
 SRC_URI="ftp://salilab.org/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-SLOT="0"
 
 src_prepare(){
 	epatch \
@@ -37,20 +37,19 @@ src_compile(){
 	get_fcomp
 	emake -j1 \
 		ASGL_EXECUTABLE_TYPE=${FCOMP} \
-		ASGLINSTALL="${D}/usr/$(get_libdir)/libasgl" \
-		opt || die
+		ASGLINSTALL="${ED}/usr/$(get_libdir)/libasgl" \
+		opt
 }
 
 src_install(){
 	emake -j1 \
-		ASGLINSTALL="${D}/usr/$(get_libdir)/libasgl" \
-		install || die
+		ASGLINSTALL="${ED}/usr/$(get_libdir)/libasgl" \
+		install
 	dosym /usr/lib/libasgl/asgl /usr/bin/
 	dosym /usr/lib/libasgl/asgl_gfortran /usr/bin/
 	dosym /usr/lib/libasgl/setasgl /usr/bin/
-#	emake -j1 installman
 
 	insinto /usr/share/${PN}/examples/
 	doins -r examples/{*dat,*top}
-	dodoc {README,ChangeLog}
+	dodoc README ChangeLog
 }
