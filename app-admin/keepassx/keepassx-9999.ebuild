@@ -5,7 +5,6 @@
 EAPI=5
 
 inherit git-2 cmake-utils
-#inherit git
 
 DESCRIPTION="Qt password manager compatible with its Win32 and Pocket PC versions"
 HOMEPAGE="http://keepassx.sourceforge.net/"
@@ -18,9 +17,9 @@ IUSE="debug pch"
 
 DEPEND="
 	dev-libs/libgcrypt
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
-	x11-libs/qt-xmlpatterns:4
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtxmlpatterns:4
 	|| ( >=x11-libs/libXtst-1.1.0 <x11-proto/xextproto-7.1.0 )"
 RDEPEND="${DEPEND}"
 
