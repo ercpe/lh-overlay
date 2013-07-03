@@ -1,9 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
-inherit
+EAPI=5
+
+inherit toolchain-funcs
 
 MY_PV=${PV/_beta/b}
 MY_P=${PN}-${MY_PV}
@@ -20,25 +21,28 @@ IUSE=""
 DEPEND="net-dns/libidn"
 RDEPEND="${DEPEND}"
 
-#src_prepare() {
-#	epatch "${FILESDIR}"/${PN}-4.3.3-install.patch
-#	eautoreconf
-#}
-
-S=${WORKDIR}/${PN}
+S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	# Change assets path
-	sed -i 's/assets\//\/usr\/share\/skipfish\/assets\//g' report.c skipfish.c || die "sed failed"
+	sed \
+		-e 's/assets\//\/usr\/share\/skipfish\/assets\//g' \
+		-i src/{report,skipfish}.c || die "sed failed"
+
+	sed \
+		-e "s: -g : :g" \
+		-e "s: -ggdb : :g" \
+		-e "s:-O3:${CFLAGS}:g" \
+		-i Makefile || die
+
+	tc-export CC
 }
 
 src_install() {
-	dobin skipfish
+	dobin ${PN}
 
-	insinto /usr/share/${PN}/dictionaries
-	doins dictionaries/*
-	insinto /usr/share/${PN}/assets
-	doins assets/*
+	insinto /usr/share/${PN}/
+	doins -r dictionaries assets
 
 	dodoc README ChangeLog
 }
