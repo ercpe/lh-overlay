@@ -1,12 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 
 inherit eutils toolchain-funcs
 
-MY_P="Tisean_3.0.1"
+MY_P="Tisean_${PV}"
 
 DESCRIPTION="Analysis of time series with methods based on the theory of nonliner deterministic dynamical systems"
 HOMEPAGE="http://www.mpipks-dresden.mpg.de/%7Etisean/Tisean_3.0.1/index.html"
@@ -14,11 +14,11 @@ SRC_URI="http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="gnuplot"
 
 RDEPEND="gnuplot? ( sci-visualization/gnuplot )"
-DEPEND="${RDEPEND}"
+DEPEND=""
 
 S="${WORKDIR}/${MY_P}"
 
@@ -29,10 +29,10 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		--prefix="${D}/usr"
+		--prefix="${ED}/usr"
 }
 
 src_install() {
 	dodir /usr/bin
-	emake install || die "install failed"
+	emake install
 }
