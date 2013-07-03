@@ -17,7 +17,7 @@ SRC_URI="http://www.ralinktech.com.tw/data/drivers/2008_0723_RT61_Linux_STA_v1.1
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE=""
 
 DEPEND=""

@@ -17,7 +17,7 @@ SRC_URI="http://www.mucommander.com/download/nightly/archive/${UPSTREAM_DATE}/mu
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RESTRICT="mirror"

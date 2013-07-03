@@ -13,7 +13,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/net-firewall/walloffire/${P
 IUSE=""
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=net-firewall/iptables-1.3.8

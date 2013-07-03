@@ -12,7 +12,7 @@ SRC_URI="http://user.cs.tu-berlin.de/~sean/${P}.tar.bz2 http://ifp.loeber1.de/fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 S="${WORKDIR}"

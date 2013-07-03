@@ -14,7 +14,7 @@ SRC_URI="http://skipfish.googlecode.com/files/${MY_P}.tgz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="net-dns/libidn"

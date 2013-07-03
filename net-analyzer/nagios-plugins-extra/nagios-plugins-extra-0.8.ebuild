@@ -12,7 +12,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.
 
 SLOT="0"
 LICENSE="as-is"
-KEYWORDS="x86 amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="bind fail2ban pnp4nagios"
 
 RESTRICT="mirror"

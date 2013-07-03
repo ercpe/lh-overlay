@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/xmpppy/irc-transport-${PV}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="${PYTHON_DEPS}

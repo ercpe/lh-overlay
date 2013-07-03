@@ -7,7 +7,7 @@ HOMEPAGE="http://who-t.blogspot.com/2008/07/gnome-device-setup.html"
 SRC_URI="http://people.freedesktop.org/~whot/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 RDEPEND=">=x11-libs/libXi-1.1.99
 	>=x11-libs/gtk+-2.0"

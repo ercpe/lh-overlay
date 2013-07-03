@@ -14,7 +14,7 @@ SRC_URI="http://www.j-schmitz.net/releases/django-extras/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">dev-python/django-1.2[${PYTHON_USEDEP}]"

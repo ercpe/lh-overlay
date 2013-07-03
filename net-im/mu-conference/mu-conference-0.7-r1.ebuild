@@ -13,7 +13,7 @@ SRC_URI="http://download.gna.org/mu-conference/${PN}_${PV}.tar.gz"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="mysql"
 

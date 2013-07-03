@@ -14,7 +14,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.
 
 SLOT="0"
 LICENSE="BSD"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]"

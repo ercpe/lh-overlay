@@ -14,7 +14,7 @@ SRC_URI="http://pysvn.barrys-emacs.org/source_kits/WorkBench-${PV}.tar.gz"
 
 SLOT="0"
 LICENSE="Apache-1.1"
-KEYWORDS="~x86 amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
