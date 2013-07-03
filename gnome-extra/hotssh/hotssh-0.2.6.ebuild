@@ -1,8 +1,12 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator
+EAPI=5
+
+PYTHON_COMPAT=( python{2_6,2_7} )
+
+inherit python-r1 versionator
 
 DESCRIPTION="Interface to Secure Shell, for GNOME and OpenSSH"
 HOMEPAGE="http://projects.gnome.org/hotssh/"
@@ -13,14 +17,23 @@ KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-2"
 IUSE=""
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
+RDEPEND="
+	dev-python/dbus-python[${PYTHON_USEDEP}]
+	dev-python/pygobject:2[${PYTHON_USEDEP}]
+	dev-python/pygtk[${PYTHON_USEDEP}]
+	x11-libs/pango[introspection]"
+DEPEND=""
 
-src_compile() {
-	python ./waf configure --prefix=/usr || die
-	python ./waf || die
+src_prepare() {
+	python_export_best
+	${PYTHON} ./waf configure --prefix="${EPREFIX}/usr" || die
+}
+
+src_configure() {
+	${PYTHON} ./waf || die
 }
 
 src_install() {
-	python ./waf install --destdir="${D}"
+	python_parallel_foreach_impl ${PYTHON} ./waf install --destdir="${D}"
+	python_replicate_script "${ED}"/usr/bin/${PN}
 }
