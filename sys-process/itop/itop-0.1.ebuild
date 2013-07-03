@@ -4,16 +4,15 @@
 
 EAPI=5
 
-inherit git-2
+inherit vcs-snapshot
 
 DESCRIPTION="Interrupts 'top-like' utility for Linux"
 HOMEPAGE="https://github.com/kargig/itop"
-SRC_URI=""
-EGIT_REPO_URI="git://github.com/kargig/itop.git"
+SRC_URI="https://github.com/kargig/itop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="MIT"
-KEYWORDS=""
+KEYWORDS=" ~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE=""
 
 RDEPEND="dev-lang/perl"
