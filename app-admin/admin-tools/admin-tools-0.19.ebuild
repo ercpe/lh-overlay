@@ -1,10 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
-inherit eutils
+EAPI=5
 
 DESCRIPTION="A set of useful tools to make your (gentoo) admin life easier"
 HOMEPAGE="http://www.j-schmitz.net/projects/admin-tools/"
@@ -12,7 +10,7 @@ SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${PF}.tar
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-LICENSE="as-is"
+LICENSE="all-rights-reserved"
 IUSE=""
 
 RDEPEND="
