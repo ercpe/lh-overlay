@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=5
 
 inherit eutils toolchain-funcs
 
@@ -10,29 +12,21 @@ DESCRIPTION="Transparent TCP Proxy"
 HOMEPAGE="http://quietsche-entchen.de/cgi-bin/wiki.cgi/proxies/TcpProxy"
 SRC_URI="http://quietsche-entchen.de/download/${MY_P}.tar.gz"
 
-RESTRICT="mirror"
-
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+S="${WORKDIR}"/${MY_P}
 
-S=${WORKDIR}/${MY_P}
-
-src_unpack() {
-	unpack ${A}
+src_prepare() {
 	epatch "${FILESDIR}/gentoo.patch"
-}
 
-src_compile() {
-	sed -e "s:tc-getCC:$(tc-getCC):g" \
+	sed \
+		-e "s:tc-getCC:$(tc-getCC):g" \
 		-e "s:CCFLAGS:$CFLAGS:g" \
-		-i makefile
-
-	emake || die "emake failed"
+		-e "s: -o : ${LDFLAGS} -o :g" \
+		-i makefile || die
 }
 
 src_install() {
