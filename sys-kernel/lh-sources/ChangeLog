@@ -1,5 +1,9 @@
 
 
+  03 Jul 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.0.ebuild,
+  +lh-sources-3.10.0-r1.ebuild:
+  Drop genpatches to version 1 and add upstream BFQ patches
+
 *lh-sources-3.10.0 (01 Jul 2013)
 
   01 Jul 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.0.ebuild,
