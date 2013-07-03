@@ -1,12 +1,12 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 
 inherit eutils toolchain-funcs
 
-DESCRIPTION="bruteforce algorithm to find correct password of zip, rar and 7z archives"
+DESCRIPTION="Bruteforce algorithm to find correct password of zip, rar and 7z archives"
 HOMEPAGE="http://rarcrack.sourceforge.net/"
 SRC_URI="mirror://sourceforge/project/${PN}/${P}/%5BUnnamed%20release%5D/${P}.tar.bz2"
 
@@ -24,5 +24,5 @@ src_prepare() {
 }
 
 src_install()  {
-	emake PREFIX="${ED}/usr" install || die
+	emake PREFIX="${ED}/usr" install
 }
