@@ -32,4 +32,3 @@ src_prepare() {
 src_install() {
 	java-pkg_newjar "${S}/target/${P}.jar" ${PN}.jar
 }
-
