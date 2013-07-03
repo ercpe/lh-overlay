@@ -1,6 +1,10 @@
 # ChangeLog for net-misc/ssl-admin
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Jul 2013; Justin Lecher <jlec@gentoo.org> ssl-admin-1.0.ebuild,
+  metadata.xml:
+  Bump to EAPI=5
 
   11 Dec 2008; justin Lecher (jlec) <justin@j-schmitz.net> +metadata.xml:
   Setup net-misc/ssl-admin
