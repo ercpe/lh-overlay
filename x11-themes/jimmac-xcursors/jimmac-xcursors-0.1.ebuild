@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 MY_P="6550-Jimmac.tar.gz"
 
@@ -26,9 +26,8 @@ src_install() {
 	X11_IMPLEM="xorg-x11"
 	einfo "X11 implementation is ${X11_IMPLEM}."
 
-	dodir /usr/share/cursors/${X11_IMPLEM}/Jimmac/cursors/
-	cp -d  jimmac/cursors/* \
-		"${D}"/usr/share/cursors/${X11_IMPLEM}/Jimmac/cursors/ || die
+	insinto /usr/share/cursors/${X11_IMPLEM}/Jimmac/
+	doins -r jimmac/cursors
 	dodoc README
 }
 
