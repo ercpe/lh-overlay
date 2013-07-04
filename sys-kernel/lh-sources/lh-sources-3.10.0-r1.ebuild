@@ -78,9 +78,9 @@ src_prepare() {
 	if ! use proc; then
 		sed '/config AUFS_PROC_MAP/,/^$/d' -i "${WORKDIR}"/fs/aufs/Kconfig || die
 	fi
-	cp -i "${WORKDIR}"/include/linux/aufs_type.h include/linux/aufs_type.h || die
-	cp -i "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
-	cp -ri "${WORKDIR}"/{Documentation,fs} . || die
+	cp -f "${WORKDIR}"/include/linux/aufs_type.h include/linux/aufs_type.h || die
+	cp -f "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
+	cp -rf "${WORKDIR}"/{Documentation,fs} . || die
 	cp "${DISTDIR}"/lh-logo_linux_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
 }
 

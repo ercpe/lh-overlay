@@ -1,5 +1,10 @@
 
 
+  04 Jul 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.5.ebuild,
+  lh-sources-3.9.6.ebuild, lh-sources-3.9.6-r1.ebuild, lh-sources-3.9.7.ebuild,
+  lh-sources-3.9.8.ebuild, lh-sources-3.10.0-r1.ebuild:
+  Fix copy of aufs files
+
   03 Jul 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.0.ebuild,
   +lh-sources-3.10.0-r1.ebuild:
   Drop genpatches to version 1 and add upstream BFQ patches
