@@ -20,20 +20,19 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="
-	dev-java/httpcomponents-client
-	dev-java/httpcomponents-core
 	dev-java/commons-codec
 	dev-java/commons-io
 	dev-java/commons-logging
+	dev-java/commons-net
+	dev-java/httpcomponents-client
+	dev-java/httpcomponents-core
 	dev-java/slf4j[simple]
 	dev-java/jcommander
 	dev-java/jdom
-	dev-java/commons-net
 	dev-java/jgoodies-common
 	dev-java/jgoodies-looks:2.0
+	dev-java/eclipsito
 "
-#./ganttproject/lib/core/commons-csv.jar
-
 
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
@@ -46,19 +45,22 @@ S="${WORKDIR}/${P}-${UPSTREAM_R}-src"
 
 EANT_BUILD_XML="${PN}-builder/build.xml"
 EANT_BUILD_TARGET="build"
-JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="
-	httpcomponents-client
-	httpcomponents-core
 	commons-codec
 	commons-io-1
 	commons-logging
+	commons-net
+	eclipsito
+	httpcomponents-client
+	httpcomponents-core
 	jcommander
 	jdom-1.0
-	commons-net
 	jgoodies-common
 	jgoodies-looks-2.0
 "
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+
+# TODO: UNBUNDLE: fop, poi and itext
 
 MODULES="biz.ganttproject.core biz.ganttproject.impex.msproject2 ganttproject \
 		org.ganttproject.chart.pert org.ganttproject.impex.htmlpdf"
@@ -76,11 +78,14 @@ src_prepare() {
 		mv ${mod}/build-new.xml ${mod}/build.xml || die
 	done
 
-	rm "${S}"/${PN}/lib/core/{commons-codec,commons-io,commons-logging,commons-net,httpclient,httpcore,jdom,slf4j,jgoodies}*.jar || die
+	sed -i -e 's/.*eclipsito\.jar.*//g' "${S}"/${PN}/build.xml || die
+	rm "${S}"/${PN}/lib/core/{eclipsito,commons-codec,commons-io,commons-logging,commons-net,httpclient,httpcore,jdom,slf4j,jgoodies,jcommander}*.jar || die
 }
 
 src_install() {
-	java-pkg_dojar "${S}"/${PN}-builder/dist-bin/eclipsito.jar
+	insinto "/usr/share/${PN}/"
+	doins "${S}"/${PN}-builder/${PN}-eclipsito-config.xml
+	java-pkg_addcp "/usr/share/${PN}/"
 
 	prefix="${S}"/${PN}-builder/dist-bin/plugins/
 	pbase="/usr/share/${PN}/lib/plugins"
@@ -114,8 +119,7 @@ src_install() {
 			done
 		fi
 	done
-			
-	# eclipsito's config file is bundled with the eclipsito.jar!
+
 	java-pkg_dolauncher ${PN} --main "org.bardsoftware.eclipsito.Boot" \
-		--pkg_args "ganttproject-eclipsito-config.xml"
+		--pkg_args "/usr/share/${PN}/lib/ganttproject-eclipsito-config.xml"
 }
