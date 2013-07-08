@@ -79,7 +79,9 @@ src_prepare() {
 	done
 
 	sed -i -e 's/.*eclipsito\.jar.*//g' "${S}"/${PN}/build.xml || die
-	rm "${S}"/${PN}/lib/core/{eclipsito,commons-codec,commons-io,commons-logging,commons-net,httpclient,httpcore,jdom,slf4j,jgoodies,jcommander}*.jar || die
+	
+	rm "${S}"/${PN}/lib/core/{eclipsito,httpclient,httpcore,jdom,slf4j,jgoodies,jcommander}*.jar || die
+	rm "${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar || die
 }
 
 src_install() {
@@ -104,7 +106,7 @@ src_install() {
 	_ins_mod "net.sourceforge.ganttproject" "ganttproject.jar"
 	_ins_mod "biz.ganttproject.core" "ganttproject-core.jar"
 	
-	## FIXME: move to other location and add to cp
+	## needed in .../lib due to eclipsito
 	insinto "${pbase}/net.sourceforge.ganttproject/data/"
 	doins -r ${prefix}/net.sourceforge.ganttproject/data/*
 
