@@ -32,8 +32,9 @@ CDEPEND="
 	dev-java/jgoodies-common
 	dev-java/jgoodies-looks:2.0
 	dev-java/eclipsito
+	>=dev-java/milton-2.0.5[client]
+	dev-java/endrick-cache
 "
-
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
 DEPEND="${CDEPEND}
@@ -57,6 +58,8 @@ EANT_GENTOO_CLASSPATH="
 	jdom-1.0
 	jgoodies-common
 	jgoodies-looks-2.0
+	milton
+	endrick-cache
 "
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 
@@ -80,8 +83,9 @@ src_prepare() {
 
 	sed -i -e 's/.*eclipsito\.jar.*//g' "${S}"/${PN}/build.xml || die
 	
-	rm "${S}"/${PN}/lib/core/{eclipsito,httpclient,httpcore,jdom,slf4j,jgoodies,jcommander}*.jar || die
-	rm "${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar || die
+	rm "${S}"/${PN}/lib/core/{eclipsito,httpc,jdom,slf4j}*.jar \
+		"${S}"/${PN}/lib/core/{endrick,jgoodies,jcommander,milton}*.jar \
+		"${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar || die
 }
 
 src_install() {
