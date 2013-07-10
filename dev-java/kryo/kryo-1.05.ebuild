@@ -26,15 +26,16 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
 
-S="${WORKDIR}/${P}/java"
+S="${WORKDIR}/${P}/${PN}"
 
 EANT_GENTOO_CLASSPATH="objenesis
-	reflectasm
-	minlog"
+		reflectasm
+		minlog"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 
 src_prepare() {
 	cp "${FILESDIR}"/${PV}-build.xml "${S}"/build.xml || die
+	rm "${S}"/lib/*|| die
 }
 
 src_install() {
