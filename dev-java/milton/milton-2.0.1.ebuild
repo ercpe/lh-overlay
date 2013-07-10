@@ -11,13 +11,12 @@ HOMEPAGE="http://milton.io"
 SRC_URI="http://milton.io/maven/io/milton/milton-api/${PV}/${PN}-api-${PV}-sources.jar
 	client? ( http://milton.io/maven/io/milton/milton-client/${PV}/${PN}-client-${PV}-sources.jar )
 	mail? ( http://milton.io/maven/io/milton/milton-mail-api/${PV}/${PN}-mail-api-${PV}-sources.jar )
-	mail-server? ( http://milton.io/maven/io/milton/milton-mail-server/${PV}/${PN}-mail-server-${PV}-sources.jar )
 "
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="client mail mail-server"
+IUSE="client mail"
 
 CDEPEND="
 	dev-java/commons-codec
@@ -66,7 +65,6 @@ src_unpack() {
 	_uz "api"
 	use client && _uz "client"
 	use mail && _uz "mail-api"
-	use mail-server && _uz "mail-server"
 }
 
 src_compile() {
@@ -88,7 +86,6 @@ src_compile() {
 
 	use client || _disable "${PN}-client"
 	use mail || _disable "${PN}-mail-api"
-	use mail-server || _disable "${PN}-mail-server"
 
 	java-pkg-2_src_compile
 }

@@ -12,7 +12,6 @@
 	<use>
 		<flag name='client'>Installs the milton-client library</flag>
 		<flag name='mail'>Installs the milton-mail-api library</flag>
-		<flag name='mail-server'>Installs the milton-mail-server library</flag>
 	</use>
 </pkgmetadata>
 
