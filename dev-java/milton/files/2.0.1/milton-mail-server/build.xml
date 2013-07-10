@@ -1,8 +1,13 @@
-<project name="milton-api" default="jar" basedir=".">
+<project name="milton-mail-server" default="jar" basedir=".">
 	<property name="src" location="src" />
 	<property name="build" location="build" />
 	<property name="dist" location="dist" />
 
+	<path id="milton.classpath">
+	    <pathelement location="${basedir}/../milton-api/dist/milton-api.jar"/>
+		<pathelement location="${basedir}/../milton-mail-api/dist/milton-mail-api.jar"/>
+	</path>
+	
 	<target name="init">
 		<echo>-----------------------------------------------</echo>
 		<echo>   Building ${ant.project.name}</echo>
@@ -11,7 +16,9 @@
 	</target>
 
 	<target name="compile" depends="init" description="compile the source ">
-		<javac srcdir="${src}" destdir="${build}" />
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath refid="milton.classpath" />
+		</javac>
 	</target>
 
 	<target name="jar" depends="compile" description="generate the distribution">
