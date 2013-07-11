@@ -17,8 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-CDEPEND="dev-java/commons-logging
-	>=dev-java/commons-vfs-2"
+CDEPEND="
+	dev-java/commons-logging
+	dev-java/commons-vfs:2"
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
 DEPEND="
@@ -29,8 +30,7 @@ S="${WORKDIR}/${PN}-${P}"
 
 EANT_BUILD_XML="unrar/build.xml"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
-EANT_GENTOO_CLASSPATH="commons-logging
-	commons-vfs"
+EANT_GENTOO_CLASSPATH="commons-logging commons-vfs-2"
 
 src_prepare() {
 	cp "${FILESDIR}/${PV}-build.xml" "${S}"/unrar/build.xml || die
