@@ -34,6 +34,7 @@ CDEPEND="
 	dev-java/eclipsito
 	>=dev-java/milton-2.0.5[client]
 	dev-java/endrick-cache
+	dev-java/balloontip
 "
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
@@ -60,6 +61,7 @@ EANT_GENTOO_CLASSPATH="
 	jgoodies-looks-2.0
 	milton
 	endrick-cache
+	balloontip
 "
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 
@@ -85,7 +87,8 @@ src_prepare() {
 	
 	rm "${S}"/${PN}/lib/core/{eclipsito,httpc,jdom,slf4j}*.jar \
 		"${S}"/${PN}/lib/core/{endrick,jgoodies,jcommander,milton}*.jar \
-		"${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar || die
+		"${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar \
+		"${S}"/${PN}/lib/core/{balloontip,jxlayer}*.jar || die
 }
 
 src_install() {
