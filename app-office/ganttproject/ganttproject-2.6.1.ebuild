@@ -35,7 +35,10 @@ CDEPEND="
 	>=dev-java/milton-2.0.5[client]
 	dev-java/endrick-cache
 	dev-java/balloontip
+	dev-java/swingx
+	dev-java/itext:5
 "
+
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
 DEPEND="${CDEPEND}
@@ -62,19 +65,20 @@ EANT_GENTOO_CLASSPATH="
 	milton
 	endrick-cache
 	balloontip
+	swingx
+	itext:5
 "
-JAVA_ANT_REWRITE_CLASSPATH="yes"
 
-# TODO: UNBUNDLE: fop, poi and itext
+JAVA_ANT_REWRITE_CLASSPATH="yes"
 
 MODULES="biz.ganttproject.core biz.ganttproject.impex.msproject2 ganttproject \
 		org.ganttproject.chart.pert org.ganttproject.impex.htmlpdf"
 
 src_prepare() {
-	# The build.xml files in the component subdirs contain a references to the 
-	# build-user.xml files as a reference in a comment which gets removed if we use the 
+	# The build.xml files in the component subdirs contain a references to the
+	# build-user.xml files as a reference in a comment which gets removed if we use the
 	# ant xml rewriting. Plus, the build-user.xml don't contain a full build.xml but
-	# only the content of the <project> node. So we build a new build.xml file 
+	# only the content of the <project> node. So we build a new build.xml file
 	# and let the magic begin
 	for mod in ${MODULES}; do
 		grep "<project" ${mod}/build.xml >> ${mod}/build-new.xml || die
@@ -84,11 +88,13 @@ src_prepare() {
 	done
 
 	sed -i -e 's/.*eclipsito\.jar.*//g' "${S}"/${PN}/build.xml || die
-	
+
 	rm "${S}"/${PN}/lib/core/{eclipsito,httpc,jdom,slf4j}*.jar \
 		"${S}"/${PN}/lib/core/{endrick,jgoodies,jcommander,milton}*.jar \
 		"${S}"/${PN}/lib/core/commons-{codec,io,logging,net}*.jar \
-		"${S}"/${PN}/lib/core/{balloontip,jxlayer}*.jar || die
+		"${S}"/${PN}/lib/core/{balloontip,jxlayer,swingx}*.jar \
+		"${S}"/biz.${PN}.impex.msproject2/lib/poi*.jar \
+		"${S}"/org.${PN}.impex.htmlpdf/lib/itextpdf*.jar || die
 }
 
 src_install() {
@@ -98,7 +104,7 @@ src_install() {
 
 	prefix="${S}"/${PN}-builder/dist-bin/plugins/
 	pbase="/usr/share/${PN}/lib/plugins"
-	
+
 	_ins_mod() {
 		dest="${pbase}/${1}/"
 		insinto ${dest}
@@ -106,13 +112,13 @@ src_install() {
 		java-pkg_jarinto ${dest}
 		java-pkg_dojar ${prefix}/${1}/${2}
 	}
-	
+
 	_ins_mod "org.ganttproject.chart.pert" "pert.jar"
 	_ins_mod "biz.ganttproject.impex.msproject2" "ganttproject-msproject2.jar"
 	_ins_mod "org.ganttproject.impex.htmlpdf" "ganttproject-htmlpdf.jar"
 	_ins_mod "net.sourceforge.ganttproject" "ganttproject.jar"
 	_ins_mod "biz.ganttproject.core" "ganttproject-core.jar"
-	
+
 	## needed in .../lib due to eclipsito
 	insinto "${pbase}/net.sourceforge.ganttproject/data/"
 	doins -r ${prefix}/net.sourceforge.ganttproject/data/*
