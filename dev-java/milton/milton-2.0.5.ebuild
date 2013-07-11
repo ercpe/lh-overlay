@@ -28,7 +28,7 @@ CDEPEND="
 		dev-java/commons-lang:2.1
 		dev-java/httpcomponents-client
 		dev-java/endrick-cache
-		dev-java/jdom
+		dev-java/jdom:1.0
 		dev-java/ical4j
 	)
 	mail? (
