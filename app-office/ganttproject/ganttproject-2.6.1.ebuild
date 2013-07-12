@@ -66,7 +66,7 @@ EANT_GENTOO_CLASSPATH="
 	endrick-cache
 	balloontip
 	swingx
-	itext:5
+	itext-5
 "
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
@@ -98,9 +98,10 @@ src_prepare() {
 }
 
 src_install() {
-	insinto "/usr/share/${PN}/"
+	insinto "/usr/share/${PN}/lib"
 	doins "${S}"/${PN}-builder/${PN}-eclipsito-config.xml
-	java-pkg_addcp "/usr/share/${PN}/"
+	java-pkg_addcp "/usr/share/${PN}/lib/"
+	java-pkg_addcp "/usr/share/${PN}/lib/plugins/net.sourceforge.${PN}/data/resources"
 
 	prefix="${S}"/${PN}-builder/dist-bin/plugins/
 	pbase="/usr/share/${PN}/lib/plugins"
@@ -109,8 +110,9 @@ src_install() {
 		dest="${pbase}/${1}/"
 		insinto ${dest}
 		doins ${prefix}/${1}/plugin.xml
-		java-pkg_jarinto ${dest}
-		java-pkg_dojar ${prefix}/${1}/${2}
+		# eclipsito explodes if the ganttproject jars are in the cp - use doins insted
+		insinto ${dest}
+		doins ${prefix}/${1}/${2}
 	}
 
 	_ins_mod "org.ganttproject.chart.pert" "pert.jar"
@@ -119,11 +121,13 @@ src_install() {
 	_ins_mod "net.sourceforge.ganttproject" "ganttproject.jar"
 	_ins_mod "biz.ganttproject.core" "ganttproject-core.jar"
 
-	## needed in .../lib due to eclipsito
 	insinto "${pbase}/net.sourceforge.ganttproject/data/"
 	doins -r ${prefix}/net.sourceforge.ganttproject/data/*
 
-	for mod in ${MODULES} net.sourceforge.ganttproject; do
+	insinto "${pbase}/org.ganttproject.impex.htmlpdf/resource/"
+	doins -r ${prefix}/org.ganttproject.impex.htmlpdf/resource/*
+
+		for mod in ${MODULES} net.sourceforge.ganttproject; do
 		libdir="lib"
 		[ -d ${prefix}/${mod}/lib/core ] && libdir="lib/core"
 		srcdir="${prefix}/${mod}/${libdir}"
@@ -134,7 +138,10 @@ src_install() {
 			done
 		fi
 	done
-
+	
+	newicon "${S}"/${PN}/data/resources/icons/${PN}.png ${PN}.png
 	java-pkg_dolauncher ${PN} --main "org.bardsoftware.eclipsito.Boot" \
-		--pkg_args "/usr/share/${PN}/lib/ganttproject-eclipsito-config.xml"
+		--pkg_args "ganttproject-eclipsito-config.xml"
+
+	make_desktop_entry ${PN} "${PN}" ${PN}
 }
