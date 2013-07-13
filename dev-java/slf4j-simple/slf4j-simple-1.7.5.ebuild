@@ -43,5 +43,5 @@ java_prepare() {
 src_install() {
 	java-pkg_dojar ${PN}.jar
 	use doc && java-pkg_dojavadoc docs
-	use source && java-pkg_dosrc org
+	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org
 }
