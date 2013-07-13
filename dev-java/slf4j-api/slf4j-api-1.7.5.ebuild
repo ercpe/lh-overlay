@@ -30,6 +30,6 @@ java_prepare() {
 src_install() {
 	java-pkg_newjar target/${P}.jar
 
-	use doc && java-pkg_dojavadoc target/site/apidocs
+	use doc && java-pkg_dojavadoc "${S}"/apidocs
 	use source && java-pkg_dosrc src/main/java/org
 }

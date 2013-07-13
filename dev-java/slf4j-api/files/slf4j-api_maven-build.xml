@@ -182,7 +182,7 @@
   <target name="javadoc" description="Generates the Javadoc of the application">
     <javadoc sourcepath="${maven.build.srcDir.0}" 
              packagenames="*" 
-             destdir="${basedir}/../apidocs/slf4j-api/" 
+             destdir="${basedir}/apidocs/" 
              access="protected" 
              old="false" 
              verbose="false" 
