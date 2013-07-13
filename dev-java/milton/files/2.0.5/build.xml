@@ -1,0 +1,20 @@
+<project name="milton" default="jar" basedir=".">
+
+   	<target name="compile" description="Compile the code">
+		<ant antfile="build.xml" dir="milton-api" target="compile" />
+		<ant antfile="build.xml" dir="milton-client" target="compile" />
+   		<ant antfile="build.xml" dir="milton-mail-api" target="compile" />
+	</target>
+
+   	<target name="jar" description="Compile the code">
+		<ant antfile="build.xml" dir="milton-api" target="jar" />
+		<ant antfile="build.xml" dir="milton-client" target="jar" />
+   		<ant antfile="build.xml" dir="milton-mail-api" target="jar" />
+	</target>
+	
+   	<target name="javadoc" description="Compile the code">
+		<ant antfile="build.xml" dir="milton-api" target="javadoc" />
+		<ant antfile="build.xml" dir="milton-client" target="javadoc" />
+   		<ant antfile="build.xml" dir="milton-mail-api" target="javadoc" />
+	</target>
+</project>
