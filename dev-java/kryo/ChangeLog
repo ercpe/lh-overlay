@@ -1,0 +1,15 @@
+# ChangeLog for dev-java/kryo
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kryo-1.05 (10 Jul 2013)
+
+  10 Jul 2013; johann@j-schmitz.net +files/1.05-build.xml, +kryo-1.05.ebuild,
+  files/2.21-build.xml, kryo-2.21.ebuild:
+  Added ebuild for kryo-1.05 (dep of endrick-cache)
+
+*kryo-2.21 (09 Jul 2013)
+
+  09 Jul 2013; johann@j-schmitz.net +files/2.21-build.xml, +kryo-2.21.ebuild,
+  +metadata.xml:
+  Added ebuild for kryo-2.21
