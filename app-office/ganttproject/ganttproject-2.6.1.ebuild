@@ -26,7 +26,6 @@ CDEPEND="
 	dev-java/commons-net
 	dev-java/httpcomponents-client
 	dev-java/httpcomponents-core
-	dev-java/slf4j[simple]
 	dev-java/jcommander
 	dev-java/jdom
 	dev-java/jgoodies-common

@@ -21,7 +21,7 @@ IUSE="client mail"
 CDEPEND="
 	dev-java/commons-codec
 	dev-java/commons-io
-	dev-java/slf4j
+	dev-java/slf4j-api
 	client? (
 		=dev-java/cardme-0.2.9
 		dev-java/commons-beanutils:1.7
@@ -49,7 +49,7 @@ EANT_GENTOO_CLASSPATH="
 	commons-io-1
 	endrick-common
 	endrick-cache
-	slf4j
+	slf4j-api
 "
 
 src_prepare() {

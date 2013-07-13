@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="dev-java/log4j
-	dev-java/slf4j"
+	dev-java/slf4j-api"
 DEPEND=">=virtual/jdk-1.5"
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
@@ -27,7 +27,7 @@ RDEPEND=">=virtual/jre-1.5
 S="${WORKDIR}/${UPSTREAM_PN}-${PV}"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
-EANT_GENTOO_CLASSPATH="log4j slf4j"
+EANT_GENTOO_CLASSPATH="log4j slf4j-api"
 
 java_prepare() {
 	epatch "${FILESDIR}/${PV}-build.xml.patch"
