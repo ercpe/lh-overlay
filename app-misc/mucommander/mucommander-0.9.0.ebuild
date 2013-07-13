@@ -32,7 +32,7 @@ CDEPEND="
 	dev-java/j2ssh
 	dev-java/junrar
 	dev-java/logback-bin
-	dev-java/slf4j[simple]
+	dev-java/slf4j-simple
 	dev-java/yanfs
 	s3? ( dev-java/jets3t )
 "
@@ -52,7 +52,8 @@ EANT_GENTOO_CLASSPATH="commons-collections
 	commons-net
 	commons-compress
 	ant-core
-	slf4j
+	slf4j-api
+	slf4j-simple
 	icu4j-49
 	jna
 	jcifs-1.1
