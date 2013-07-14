@@ -36,7 +36,7 @@ DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and au
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
 	http://aufs.sourceforge.net/"
-HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
+#HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI}"
 #SRC_URI+=" ${BFQ_URI}"
 
