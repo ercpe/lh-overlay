@@ -1,5 +1,12 @@
 
 
+  15 Jul 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.9.5.ebuild,
+  -lh-sources-3.9.6.ebuild, -lh-sources-3.9.6-r1.ebuild,
+  -lh-sources-3.9.7.ebuild, -lh-sources-3.9.8.ebuild, -lh-sources-3.9.9.ebuild,
+  +lh-sources-3.9.10.ebuild, -lh-sources-3.10.0-r1.ebuild,
+  -lh-sources-3.10.0-r2.ebuild, +lh-sources-3.10.1.ebuild:
+  Bump to latest genpatches
+
 *lh-sources-3.10.0-r2 (08 Jul 2013)
 
   08 Jul 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.0-r2.ebuild:
