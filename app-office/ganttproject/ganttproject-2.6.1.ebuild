@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils java-pkg-2 java-ant-2 
+inherit eutils java-pkg-2 java-ant-2
 
 MY_P="${P}-src"
 UPSTREAM_R="r1499"
@@ -15,7 +15,7 @@ SRC_URI="https://${PN}.googlecode.com/files/${P}-${UPSTREAM_R}-src.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=" ~amd64"
 
 IUSE=""
 
@@ -43,7 +43,6 @@ RDEPEND="${CDEPEND}
 DEPEND="${CDEPEND}
 	app-arch/unzip
 	>=virtual/jdk-1.5"
-
 
 S="${WORKDIR}/${P}-${UPSTREAM_R}-src"
 
@@ -137,7 +136,7 @@ src_install() {
 			done
 		fi
 	done
-	
+
 	newicon "${S}"/${PN}/data/resources/icons/${PN}.png ${PN}.png
 	java-pkg_dolauncher ${PN} --main "org.bardsoftware.eclipsito.Boot" \
 		--pkg_args "ganttproject-eclipsito-config.xml"
