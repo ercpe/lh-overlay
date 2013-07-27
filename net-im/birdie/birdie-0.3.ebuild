@@ -17,7 +17,7 @@ IUSE=""
 
 RDEPEND="
 	dev-db/sqlite:3
-	dev-libs/granite
+	>=dev-libs/granite-0.2.1
 	dev-libs/json-glib
 	dev-libs/libdbusmenu:3
 	dev-libs/libgee:0
