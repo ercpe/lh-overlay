@@ -1,5 +1,10 @@
 
 
+  07 Aug 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.9.10.ebuild,
+  -lh-sources-3.9.11.ebuild, -lh-sources-3.10.1.ebuild,
+  -lh-sources-3.10.2.ebuild, +lh-sources-3.10.5.ebuild:
+  Bump to latest genpatches and aufs release; drop old
+
 *lh-sources-3.10.2 (22 Jul 2013)
 
   22 Jul 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.11.ebuild,
