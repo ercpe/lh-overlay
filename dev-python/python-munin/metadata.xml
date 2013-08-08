@@ -9,10 +9,11 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
-<!--
 	<use>
-		<flag name=''></flag>
+		<flag name='plugins'>Install munin plugins beside the lib</flag>
 	</use>
--->
+	<upstream>
+		<remote-id type="github">samuel/python-munin</remote-id>
+	</upstream>
 </pkgmetadata>
 
