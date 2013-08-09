@@ -1,5 +1,8 @@
 
 
+  09 Aug 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.9.11.ebuild:
+  Readd linux-3.9
+
   07 Aug 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.9.10.ebuild,
   -lh-sources-3.9.11.ebuild, -lh-sources-3.10.1.ebuild,
   -lh-sources-3.10.2.ebuild, +lh-sources-3.10.5.ebuild:
