@@ -48,7 +48,10 @@ src_install() {
 	python_foreach_impl python_doscript fetch-squashed-portage.py
 
 	newinitd ${PN}.init ${PN}
-	newconfd ${PN}.conf ${PN}
+	newconfd ${PN}.confd ${PN}
+
+	insinto /etc/
+	doins ${PN}.conf
 
 	systemd_dounit *.service *.mount *.target
 	systemd_dotmpfilesd squashed-portage.tmpfiles.conf
