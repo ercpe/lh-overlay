@@ -4,27 +4,37 @@
 
 EAPI=5
 
-inherit git-2 cmake-utils
+inherit cmake-utils git-2 virtualx
 
 DESCRIPTION="Qt password manager compatible with its Win32 and Pocket PC versions"
-HOMEPAGE="http://keepassx.sourceforge.net/"
-EGIT_REPO_URI="git://gitorious.org/keepassx/keepassx.git"
+HOMEPAGE="http://www.keepassx.org/"
+EGIT_REPO_URI="https://github.com/keepassx/keepassx.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug pch"
+IUSE="test"
 
-DEPEND="
+RDEPEND="
 	dev-libs/libgcrypt
 	dev-qt/qtcore:4
+	dev-qt/qtdbus:4
 	dev-qt/qtgui:4
-	dev-qt/qtxmlpatterns:4
-	|| ( >=x11-libs/libXtst-1.1.0 <x11-proto/xextproto-7.1.0 )"
-RDEPEND="${DEPEND}"
+	x11-libs/libXtst"
+DEPEND="${RDEPEND}
+	test? ( dev-qt/qttest:4 )"
 
-src_install() {
-	insinto /usr
-	doins -r share
-	dobin "${CMAKE_BUILD_DIR}"/src/${PN}
+src_configure() {
+	local mycmakeargs=(
+		-DWITH_CXX11=ON
+		-DWITH_LTO=ON
+		$(cmake-utils_use_with test GUI_TESTS)
+		$(cmake-utils_use_with test TESTS)
+		)
+	cmake-utils_src_configure
+}
+
+src_test() {
+	VIRTUALX_COMMAND="cmake-utils_src_test"
+	virtualmake
 }
