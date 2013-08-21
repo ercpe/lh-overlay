@@ -67,10 +67,10 @@ src_unpack() {
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
 	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
-	mkdir "${WORKDIR}"/patches || die
+#	mkdir "${WORKDIR}"/patches || die
 #	cp ${_BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
-	cp "${FILESDIR}"/0001-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch "${WORKDIR}"/patches || die
 	kernel-2_src_unpack
+	epatch "${FILESDIR}"/0001-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch
 }
 
 src_prepare() {

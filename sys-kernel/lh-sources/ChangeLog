@@ -1,5 +1,8 @@
 
 
+  21 Aug 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.9.ebuild:
+  Use epatch
+
 *lh-sources-3.10.9 (21 Aug 2013)
 
   21 Aug 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.9.ebuild,
