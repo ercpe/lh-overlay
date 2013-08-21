@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="15"
+K_GENPATCHES_VER="16"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
@@ -70,7 +70,6 @@ src_unpack() {
 #	mkdir "${WORKDIR}"/patches || die
 #	cp ${_BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
 	kernel-2_src_unpack
-	epatch "${FILESDIR}"/0001-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch
 }
 
 src_prepare() {
