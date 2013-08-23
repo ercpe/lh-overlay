@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*requests-oauthlib-0.3.3 (23 Aug 2013)
+
+  23 Aug 2013; Johann Schmitz <ercpe@gentoo.org>
+  +requests-oauthlib-0.3.3.ebuild, requests-oauthlib-0.3.2.ebuild:
+  Version bump of requests-oauthlib to 0.3.3
+
   23 Aug 2013; Johann Schmitz <ercpe@gentoo.org> metadata.xml,
   requests-oauthlib-0.3.2.ebuild:
   Added test execution; updated metadata.xml

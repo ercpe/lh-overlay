@@ -24,5 +24,7 @@ RDEPEND="
 "
 
 python_test() {
-	${PYTHON} setup.py test || die "Test ${x} failed"
+	for x in "${S}"/tests/*.py; do
+		${PYTHON} ${x} || die "Test ${x} failed"
+	done
 }
