@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_6,2_7,3_2} )
 
 inherit distutils-r1
 
-DESCRIPTION="An easy (and up to date) way to access Twitter data with Python."
+DESCRIPTION="An easy (and up to date) way to access Twitter data with Python"
 HOMEPAGE="https://github.com/ryanmcgrath/twython"
 SRC_URI="mirror://pypi/t/${PN}/${P}.tar.gz"
 
