@@ -9,10 +9,8 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
-<!--
-	<use>
-		<flag name=''></flag>
-	</use>
--->
+	<upstream>
+		<remote-id type="github">requests/requests-oauthlib</remote-id>
+	</upstream>
 </pkgmetadata>
 
