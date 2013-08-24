@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Aug 2013; Johann Schmitz <ercpe@gentoo.org> requests-oauthlib-0.3.3.ebuild:
+  Use eclass function to call setup.py instead of starting python manually.
+
   23 Aug 2013; Johann Schmitz <ercpe@gentoo.org> requests-oauthlib-0.3.2.ebuild,
   requests-oauthlib-0.3.3.ebuild:
   Fixed test execution for request-oauthlib-0.3.2/0.3.3
