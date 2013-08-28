@@ -15,6 +15,14 @@ SRC_URI="https://github.com/disqus/${PN}/archive/85246c4b69ecffb41889908314bc5ba
 SLOT="0"
 LICENSE="Apache-2.0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="test"
+
+DEPEND="test? (
+	dev-python/mock
+)"
 
 S="${WORKDIR}"/${P}
+
+python_test() {
+	${EPYTHON} "${S}/disqusapi/tests.py" || die
+}
