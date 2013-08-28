@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Aug 2013; Johann Schmitz <ercpe@gentoo.org> CairoPlot-1.2.ebuild:
+  Updated homepage of CairoPlot
+
 *CairoPlot-1.2 (11 Jun 2013)
 
   11 Jun 2013; Justin Lecher <jlec@gentoo.org> -CairoPlot-1.1.ebuild,
@@ -13,4 +16,3 @@
 
   31 Mar 2011; Justin Lecher <jlec@gentoo.org> +metadata.xml:
   Added metadata.xml
-

@@ -9,12 +9,8 @@ PYTHON_COMPAT=( python{2_6,2_7} )
 inherit distutils-r1
 
 DESCRIPTION="Plot graphics in an easy and intuitive way"
-HOMEPAGE="
-	https://launchpad.net/cairoplot/
-	http://linil.wordpress.com/2008/09/16/cairoplot-11/
-	http://cairoplot.sourceforge.net/index.html
-	"
-SRC_URI="https://github.com/rodrigoaraujo01/cairoplot/archive/1.2.tar.gz -> ${P}.tgz"
+HOMEPAGE="http://cairoplot.sourceforge.net/ https://github.com/rodrigoaraujo01/cairoplot/"
+SRC_URI="https://github.com/rodrigoaraujo01/cairoplot/archive/${PV}.tar.gz -> ${P}.tgz"
 
 SLOT="0"
 LICENSE="LGPL-2.1"
