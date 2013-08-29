@@ -1,0 +1,10 @@
+# ChangeLog for dev-python/django-activity-stream
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-activity-stream-0.4.5_beta1 (29 Aug 2013)
+
+  29 Aug 2013; Johann Schmitz <ercpe@gentoo.org>
+  +django-activity-stream-0.4.5_beta1.ebuild:
+  Version bump for django-activity-stream
+
