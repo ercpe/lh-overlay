@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils-r1
 
-DESCRIPTION="OpenID support to Django applications"
+DESCRIPTION="A library that can be used to add OpenID support to Django applications"
 HOMEPAGE="https://launchpad.net/django-openid-auth"
 SRC_URI="http://launchpad.net/${PN}/trunk/${PV}/+download/${PN}-${PV}.tar.gz"
 
@@ -18,8 +18,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="
-	dev-python/django[${PYTHON_USEDEP}]
-	dev-python/python-openid[${PYTHON_USEDEP}]"
+	>=dev-python/django-1.3[${PYTHON_USEDEP}]
+	>=dev-python/python-openid-2.2.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"/${P}
+
+EXAMPLES=( example_consumer/ )
