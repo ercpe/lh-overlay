@@ -3,6 +3,9 @@
 # $Header: $
 
   31 Aug 2013; Johann Schmitz <ercpe@gentoo.org> disqus-python-0.4.2.ebuild:
+  Fixed dependencies and some minor qa stuff
+
+  31 Aug 2013; Johann Schmitz <ercpe@gentoo.org> disqus-python-0.4.2.ebuild:
   Fixed dependecies for disqus-python
 
   31 Aug 2013; Johann Schmitz <ercpe@gentoo.org> disqus-python-0.4.2.ebuild:

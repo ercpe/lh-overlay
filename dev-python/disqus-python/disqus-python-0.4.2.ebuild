@@ -18,13 +18,12 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
-	dev-python/simplejson[${PYTHON_USEDEP}]
+	dev-python/setuptools[${PYTHON_USEDEP}]
 	test? (
 		dev-python/mock[${PYTHON_USEDEP}]
 	)"
-
-S="${WORKDIR}"/${P}
+RDEPEND="dev-python/simplejson[${PYTHON_USEDEP}]"
 
 python_test() {
-	${EPYTHON} "${S}/disqusapi/tests.py" || die
+	"${EPYTHON}" "${S}/disqusapi/tests.py" || die
 }
