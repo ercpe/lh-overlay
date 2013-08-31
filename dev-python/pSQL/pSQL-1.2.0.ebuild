@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit eutils python-r1
+inherit python-r1
 
 DESCRIPTION="MySQL abstraction layer for python"
 HOMEPAGE="http://software.fionet.com/pSQL/"
