@@ -22,6 +22,4 @@ RDEPEND="
 	>=dev-python/python-openid-2.2.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}"/${P}
-
 EXAMPLES=( example_consumer/ )
