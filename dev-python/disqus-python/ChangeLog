@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Aug 2013; Johann Schmitz <ercpe@gentoo.org> disqus-python-0.4.2.ebuild:
+  Changed SRC_URI to pypi because v0.4.2 isn't available on github anymore.
+
   28 Aug 2013; Johann Schmitz <ercpe@gentoo.org> disqus-python-0.4.2.ebuild:
   Added tests to disqus-python
 

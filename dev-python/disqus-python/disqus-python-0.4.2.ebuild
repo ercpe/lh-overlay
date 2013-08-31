@@ -10,7 +10,7 @@ inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="Python client library for accessing the disqus.com API"
 HOMEPAGE="https://github.com/disqus/disqus-python"
-SRC_URI="https://github.com/disqus/${PN}/archive/85246c4b69ecffb41889908314bc5bacdc110a55.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/d/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="Apache-2.0"
