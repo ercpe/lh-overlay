@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="spring-core" default="jar" basedir=".">
+
+	<property name="src.dir" value="${basedir}/src/main" />
+	<property name="src.dir.test" value="${basedir}/src/test" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="classes.dir.test" value="${basedir}/classes-test" />
+	<property name="dist.dir" value="${basedir}/dist" />
+
+	<property name="lib.dir" value="${basedir}/lib" />
+
+	<target name="clean" description="Clean the output directory">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="bundle-asm-cglib">
+		<mkdir dir="${dist.dir}" />
+		<taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask" />
+
+		<jarjar jarfile="${dist.dir}/asm-renamed.jar">
+			<zipfileset src="${lib.dir}/asm.jar" />
+			<rule pattern="org.objectweb.asm.**" result="org.springframework.asm.@1" />
+		</jarjar>
+		<jarjar jarfile="${dist.dir}/cglib-renamed.jar">
+			<zipfileset src="${lib.dir}/cglib.jar" />
+			<rule pattern="net.sf.cglib.**" result="org.springframework.cglib.@1" />
+		</jarjar>
+	</target>
+
+	<target name="compile" depends="clean,bundle-asm-cglib">
+		<mkdir dir="${classes.dir}" />
+
+		<javac destdir="${classes.dir}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+			<src>
+				<pathelement location="${src.dir}" />
+			</src>
+			<classpath>
+				<pathelement location="${dist.dir}/asm-renamed.jar" />
+				<pathelement location="${dist.dir}/cglib-renamed.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="compile-tests">
+		<mkdir dir="${classes.dir.test}" />
+		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+			<src>
+				<pathelement location="${src.dir.test}" />
+			</src>
+			<classpath>
+				<pathelement location="${dist.dir}/asm-renamed.jar" />
+				<pathelement location="${dist.dir}/cglib-renamed.jar" />
+				<pathelement location="${classes.dir}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="test" depends="compile-tests">
+		<junit printsummary="yes" haltonfailure="yes">
+			<classpath>
+				<pathelement location="${classes.dir}" />
+			</classpath>
+
+			<formatter type="plain" />
+
+			<batchtest fork="yes" todir="${reports.tests}">
+				<fileset dir="${src.tests}">
+					<include name="**/Test*.java" />
+					<include name="**/*Test.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="javadoc">
+		<javadoc sourcepath="${src.dir}/java/" packagenames="*" destdir="${dist.dir}/apidocs" />
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${dist.dir}/${ant.project.name}.jar" compress="true" index="false" basedir="${classes.dir}" excludes="**/package.html" />
+	</target>
+</project>
