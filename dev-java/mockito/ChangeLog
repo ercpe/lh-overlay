@@ -1,0 +1,9 @@
+# ChangeLog for dev-java/mockito
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*mockito-1.9.5 (02 Sep 2013)
+
+  02 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +mockito-1.9.5.ebuild:
+  Added ebuild for mockito-1.9.5
