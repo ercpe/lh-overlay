@@ -3,7 +3,8 @@
 <project name="spring-core" default="jar" basedir=".">
 
 	<property name="src.dir" value="${basedir}/src/main" />
-	<property name="src.dir.test" value="${basedir}/src/test" />
+	<property name="src.dir.test" value="${basedir}/src/test/java" />
+	<property name="reports.tests" value="${basedir}/test-output" />
 	<property name="classes.dir" value="${basedir}/classes" />
 	<property name="classes.dir.test" value="${basedir}/classes-test" />
 	<property name="dist.dir" value="${basedir}/dist" />
@@ -57,17 +58,22 @@
 	</target>
 
 	<target name="test" depends="compile-tests">
-		<junit printsummary="yes" haltonfailure="yes">
+		<mkdir dir="${reports.tests}" />
+		<junit printsummary="yes" haltonfailure="false">
 			<classpath>
 				<pathelement location="${classes.dir}" />
+				<pathelement location="${classes.dir.test}" />
 			</classpath>
 
 			<formatter type="plain" />
 
 			<batchtest fork="yes" todir="${reports.tests}">
-				<fileset dir="${src.tests}">
+				<formatter type="plain" />
+				<fileset dir="${src.dir.test}">
 					<include name="**/Test*.java" />
 					<include name="**/*Test.java" />
+					<!--<exclude name="**/TestAutowired*" /> -->
+					<exclude name="**/*$*.class" /> 
 				</fileset>
 			</batchtest>
 		</junit>

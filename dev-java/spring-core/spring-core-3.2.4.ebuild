@@ -32,7 +32,9 @@ DEPEND=">=virtual/jdk-1.5
 	dev-java/jarjar:1
 	test? (
 		dev-java/junit:4
-		dev-java/hamcrest-core:0
+		dev-java/hamcrest-library:1.3
+		dev-java/mockito:0
+		dev-java/xmlunit:1
 	)
 	${CDEPEND}"
 
@@ -42,10 +44,12 @@ RDEPEND=">=virtual/jre-1.5
 S="${WORKDIR}/spring-framework-${PV}.RELEASE/"
 
 EANT_BUILD_XML=${S}/${PN}/build.xml
-WANT_ANT_TASKS="jarjar-1"
 JAVA_ANT_REWRITE_CLASSPATH="true"
+
+WANT_ANT_TASKS="jarjar-1"
 EANT_GENTOO_CLASSPATH="commons-logging,log4j,aspectj,jopt-simple,asm-4"
-EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4,hamcrest-core"
+EANT_TEST_ANT_TASKS="ant-junit"
+EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4,hamcrest-library-1.3,mockito,xmlunit-1"
 
 java_prepare() {
 	cp "${FILESDIR}/${PV}-build.xml" "${S}"/spring-core/build.xml || die
