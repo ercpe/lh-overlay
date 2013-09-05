@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="spring-beans" default="jar" basedir=".">
+
+	<property name="src.dir" value="${basedir}/src/main" />
+	<property name="src.dir.test" value="${basedir}/src/test/java" />
+	<property name="reports.tests" value="${basedir}/test-output" />
+	<property name="classes.dir" value="${basedir}/classes" />
+	<property name="classes.dir.test" value="${basedir}/classes-test" />
+	<property name="dist.dir" value="${basedir}/dist" />
+
+	<property name="lib.dir" value="${basedir}/lib" />
+
+	<target name="clean" description="Clean the output directory">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="${classes.dir}" />
+
+		<javac destdir="${classes.dir}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+			<src>
+				<pathelement location="${src.dir}" />
+			</src>
+		</javac>
+	</target>
+
+	<!--
+	Test requires jdk 1.7...
+	<target name="compile-tests">
+		<mkdir dir="${classes.dir.test}" />
+		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+			<src>
+				<pathelement location="${src.dir.test}" />
+			</src>
+			<classpath>
+				<pathelement location="${classes.dir}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="test" depends="compile-tests">
+		<mkdir dir="${reports.tests}" />
+		<junit printsummary="yes" haltonfailure="false">
+			<classpath>
+				<pathelement location="${classes.dir}" />
+				<pathelement location="${classes.dir.test}" />
+			</classpath>
+
+			<formatter type="plain" />
+
+			<batchtest fork="yes" todir="${reports.tests}">
+				<formatter type="plain" />
+				<fileset dir="${src.dir.test}">
+					<include name="**/Test*.java" />
+					<include name="**/*Test.java" />
+					<exclude name="**/*$*.class" /> 
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	-->
+
+	<target name="javadoc">
+		<javadoc sourcepath="${src.dir}/java/" packagenames="*" destdir="${dist.dir}/apidocs" />
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${dist.dir}/${ant.project.name}.jar" compress="true" index="false" basedir="${classes.dir}" excludes="**/package.html" />
+	</target>
+</project>
