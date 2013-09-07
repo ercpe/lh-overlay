@@ -6,7 +6,7 @@ EAPI="5"
 
 JAVA_PKG_IUSE="source doc"
 
-inherit eutils java-pkg-2 java-pkg-simple
+inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Milton WebDav library"
 HOMEPAGE="http://milton.io"
