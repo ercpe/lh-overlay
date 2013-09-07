@@ -1,31 +1,70 @@
-<project name="reflectasm" default="dist" basedir=".">
-	<property name="src" location="src" />
-	<property name="build" location="build" />
-	<property name="dist" location="dist" />
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="reflectasm" default="jar" basedir=".">
 
-	<target name="init">
-		<mkdir dir="${build}" />
+	<property name="maven.build.finalName" value="reflectasm" />
+	<property name="maven.build.dir" value="target" />
+	<property name="maven.build.outputDir" value="${maven.build.dir}/classes" />
+	<property name="maven.build.srcDir.0" value="src" />
+	<property name="maven.build.resourceDir.0" value="src/main/resources" />
+	<property name="maven.build.testOutputDir" value="${maven.build.dir}/test-classes" />
+	<property name="maven.build.testDir.0" value="test" />
+	<property name="maven.build.testResourceDir.0" value="src/test/resources" />
+	<property name="maven.test.reports" value="${maven.build.dir}/test-reports" />
+	<property name="maven.reporting.outputDirectory" value="${maven.build.dir}/site" />
+
+	<target name="compile" description="Compile the code">
+		<mkdir dir="${maven.build.outputDir}" />
+		<javac destdir="${maven.build.outputDir}" nowarn="false" debug="true" optimize="false" deprecation="false" target="1.1" verbose="false" fork="false" source="1.3">
+			<src>
+				<pathelement location="${maven.build.srcDir.0}" />
+			</src>
+		</javac>
 	</target>
 
-	<target name="clean">
-	    <delete dir="${build}" />	    
-	</target>
-	
-	<target name="compile" depends="clean,init" description="compile the source ">
-		<javac srcdir="${src}" destdir="${build}" />
+	<target name="compile-tests" depends="compile" description="Compile the test code" unless="maven.test.skip">
+		<mkdir dir="${maven.build.testOutputDir}" />
+		<javac destdir="${maven.build.testOutputDir}" nowarn="false" debug="true" optimize="false" deprecation="false" target="1.1" verbose="false" fork="false" source="1.3">
+			<src>
+				<pathelement location="${maven.build.testDir.0}" />
+			</src>
+			<classpath>
+				<pathelement location="${maven.build.outputDir}" />
+			</classpath>
+		</javac>
 	</target>
 
-	<target name="jar" depends="compile" description="generate the distribution">
-		<jar jarfile="${dist}/${ant.project.name}.jar" basedir="${build}" />
+	<target name="test" depends="compile-tests" description="Run the test cases">
+		<mkdir dir="${maven.test.reports}" />
+		<junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
+			<sysproperty key="basedir" value="." />
+			<formatter type="xml" />
+			<formatter type="plain" usefile="false" />
+			<classpath>
+				<pathelement location="${maven.build.outputDir}" />
+				<pathelement location="${maven.build.testOutputDir}" />
+			</classpath>
+			<batchtest todir="${maven.test.reports}" unless="test">
+				<fileset dir="${maven.build.testDir.0}">
+					<include name="**/Test*.java" />
+					<include name="**/*Test.java" />
+					<include name="**/*TestCase.java" />
+					<exclude name="**/*Abstract*Test.java" />
+				</fileset>
+			</batchtest>
+			<batchtest todir="${maven.test.reports}" if="test">
+				<fileset dir="${maven.build.testDir.0}">
+					<include name="**/${test}.java" />
+					<exclude name="**/*Abstract*Test.java" />
+				</fileset>
+			</batchtest>
+		</junit>
 	</target>
 
 	<target name="javadoc" description="Generates the Javadoc of the application">
-		<javadoc sourcepath="${src}" packagenames="*" destdir="apidocs"
-			access="protected" old="false" verbose="false" encoding="UTF-8"
-			version="true" use="true" author="true" splitindex="false"
-			nodeprecated="false" nodeprecatedlist="false" notree="false" noindex="false"
-			nohelp="false" nonavbar="false" serialwarn="false" charset="ISO-8859-1"
-			docencoding="UTF-8" source="1.5" linksource="true" breakiterator="false">
-		</javadoc>
+		<javadoc sourcepath="${maven.build.srcDir.0}" packagenames="*" destdir="${maven.reporting.outputDirectory}/apidocs" access="protected" old="false" verbose="false" version="true" use="true" author="true" splitindex="false" nodeprecated="false" nodeprecatedlist="false" notree="false" noindex="false" nohelp="false" nonavbar="false" serialwarn="false" charset="ISO-8859-1" linksource="false" breakiterator="false" />
+	</target>
+
+	<target name="jar" depends="compile" description="Builds the jar for the application">
+		<jar jarfile="${maven.build.dir}/${maven.build.finalName}.jar" compress="true" index="false" basedir="${maven.build.outputDir}" excludes="**/package.html" />
 	</target>
 </project>
