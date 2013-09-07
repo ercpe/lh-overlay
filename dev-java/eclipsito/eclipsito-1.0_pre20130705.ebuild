@@ -10,7 +10,7 @@ inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Alibraries which allows to write modular applications which can run both standalone and inside "
 HOMEPAGE="https://code.google.com/p/eclipsito/"
-SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://dev.gentoo.org/~ercpe/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 LICENSE="EPL-1.0"
 SLOT="0"
@@ -21,7 +21,7 @@ RDEPEND=">=virtual/jre-1.5"
 DEPEND=">=virtual/jdk-1.5"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PV}-build.xml"
+	epatch "${FILESDIR}/${PV}-build.xml.patch"
 }
 
 src_install() {
