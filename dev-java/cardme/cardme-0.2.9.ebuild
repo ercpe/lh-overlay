@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
 JAVA_PKG_IUSE="doc source"
 
@@ -20,21 +20,22 @@ IUSE=""
 RDEPEND=">=virtual/jre-1.5"
 DEPEND=">=virtual/jdk-1.5"
 
-EANT_GENTOO_CLASSPATH="commons-codec"
 EANT_BUILD_TARGET="compile jar"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 
 S="${WORKDIR}"
 
 src_prepare() {
-	# fix upstreams build.xml 
-	sed -i -e "s/\/src\///g" "${S}"/build.xml || die
-	sed -i -e "s/0.2.1/${PV}/g" "${S}"/build.xml || die
+	find "${S}" -name "*.class" -delete || die
+	# test code is broken
+	find ./info -name "*Test*" -delete || die
 
-	# no tests for now
-	find "${S}" -name "Test*.java" -delete || die
-	find "${S}" -name "*Test.java" -delete || die
-	rm "${S}/info/ineighborhood/cardme/CardmeTestSuite.java" || die
+	# move source code into src to comply with the build.xml
+	mkdir "${S}"/src || die
+	mv "${S}"/info "${S}"/src || die
+
+	# fix version in build.xml 
+	sed -i -e "s/0.2.1/${PV}/g" "${S}"/build.xml || die
 }
 
 src_install() {

@@ -1,4 +1,4 @@
-<project name="cardme" default="dist" basedir=".">
+<project name="cardme" default="jar" basedir=".">
 	<property name="src" location="" />
 	<property name="build" location="build" />
 	<property name="dist" location="dist" />

@@ -26,7 +26,7 @@ JAVA_ANT_REWRITE_CLASSPATH="yes"
 
 S="${WORKDIR}"
 
-src_prepare() {
+asrc_prepare() {
 	cp "${FILESDIR}/${PV}-build.xml" "${S}"/build.xml || die
 
 	find "${S}" -name "Test*.java" -delete || die
@@ -34,7 +34,7 @@ src_prepare() {
 	rm "${S}/net/sourceforge/cardme/CardmeTestSuite.java" || die
 }
 
-src_install() {
+asrc_install() {
 	java-pkg_dojar "${S}"/dist/${PN}.jar
 
 	use source && java-pkg_dosrc "${S}/net"
