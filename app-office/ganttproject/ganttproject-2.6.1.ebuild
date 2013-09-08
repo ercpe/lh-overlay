@@ -20,21 +20,21 @@ KEYWORDS=" ~amd64"
 IUSE=""
 
 CDEPEND="
-	dev-java/commons-codec
-	dev-java/commons-io
-	dev-java/commons-logging
-	dev-java/commons-net
-	dev-java/httpcomponents-client
-	dev-java/httpcomponents-core
-	dev-java/jcommander
-	dev-java/jdom
-	dev-java/jgoodies-common
+	dev-java/commons-codec:0
+	dev-java/commons-io:1
+	dev-java/commons-logging:0
+	dev-java/commons-net:0
+	dev-java/httpcomponents-client:0
+	dev-java/httpcomponents-core:0
+	dev-java/jcommander:0
+	dev-java/jdom:1.0
+	dev-java/jgoodies-common:0
 	dev-java/jgoodies-looks:2.0
-	dev-java/eclipsito
-	>=dev-java/milton-2.0.5[client]
-	dev-java/endrick-cache
-	dev-java/balloontip
-	dev-java/swingx
+	dev-java/eclipsito:0
+	>=dev-java/milton-client-2.0.5
+	dev-java/endrick-cache:0
+	dev-java/balloontip:0
+	dev-java/swingx:1.6
 	dev-java/itext:5
 "
 
@@ -60,10 +60,10 @@ EANT_GENTOO_CLASSPATH="
 	jdom-1.0
 	jgoodies-common
 	jgoodies-looks-2.0
-	milton
+	milton-client
 	endrick-cache
 	balloontip
-	swingx
+	swingx-1.6
 	itext-5
 "
 
