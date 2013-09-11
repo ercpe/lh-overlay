@@ -19,36 +19,32 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEP="dev-java/asm:4
-	>=dev-java/ant-core-1.7.0"
+	>=dev-java/ant-core-1.7.0
+"
 RDEPEND=">=virtual/jre-1.5
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
-	test? ( dev-java/junit:0 )
+	test? ( dev-java/junit:4 )
 	${COMMON_DEP}"
 
-S=${WORKDIR}
+S="${WORKDIR}"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="asm-4 ant-core"
 
 java_prepare() {
-	find . -iname '*.jar' -print0 | xargs -0 rm -v
+	find . -iname '*.jar' -delete || die
 	epatch "${FILESDIR}"/${P}-build.xml.patch
 }
 
-EANT_TEST_EXTRA_ARGS="-Dcglib.debugLocation=${T}/debug"
-
 src_test() {
-	mkdir "${T}/debug"
-	cp -v "${FILESDIR}/words.txt" "${S}/src/test/net/sf/cglib/util/"
 	java-pkg-2_src_test
 }
 
 src_install() {
 	java-pkg_newjar dist/${P}.jar ${PN}.jar
 
-	dodoc NOTICE README || die
 	use doc && java-pkg_dojavadoc docs
 	use source && java-pkg_dosrc src/proxy/net
 	use examples && java-pkg_doexamples --subdir samples src/proxy/samples
