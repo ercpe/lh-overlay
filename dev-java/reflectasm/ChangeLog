@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Sep 2013; Johann Schmitz <ercpe@gentoo.org> -files/1.05-build.xml,
+  reflectasm-1.05.ebuild:
+  java-pkg-simple is enough for reflectasm
+
   07 Sep 2013; Johann Schmitz <ercpe@gentoo.org> files/1.05-build.xml,
   reflectasm-1.05.ebuild:
   Fixed reflectasm ebuild

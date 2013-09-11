@@ -6,7 +6,7 @@ EAPI=5
 
 JAVA_PKG_IUSE="doc source test"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit eutils java-pkg-2 java-pkg-simple
 
 DESCRIPTION="High performance Java reflection"
 HOMEPAGE="https://code.google.com/p/reflectasm/"
@@ -28,22 +28,19 @@ RDEPEND="${CDEPEND}
 
 S="${WORKDIR}/${P}/java"
 
-JAVA_ANT_REWRITE_CLASSPATH="yes"
-EANT_GENTOO_CLASSPATH="asm-3"
-EANT_TEST_ANT_TASKS="ant-junit"
-
-S="${WORKDIR}/${P}/java"
+JAVA_GENTOO_CLASSPATH="asm-3"
+JAVA_SRC_DIR="${S}/src"
 
 src_prepare() {
-	cp "${FILESDIR}"/${PV}-build.xml "${S}"/build.xml || die
-}
-
-src_install() {
-	java-pkg_dojar "${S}"/target/${PN}.jar
-	use source && java-pkg_dosrc src/*
-	use doc && java-pkg_dojavadoc "${S}"/target/site/apidocs
+	rm "${S}"/pom.xml || die
 }
 
 src_test() {
-	java-pkg-2_src_test
+	mkdir target/tests || die
+	testcp="$(java-pkg_getjars ${JAVA_GENTOO_CLASSPATH},junit-4):target/tests:${PN}.jar"
+	ejavac -cp "${testcp}" -d target/tests $(find test/ -name "*.java")
+	tests=$(find target/tests -name "*Test.class" \
+			| sed -e 's/target\/tests\///g' -e "s/\.class//" -e "s/\//./g" \
+			| grep -vP '\$');
+	ejunit4 -cp "${testcp}" ${tests}
 }
