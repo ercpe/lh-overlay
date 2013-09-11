@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
 JAVA_PKG_IUSE="doc source test"
 
-inherit eutils java-pkg-2 java-pkg-simple
+inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="High performance Java reflection"
 HOMEPAGE="https://code.google.com/p/reflectasm/"
