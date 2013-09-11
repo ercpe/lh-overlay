@@ -3,6 +3,9 @@
 # $Header: $
 
   11 Sep 2013; Johann Schmitz <ercpe@gentoo.org> cglib-3.0.ebuild:
+  Made cglib-3 read for the tree
+
+  11 Sep 2013; Johann Schmitz <ercpe@gentoo.org> cglib-3.0.ebuild:
   Made it tree-ready
 
 *cglib-3.0 (01 Sep 2013)

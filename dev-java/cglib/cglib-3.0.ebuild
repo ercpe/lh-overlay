@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-JAVA_PKG_IUSE="test doc examples source"
+JAVA_PKG_IUSE="doc examples source test"
 
 inherit java-pkg-2 java-ant-2
 
@@ -19,12 +19,10 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 COMMON_DEP="dev-java/asm:4
-	>=dev-java/ant-core-1.7.0
-"
+	>=dev-java/ant-core-1.7.0"
 RDEPEND=">=virtual/jre-1.5
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
-	app-arch/unzip
 	test? ( dev-java/junit:4 )
 	${COMMON_DEP}"
 
@@ -38,14 +36,14 @@ java_prepare() {
 	epatch "${FILESDIR}"/${P}-build.xml.patch
 }
 
-src_test() {
-	java-pkg-2_src_test
-}
-
 src_install() {
 	java-pkg_newjar dist/${P}.jar ${PN}.jar
 
 	use doc && java-pkg_dojavadoc docs
 	use source && java-pkg_dosrc src/proxy/net
 	use examples && java-pkg_doexamples --subdir samples src/proxy/samples
+}
+
+src_test() {
+	java-pkg-2_src_test
 }
