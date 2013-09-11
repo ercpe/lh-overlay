@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
 JAVA_PKG_IUSE="doc source"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit java-pkg-2 java-pkg-simple
 
 DESCRIPTION="Minimal overhead Java logging"
 HOMEPAGE="https://code.google.com/p/minlog/"
@@ -22,16 +22,4 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	>=virtual/jre-1.5"
 
-S="${WORKDIR}/${PN}/"
-
-JAVA_ANT_REWRITE_CLASSPATH="yes"
-
-src_prepare() {
-	cp "${FILESDIR}"/${PV}-build.xml "${S}"/build.xml || die
-}
-
-src_install() {
-	java-pkg_dojar "${S}"/dist/${PN}.jar
-	use source && java-pkg_dosrc "${S}"/src/*
-	use doc && java-pkg_dojavadoc "${S}"/apidocs
-}
+S="${WORKDIR}/${PN}"
