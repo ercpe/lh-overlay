@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
+
+JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple
 
@@ -14,19 +16,13 @@ LICENSE="EPL-1.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-CDEPEND="
-	dev-java/asm:4
-	dev-java/commons-logging:0
-"
-DEPEND="
-	>=virtual/jdk-1.5
-	app-arch/zip
-	${CDEPEND}
-"
-RDEPEND="
-	>=virtual/jre-1.5
-	${CDEPEND}
-"
+CDEPEND="dev-java/asm:4
+	dev-java/commons-logging:0"
+
+DEPEND=">=virtual/jdk-1.5
+	${CDEPEND}"
+RDEPEND=">=virtual/jre-1.5
+	${CDEPEND}"
 
 S="${WORKDIR}"
 
@@ -40,7 +36,7 @@ src_unpack() {
 
 src_prepare() {
 	default
-	# needs part of jrockit to compile
+	# needs part of BEA JRockit to compile
 	rm "${S}"/src/org/aspectj/weaver/loadtime/JRockitAgent.java || die
 	# aspectj uses a renamed version of asm:4
 	find -name "*.java" -exec sed -i -e 's/import aj.org.objectweb.asm./import org.objectweb.asm./g' {} \; || die
