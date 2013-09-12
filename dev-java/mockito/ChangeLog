@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Sep 2013; Johann Schmitz <ercpe@gentoo.org> metadata.xml,
+  mockito-1.9.5.ebuild:
+  Made mockito tree-ready
+
 *mockito-1.9.5 (02 Sep 2013)
 
   02 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,

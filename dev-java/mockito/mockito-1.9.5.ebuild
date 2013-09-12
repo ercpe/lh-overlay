@@ -24,9 +24,7 @@ CDEPEND="dev-java/junit:4
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
 DEPEND=">=virtual/jdk-1.5
-	app-arch/zip
-	${CDEPEND}
-"
+	${CDEPEND}"
 
 S="${WORKDIR}"
 
