@@ -20,6 +20,7 @@ CDEPEND="dev-java/asm:4
 	dev-java/commons-logging:0"
 
 DEPEND=">=virtual/jdk-1.5
+	app-arch/zip
 	${CDEPEND}"
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"

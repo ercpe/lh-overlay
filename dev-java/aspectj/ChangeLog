@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Sep 2013; Johann Schmitz <ercpe@gentoo.org> aspectj-1.7.3.ebuild:
+  Added missing dependency to aspectj
+
   12 Sep 2013; Johann Schmitz <ercpe@gentoo.org> aspectj-1.7.3.ebuild,
   metadata.xml:
   Made aspectj tree-ready
