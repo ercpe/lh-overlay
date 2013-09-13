@@ -8,7 +8,7 @@ JAVA_PKG_IUSE="doc source test"
 
 inherit java-pkg-2 java-ant-2
 
-DESCRIPTION="A comprehensive programming and configuration model for modern Java-based enterprise applications"
+DESCRIPTION="A comprehensive programming and configuration model for modern enterprise applications"
 HOMEPAGE="http://www.springsource.org/spring-framework"
 SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz"
 
@@ -24,17 +24,17 @@ CDEPEND="
 	dev-java/aspectj:0
 	dev-java/asm:4
 	dev-java/cglib:3
-	<=dev-java/jopt-simple-4.4:0
+	dev-java/jopt-simple:4.4
 "
 
 DEPEND=">=virtual/jdk-1.5
-	app-arch/zip
 	dev-java/jarjar:1
 	test? (
 		dev-java/junit:4
 		dev-java/hamcrest-library:1.3
 		dev-java/mockito:0
 		dev-java/xmlunit:1
+		dev-java/ant-junit4:0
 	)
 	${CDEPEND}"
 
@@ -47,7 +47,7 @@ EANT_BUILD_XML=${S}/${PN}/build.xml
 JAVA_ANT_REWRITE_CLASSPATH="true"
 
 WANT_ANT_TASKS="jarjar-1"
-EANT_GENTOO_CLASSPATH="commons-logging,log4j,aspectj,jopt-simple,asm-4"
+EANT_GENTOO_CLASSPATH="commons-logging,log4j,aspectj,jopt-simple-4.4,asm-4"
 EANT_TEST_ANT_TASKS="ant-junit"
 EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4,hamcrest-library-1.3,mockito,xmlunit-1"
 
