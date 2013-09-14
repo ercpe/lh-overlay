@@ -6,7 +6,7 @@ EAPI="5"
 
 JAVA_PKG_IUSE="doc source"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="A Java VCard library supporting the VCard 3.0 format"
 HOMEPAGE="http://dma.pixel-act.com/"
@@ -27,12 +27,13 @@ S="${WORKDIR}"
 
 src_prepare() {
 	find "${S}" -name "*.class" -delete || die
-	# test code is broken
-	find ./info -name "*Test*" -delete || die
 
-	# move source code into src to comply with the build.xml
+	# move source code into the right locations..
 	mkdir "${S}"/src || die
 	mv "${S}"/info "${S}"/src || die
+
+	# test code/build script is broken beyond repair
+	find "${S}" -name "*Test*.java" -delete || die
 
 	# fix version in build.xml 
 	sed -i -e "s/0.2.1/${PV}/g" "${S}"/build.xml || die
@@ -41,6 +42,6 @@ src_prepare() {
 src_install() {
 	java-pkg_newjar "${S}"/lib/${P}.jar "${PN}.jar"
 
-	use source && java-pkg_dosrc "${S}/info"
+	use source && java-pkg_dosrc "${S}/src/info"
 	use doc && java-pkg_dojavadoc "${S}/doc/api"
 }
