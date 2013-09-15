@@ -1,6 +1,8 @@
 <project name="cardme" default="jar" basedir=".">
-	<property name="src" location="" />
+	<property name="src" location="src" />
+	<property name="tests" location="tests" />
 	<property name="build" location="build" />
+	<property name="build.test" location="build-test" />
 	<property name="dist" location="dist" />
 
 	<target name="init">
@@ -24,4 +26,36 @@
 			docencoding="UTF-8" source="1.5" linksource="true" breakiterator="false">
 		</javadoc>
 	</target>
+
+	<target name="compile-tests">
+        <mkdir dir="${build.test}" />
+        <javac destdir="${build.test}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+            <src>
+                <pathelement location="${tests}" />
+            </src>
+            <classpath>
+                <pathelement location="${build}" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile-tests">
+        <junit printsummary="yes" haltonfailure="false">
+            <classpath>
+                <pathelement location="${build}" />
+                <pathelement location="${build.test}" />
+            </classpath>
+
+            <formatter type="plain" />
+
+            <batchtest fork="yes">
+                <formatter type="plain" />
+                <fileset dir="${tests}">
+                    <include name="**/Test*.java" />
+                    <include name="**/*Test.java" />
+                    <exclude name="**/*$*.class" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
 </project>
