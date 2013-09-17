@@ -1,0 +1,9 @@
+# ChangeLog for dev-java/spring-aop
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*spring-aop-3.2.4 (17 Sep 2013)
+
+  17 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +files/3.2.4-build.xml,
+  +metadata.xml, +spring-aop-3.2.4.ebuild:
+  Ebuild for the aop module of the spring-framework
