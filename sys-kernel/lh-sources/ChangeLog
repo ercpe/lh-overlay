@@ -1,5 +1,8 @@
 
 
+  17 Sep 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.9.ebuild:
+  Bump to latest aufs3, linux and genpatches release
+
   21 Aug 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.9.ebuild,
   -files/0001-block-Switch-from-BFQ-v6r2-for-3.10.0-to-BFQ-v6r2-fo.patch:
   Uses latest genpatches
