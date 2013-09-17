@@ -7,7 +7,6 @@
 
 	<property name="test.src.dir" value="${basedir}/src/test/java" />
 	<property name="test.resources.dir" value="${basedir}/src/test/resources" />
-	<property name="coretest.src.dir" value="${basedir}/../spring-core/src/test/java" />
 	
 	<property name="reports.tests" value="${basedir}/test-output" />
 	<property name="classes.dir" value="${basedir}/classes" />
@@ -38,12 +37,7 @@
 		<mkdir dir="${classes.dir.test}" />
 		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="false" target="1.5" verbose="false" fork="false" source="1.5">
 			<src path="${test.src.dir}" />
-			<src path="${coretest.src.dir}" />
-			
-			<exclude name="**/org/springframework/core/**/*Tests.java" />
-			<exclude name="**/org/springframework/util/**/*Test.java" />
-			<exclude name="**/org/springframework/util/**/*Tests.java" />
-			<exclude name="**/org/springframework/util/**/*TestCase.java" />
+			<exclude name="**/DirectFieldAccessorTests.java"/> <!-- tries to instantiate a JPanel which needs an X-Server -->
 
 			<classpath>
 				<pathelement location="${classes.dir}" />
@@ -55,7 +49,17 @@
 		</copy>
 	</target>
 
-	<target name="test" depends="compile-tests, jar">
+	<target name="package-test" depends="compile-tests">
+		<jar jarfile="${dist.dir}/${ant.project.name}-test-utils.jar" compress="true" index="false" basedir="${classes.dir.test}">
+			<exclude name="**/*Tests.*" />
+			<exclude name="**/*Test.*" />
+			<exclude name="**/*Tests.*" />
+			<exclude name="**/*TestCase.*" />
+			<exclude name="**/*Test*$*.class" />
+		</jar>
+	</target>
+
+	<target name="test" depends="jar, compile-tests, package-test">
 		<mkdir dir="${reports.tests}" />
 		<junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
 			<sysproperty key="log4j.configuration" value="log4j.xml"/>

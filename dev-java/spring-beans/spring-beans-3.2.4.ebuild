@@ -22,7 +22,7 @@ CDEPEND="
 	dev-java/commons-logging:0
 	java-virtuals/servlet-api:3.0
 	dev-java/javax-inject:0
-	dev-java/spring-core:${SLOT}
+	dev-java/spring-core:${SLOT}[test?]
 "
 
 DEPEND=">=virtual/jdk-1.5
@@ -60,6 +60,7 @@ src_install() {
 
 	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org/
 	use doc && java-pkg_dojavadoc "${S}"/${PN}/dist/apidocs/
+	use test && java-pkg_dojar "${S}"/${PN}/dist/${PN}-test-utils.jar
 }
 
 src_test() {
