@@ -70,6 +70,7 @@ src_install() {
 
 	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org/
 	use doc && java-pkg_dojavadoc "${S}"/${PN}/dist/apidocs/
+	use test && java-pkg_dojar "${S}"/${PN}/dist/${PN}-test-utils.jar
 }
 
 src_test() {
