@@ -1,5 +1,8 @@
 
 
+  17 Sep 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.12.ebuild:
+  Add workaround for BFQ
+
 *lh-sources-3.10.12 (17 Sep 2013)
 
   17 Sep 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.12.ebuild:

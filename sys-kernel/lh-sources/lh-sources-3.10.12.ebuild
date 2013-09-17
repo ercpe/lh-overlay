@@ -21,24 +21,30 @@ AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
 
+# Set to true, if BFQ needs to apply seperately
+BFQ=true
+
 BFQ_URI_PATCH_LEVEL="6r2"
-BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.0-v${BFQ_URI_PATCH_LEVEL}"
+BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.8+-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch -> \
-		0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch -> \
-		0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
-	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.0.patch -> \
-		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.0.patch1
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.8.patch -> \
+		0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.8.patch1
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.8.patch -> \
+		0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.8.patch1
+	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-.patch -> \
+		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-.patch1
 	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
 	http://aufs.sourceforge.net/"
-#HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
-SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI}"
-#SRC_URI+=" ${BFQ_URI}"
+
+if [[ ${BFQ} == "true" ]]; then
+	HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
+	SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI}"
+	SRC_URI+=" ${BFQ_URI}"
+fi
 
 KEYWORDS="~amd64 ~x86"
 IUSE="deblob module proc"
@@ -48,10 +54,10 @@ PDEPEND=">=sys-fs/aufs-util-3.7"
 AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
 	"${WORKDIR}"/aufs3-base.patch"
-_BFQ_PATCH_LIST=(
-	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
-	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
-	"${DISTDIR}"/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.0.patch1
+BFQ_PATCH_LIST=(
+	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.8.patch1
+	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.8.patch1
+	"${DISTDIR}"/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-.patch1
 	)
 
 BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
@@ -60,15 +66,20 @@ BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
 
 UNIPATCH_LIST="${ARM_PATCH_LIST} ${AUFS_PATCH_LIST}"
-#UNIPATCH_LIST+=" ${BFQ_PATCH_LIST[@]}"
-#UNIPATCH_DOCS="${BFQ_DOC}"
+
+if [[ ${BFQ} == "true" ]]; then
+	# UNIPATCH_LIST+=" ${BFQ_PATCH_LIST[@]}"
+	UNIPATCH_DOCS="${BFQ_DOC}"
+fi
 
 src_unpack() {
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
 	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
-#	mkdir "${WORKDIR}"/patches || die
-#	cp ${_BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
+	if [[ ${BFQ} == "true" ]]; then
+		mkdir "${WORKDIR}"/patches || die
+		cp ${BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
+	fi
 	kernel-2_src_unpack
 }
 
