@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="spring-beans" default="jar" basedir=".">
+<project name="spring-expression" default="jar" basedir=".">
 
 	<property name="src.dir" value="${basedir}/src/main/java" />
 	<property name="resources.dir" value="${basedir}/src/main/resources" />
@@ -28,16 +28,17 @@
 			</src>
 		</javac>
 
+		<!--
 		<copy todir="${classes.dir}" verbose="true">
 			<fileset dir="${resources.dir}"/>
 		</copy>
+		-->
 	</target>
 
 	<target name="compile-tests">
 		<mkdir dir="${classes.dir.test}" />
 		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="false" target="1.5" verbose="false" fork="false" source="1.5">
 			<src path="${test.src.dir}" />
-			<exclude name="**/DirectFieldAccessorTests.java"/> <!-- tries to instantiate a JPanel which needs an X-Server -->
 
 			<classpath>
 				<pathelement location="${classes.dir}" />
@@ -49,17 +50,7 @@
 		</copy>
 	</target>
 
-	<target name="package-test" depends="compile-tests">
-		<jar jarfile="${dist.dir}/${ant.project.name}-test-utils.jar" compress="true" index="false" basedir="${classes.dir.test}">
-			<exclude name="**/*Tests.*" />
-			<exclude name="**/*Test.*" />
-			<exclude name="**/*Tests.*" />
-			<exclude name="**/*TestCase.*" />
-			<exclude name="**/*Test*$*.class" />
-		</jar>
-	</target>
-
-	<target name="test" depends="jar, compile-tests, package-test">
+	<target name="test" depends="compile-tests, jar">
 		<mkdir dir="${reports.tests}" />
 		<junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
 			<sysproperty key="log4j.configuration" value="log4j.xml"/>

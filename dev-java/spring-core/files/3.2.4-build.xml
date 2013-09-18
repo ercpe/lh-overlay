@@ -39,7 +39,7 @@
 	<target name="compile" depends="clean,bundle-asm-cglib">
 		<mkdir dir="${classes.dir}" />
 
-		<javac destdir="${classes.dir}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+		<javac destdir="${classes.dir}" nowarn="false" debug="true" optimize="true" deprecation="false" target="1.5" verbose="false" fork="false" source="1.5">
 			<src path="${src.dir}" />
 			<classpath>
 				<pathelement location="${dist.dir}/asm-renamed.jar" />
@@ -50,7 +50,7 @@
 
 	<target name="compile-tests">
 		<mkdir dir="${classes.dir.test}" />
-		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="true" target="1.5" verbose="false" fork="false" source="1.5">
+		<javac destdir="${classes.dir.test}" nowarn="false" debug="true" optimize="true" deprecation="false" target="1.5" verbose="false" fork="false" source="1.5">
 			<src path="${src.dir.test}" />
 			
 			<!-- jdk 1.7 only -->
@@ -70,7 +70,17 @@
 		</copy>
 	</target>
 
-	<target name="test" depends="compile-tests">
+	<target name="package-test" depends="compile-tests">
+		<jar jarfile="${dist.dir}/${ant.project.name}-test-utils.jar" compress="true" index="false" basedir="${classes.dir.test}">
+			<exclude name="**/*Tests.*" />
+			<exclude name="**/*Test.*" />
+			<exclude name="**/*Tests.*" />
+			<exclude name="**/*TestCase.*" />
+			<exclude name="**/*Test*$*.class" />
+		</jar>
+	</target>
+	
+	<target name="test" depends="compile-tests, package-test">
 		<mkdir dir="${reports.tests}" />
 		<junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
 			<sysproperty key="log4j.configuration" value="log4j.xml"/>

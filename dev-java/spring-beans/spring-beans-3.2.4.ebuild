@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="doc source test"
 
 inherit java-pkg-2 java-ant-2
 
@@ -13,21 +13,26 @@ HOMEPAGE="http://www.springsource.org/spring-framework"
 SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="3"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-RESTRICT="test" # tests require jdk 1.7
-
 CDEPEND="
 	dev-java/commons-logging:0
-	dev-java/spring-core:0
 	java-virtuals/servlet-api:3.0
 	dev-java/javax-inject:0
+	dev-java/spring-core:${SLOT}[test?]
 "
 
 DEPEND=">=virtual/jdk-1.5
+	test? (
+		dev-java/hamcrest-core:1.3
+		dev-java/hamcrest-library:1.3
+		dev-java/junit:4
+		dev-java/mockito:0
+		dev-java/ant-junit4:0
+	)
 	${CDEPEND}"
 
 RDEPEND=">=virtual/jre-1.5
@@ -36,12 +41,18 @@ RDEPEND=">=virtual/jre-1.5
 S="${WORKDIR}/spring-framework-${PV}.RELEASE/"
 
 EANT_BUILD_XML=${S}/${PN}/build.xml
-JAVA_ANT_REWRITE_CLASSPATH="true"
 
-EANT_GENTOO_CLASSPATH="spring-core,commons-logging,servlet-api-3.0,javax-inject"
+JAVA_ANT_REWRITE_CLASSPATH="true"
+EANT_GENTOO_CLASSPATH="spring-core-${SLOT},commons-logging,servlet-api-3.0,javax-inject"
+EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH}
+	hamcrest-library-1.3
+	hamcrest-core-1.3
+	junit-4
+	mockito"
 
 java_prepare() {
-	cp "${FILESDIR}/${PV}-build.xml" "${S}"/spring-beans/build.xml || die
+	cp "${FILESDIR}/${PV}-build.xml" "${S}"/${PN}/build.xml || die
+	epatch "${FILESDIR}/${PV}-use-jdk-1.6-for-tests.patch"
 }
 
 src_install() {
@@ -49,4 +60,9 @@ src_install() {
 
 	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org/
 	use doc && java-pkg_dojavadoc "${S}"/${PN}/dist/apidocs/
+	use test && java-pkg_dojar "${S}"/${PN}/dist/${PN}-test-utils.jar
+}
+
+src_test() {
+	java-pkg-2_src_test
 }

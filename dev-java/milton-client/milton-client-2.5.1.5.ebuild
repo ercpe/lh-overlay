@@ -13,7 +13,7 @@ HOMEPAGE="http://milton.io"
 SRC_URI="http://milton.io/maven/io/milton/${PN}/${PV}/${P}-sources.jar"
 
 LICENSE="Apache-2.0"
-SLOT="0"
+SLOT="2.5"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
@@ -28,8 +28,8 @@ CDEPEND="
 	dev-java/ical4j:0
 	dev-java/endrick-cache:0
 	dev-java/jdom:1.0
-	=dev-java/cardme-0.2.9
-	=dev-java/milton-api-${PV}:${SLOT}
+	dev-java/cardme:0.2
+	dev-java/milton-api:${SLOT}
 "
 
 RDEPEND="${CDEPEND}
@@ -48,6 +48,6 @@ JAVA_GENTOO_CLASSPATH="
 	ical4j
 	endrick-cache
 	jdom-1.0
-	milton-api
-	cardme
+	milton-api-${SLOT}
+	cardme-0.2
 "
