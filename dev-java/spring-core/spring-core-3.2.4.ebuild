@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
 JAVA_PKG_IUSE="doc source test"
 
@@ -13,7 +13,7 @@ HOMEPAGE="http://www.springsource.org/spring-framework"
 SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="3"
+SLOT="3.2"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
@@ -27,7 +27,7 @@ CDEPEND="
 	dev-java/jopt-simple:4.4
 "
 
-DEPEND=">=virtual/jdk-1.5
+DEPEND=">=virtual/jdk-1.7
 	dev-java/jarjar:1
 	test? (
 		dev-java/hamcrest-core:1.3
@@ -39,7 +39,7 @@ DEPEND=">=virtual/jdk-1.5
 	)
 	${CDEPEND}"
 
-RDEPEND=">=virtual/jre-1.5
+RDEPEND=">=virtual/jre-1.7
 	${CDEPEND}"
 
 S="${WORKDIR}/spring-framework-${PV}.RELEASE/"

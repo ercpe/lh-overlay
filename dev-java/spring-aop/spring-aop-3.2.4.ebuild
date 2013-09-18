@@ -13,7 +13,7 @@ HOMEPAGE="http://www.springsource.org/spring-framework"
 SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz"
 
 LICENSE="Apache-2.0"
-SLOT="3"
+SLOT="3.2"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
@@ -28,7 +28,7 @@ CDEPEND="
 	dev-java/jamon:1
 "
 
-DEPEND=">=virtual/jdk-1.5
+DEPEND=">=virtual/jdk-1.7
 	test? (
 		dev-java/hamcrest-core:1.3
 		dev-java/hamcrest-library:1.3
@@ -38,7 +38,7 @@ DEPEND=">=virtual/jdk-1.5
 	)
 	${CDEPEND}"
 
-RDEPEND=">=virtual/jre-1.5
+RDEPEND=">=virtual/jre-1.7
 	${CDEPEND}"
 
 S="${WORKDIR}/spring-framework-${PV}.RELEASE/"
