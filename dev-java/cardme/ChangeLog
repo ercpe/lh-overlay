@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Sep 2013; Justin Lecher <jlec@gentoo.org> cardme-0.4.0.ebuild,
+  metadata.xml:
+  Add missing dep on dev-java/ant-junit
+
   15 Sep 2013; Johann Schmitz <ercpe@gentoo.org> cardme-0.2.9.ebuild,
   cardme-0.4.0.ebuild, files/0.4.0-build.xml:
   Cleaned 0.4.0 ebuild, added slots to both versions

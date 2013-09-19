@@ -17,7 +17,9 @@ SLOT="0.4"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-CDEPEND="dev-java/commons-codec:0"
+CDEPEND="
+	dev-java/ant-junit
+	dev-java/commons-codec:0"
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
 DEPEND=">=virtual/jdk-1.5
