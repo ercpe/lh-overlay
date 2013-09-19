@@ -40,7 +40,7 @@ src_prepare() {
 }
 
 src_install() {
-	java-pkg_newjar "${S}"/lib/${P}.jar "${PN}.jar"
+	java-pkg_newjar "${S}"/lib/${P}.jar "${PN}-${SLOT}.jar"
 
 	use source && java-pkg_dosrc "${S}/src/info"
 	use doc && java-pkg_dojavadoc "${S}/doc/api"
