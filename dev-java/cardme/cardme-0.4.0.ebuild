@@ -5,6 +5,7 @@
 EAPI="5"
 
 JAVA_PKG_IUSE="doc source test"
+WANT_ANT_TASKS="ant-junit"
 
 inherit java-pkg-2 java-ant-2
 
@@ -18,18 +19,17 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 CDEPEND="
-	dev-java/ant-junit
 	dev-java/commons-codec:0"
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
 DEPEND=">=virtual/jdk-1.5
 	test? ( dev-java/junit:4 )
-	${CDEPEND}"
+	${CDEPEND}
+	app-arch/unzip"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="commons-codec"
 EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4"
-WANT_ANT_TASKS="ant-junit"
 
 S="${WORKDIR}"
 

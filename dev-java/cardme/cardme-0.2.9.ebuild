@@ -18,7 +18,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=virtual/jre-1.5"
-DEPEND=">=virtual/jdk-1.5"
+DEPEND=">=virtual/jdk-1.5
+	app-arch/unzip"
 
 EANT_BUILD_TARGET="compile jar"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
@@ -40,7 +41,7 @@ src_prepare() {
 }
 
 src_install() {
-	java-pkg_newjar "${S}"/lib/${P}.jar "${PN}-${SLOT}.jar"
+	java-pkg_newjar "${S}"/lib/${P}.jar ${PN}.jar
 
 	use source && java-pkg_dosrc "${S}/src/info"
 	use doc && java-pkg_dojavadoc "${S}/doc/api"
