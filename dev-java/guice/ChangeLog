@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*guice-2.0 (20 Sep 2013)
+
+  20 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +files/2.0-build.xml.patch,
+  +files/2.0-common.xml.patch, +guice-2.0.ebuild:
+  Ebuild for guice-2.0 - Imported and polished from the dmol overlay
+
 *guice-3.0 (20 Sep 2013)
 
   20 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +files/3.0-build.xml.patch,
