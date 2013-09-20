@@ -1,0 +1,9 @@
+# ChangeLog for dev-java/atinject
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*atinject-1 (20 Sep 2013)
+
+  20 Sep 2013; Johann Schmitz <ercpe@gentoo.org> +atinject-1.ebuild,
+  +metadata.xml:
+  Ebuild for atinject (Implementation of the JSR-330)
