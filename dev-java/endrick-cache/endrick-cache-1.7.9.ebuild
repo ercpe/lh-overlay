@@ -19,7 +19,7 @@ IUSE=""
 
 CDEPEND="dev-java/slf4j-api
 	=dev-java/endrick-common-${PV}
-	<=dev-java/kryo-1.05
+	dev-java/kryo:1
 	dev-db/db-je:3.3"
 DEPEND="${CDEPEND}
 	>=virtual/jdk-1.5"
@@ -28,7 +28,7 @@ RDEPEND="${CDEPEND}
 
 S="${WORKDIR}/${P}"
 
-JAVA_GENTOO_CLASSPATH="slf4j-api,endrick-common,db-je-3.3,kryo"
+JAVA_GENTOO_CLASSPATH="slf4j-api,endrick-common,db-je-3.3,kryo-1"
 JAVA_SRC_DIR="src/main/java"
 
 src_prepare() {
