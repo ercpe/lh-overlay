@@ -20,7 +20,7 @@ IUSE="spring"
 
 CDEPEND="dev-java/log4j:0
 	dev-java/slf4j-api:0
-	spring? ( dev-java/spring-beans:0 )
+	spring? ( dev-java/spring-beans:3.2 )
 "
 
 DEPEND=">=virtual/jdk-1.5
@@ -35,7 +35,7 @@ JAVA_GENTOO_CLASSPATH="log4j,slf4j-api"
 
 java_prepare() {
 	if use spring; then
-		JAVA_GENTOO_CLASSPATH+=",spring-beans"
+		JAVA_GENTOO_CLASSPATH+=",spring-beans-3.2"
 	else
 		rm net/spy/memcached/spring/MemcachedClientFactoryBean.java || die
 	fi
