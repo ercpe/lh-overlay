@@ -18,8 +18,8 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-CDEPEND="dev-java/log4j
-	dev-java/slf4j-api"
+CDEPEND="dev-java/log4j:0
+	dev-java/slf4j-api:0"
 DEPEND=">=virtual/jdk-1.5"
 RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
