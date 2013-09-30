@@ -2,6 +2,10 @@
 
   30 Sep 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.13.ebuild,
   lh-sources-3.11.2.ebuild:
+  Fix aufs3 releases
+
+  30 Sep 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.13.ebuild,
+  lh-sources-3.11.2.ebuild:
   Fix Version of aufs3 release
 
 *lh-sources-3.11.2 (30 Sep 2013)
