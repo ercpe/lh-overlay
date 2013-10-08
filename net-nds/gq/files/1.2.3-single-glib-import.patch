@@ -1,0 +1,548 @@
+diff --git a/gq-1.2.3/src/browse-dnd.c b/gq-1.2.3/src/browse-dnd.c
+index be0cd0b..dd18ae2 100644
+--- a/gq-1.2.3/src/browse-dnd.c
++++ b/gq-1.2.3/src/browse-dnd.c
+@@ -30,7 +30,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include "browse-dnd.h"
+diff --git a/gq-1.2.3/src/browse-export.c b/gq-1.2.3/src/browse-export.c
+index 94f4776..1a9ea97 100644
+--- a/gq-1.2.3/src/browse-export.c
++++ b/gq-1.2.3/src/browse-export.c
+@@ -26,7 +26,7 @@
+ 
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <string.h>
+ #include <errno.h>		/* errno */
+diff --git a/gq-1.2.3/src/configfile.c b/gq-1.2.3/src/configfile.c
+index 27b6dfa..885dfdb 100644
+--- a/gq-1.2.3/src/configfile.c
++++ b/gq-1.2.3/src/configfile.c
+@@ -36,7 +36,7 @@
+ #include <time.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include "common.h"
+ #include "configfile.h"
+diff --git a/gq-1.2.3/src/dt_binary.c b/gq-1.2.3/src/dt_binary.c
+index 9f7d5e1..493169e 100644
+--- a/gq-1.2.3/src/dt_binary.c
++++ b/gq-1.2.3/src/dt_binary.c
+@@ -33,7 +33,7 @@
+ #include <ctype.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #define GTK_ENABLE_BROKEN  /* for the text widget - should be replaced - FIXME */
+ #include <gtk/gtk.h>
+diff --git a/gq-1.2.3/src/dt_cert.c b/gq-1.2.3/src/dt_cert.c
+index b11509f..1a90a2e 100644
+--- a/gq-1.2.3/src/dt_cert.c
++++ b/gq-1.2.3/src/dt_cert.c
+@@ -40,7 +40,7 @@
+ #include <ctype.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #define GTK_ENABLE_BROKEN  /* for the text widget - should be replaced - FIXME */
+ #include <gtk/gtk.h>
+diff --git a/gq-1.2.3/src/dt_clist.c b/gq-1.2.3/src/dt_clist.c
+index 59f1d69..e5bc815 100644
+--- a/gq-1.2.3/src/dt_clist.c
++++ b/gq-1.2.3/src/dt_clist.c
+@@ -40,7 +40,7 @@
+ #include <ctype.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #define GTK_ENABLE_BROKEN  /* for the text widget - should be replaced - FIXME */
+ #include <gtk/gtk.h>
+diff --git a/gq-1.2.3/src/dt_crl.c b/gq-1.2.3/src/dt_crl.c
+index ae1e54c..70b603a 100644
+--- a/gq-1.2.3/src/dt_crl.c
++++ b/gq-1.2.3/src/dt_crl.c
+@@ -40,7 +40,7 @@
+ #include <ctype.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #define GTK_ENABLE_BROKEN  /* for the text widget - should be replaced - FIXME */
+ #include <gtk/gtk.h>
+diff --git a/gq-1.2.3/src/dt_date.c b/gq-1.2.3/src/dt_date.c
+index e7724f5..c1fa7ec 100644
+--- a/gq-1.2.3/src/dt_date.c
++++ b/gq-1.2.3/src/dt_date.c
+@@ -33,7 +33,7 @@
+ #include <time.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_entry.c b/gq-1.2.3/src/dt_entry.c
+index 9591b53..2cff568 100644
+--- a/gq-1.2.3/src/dt_entry.c
++++ b/gq-1.2.3/src/dt_entry.c
+@@ -31,7 +31,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_generic_binary.c b/gq-1.2.3/src/dt_generic_binary.c
+index 3a557ed..afe7a05 100644
+--- a/gq-1.2.3/src/dt_generic_binary.c
++++ b/gq-1.2.3/src/dt_generic_binary.c
+@@ -35,7 +35,7 @@
+ #endif /* HAVE_CONFIG_H */
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ 
+ #define GTK_ENABLE_BROKEN  /* for the text widget - should be replaced */
+diff --git a/gq-1.2.3/src/dt_int.c b/gq-1.2.3/src/dt_int.c
+index f5f8018..819b6a2 100644
+--- a/gq-1.2.3/src/dt_int.c
++++ b/gq-1.2.3/src/dt_int.c
+@@ -31,7 +31,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_jpeg.c b/gq-1.2.3/src/dt_jpeg.c
+index 5cbc15c..437867f 100644
+--- a/gq-1.2.3/src/dt_jpeg.c
++++ b/gq-1.2.3/src/dt_jpeg.c
+@@ -37,7 +37,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_numstr.c b/gq-1.2.3/src/dt_numstr.c
+index a1493df..6aff8eb 100644
+--- a/gq-1.2.3/src/dt_numstr.c
++++ b/gq-1.2.3/src/dt_numstr.c
+@@ -31,7 +31,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_oc.c b/gq-1.2.3/src/dt_oc.c
+index 6c956a4..65f6d02 100644
+--- a/gq-1.2.3/src/dt_oc.c
++++ b/gq-1.2.3/src/dt_oc.c
+@@ -39,7 +39,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_password.c b/gq-1.2.3/src/dt_password.c
+index 0181f37..c4508e7 100644
+--- a/gq-1.2.3/src/dt_password.c
++++ b/gq-1.2.3/src/dt_password.c
+@@ -38,7 +38,7 @@
+ #include <ctype.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_text.c b/gq-1.2.3/src/dt_text.c
+index d948156..574ee80 100644
+--- a/gq-1.2.3/src/dt_text.c
++++ b/gq-1.2.3/src/dt_text.c
+@@ -31,7 +31,7 @@
+ #include <unistd.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/dt_time.c b/gq-1.2.3/src/dt_time.c
+index dff73f0..9c32d43 100644
+--- a/gq-1.2.3/src/dt_time.c
++++ b/gq-1.2.3/src/dt_time.c
+@@ -38,7 +38,7 @@
+ #include <time.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/errorchain.c b/gq-1.2.3/src/errorchain.c
+index 3166c40..1cf6582 100644
+--- a/gq-1.2.3/src/errorchain.c
++++ b/gq-1.2.3/src/errorchain.c
+@@ -22,7 +22,7 @@
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/filter.c b/gq-1.2.3/src/filter.c
+index 411aa53..b1617fd 100644
+--- a/gq-1.2.3/src/filter.c
++++ b/gq-1.2.3/src/filter.c
+@@ -38,7 +38,7 @@
+ #endif /* HAVE_ISWSPACE */
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include "common.h"
+diff --git a/gq-1.2.3/src/formfill.c b/gq-1.2.3/src/formfill.c
+index 2abc411..03a0c73 100644
+--- a/gq-1.2.3/src/formfill.c
++++ b/gq-1.2.3/src/formfill.c
+@@ -29,7 +29,7 @@
+ #include <stdlib.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include <lber.h>
+ #include <ldap.h>
+diff --git a/gq-1.2.3/src/gq-browser-node-dn.c b/gq-1.2.3/src/gq-browser-node-dn.c
+index f4a2401..2773d56 100644
+--- a/gq-1.2.3/src/gq-browser-node-dn.c
++++ b/gq-1.2.3/src/gq-browser-node-dn.c
+@@ -25,7 +25,7 @@
+ #include "gq-browser-node-dn.h"
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <string.h>
+ #include <errno.h>		/* errno */
+diff --git a/gq-1.2.3/src/gq-browser-node-reference.c b/gq-1.2.3/src/gq-browser-node-reference.c
+index b4d40a8..55e0638 100644
+--- a/gq-1.2.3/src/gq-browser-node-reference.c
++++ b/gq-1.2.3/src/gq-browser-node-reference.c
+@@ -25,7 +25,7 @@
+ #include "gq-browser-node-reference.h"
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/gq-browser-node-server.c b/gq-1.2.3/src/gq-browser-node-server.c
+index aa0f38e..cd349e6 100644
+--- a/gq-1.2.3/src/gq-browser-node-server.c
++++ b/gq-1.2.3/src/gq-browser-node-server.c
+@@ -25,7 +25,7 @@
+ #include "gq-browser-node-server.h"
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include <errno.h>
+diff --git a/gq-1.2.3/src/gq-hash.h b/gq-1.2.3/src/gq-hash.h
+index b3b16fd..0b172fc 100644
+--- a/gq-1.2.3/src/gq-hash.h
++++ b/gq-1.2.3/src/gq-hash.h
+@@ -24,7 +24,7 @@
+ #ifndef GQ_ENCRYPTION_H
+ #define GQ_ENCRYPTION_H
+ 
+-#include <glib/garray.h>
++#include <glib.h>
+ #include "util.h"
+ 
+ G_BEGIN_DECLS
+diff --git a/gq-1.2.3/src/gq-server-list.h b/gq-1.2.3/src/gq-server-list.h
+index fbcede4..1f53b18 100644
+--- a/gq-1.2.3/src/gq-server-list.h
++++ b/gq-1.2.3/src/gq-server-list.h
+@@ -26,7 +26,7 @@
+ #ifndef GQ_SERVER_LIST_H
+ #define GQ_SERVER_LIST_H
+ 
+-#include <glib/gmacros.h>
++#include <glib.h>
+ #include "gq-server.h" // for GqServer
+ 
+ G_BEGIN_DECLS
+diff --git a/gq-1.2.3/src/gq-tab-browse.c b/gq-1.2.3/src/gq-tab-browse.c
+index d219a04..a5752cc 100644
+--- a/gq-1.2.3/src/gq-tab-browse.c
++++ b/gq-1.2.3/src/gq-tab-browse.c
+@@ -25,7 +25,7 @@
+ #include "gq-tab-browse.h"
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/gq-tab-schema.c b/gq-1.2.3/src/gq-tab-schema.c
+index ea47c05..a119c14 100644
+--- a/gq-1.2.3/src/gq-tab-schema.c
++++ b/gq-1.2.3/src/gq-tab-schema.c
+@@ -40,7 +40,7 @@
+ #define GTK_ENABLE_BROKEN  /* for the tree widget - should be replaced */
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gtk/gtktree.h>
+ #include <gtk/gtktreeitem.h>
+diff --git a/gq-1.2.3/src/gq-tab-search.c b/gq-1.2.3/src/gq-tab-search.c
+index 26203f1..b184b9f 100644
+--- a/gq-1.2.3/src/gq-tab-search.c
++++ b/gq-1.2.3/src/gq-tab-search.c
+@@ -32,7 +32,7 @@
+ #include <string.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include "common.h"
+diff --git a/gq-1.2.3/src/gq-xml.c b/gq-1.2.3/src/gq-xml.c
+index f414cc7..e792ae7 100644
+--- a/gq-1.2.3/src/gq-xml.c
++++ b/gq-1.2.3/src/gq-xml.c
+@@ -28,7 +28,7 @@
+ /* $Id: gq-xml.c 975 2006-09-07 18:44:41Z herzi $ */
+ 
+ #include <string.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include <sys/types.h>
+diff --git a/gq-1.2.3/src/gq.c b/gq-1.2.3/src/gq.c
+index 1b4237a..5434eae 100644
+--- a/gq-1.2.3/src/gq.c
++++ b/gq-1.2.3/src/gq.c
+@@ -22,7 +22,7 @@
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <string.h>
+ #include <signal.h>
+diff --git a/gq-1.2.3/src/input.c b/gq-1.2.3/src/input.c
+index be058a8..52831ba 100644
+--- a/gq-1.2.3/src/input.c
++++ b/gq-1.2.3/src/input.c
+@@ -30,7 +30,7 @@
+ #include <ctype.h>		/* tolower() */
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gdk/gdk.h>
+ #include <gtk/gtk.h>
+ 
+diff --git a/gq-1.2.3/src/ldapops.c b/gq-1.2.3/src/ldapops.c
+index 91de357..c5af8eb 100644
+--- a/gq-1.2.3/src/ldapops.c
++++ b/gq-1.2.3/src/ldapops.c
+@@ -28,7 +28,7 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <ldap.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #ifdef HAVE_CONFIG_H
+ # include  <config.h>
+ #endif /* HAVE_CONFIG_H */
+diff --git a/gq-1.2.3/src/ldif.c b/gq-1.2.3/src/ldif.c
+index 907944d..e86c2e6 100644
+--- a/gq-1.2.3/src/ldif.c
++++ b/gq-1.2.3/src/ldif.c
+@@ -30,7 +30,7 @@
+ #include <time.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include <lber.h>
+ #include <ldap.h>
+diff --git a/gq-1.2.3/src/mainwin.c b/gq-1.2.3/src/mainwin.c
+index 60e236a..9438c61 100644
+--- a/gq-1.2.3/src/mainwin.c
++++ b/gq-1.2.3/src/mainwin.c
+@@ -27,7 +27,7 @@
+ #include <string.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/prefs.c b/gq-1.2.3/src/prefs.c
+index e34870f..0550eab 100644
+--- a/gq-1.2.3/src/prefs.c
++++ b/gq-1.2.3/src/prefs.c
+@@ -28,7 +28,7 @@
+ # include <config.h>
+ #endif /* HAVE_CONFIG_H */
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/progress.c b/gq-1.2.3/src/progress.c
+index 6931939..7ea1042 100644
+--- a/gq-1.2.3/src/progress.c
++++ b/gq-1.2.3/src/progress.c
+@@ -34,7 +34,7 @@
+ #include <stdio.h>
+ #include <stdarg.h>
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include "common.h"
+ #include "progress.h"
+diff --git a/gq-1.2.3/src/schema.c b/gq-1.2.3/src/schema.c
+index 731be02..f55eab6 100644
+--- a/gq-1.2.3/src/schema.c
++++ b/gq-1.2.3/src/schema.c
+@@ -37,7 +37,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include "common.h"
+ #include "configfile.h"
+diff --git a/gq-1.2.3/src/state.c b/gq-1.2.3/src/state.c
+index 744c0bf..3647c9c 100644
+--- a/gq-1.2.3/src/state.c
++++ b/gq-1.2.3/src/state.c
+@@ -35,8 +35,8 @@
+ #include <fcntl.h>
+ #include <errno.h>
+ 
+-#include <glib/gi18n.h>
+-#include <glib/gmessages.h>
++#include <glib.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include "xmlparse.h"
+diff --git a/gq-1.2.3/src/template.c b/gq-1.2.3/src/template.c
+index 7639f9e..f9f3d4c 100644
+--- a/gq-1.2.3/src/template.c
++++ b/gq-1.2.3/src/template.c
+@@ -33,7 +33,7 @@
+ #include <string.h>
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include <lber.h>
+diff --git a/gq-1.2.3/src/tinput.c b/gq-1.2.3/src/tinput.c
+index a10b094..1570e1c 100644
+--- a/gq-1.2.3/src/tinput.c
++++ b/gq-1.2.3/src/tinput.c
+@@ -31,7 +31,7 @@
+ #ifdef HAVE_LDAP_STR2OBJECTCLASS
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ 
+ #include <lber.h>
+diff --git a/gq-1.2.3/src/util.c b/gq-1.2.3/src/util.c
+index a1feb73..7440c49 100644
+--- a/gq-1.2.3/src/util.c
++++ b/gq-1.2.3/src/util.c
+@@ -25,7 +25,7 @@
+ /* $Id: util.c 1150 2007-05-14 16:33:52Z herzi $ */
+ 
+ #include <glib.h>
+-#include <glib/gi18n.h>
++#include <glib.h>
+ #include <gtk/gtk.h>
+ #include <gdk/gdkkeysyms.h>
+ 
+diff --git a/gq-1.2.3/src/xmlutil.c b/gq-1.2.3/src/xmlutil.c
+index a098e53..17c238f 100644
+--- a/gq-1.2.3/src/xmlutil.c
++++ b/gq-1.2.3/src/xmlutil.c
+@@ -30,7 +30,7 @@
+ #endif /* HAVE_CONFIG_H */
+ #include <string.h>
+ 
+-#include <glib/gi18n.h>
++#include <glib.h>
+ 
+ #include "xmlutil.h"
+ #include "errorchain.h"
