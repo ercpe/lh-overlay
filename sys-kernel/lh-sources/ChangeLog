@@ -1,5 +1,11 @@
 
 
+*lh-sources-3.11.4 (08 Oct 2013)
+
+  08 Oct 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.11.3.ebuild,
+  +lh-sources-3.11.4.ebuild:
+  Fix the genpatches versions
+
 *lh-sources-3.10.15 (08 Oct 2013)
 
   08 Oct 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.15.ebuild,
