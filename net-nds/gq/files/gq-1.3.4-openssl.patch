@@ -1,0 +1,36 @@
+ configure.in    | 9 +++++++--
+ src/Makefile.am | 1 +
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index 8c3cb60..8d3c345 100644
+--- a/configure.in
++++ b/configure.in
+@@ -252,8 +252,13 @@ dnl do not check for OpenSSL if we won't need it because OpenLDAP does not
+ dnl support TLS... peter
+ 
+ if test "$gq_have_tls" = 1; then
+-	AC_CHECK_LIB(ssl, SSL_new,
+-		     [LIBS="-lssl $LIBS"]
++	PKG_CHECK_MODULES(
++		[SSL], [openssl],[],
++			[
++			AC_CHECK_LIB(ssl, SSL_new,
++		    	 [LIBS="-lssl $LIBS"]
++			)
++			]
+ 	)
+ fi
+ 
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 0dd4b12..13b7a6b 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -185,6 +185,7 @@ noinst_HEADERS = \
+ gq_LDADD=\
+ 	$(GQ_LIBS) \
+ 	$(LIBGCRYPT_LIBS) \
++	$(SSL_LIBS) \
+ 	$(NULL)
+ 
+ EXTRA_DIST=\

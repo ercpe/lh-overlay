@@ -1,0 +1,34 @@
+ src/Makefile.am | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 13b7a6b..40f87ac 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -206,22 +206,22 @@ h_files=\
+ 	gq-tab-search.h \
+ 	$(NULL)
+ 
+-gq-enumerations.h: $(h_files) $(priv_h_files) Makefile gq-enumerations.h.in
++gq-enumerations.h: $(h_files) $(priv_h_files) $(builddir)/Makefile gq-enumerations.h.in
+ 	@( cd $(srcdir) && $(GLIB_MKENUMS) --template gq-enumerations.h.in \
+ 	$(h_files) ) >> xgen-gtbh \
+ 	&& (cmp -s xgen-gtbh $@ || (echo "Creating $@..."; cp xgen-gtbh $@) ) \
+ 	&& rm -f xgen-gtbh
+ 
+-gq-enumerations.c: $(h_files) $(priv_h_files) Makefile gq-enumerations.c.in
++gq-enumerations.c: $(h_files) $(priv_h_files) $(builddir)/Makefile gq-enumerations.c.in
+ 	@( cd $(srcdir) && $(GLIB_MKENUMS) --template gq-enumerations.c.in \
+ 	$(h_files) ) > xgen-gtbc \
+ 	&& (cmp -s xgen-gtbc $@ || (echo "Creating $@..."; cp xgen-gtbc $@) ) \
+ 	&& rm -f xgen-gtbc
+-gq-marshallers.h: $(srcdir)/gq-marshallers.list $(srcdir)/Makefile
++gq-marshallers.h: $(srcdir)/gq-marshallers.list $(builddir)/Makefile
+ 	@( $(GLIB_GENMARSHAL) --header --prefix=gq_marshal $< ) > xgen-mh \
+ 	&& (cmp -s xgen-mh $@ || (echo "Creating $@..."; cp xgen-mh $@) ) \
+ 	&& rm -f xgen-mh
+-gq-marshallers.c: $(srcdir)/gq-marshallers.list $(srcdir)/Makefile
++gq-marshallers.c: $(srcdir)/gq-marshallers.list $(builddir)/Makefile
+ 	@( echo "#include \"gq-marshallers.h\""; \
+ 	   $(GLIB_GENMARSHAL) --body --prefix=gq_marshal $< ) > xgen-mc \
+ 	&& (cmp -s xgen-mc $@ || (echo "Creating $@..."; cp xgen-mc $@) ) \

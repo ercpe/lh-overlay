@@ -4,7 +4,9 @@
 
 EAPI="5"
 
-inherit eutils autotools
+AUTOTOOLS_AUTORECONF=true
+
+inherit autotools-utils
 
 DESCRIPTION="A GTK+-based LDAP client"
 HOMEPAGE="http://www.gq-project.org/"
@@ -13,42 +15,61 @@ SRC_URI="mirror://sourceforge/gqclient/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="kerberos sasl"
+IUSE="kerberos"
 
 RDEPEND="
-	net-nds/openldap
-	dev-libs/openssl
-	sasl? ( dev-libs/cyrus-sasl )
-	kerberos? ( virtual/krb5 )
-	x11-libs/gtk+:2
-	dev-libs/libxml2
+	dev-libs/cyrus-sasl
 	dev-libs/glib:2
-	x11-libs/pango
+	dev-libs/libgcrypt
+	dev-libs/libxml2
+	dev-libs/openssl
+	gnome-base/libglade:2.0
+	gnome-base/libgnome-keyring
+	net-nds/openldap
 	gnome-base/gnome-keyring
 	gnome-base/libglade:2.0
-	dev-libs/libgcrypt
-"
-# gdk-pixbuf???
-## perl?
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:2
+	x11-libs/pango
+	kerberos? ( virtual/krb5 )"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
-	>=dev-util/intltool-0.35"
+	>=dev-util/intltool-0.35
+	virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-no-werror.patch
+	"${FILESDIR}"/${P}-glibfix.patch
+	"${FILESDIR}"/${P}-openssl.patch
+	"${FILESDIR}"/${P}-krb.patch
+	"${FILESDIR}"/${P}-out-of-source.patch
+	)
 
 src_prepare() {
-	#epatch "${FILESDIR}/${PV}-single-glib-import.patch"
-	epatch "${FILESDIR}/${PV}-no-werror.patch"
-	sed -i -e 's/AM_ACLOCAL_INCLUDE/AC_CONFIG_MACRO_DIR/g' \
-		-e 's/AS_PROG_OBJC/AC_PROG_OBJC/g' \
-		-e '/.*test\/Makefile.*/d' \
-		-e 's/-ldes425//g' \
-		configure.in || die
-	sed -i -e '/.*test.*/d' Makefile.am || die
-
-	eautoreconf
+	sed \
+		-e 's/AM_ACLOCAL_INCLUDE/AC_CONFIG_MACRO_DIR/g' \
+		-e "s:IT_PROG_INTLTOOL:IT_PROG_INTLTOOL\nAM_GLIB_GNU_GETTEXT:g" \
+		-e '/HERZI_CHECK_DEVELOP_CFLAGS/d' \
+		-i configure.in || die
+	rm missing || die
+	rm po/Makefile.in.in || die
+	autotools-utils_src_prepare
 }
 
 src_configure() {
-	local myconf="--enable-browser-dnd --enable-cache --disable-update-mimedb --disable-werror --disable-debugging"
+	local myeconfargs=(
+		--enable-browser-dnd
+		--enable-cache
+		--disable-update-mimedb
+		--disable-scrollkeeper
+		--disable-werror
+		--disable-debugging
+		)
 
-	econf ${myconf} $(use_with kerberos kerberos-prefix /usr)
+#	$(use_with kerberos kerberos-prefix "${EPREFIX}"/usr)
+#	doesn't work
+	use kerberos &&
+		myeconfargs+=( --with-kerberos-prefix="${EPREFIX}"/usr )
+
+	autotools-utils_src_configure
 }
