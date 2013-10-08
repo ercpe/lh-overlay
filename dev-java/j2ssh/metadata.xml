@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>jlec@j-schmitz.net</email>
-		<name>Justin Lecher (jlec)</name>
-	</maintainer>
-	<maintainer>
-		<email>johann@j-schmitz.net</email>
-		<name>Johann Schmitz</name>
-	</maintainer>
-	<use>
-		<flag name="ant">Builds the ant ssh task</flag>
-	</use>
+	<herd>java</herd>
+	<longdescription>
+		SSHTools is a suite of Java SSH applications providing a Java SSH API,
+		SSH Terminal, SSH secured VNC client, SFTP client and SSH Daemon.
+	</longdescription>
 </pkgmetadata>
