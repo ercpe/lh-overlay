@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Oct 2013; Johann Schmitz <ercpe@gentoo.org> -files/0.6-build.xml,
+  junrar-0.6.ebuild, metadata.xml:
+  Dropped custom build.xml and use java-pkg-simple for junrar
+
   11 Jul 2013; Justin Lecher <jlec@gentoo.org> junrar-0.6.ebuild:
   Fix slotting of common-vfs
 
