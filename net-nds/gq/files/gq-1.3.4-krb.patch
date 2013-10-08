@@ -1,0 +1,31 @@
+ configure.in    | 3 ++-
+ src/gq-server.c | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index 8d3c345..d403292 100644
+--- a/configure.in
++++ b/configure.in
+@@ -270,7 +270,8 @@ AC_CHECK_FUNCS(ldap_str2objectclass ldap_memfree ldap_rename ldap_str2dn \
+ AC_ARG_WITH(kerberos-prefix,
+ 	    AC_HELP_STRING([--with-kerberos-prefix=PFX], [Prefix where Kerberos is installed]),
+ 	    [
+-	     LIBS="-L$with_kerberos_prefix/lib -lkrb5 -ldes425 $LIBS"
++		 KRB5_LIBS="`$with_kerberos_prefix/bin/krb5-config --libs`"
++	     LIBS="-L$with_kerberos_prefix/lib $KRB5_LIBS $LIBS"
+ 	     AC_DEFINE(HAVE_KERBEROS,1,[Define if you have Kerberos installed])
+ 	     HAVE_KERBEROS=1
+ 	    ]
+diff --git a/src/gq-server.c b/src/gq-server.c
+index 31a4d87..d67f2d5 100644
+--- a/src/gq-server.c
++++ b/src/gq-server.c
+@@ -281,7 +281,7 @@ do_ldap_auth(LDAP    * ld,
+ 			switch(gq_server_get_bind_type(server)) {
+ 				case GQ_BIND_KERBEROS:
+ #ifdef HAVE_KERBEROS
+-					rc = ldap_bind_s(ld, bind_dn, bindpw, LDAP_AUTH_KRBV4);
++					rc = ldap_bind_s(ld, bind_dn, bind_pw, LDAP_AUTH_KRBV4);
+ #else
+ 					error_push(open_context,
+ 						_("Cannot use Kerberos bind with '%s'.\n"
