@@ -36,14 +36,26 @@ BFQ_URI="
 		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}.patch1
 	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
+GCCOPT_PATCH_LEVEL="311-gcc48-1"
+GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/master/kernel-${GCCOPT_PATCH_LEVEL}.patch -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
+#GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/master/kernel-${GCCOPT_PATCH_LEVEL}.patch -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch1"
+GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
-	http://aufs.sourceforge.net/"
+	http://aufs.sourceforge.net/
+	${GCCOPT_HOMEPAGE}
+	"
+SRC_URI="
+	${KERNEL_URI}
+	${GENPATCHES_URI}
+	${ARCH_URI}
+	${AUFS_URI}
+	${LOGO_URI}
+	${GCCOPT_URI}"
 
 if [[ ${BFQ} == "true" ]]; then
 	HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
-	SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${AUFS_URI} ${LOGO_URI}"
 	SRC_URI+=" ${BFQ_URI}"
 fi
 
@@ -60,13 +72,18 @@ BFQ_PATCH_LIST=(
 	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
 	"${DISTDIR}"/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}.patch1
 	)
+GCCOPT_LIST=( "${DISTDIR}"/${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch )
 
 BFQ_DOC="${DISTDIR}/README-${PV}.BFQ"
 
 # http://unicorn.drogon.net/rpi/linux-arm.patch
 ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
 
-UNIPATCH_LIST="${ARM_PATCH_LIST} ${AUFS_PATCH_LIST}"
+UNIPATCH_LIST="
+	${ARM_PATCH_LIST}
+	${AUFS_PATCH_LIST}
+	${GCCOPT_LIST}
+"
 
 if [[ ${BFQ} == "true" ]]; then
 	# UNIPATCH_LIST+=" ${BFQ_PATCH_LIST[@]}"

@@ -1,5 +1,9 @@
 
 
+  11 Oct 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.15.ebuild,
+  lh-sources-3.11.4.ebuild:
+  add https://github.com/graysky2/kernel_gcc_patch
+
 *lh-sources-3.11.4 (08 Oct 2013)
 
   08 Oct 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.11.3.ebuild,
