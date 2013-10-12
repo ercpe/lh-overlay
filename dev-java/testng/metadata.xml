@@ -3,7 +3,7 @@
 <pkgmetadata>
 	<herd>java</herd>
 	<upstream>
-		<remote-id type="github">cbeust</remote-id>
+		<remote-id type="github">cbeust/testng</remote-id>
 	</upstream>
 </pkgmetadata>
 
