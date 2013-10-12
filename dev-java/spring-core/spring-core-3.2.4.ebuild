@@ -10,7 +10,8 @@ inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="A comprehensive programming and configuration model for modern enterprise applications"
 HOMEPAGE="http://www.springsource.org/spring-framework"
-SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz"
+SRC_URI="https://github.com/SpringSource/spring-framework/archive/v${PV}.RELEASE.tar.gz -> spring-framework-${PV}.tar.gz
+		http://dev.gentoo.org/~ercpe/distfiles/dev-java/spring-framework/spring-framework-${PV}-buildscripts.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="3.2"
@@ -57,8 +58,6 @@ EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH}
 	xmlunit-1"
 
 java_prepare() {
-	cp "${FILESDIR}/${PV}-build.xml" "${S}"/${PN}/build.xml || die
-
 	# see build.xml
 	mkdir "${S}/${PN}/lib/" || die
 	java-pkg_jar-from --build-only --into "${S}/${PN}/lib/" asm-4
