@@ -5,6 +5,7 @@
 EAPI="5"
 
 JAVA_PKG_IUSE="doc source test"
+WANT_ANT_TASKS="dev-java/jarjar:1 dev-java/ant-junit:0"
 
 inherit java-pkg-2 java-ant-2
 
@@ -29,14 +30,12 @@ CDEPEND="
 "
 
 DEPEND=">=virtual/jdk-1.7
-	dev-java/jarjar:1
 	test? (
+		>=dev-java/junit-4.11:4
 		dev-java/hamcrest-core:1.3
 		dev-java/hamcrest-library:1.3
-		dev-java/junit:4
 		dev-java/mockito:0
 		dev-java/xmlunit:1
-		dev-java/ant-junit4:0
 	)
 	${CDEPEND}"
 
@@ -46,16 +45,16 @@ RDEPEND=">=virtual/jre-1.7
 S="${WORKDIR}/spring-framework-${PV}.RELEASE/"
 
 EANT_BUILD_XML=${S}/${PN}/build.xml
-WANT_ANT_TASKS="jarjar-1"
 
 JAVA_ANT_REWRITE_CLASSPATH="true"
 EANT_GENTOO_CLASSPATH="commons-logging,log4j,aspectj,jopt-simple-4.4,asm-4"
 EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH}
 	hamcrest-library-1.3
 	hamcrest-core-1.3
-	junit-4
+	junit
 	mockito
-	xmlunit-1"
+	xmlunit-1
+	junit-4"
 
 java_prepare() {
 	# see build.xml
@@ -69,7 +68,6 @@ src_install() {
 
 	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org/
 	use doc && java-pkg_dojavadoc "${S}"/${PN}/dist/apidocs/
-	use test && java-pkg_dojar "${S}"/${PN}/dist/${PN}-test-utils.jar
 }
 
 src_test() {
