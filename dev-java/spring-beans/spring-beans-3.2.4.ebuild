@@ -23,8 +23,7 @@ CDEPEND="
 	dev-java/commons-logging:0
 	java-virtuals/servlet-api:3.0
 	dev-java/javax-inject:0
-	dev-java/spring-core:${SLOT}[test?]
-"
+	dev-java/spring-core:${SLOT}"
 
 DEPEND=">=virtual/jdk-1.7
 	test? (
@@ -33,8 +32,10 @@ DEPEND=">=virtual/jdk-1.7
 		dev-java/junit:4
 		dev-java/mockito:0
 		dev-java/ant-junit4:0
+		dev-java/xmlunit:1
 	)
 	${CDEPEND}"
+
 
 RDEPEND=">=virtual/jre-1.7
 	${CDEPEND}"
@@ -49,14 +50,14 @@ EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH}
 	hamcrest-library-1.3
 	hamcrest-core-1.3
 	junit-4
-	mockito"
+	mockito
+	xmlunit-1"
 
 src_install() {
 	java-pkg_dojar "${S}"/${PN}/dist/${PN}.jar
 
 	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org/
 	use doc && java-pkg_dojavadoc "${S}"/${PN}/dist/apidocs/
-	use test && java-pkg_dojar "${S}"/${PN}/dist/${PN}-test-utils.jar
 }
 
 src_test() {

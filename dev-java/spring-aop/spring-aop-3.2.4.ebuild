@@ -19,15 +19,13 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-CDEPEND="
-	dev-java/spring-core:${SLOT}[test?]
-	dev-java/spring-beans:${SLOT}[test?]
+CDEPEND="dev-java/spring-core:${SLOT}
+	dev-java/spring-beans:${SLOT}
 	dev-java/aopalliance:1
 	dev-java/aspectj:0
 	dev-java/commons-logging:0
 	dev-java/commons-pool:0
-	dev-java/jamon:1
-"
+	dev-java/jamon:1"
 
 DEPEND=">=virtual/jdk-1.7
 	test? (
@@ -36,6 +34,7 @@ DEPEND=">=virtual/jdk-1.7
 		dev-java/junit:4
 		dev-java/mockito:0
 		dev-java/ant-junit4:0
+		dev-java/xmlunit:1
 	)
 	${CDEPEND}"
 
@@ -59,7 +58,8 @@ EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH}
 	hamcrest-library-1.3
 	hamcrest-core-1.3
 	junit-4
-	mockito"
+	mockito
+	xmlunit-1"
 
 src_install() {
 	java-pkg_dojar "${S}"/${PN}/dist/${PN}.jar
