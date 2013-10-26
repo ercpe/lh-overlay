@@ -57,3 +57,8 @@ src_install() {
 	systemd_dotmpfilesd squashed-portage.tmpfiles.conf
 	use aufs && systemd_newunit usr-portage.mount.aufs usr-portage.mount
 }
+
+pkg_postinst() {
+	ewarn "The config file location changed"
+	ewarn "please check /etc/${PN}.conf"
+}
