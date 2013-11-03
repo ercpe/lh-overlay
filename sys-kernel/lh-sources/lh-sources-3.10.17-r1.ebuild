@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="22"
+K_GENPATCHES_VER="24"
 K_DEBLOB_AVAILABLE="1"
 inherit kernel-2 versionator
 detect_version
@@ -14,7 +14,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.10_p20131007
+AUFS_VERSION=3.10_p20131104
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -48,11 +48,12 @@ HOMEPAGE="
 	"
 SRC_URI="
 	${KERNEL_URI}
-	${GENPATCHES_URI}
 	${ARCH_URI}
 	${AUFS_URI}
 	${LOGO_URI}
-	${GCCOPT_URI}"
+	${GCCOPT_URI}
+	!vanilla? ( ${GENPATCHES_URI} )
+"
 
 if [[ ${BFQ} == "true" ]]; then
 	HOMEPAGE+=" http://www.algogroup.unimo.it/people/paolo/disk_sched"
@@ -60,13 +61,14 @@ if [[ ${BFQ} == "true" ]]; then
 fi
 
 KEYWORDS="~amd64 ~x86"
-IUSE="deblob module proc"
+IUSE="deblob module vanilla"
 
 PDEPEND=">=sys-fs/aufs-util-3.7"
 
 AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs3-kbuild.patch
-	"${WORKDIR}"/aufs3-base.patch"
+	"${WORKDIR}"/aufs3-base.patch
+	"${WORKDIR}"/aufs3-mmap.patch"
 BFQ_PATCH_LIST=(
 	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.8.patch1
 	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.8.patch1
@@ -91,8 +93,12 @@ if [[ ${BFQ} == "true" ]]; then
 fi
 
 src_unpack() {
+	if use vanilla; then
+		unset UNIPATCH_LIST_GENPATCHES UNIPATCH_LIST_DEFAULT
+		ewarn "You are using USE=vanilla"
+		ewarn "This will drop all support from the gentoo kernel security team"
+	fi
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
-	use proc && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-proc_map.patch"
 	unpack ${AUFS_TARBALL}
 	if [[ ${BFQ} == "true" ]]; then
 		mkdir "${WORKDIR}"/patches || die
@@ -105,10 +111,6 @@ src_prepare() {
 	if ! use module; then
 		sed -e 's:tristate:bool:g' -i "${WORKDIR}"/fs/aufs/Kconfig || die
 	fi
-	if ! use proc; then
-		sed '/config AUFS_PROC_MAP/,/^$/d' -i "${WORKDIR}"/fs/aufs/Kconfig || die
-	fi
-	cp -f "${WORKDIR}"/include/linux/aufs_type.h include/linux/aufs_type.h || die
 	cp -f "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
 	cp -rf "${WORKDIR}"/{Documentation,fs} . || die
 	cp "${DISTDIR}"/lh-logo_linux_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die

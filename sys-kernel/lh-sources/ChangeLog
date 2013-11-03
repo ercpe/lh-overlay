@@ -1,5 +1,11 @@
 
 
+  03 Nov 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.15.ebuild,
+  -lh-sources-3.10.16.ebuild, +lh-sources-3.10.17-r1.ebuild,
+  -lh-sources-3.11.4.ebuild, -lh-sources-3.11.5.ebuild,
+  +lh-sources-3.11.6-r1.ebuild:
+  Bump to latest aufs release
+
 *lh-sources-3.11.6 (19 Oct 2013)
 *lh-sources-3.10.17 (19 Oct 2013)
 
