@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.12.0 (04 Nov 2013)
+
+  04 Nov 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.0.ebuild:
+  Bump to latest aufs3, bfq, gcc-patch, genpatches and linux release
+
   03 Nov 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.15.ebuild,
   -lh-sources-3.10.16.ebuild, +lh-sources-3.10.17-r1.ebuild,
   -lh-sources-3.11.4.ebuild, -lh-sources-3.11.5.ebuild,
