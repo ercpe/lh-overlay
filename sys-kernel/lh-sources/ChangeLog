@@ -1,5 +1,9 @@
 
 
+  07 Nov 2013; Justin Lecher <jlec@gentoo.org>
+  +files/lh-sources-3.12-armv6.patch:
+  Add missing patch
+
   05 Nov 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.12.0.ebuild:
   Use correct version
 
