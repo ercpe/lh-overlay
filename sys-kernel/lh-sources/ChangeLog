@@ -1,5 +1,8 @@
 
 
+  09 Nov 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop unused local USE-description: 'proc'
+
   09 Nov 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.17.ebuild,
   -lh-sources-3.10.17-r1.ebuild, -lh-sources-3.11.6.ebuild,
   -lh-sources-3.11.6-r1.ebuild:
