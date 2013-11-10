@@ -27,7 +27,7 @@ CDEPEND="
 	dev-java/commons-net
 	dev-java/icu4j
 	dev-java/jcifs
-	dev-java/jmdns
+	dev-java/jmdns:3.1
 	dev-java/jna
 	dev-java/j2ssh
 	dev-java/junrar
@@ -60,7 +60,7 @@ EANT_GENTOO_CLASSPATH="commons-collections
 	j2ssh
 	junrar
 	yanfs
-	jmdns
+	jmdns-3.1
 	logback-bin"
 
 src_prepare() {
