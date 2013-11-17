@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit git-2 multilib prefix python-r1 systemd
+inherit git-r3 multilib prefix python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
@@ -39,8 +39,8 @@ src_prepare() {
 }
 
 src_install() {
-	dodir /var/portage
-	keepdir /var/portage
+	dodir /var/cache/sqfs-portage
+	keepdir /var/cache/sqfs-portage
 
 	dobin get-squashed-portage
 
