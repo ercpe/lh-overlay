@@ -3,6 +3,9 @@
 # $Header: $
 
   17 Nov 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Use non shallow clones
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Move default storage dir to /var/cache/sqfs-portage
 
   26 Oct 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:

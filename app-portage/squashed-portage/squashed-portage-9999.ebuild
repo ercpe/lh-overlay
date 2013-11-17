@@ -27,6 +27,7 @@ RDEPEND="
 DEPEND=""
 
 RESTRICT="mirror"
+EGIT_NONSHALLOW=true
 
 src_prepare() {
 	eprefixify *
