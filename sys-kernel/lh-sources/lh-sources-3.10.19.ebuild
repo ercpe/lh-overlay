@@ -19,7 +19,7 @@ AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
-LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_clut224.ppm"
+LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.ppm"
 
 # Set to true, if BFQ needs to apply seperately
 BFQ=true
@@ -113,7 +113,7 @@ src_prepare() {
 	fi
 	cp -f "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
 	cp -rf "${WORKDIR}"/{Documentation,fs} . || die
-	cp "${DISTDIR}"/lh-logo_linux_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
+	cp "${DISTDIR}"/lh-logo_linux_320_240_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
 }
 
 pkg_postinst() {
