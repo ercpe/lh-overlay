@@ -5,7 +5,7 @@
 	<property file="${user.home}/.m2/maven.properties" />
 	<property file="maven-build.properties" />
 
-	<property name="maven.build.finalName" value="snappy-java-1.1.0.1-SNAPSHOT" />
+	<property name="maven.build.finalName" value="snappy" />
 	<property name="maven.build.dir" value="target" />
 	<property name="maven.build.outputDir" value="${maven.build.dir}/classes" />
 	<property name="maven.build.srcDir.0" value="src/main/java" />
