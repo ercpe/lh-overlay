@@ -4,7 +4,7 @@
 
 EAPI=5
 
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="doc source test"
 
 inherit java-pkg-2 java-ant-2
 
@@ -19,9 +19,14 @@ IUSE=""
 
 RDEPEND=">=virtual/jre-1.5"
 DEPEND=">=virtual/jdk-1.5
-	app-arch/unzip"
+	app-arch/unzip
+	test? ( dev-java/junit:4 )"
 
 S="${WORKDIR}/${P/-api/}/${PN}"
+
+JAVA_ANT_REWRITE_CLASSPATH="yes"
+EANT_TEST_GENTOO_CLASSPATH="junit-4"
+EANT_TEST_ANT_TASKS="ant-junit"
 
 java_prepare() {
 	cp -v "${FILESDIR}"/${PV}-build.xml build.xml || die
@@ -29,8 +34,12 @@ java_prepare() {
 }
 
 src_install() {
-	java-pkg_newjar target/${P}.jar "${PN}.jar"
+	java-pkg_dojar target/${PN}.jar
 
 	use doc && java-pkg_dojavadoc "${S}"/apidocs
 	use source && java-pkg_dosrc src/main/java/org
+}
+
+src_test() {
+	java-pkg-2_src_test
 }
