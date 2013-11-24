@@ -18,7 +18,7 @@ RDEPEND=">=virtual/jre-1.5
 	${CDEPEND}"
 
 DEPEND=">=virtual/jdk-1.5
-	dev-java/javacc
+	>=dev-java/javacc-5
 	test? ( dev-java/ant-junit:0 )
 	${CDEPEND}"
 
