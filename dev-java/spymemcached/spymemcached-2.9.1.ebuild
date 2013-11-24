@@ -20,8 +20,7 @@ IUSE="spring"
 
 CDEPEND="dev-java/log4j:0
 	dev-java/slf4j-api:0
-	spring? ( dev-java/spring-beans:3.2 )
-"
+	spring? ( dev-java/spring-beans:3.2 )"
 
 DEPEND=">=virtual/jdk-1.5
 	${CDEPEND}"
