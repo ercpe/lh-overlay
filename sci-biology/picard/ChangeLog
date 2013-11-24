@@ -1,0 +1,9 @@
+# ChangeLog for sci-biology/picard
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*picard-1.103 (24 Nov 2013)
+
+  24 Nov 2013; Johann Schmitz <ercpe@gentoo.org> +files/1.103-gentoo.patch,
+  +metadata.xml, +picard-1.103.ebuild:
+  Ebuild for picard
