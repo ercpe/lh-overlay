@@ -3,9 +3,10 @@
 # $Header: $
 
 EAPI=5
+
 JAVA_PKG_IUSE="doc source"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Simple Logging Facade for Java"
 HOMEPAGE="http://www.slf4j.org/"
@@ -23,12 +24,12 @@ DEPEND=">=virtual/jdk-1.5
 S="${WORKDIR}/${P/-api/}/${PN}"
 
 java_prepare() {
-	cp -v "${FILESDIR}"/${PN}_maven-build.xml build.xml || die
+	cp -v "${FILESDIR}"/${PV}-build.xml build.xml || die
 	find "${WORKDIR}" -iname '*.jar' -delete
 }
 
 src_install() {
-	java-pkg_newjar target/${P}.jar
+	java-pkg_newjar target/${P}.jar "${PN}.jar"
 
 	use doc && java-pkg_dojavadoc "${S}"/apidocs
 	use source && java-pkg_dosrc src/main/java/org
