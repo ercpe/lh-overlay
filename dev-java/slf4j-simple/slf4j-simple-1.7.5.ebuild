@@ -4,9 +4,9 @@
 
 EAPI=5
 
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="doc source test"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Simple Logging Facade for Java"
 HOMEPAGE="http://www.slf4j.org/"
@@ -17,31 +17,32 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-COMMON_DEP="~dev-java/slf4j-api-${PV}:0"
+COMMON_DEP="dev-java/slf4j-api:0"
 RDEPEND=">=virtual/jre-1.5
 	${COMMON_DEP}"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
-	${COMMON_DEP}"
+	${COMMON_DEP}
+	test? ( dev-java/junit )"
 
-S="${WORKDIR}/${P/-simple/}"
+S="${WORKDIR}/${P/-simple/}/${PN}"
 
+JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_GENTOO_CLASSPATH="slf4j-api"
-
-S="${WORKDIR}/${P/-simple/}"
+EANT_TEST_GENTOO_CLASSPATH="${EANT_GENTOO_CLASSPATH},junit-4"
+EANT_TEST_ANT_TASKS="ant-junit"
 
 java_prepare() {
 	cp -v "${FILESDIR}"/${PV}-build.xml build.xml || die
-
-	# for ecj-3.5
-	java-ant_rewrite-bootclasspath auto
-
-	cd "${S}"
-	rm *.jar integration/lib/*.jar
+	find "${S}" -name "*.jar" -delete || die
 }
 
 src_install() {
-	java-pkg_dojar ${PN}.jar
-	use doc && java-pkg_dojavadoc docs
-	use source && java-pkg_dosrc "${S}"/${PN}/src/main/java/org
+	java-pkg_dojar "${S}"/target/${PN}.jar
+	use doc && java-pkg_dojavadoc "${S}"/target/site/apidocs
+	use source && java-pkg_dosrc "${S}"/src/main/java/org
+}
+
+src_test() {
+	java-pkg-2_src_test
 }
