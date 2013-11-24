@@ -48,11 +48,6 @@ java_prepare() {
 	mv "${S}"/src/java/net/sf/samtools/SAMTestUtil.java "${S}"/src/tests/java/net/sf/samtools || die
 }
 
-xx_src_compile() {
-	use test && EANT_GENTOO_CLASSPATH+=",testng"
-	java-pkg-2_src_compile
-}
-
 src_install() {
 	cd dist || die
 
