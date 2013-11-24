@@ -23,7 +23,7 @@ DEPEND=">=virtual/jdk-1.5
 	${CDEPEND}"
 
 LICENSE="Apache-2.0"
-SLOT="1.0"
+SLOT="2"
 KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${P}-src"
