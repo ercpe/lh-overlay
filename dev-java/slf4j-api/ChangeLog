@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Nov 2013; Johann Schmitz <ercpe@gentoo.org> files/1.7.5-build.xml,
+  slf4j-api-1.7.5.ebuild:
+  Run tests
+
+  24 Nov 2013; Johann Schmitz <ercpe@gentoo.org> +files/1.7.5-build.xml,
+  -files/slf4j-api_maven-build.xml, slf4j-api-1.7.5.ebuild:
+  Polished ebuild for slf4j-api
+
   13 Jul 2013; johann@j-schmitz.net files/slf4j-api_maven-build.xml,
   slf4j-api-1.7.5.ebuild:
   Fixed apidocs installation

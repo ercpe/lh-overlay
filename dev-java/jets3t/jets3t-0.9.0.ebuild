@@ -4,24 +4,28 @@
 
 EAPI=5
 
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="source examples"
 
-inherit eutils java-pkg-2 java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Java implementation for Amazon S3"
 HOMEPAGE="http://www.jets3t.org/"
-SRC_URI="https://bitbucket.org/jmurty/${PN}/downloads/${P}.zip"
+SRC_URI="https://bitbucket.org/jmurty/${PN}/downloads/${P}.zip
+		http://www.centerkey.com/java/browser/myapp/real/bare-bones-browser-launch-3.1.jar"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="servlet"
 
-CDEPEND="dev-java/commons-logging
-	dev-java/commons-codec
-	dev-java/httpcomponents-client
-	dev-java/java-xmlbuilder
-	dev-java/jackson
+CDEPEND="dev-java/commons-logging:0
+	dev-java/commons-codec:0
+	dev-java/httpcomponents-core:0
+	dev-java/httpcomponents-client:0
+	dev-java/java-xmlbuilder:0
+	dev-java/jackson:0
+	dev-java/jackson-mapper:0
+	dev-java/java-uuid-generator:0
 	servlet? ( java-virtuals/servlet-api:2.4 )
 "
 
@@ -36,47 +40,41 @@ S="${WORKDIR}/${P}"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_BUILD_TARGET="rebuild-service"
 EANT_DOC_TARGET=""
-COMMON_CLASSPATH="commons-codec
+EANT_GENTOO_CLASSPATH="commons-codec
 	commons-logging
 	java-xmlbuilder
 	java-uuid-generator
 	httpcomponents-client
 	httpcomponents-core
 	jackson
-"
+	jackson-mapper"
 
 src_unpack() {
 	unpack ${A}
 	unzip -n "${S}/src.zip" -d "${S}" || die
-	if use doc; then
-		unzip -n "${S}/api-docs.zip" -d "${S}" || die
-	fi
-	rm -r "${S}"/libs/* || die
+
+	mv "${WORKDIR}"/com "${S}"/src || die
+	find "${S}"/src -name "*.class" -delete || die
+
+	find "${S}"/src/ -type f -name "*Test*.java" -delete || die
+	find "${S}"/libs/ -type f -delete || die
 }
 
-src_prepare() {
+java_prepare() {
 	if use servlet; then
 		epatch "${FILESDIR}/${PV}-internal-uuids.patch"
 	else
 		rm -r "${S}"/src/org/jets3t/servlets || die
 	fi
-
-	# test, samples and gui apps not finished
-	rm -r "${S}"/src/org/jets3t/{gui,apps} || die
-	rm -r "${S}"/src/org/jets3t/tests || die
-	rm -r "${S}"/src/org/jets3t/samples || die
 }
 
 src_compile() {
-	local classpath="${COMMON_CLASSPATH}"
-	use servlet && classpath="${classpath} servlet-api-2.4"
-
-	EANT_GENTOO_CLASSPATH="${classpath}"
+	use servlet && EANT_GENTOO_CLASSPATH+=",servlet-api-2.4"
 	java-pkg-2_src_compile
 }
 
 src_install() {
 	java-pkg_newjar "${S}/jars/${P}.jar" "${PN}.jar"
 	use source && java-pkg_dosrc "${S}/src"
-	use doc && java-pkg_dohtml -r "${S}"/api-docs
+	use examples && java-pkg_doexamples "${S}/src/org/jets3t/samples"
 }
