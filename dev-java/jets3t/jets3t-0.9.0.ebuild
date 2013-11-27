@@ -16,7 +16,7 @@ SRC_URI="https://bitbucket.org/jmurty/${PN}/downloads/${P}.zip
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="servlet"
+IUSE="servlet tools"
 
 CDEPEND="dev-java/commons-logging:0
 	dev-java/commons-codec:0
@@ -61,20 +61,35 @@ src_unpack() {
 }
 
 java_prepare() {
-	if use servlet; then
-		epatch "${FILESDIR}/${PV}-internal-uuids.patch"
-	else
+	epatch "${FILESDIR}/${PV}-internal-uuids.patch"
+
+	if ! use servlet; then
 		rm -r "${S}"/src/org/jets3t/servlets || die
 	fi
 }
 
 src_compile() {
 	use servlet && EANT_GENTOO_CLASSPATH+=",servlet-api-2.4"
+
+	if use tools; then
+		EANT_BUILD_TARGET+=" rebuild-cockpit rebuild-synchronize rebuild-uploader rebuild-cockpitlite"
+	fi
+
 	java-pkg-2_src_compile
 }
 
 src_install() {
 	java-pkg_newjar "${S}/jars/${P}.jar" "${PN}.jar"
+	java-pkg_newjar "${S}/jars/${PN}-gui-${PV}.jar" "${PN}-gui.jar"
+	java-pkg_dolauncher ${PN}-gui --jar ${PN}-gui.jar
+
+	if use tools; then
+		for x in cockpit cockpitlite synchronize uploader; do
+			java-pkg_newjar "${S}/jars/${x}-${PV}.jar" "${x}.jar"
+			java-pkg_dolauncher ${x} --jar ${x}.jar
+		done
+	fi
+
 	use source && java-pkg_dosrc "${S}/src"
 	use examples && java-pkg_doexamples "${S}/src/org/jets3t/samples"
 }
