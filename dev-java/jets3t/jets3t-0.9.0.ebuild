@@ -36,6 +36,7 @@ DEPEND="${CDEPEND}
 	>=virtual/jdk-1.5"
 
 S="${WORKDIR}/${P}"
+RESTRICT="test"
 
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_BUILD_TARGET="rebuild-service"
@@ -70,24 +71,29 @@ java_prepare() {
 
 src_compile() {
 	use servlet && EANT_GENTOO_CLASSPATH+=",servlet-api-2.4"
-
-	if use tools; then
-		EANT_BUILD_TARGET+=" rebuild-cockpit rebuild-synchronize rebuild-uploader rebuild-cockpitlite"
-	fi
+	use tools && EANT_BUILD_TARGET="rebuild-all"
 
 	java-pkg-2_src_compile
+
+	if use tools; then
+		jar uvf "${S}"/jars/cockpit-${PV}.jar -C build com || die
+		jar uvf "${S}"/jars/cockpit-${PV}.jar -C resources images || die
+	fi
 }
 
 src_install() {
 	java-pkg_newjar "${S}/jars/${P}.jar" "${PN}.jar"
 	java-pkg_newjar "${S}/jars/${PN}-gui-${PV}.jar" "${PN}-gui.jar"
-	java-pkg_dolauncher ${PN}-gui --jar ${PN}-gui.jar
 
 	if use tools; then
 		for x in cockpit cockpitlite synchronize uploader; do
 			java-pkg_newjar "${S}/jars/${x}-${PV}.jar" "${x}.jar"
-			java-pkg_dolauncher ${x} --jar ${x}.jar
 		done
+
+		java-pkg_dolauncher "cockpit" --main "org.jets3t.apps.cockpit.Cockpit"
+		java-pkg_dolauncher "cockpitlite" --main "org.jets3t.apps.cockpitlite.CockpitLite"
+		java-pkg_dolauncher "uploader" --main "org.jets3t.apps.uploader.Uploader"
+		java-pkg_dolauncher "synchronize" --main "org.jets3t.apps.synchronize.Synchronize"
 	fi
 
 	use source && java-pkg_dosrc "${S}/src"
