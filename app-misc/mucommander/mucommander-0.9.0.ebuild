@@ -21,20 +21,21 @@ KEYWORDS="~amd64 ~x86"
 IUSE="s3"
 
 CDEPEND="
-	dev-java/ant-core
-	dev-java/commons-collections
-	dev-java/commons-compress
-	dev-java/commons-net
-	dev-java/icu4j
-	dev-java/jcifs
-	dev-java/jmdns
-	dev-java/jna
-	dev-java/j2ssh
-	dev-java/junrar
-	dev-java/logback-bin
-	dev-java/slf4j-simple
-	dev-java/yanfs
-	s3? ( dev-java/jets3t )
+	dev-java/ant-core:0
+	dev-java/commons-collections:0
+	dev-java/commons-compress:0
+	dev-java/commons-net:0
+	dev-java/icu4j:49
+	dev-java/jcifs:1.1
+	dev-java/jmdns:3.1
+	dev-java/jna:0
+	dev-java/j2ssh:0
+	dev-java/junrar:0
+	dev-java/logback-bin:0
+	dev-java/slf4j-api:0
+	dev-java/slf4j-simple:0
+	dev-java/yanfs:0
+	s3? ( dev-java/jets3t:0 )
 "
 
 RDEPEND="${CDEPEND}
@@ -60,7 +61,7 @@ EANT_GENTOO_CLASSPATH="commons-collections
 	j2ssh
 	junrar
 	yanfs
-	jmdns
+	jmdns-3.1
 	logback-bin"
 
 src_prepare() {
