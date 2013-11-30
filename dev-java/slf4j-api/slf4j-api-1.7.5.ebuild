@@ -20,7 +20,10 @@ IUSE=""
 RDEPEND=">=virtual/jre-1.5"
 DEPEND=">=virtual/jdk-1.5
 	app-arch/unzip
-	test? ( dev-java/junit:4 )"
+	test? (
+		dev-java/junit:4
+		dev-java/ant-junit4:0
+	)"
 
 S="${WORKDIR}/${P/-api/}/${PN}"
 
