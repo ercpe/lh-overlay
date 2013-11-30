@@ -2,6 +2,20 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Use non shallow clones
+
+  17 Nov 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Move default storage dir to /var/cache/sqfs-portage
+
+  26 Oct 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Always show postinst message
+
+*squashed-portage-0.9 (26 Oct 2013)
+
+  26 Oct 2013; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.9.ebuild:
+  Version BUmp
+
   14 Aug 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Split config files
 

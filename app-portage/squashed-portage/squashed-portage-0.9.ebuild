@@ -6,16 +6,15 @@ EAPI=5
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 
-inherit git-r3 multilib prefix python-r1 systemd
+inherit multilib prefix python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
-SRC_URI=""
-EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
+SRC_URI="http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="aufs zsync"
 
 RDEPEND="
@@ -27,7 +26,6 @@ RDEPEND="
 DEPEND=""
 
 RESTRICT="mirror"
-EGIT_NONSHALLOW=true
 
 src_prepare() {
 	eprefixify *
@@ -40,8 +38,8 @@ src_prepare() {
 }
 
 src_install() {
-	dodir /var/cache/sqfs-portage
-	keepdir /var/cache/sqfs-portage
+	dodir /var/portage
+	keepdir /var/portage
 
 	dobin get-squashed-portage
 

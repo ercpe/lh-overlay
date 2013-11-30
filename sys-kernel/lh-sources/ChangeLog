@@ -1,5 +1,55 @@
 
 
+*lh-sources-3.12.1 (21 Nov 2013)
+
+  21 Nov 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.1.ebuild:
+  Bump to latest genpatches and linux releases
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.10.19.ebuild,
+  lh-sources-3.12.0.ebuild:
+  Update logo
+
+*lh-sources-3.10.19 (19 Nov 2013)
+
+  19 Nov 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.19.ebuild:
+  Add old version back
+
+  15 Nov 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.12.0.ebuild:
+  Bump to latest aufs3 release
+
+  09 Nov 2013; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Drop unused local USE-description: 'proc'
+
+  09 Nov 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.17.ebuild,
+  -lh-sources-3.10.17-r1.ebuild, -lh-sources-3.11.6.ebuild,
+  -lh-sources-3.11.6-r1.ebuild:
+  Drop old
+
+  07 Nov 2013; Justin Lecher <jlec@gentoo.org>
+  +files/lh-sources-3.12-armv6.patch:
+  Add missing patch
+
+  05 Nov 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.12.0.ebuild:
+  Use correct version
+
+*lh-sources-3.12.0 (04 Nov 2013)
+
+  04 Nov 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.0.ebuild:
+  Bump to latest aufs3, bfq, gcc-patch, genpatches and linux release
+
+  03 Nov 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.15.ebuild,
+  -lh-sources-3.10.16.ebuild, +lh-sources-3.10.17-r1.ebuild,
+  -lh-sources-3.11.4.ebuild, -lh-sources-3.11.5.ebuild,
+  +lh-sources-3.11.6-r1.ebuild:
+  Bump to latest aufs release
+
+*lh-sources-3.11.6 (19 Oct 2013)
+*lh-sources-3.10.17 (19 Oct 2013)
+
+  19 Oct 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.17.ebuild,
+  +lh-sources-3.11.6.ebuild:
+  Bump to latest linux and genpatches release
+
 *lh-sources-3.11.5 (14 Oct 2013)
 *lh-sources-3.10.16 (14 Oct 2013)
 
