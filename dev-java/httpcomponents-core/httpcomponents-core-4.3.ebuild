@@ -16,6 +16,7 @@ SRC_URI="mirror://apache/${PN/-//http}/source/${P}-src.tar.gz
 LICENSE="Apache-2.0"
 SLOT="4.3"
 KEYWORDS="~amd64 ~x86"
+IUSE="deprecated"
 
 DEPEND=">=virtual/jdk-1.5
 	test? (
@@ -30,6 +31,15 @@ EANT_BUILD_TARGET="package"
 JAVA_ANT_REWRITE_CLASSPATH="yes"
 EANT_TEST_GENTOO_CLASSPATH="junit-4,commons-logging,mockito"
 EANT_TEST_ANT_TASKS="ant-junit4"
+
+java_prepare() {
+	if use deprecated; then
+		cp -r "${S}"/httpcore/src/main/java-deprecated/* \
+				"${S}"/httpcore/src/main/java/* || die
+		cp -r "${S}"/httpcore-nio/src/main/java-deprecated/* \
+				"${S}"/httpcore-nio/src/main/java/* || die
+	fi
+}
 
 src_install() {
 	java-pkg_dojar httpcore/target/httpcore.jar \
