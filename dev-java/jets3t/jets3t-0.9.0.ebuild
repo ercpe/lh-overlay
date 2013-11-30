@@ -25,7 +25,6 @@ CDEPEND="dev-java/commons-logging:0
 	dev-java/java-xmlbuilder:0
 	dev-java/jackson:0
 	dev-java/jackson-mapper:0
-	dev-java/java-uuid-generator:0
 	servlet? ( java-virtuals/servlet-api:2.4 )
 "
 
@@ -44,7 +43,6 @@ EANT_DOC_TARGET=""
 EANT_GENTOO_CLASSPATH="commons-codec
 	commons-logging
 	java-xmlbuilder
-	java-uuid-generator
 	httpcomponents-client
 	httpcomponents-core
 	jackson
@@ -76,8 +74,8 @@ src_compile() {
 	java-pkg-2_src_compile
 
 	if use tools; then
-		jar uvf "${S}"/jars/cockpit-${PV}.jar -C build com || die
-		jar uvf "${S}"/jars/cockpit-${PV}.jar -C resources images || die
+		jar uf "${S}"/jars/cockpit-${PV}.jar -C build com || die
+		jar uf "${S}"/jars/cockpit-${PV}.jar -C resources images || die
 	fi
 }
 
