@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*httpcomponents-client-4.3.1 (01 Dec 2013)
+
+  01 Dec 2013; Johann Schmitz <ercpe@gentoo.org>
+  +httpcomponents-client-4.3.1.ebuild, metadata.xml:
+  Updated ebuild for httpcomponents-client
+
   07 Sep 2013; Johann Schmitz <ercpe@gentoo.org> -files/httpclient-build.xml,
   -files/httpmime-build.xml, -files/maven-build.xml,
   httpcomponents-client-4.2.5.ebuild:
