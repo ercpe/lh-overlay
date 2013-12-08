@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.12.3 (08 Dec 2013)
+
+  08 Dec 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.3.ebuild:
+  Bump to latest linux and genpatches release
+
 *lh-sources-3.12.2 (01 Dec 2013)
 
   01 Dec 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.2.ebuild:
