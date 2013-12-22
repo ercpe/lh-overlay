@@ -31,15 +31,12 @@ RDEPEND="${CDEPEND}
 DEPEND="${CDEPEND}
 	>=virtual/jdk-1.5"
 
-#S="${WORKDIR}/${MY_PN}-${PV}/"
-
 JAVA_ANT_REWRITE_CLASSPATH="true"
 EANT_GENTOO_CLASSPATH="janino,jansi,javamail,servlet-api-2.5,slf4j-api"
 EANT_GENTOO_CLASSPATH_EXTRA="${S}/${PN}-core/target/${PN}-core.jar"
 
 java_prepare() {
 	find "${S}" -name "*.jar" -delete || die
-	#cp -vr "${FILESDIR}"/* "${S}"/ || die
 
 	use tomcat || rm -r "${S}"/${PN}-access/src/main/java/ch/qos/logback/access/tomcat/ || die
 	# remove the next line when we have jetty in the tree 
