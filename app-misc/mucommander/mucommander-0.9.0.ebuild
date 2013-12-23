@@ -31,7 +31,7 @@ CDEPEND="
 	dev-java/jna:0
 	dev-java/j2ssh:0
 	dev-java/junrar:0
-	dev-java/logback-bin:0
+	dev-java/logback:0
 	dev-java/slf4j-api:0
 	dev-java/slf4j-simple:0
 	dev-java/yanfs:0
@@ -62,7 +62,7 @@ EANT_GENTOO_CLASSPATH="commons-collections
 	junrar
 	yanfs
 	jmdns-3.1
-	logback-bin"
+	logback"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PV}-build.xml.patch"
