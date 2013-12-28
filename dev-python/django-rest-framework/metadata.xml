@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>ercpe@gentoo.org</email>
+		<name>Johann Schmitz (ercpe)</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">tomchristie/django-rest-framework</remote-id>
+	</upstream>
+	<use>
+		<flag name="browsable-api">Adds support for browsing the api interface using a web browser</flag>
+		<flag name="oauth">Adds support for authentication via OAuth</flag>
+		<flag name="xml">Adds support for XML responses</flag>
+		<flag name="yaml">Adds support for YAML responses</flag>
+	</use>
+</pkgmetadata>
+
