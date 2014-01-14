@@ -1,5 +1,12 @@
 
 
+  14 Jan 2014; Justin Lecher <jlec@gentoo.org> -lh-sources-3.10.19.ebuild,
+  -lh-sources-3.12.0.ebuild, -lh-sources-3.12.1.ebuild,
+  -lh-sources-3.12.2.ebuild, -lh-sources-3.12.3.ebuild,
+  -lh-sources-3.12.4.ebuild, -lh-sources-3.12.5.ebuild,
+  -lh-sources-3.12.6.ebuild:
+  Drop old
+
   14 Jan 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.12.7.ebuild,
   +files/lh-sources-3.12.7-mmap-aufs3.patch, +files/a.patch:
   Add fix for aufs3 patch incompatibility
