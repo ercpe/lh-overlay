@@ -8,6 +8,7 @@ ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
 K_GENPATCHES_VER="8"
 K_DEBLOB_AVAILABLE="1"
+UNIPATCH_STRICTORDER=1
 inherit kernel-2 versionator
 detect_version
 detect_arch
@@ -104,6 +105,7 @@ src_unpack() {
 		mkdir "${WORKDIR}"/patches || die
 		cp ${BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
 	fi
+	epatch "${FILESDIR}"/${P}-mmap-aufs3.patch
 	kernel-2_src_unpack
 }
 
