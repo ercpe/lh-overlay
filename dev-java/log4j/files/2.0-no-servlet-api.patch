@@ -1,0 +1,21 @@
+diff --git a/apache-log4j-2.0-beta9-src/log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java b/apache-log4j-2.0-beta9-src/log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java
+index bf463de..6f6634e 100644
+--- a/apache-log4j-2.0-beta9-src/log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java
++++ b/apache-log4j-2.0-beta9-src/log4j-core/src/main/java/org/apache/logging/log4j/core/lookup/Interpolator.java
+@@ -64,15 +64,7 @@ public class Interpolator implements StrLookup {
+         lookups.put("sys", new SystemPropertiesLookup());
+         lookups.put("env", new EnvironmentLookup());
+         lookups.put("jndi", new JndiLookup());
+-        try {
+-            if (Class.forName("javax.servlet.ServletContext") != null) {
+-                lookups.put("web", new WebLookup());
+-            }
+-        } catch (ClassNotFoundException ex) {
+-            LOGGER.debug("ServletContext not present - WebLookup not added");
+-        } catch (Exception ex) {
+-            LOGGER.error("Unable to locate ServletContext", ex);
+-        }
++        LOGGER.warn("[GENTOO] WebLookup disabled on log4j:2 due to -servlet use flag");
+     }
+ 
+      /**

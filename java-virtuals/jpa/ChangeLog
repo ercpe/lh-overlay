@@ -1,0 +1,13 @@
+# ChangeLog for java-virtuals/jpa
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Jan 2014; Johann Schmitz <ercpe@gentoo.org> jpa-2.1.0.ebuild:
+  Fixed dependency
+
+*jpa-1.0 (18 Jan 2014)
+*jpa-2.1.0 (18 Jan 2014)
+
+  18 Jan 2014; Johann Schmitz <ercpe@gentoo.org> +jpa-1.0.ebuild,
+  +jpa-2.1.0.ebuild, +metadata.xml:
+  Added virtuals for JPA
