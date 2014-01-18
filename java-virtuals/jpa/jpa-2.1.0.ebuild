@@ -18,4 +18,4 @@ IUSE=""
 RDEPEND="dev-java/eclipse-persistence:${SLOT}"
 DEPEND=""
 
-JAVA_VIRTUAL_PROVIDES="eclipse-persistence"
+JAVA_VIRTUAL_PROVIDES="eclipse-persistence:${SLOT}"
