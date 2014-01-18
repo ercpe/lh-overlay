@@ -1,0 +1,9 @@
+# ChangeLog for dev-java/eclipse-persistence
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*eclipse-persistence-2.1.0 (18 Jan 2014)
+
+  18 Jan 2014; Johann Schmitz <ercpe@gentoo.org>
+  +eclipse-persistence-2.1.0.ebuild, +metadata.xml:
+  Added ebuild for eclipse's reference implementation of JPA 2.1
