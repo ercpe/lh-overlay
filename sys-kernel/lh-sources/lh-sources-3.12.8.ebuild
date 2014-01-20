@@ -15,7 +15,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.12_p20140114
+AUFS_VERSION=3.12.x_p20140119
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -105,7 +105,6 @@ src_unpack() {
 		mkdir "${WORKDIR}"/patches || die
 		cp ${BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
 	fi
-	epatch "${FILESDIR}"/${PN}-3.12.7-mmap-aufs3.patch
 	kernel-2_src_unpack
 }
 
