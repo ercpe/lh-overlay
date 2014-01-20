@@ -14,7 +14,7 @@
 *squashed-portage-0.9 (26 Oct 2013)
 
   26 Oct 2013; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.9.ebuild:
-  Version BUmp
+  Version Bump
 
   14 Aug 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Split config files
@@ -37,7 +37,7 @@
 
   20 May 2013; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.8.ebuild,
   squashed-portage-9999.ebuild, metadata.xml:
-  Version BUmp
+  Version Bump
 
   19 May 2013; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Add new deps and move to python-single-r1
@@ -54,7 +54,7 @@
 
   13 Aug 2012; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.4.ebuild,
   metadata.xml:
-  Version BUmp, fixes missing /etc/make.globals; drop no-herd from metadata.xml
+  Version Bump, fixes missing /etc/make.globals; drop no-herd from metadata.xml
 
   23 Sep 2011; Justin Lecher <jlec@gentoo.org> squashed-portage-0.1.ebuild,
   squashed-portage-0.2.ebuild, squashed-portage-0.3.ebuild,
@@ -74,7 +74,7 @@
 
   30 Mar 2011; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.2.ebuild,
   squashed-portage-9999.ebuild:
-  Version BUmp, fixes minor code bugs
+  Version Bump, fixes minor code bugs
 
   26 Mar 2011; Johann Schmitz <johann@j-schmitz.net> squashed-portage-9999.ebuild,
   metadata.xml:

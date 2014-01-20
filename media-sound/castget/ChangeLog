@@ -4,7 +4,7 @@
 
   03 Jul 2013; Justin Lecher <jlec@gentoo.org> -castget-1.0.1-r1.ebuild,
   +castget-1.1.0.ebuild, metadata.xml:
-  Version BUmp; Bump to EAPI=5
+  Version Bump; Bump to EAPI=5
 
   13 Aug 2012; Justin Lecher <jlec@gentoo.org> castget-1.0.1-r1.ebuild,
   metadata.xml:

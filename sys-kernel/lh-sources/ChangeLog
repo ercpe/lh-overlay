@@ -194,7 +194,7 @@
 
   22 Jul 2013; Justin Lecher <jlec@gentoo.org> lh-sources-3.9.11.ebuild,
   +lh-sources-3.10.2.ebuild:
-  Version BUmp; Bump to working genpatches for 3.9.11; drop old
+  Version Bump; Bump to working genpatches for 3.9.11; drop old
 
 *lh-sources-3.9.11 (22 Jul 2013)
 
@@ -232,7 +232,7 @@
   01 Jul 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.10.0.ebuild,
   -files/lh-sources-3.6-armv6.patch, -files/lh-sources-3.7-armv6.patch,
   -files/lh-sources-3.8-armv6.patch, +files/lh-sources-3.10-armv6.patch:
-  Version BUmp
+  Version Bump
 
 *lh-sources-3.9.8 (28 Jun 2013)
 
@@ -356,7 +356,7 @@
 
   21 Mar 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.8.3-r1.ebuild,
   +lh-sources-3.8.4.ebuild:
-  Version BUmp
+  Version Bump
 
 *lh-sources-3.8.3-r1 (18 Mar 2013)
 
@@ -432,7 +432,7 @@
 
   07 Feb 2013; Justin Lecher <jlec@gentoo.org> -lh-sources-3.7.1.ebuild,
   +lh-sources-3.7.6.ebuild:
-  Version BUmp; drop unsupported
+  Version Bump; drop unsupported
 
 *lh-sources-3.7.4 (24 Jan 2013)
 
@@ -446,7 +446,7 @@
 *lh-sources-3.7.3 (18 Jan 2013)
 
   18 Jan 2013; Justin Lecher <jlec@gentoo.org> +lh-sources-3.7.3.ebuild:
-  Version BUmp
+  Version Bump
 
 *lh-sources-3.7.2 (12 Jan 2013)
 
@@ -494,7 +494,7 @@
 *lh-sources-3.6.8 (30 Nov 2012)
 
   30 Nov 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.8.ebuild:
-  Version BUmp
+  Version Bump
 
   06 Nov 2012; Justin Lecher <jlec@gentoo.org>
   +files/lh-sources-3.6-armv6.patch, lh-sources-3.6.5-r1.ebuild,
@@ -521,7 +521,7 @@
 *lh-sources-3.6.5 (01 Nov 2012)
 
   01 Nov 2012; Justin Lecher <jlec@gentoo.org> +lh-sources-3.6.5.ebuild:
-  Version BUmp
+  Version Bump
 
   01 Nov 2012; Justin Lecher <jlec@gentoo.org> Manifest:
   Update logo

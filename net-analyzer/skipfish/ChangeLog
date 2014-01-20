@@ -4,7 +4,7 @@
 
   03 Jul 2013; Justin Lecher <jlec@gentoo.org> -skipfish-1.05_beta.ebuild,
   +skipfish-2.10_beta.ebuild, metadata.xml:
-  Bump to EAPI=5; Version BUmp; REspect CC and CFLAGS
+  Bump to EAPI=5; Version Bump; REspect CC and CFLAGS
 
   10 Feb 2011; Justin Lecher <jlec@gentoo.org> metadata.xml:
   Metadata.xml fixed

@@ -23,7 +23,7 @@
 *admin-tools-0.18 (29 Apr 2012)
 
   29 Apr 2012; Justin Lecher <jlec@gentoo.org> +admin-tools-0.18.ebuild:
-  Version BUmp
+  Version Bump
 
   22 Mar 2012; Justin Lecher <jlec@gentoo.org> Manifest:
   Redigest the manifest
