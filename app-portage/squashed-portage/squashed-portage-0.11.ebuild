@@ -39,9 +39,6 @@ src_prepare() {
 }
 
 src_install() {
-	dodir /var/portage
-	keepdir /var/portage
-
 	dobin get-squashed-portage
 
 	python_scriptinto /usr/libexec/${PN}/
