@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Jan 2014; Justin Lecher <jlec@gentoo.org> areca-cli-1.12.0.ebuild,
+  metadata.xml:
+  Use QA_PREBUILT for binary packages, enhance kernel option checking
+
 *areca-cli-1.12.0 (24 Jan 2014)
 
   24 Jan 2014; Johann Schmitz <ercpe@gentoo.org> +areca-cli-1.12.0.ebuild,
