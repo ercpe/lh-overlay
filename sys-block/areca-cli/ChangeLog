@@ -1,0 +1,9 @@
+# ChangeLog for sys-block/areca-cli
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*areca-cli-1.12.0 (24 Jan 2014)
+
+  24 Jan 2014; Johann Schmitz <ercpe@gentoo.org> +areca-cli-1.12.0.ebuild,
+  +metadata.xml:
+  Added ebuild for the cli portion for Areca RAID controllers

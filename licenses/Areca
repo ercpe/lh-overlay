@@ -1,0 +1,102 @@
+1. DEFINITIONS
+1.1 User. User means the entity or individual that downloads the Software.
+2. GRANT OF LICENSE
+2.1 Rights and Limitations of Grant. Areca hereby grants user the following nonexclusive,
+non-transferable right to use the Software, with the following limitations:
+2.1.1 Rights. User may install and use one copy of the Software on a single
+computer, and except for making one back-up copy of the Software, may not
+otherwise copy the Software. This license of Software may not be shared or used
+concurrently on different computers.
+2.1.2 Linux/FreeBSD Exception. Notwithstanding the foregoing terms of Section.
+Software designed exclusively for use on the Linux or FreeBSD operating systems,
+or other operating systems derived from the source code to these operating
+systems, may be copied and redistributed, provided that the binary files thereof are
+not modified in any way (except for unzipping of compressed files).
+2.1.3 Limitations. No Reverse Engineering. User may not reverse engineer,
+decompile, or disassemble the Software, nor attempt in any other manner to obtain
+the source code.
+No Separation of Components. The Software is licensed as a single product. Its
+component parts may not be separated for use on more than one computer, nor
+otherwise used separately from the other parts. YOU MAY NOT MODIFY, ADAPT,
+TRANSLATE, RENT, LEASE, LOAN, RESELL FOR PROFIT, DISTRIBUTE OR CREATE
+DERIVATIVE WORKS BASED UPON THE SOFTWARE OR ANY PART THEREOF.
+3. COPYRIGHT
+All title and copyrights in and to the license (including but not limited to all images, text, and
+other information incorporated into the license), the accompanying printed materials, and
+any copies of the license, are owned by ARECA or its suppliers. The license is protected
+by copyright laws and international treaty provisions. Accordingly, user is required to treat
+the license like any other copyrighted material, except as otherwise allowed pursuant
+to this lincese and that it may make one copy of the license solely for backup or archive
+purposes. This license is not a sale of the license. 
+4. TERMINATION
+This license will automatically terminate if user fails to comply with any of the terms and
+conditions hereof. In such event, user must destroy all copies of the Software and all of
+its component parts.
+Defensive Suspension. If user commences or participates in any legal proceeding
+against ARECA, then ARECA may, in its sole discretion, suspend or terminate all license
+grants and any other rights provided under this license during the pendency of such
+legal proceedings.
+5. DISCLAIMER OF WARRANTIES AND LIMITATION ON LIABILITY
+5.1. No Warranties. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW,
+THE SOFTWARE IS PROVIDED "AS IS" AND ARECA DISCLAIM ALL WARRANTIES,
+WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED
+TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE, TITLE, AND NON-INFRINGEMENT. Without limiting the foregoing, you are
+solely responsible for determining and verifying that the Software that you obtain and
+install is the appropriate version for your model of graphics controller board, operating
+system, and computer hardware.
+5.2. No Liability for Consequential Damages. TO THE MAXIMUM EXTENT
+PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ARECA BE LIABLE
+FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF
+BUSINESS PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, LOSS OF
+BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF
+THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF ARECA HAS BEEN
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+6. MISCELLANEOUS
+If any provision of this license is inconsistent with, or cannot be fully enforced under, the
+law, such provision will be construed as limited to the extent necessary to be consistent
+with and fully enforceable under the law. This license is the final, complete and exclusive
+agreement between the parties relating to the subject matter hereof, and supersedes
+all prior or contemporaneous understandings and agreements relating to such subject
+matter, whether oral or written. This license may only be modified in writing signed by
+an authorized officer of ARECA. User agrees that it will not ship, transfer or export the
+software into any country, or use the Software in any manner, prohibited by the United
+States Bureau of Industry and Security or any export laws, restrictions or regulations.
+7. THIRD PARTY PROGRAMS
+The Software contains third party programs. The license terms with those programs
+apply to your use of them.
+8. TRANSFER TO A THIRD PARTY
+8.1. Software Other Than ARECA Anytime Upgrade. The first user of the Software
+may make a one time transfer of the Software, and this agreement, directly to a third
+party. The first user must uninstall the Software before transferring it separately from the
+device. The first user may not retain any copies.
+8.2. ARECA Anytime Upgrade Software. You may transfer the Software directly to a
+third party only with the licensed device. You may not keep any copies of the Software
+or any earlier version.
+8.3. Other Requirements. Before any permitted transfer, the other party must agree
+that this agreement applies to the transfer and use of the Software. The transfer must
+include the proof of license.
+9. RESTRICTIONS
+The Software is licensed, not sell, distribute, cede, rent or lease or otherwise transfer or
+assign the right to use the Software (except as allowed above) nor transfer it by network
+for commercial use, either in whole or in part, without a specific license from ARECA to
+do so. You must comply with any technical limitations in the Software that only allow you
+to use it in certain ways. You are expressly prohibited from decompiling, disassembling,
+reverse engineering, or reducing the Software (code or protection device) to a humanly
+perceivable form for any purposes whatsoever. You are expressly prohibited from
+adapting, translating or creating any derivative works based in whole or in part on the
+Software.
+10. APPLICABLE LAW
+10.1. United States. If you acquired the software in the United States, Washington
+state law governs the interpretation of this agreement and applies to claims for breach
+of it, regardless of conflict of laws principles. The laws of the state where you live
+govern all other claims, including claims under state consumer protection laws, unfair
+competition laws, and in tort.
+10.2. Outside the United States. If you acquired the Software in any other country, the
+laws of that country apply.
+11. LEGAL EFFECT
+This agreement describes certain legal rights. You may have other rights under the laws
+of your state or country. You may also have rights with respect to the party from whom
+you acquired the Software. This agreement does not change your rights under the laws
+of your state or country if the laws of your state or country do not permit it to do so.
