@@ -1,0 +1,19 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+start() {
+	ebegin "Starting Areca HTTP proxy"
+	start-stop-daemon --start --exec /opt/archttp/archttp \
+		--make-pidfile --pidfile /run/archttp.pid \
+		--background
+	eend $*
+}
+
+stop() {
+	ebegin "Stopping Areca HTTP proxy"
+	start-stop-daemon --stop --exec /opt/archttp/archttp \
+		--pidfile /run/archttp.pid
+	eend $*
+}
