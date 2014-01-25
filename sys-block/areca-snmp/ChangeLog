@@ -1,0 +1,10 @@
+# ChangeLog for sys-block/areca-snmp
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*areca-snmp-4.1 (25 Jan 2014)
+
+  25 Jan 2014; Justin Lecher <jlec@gentoo.org> +areca-snmp-4.1.ebuild,
+  +files/areca-snmp-4.1-linking.patch, +metadata.xml:
+  New ebuild written by me
+
