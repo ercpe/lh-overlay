@@ -1,5 +1,8 @@
 
 
+  27 Jan 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.13.0.ebuild:
+  Fix aufs3 release
+
 *lh-sources-3.13.0 (23 Jan 2014)
 
   23 Jan 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.13.0.ebuild,
