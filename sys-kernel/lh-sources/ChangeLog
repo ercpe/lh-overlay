@@ -1,5 +1,11 @@
 
 
+*lh-sources-3.12.9 (28 Jan 2014)
+
+  28 Jan 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.9.ebuild,
+  lh-sources-3.13.0.ebuild:
+  Bump BFQ patch
+
   27 Jan 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.13.0.ebuild:
   Fix aufs3 release
 
