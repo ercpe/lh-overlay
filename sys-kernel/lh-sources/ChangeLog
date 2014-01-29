@@ -1,4 +1,9 @@
 
+*lh-sources-3.13.1 (29 Jan 2014)
+
+  29 Jan 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.13.1.ebuild:
+  sys-kernel/lh-sources: Bump to latest genpatches and linux releases
+
   28 Jan 2014; Justin Lecher <jlec@gentoo.org> -lh-sources-3.12.7.ebuild,
   -lh-sources-3.12.8.ebuild:
   sys-kernel/lh-sources: Drop old
