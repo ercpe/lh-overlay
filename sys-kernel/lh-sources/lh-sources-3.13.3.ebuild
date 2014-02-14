@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="11"
+K_GENPATCHES_VER="6"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 versionator
@@ -15,7 +15,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.12.x_p20140127
+AUFS_VERSION=3.13_p20140127
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -38,7 +38,7 @@ BFQ_URI="
 	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
 GCCOPT_PATCH_LEVEL="391b268db43db7e45acdec900adebb2d1545db9f"
-GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/master/kernel-${GCCOPT_PATCH_LEVEL}.patch -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
+GCCOPT_URI="https://raw2.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/enable_additional_cpu_optimizations_for_gcc.patch -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
