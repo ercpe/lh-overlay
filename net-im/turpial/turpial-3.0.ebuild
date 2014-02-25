@@ -18,16 +18,15 @@ SRC_URI="https://github.com/satanas/${MY_PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 SLOT="0"
 LICENSE="GPL-3"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="gtk qt4"
+IUSE="qt4"
 
 RDEPEND="
 	net-libs/lib${PN}[${PYTHON_USEDEP}]
+	net-libs/webkit-gtk[introspection]
 	dev-python/pyinotify[${PYTHON_USEDEP}]
 	dev-python/gst-python[${PYTHON_USEDEP}]
 	dev-python/Babel[${PYTHON_USEDEP}]
-	dev-python/pywebkitgtk[${PYTHON_USEDEP}]
 	qt4? ( dev-python/PyQt4 )
-	gtk? ( dev-python/pygtk:2 dev-python/gtkspell-python )
 "
 DEPEND="${RDEPEND}"
 

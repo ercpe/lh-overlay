@@ -2,6 +2,9 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Feb 2014; Justin Lecher <jlec@gentoo.org> turpial-3.0.ebuild:
+  Fix deps, drop unusable gtk interface
+
 *turpial-3.0 (12 Feb 2014)
 
   12 Feb 2014; Justin Lecher <jlec@gentoo.org> +turpial-3.0.ebuild,
