@@ -22,7 +22,7 @@ IUSE="qt4"
 
 RDEPEND="
 	net-libs/lib${PN}[${PYTHON_USEDEP}]
-	net-libs/webkit-gtk[introspection]
+	net-libs/webkit-gtk:3[introspection]
 	dev-python/pyinotify[${PYTHON_USEDEP}]
 	dev-python/gst-python[${PYTHON_USEDEP}]
 	dev-python/Babel[${PYTHON_USEDEP}]
