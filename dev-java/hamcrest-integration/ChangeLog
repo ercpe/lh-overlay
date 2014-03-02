@@ -1,0 +1,14 @@
+# ChangeLog for dev-java/hamcrest-integration
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*hamcrest-integration-1.1 (02 Mar 2014)
+*hamcrest-integration-1.2 (02 Mar 2014)
+*hamcrest-integration-1.3 (02 Mar 2014)
+
+  02 Mar 2014; Johann Schmitz <ercpe@gentoo.org>
+  +files/1.1-remove-targets.patch, +files/1.2-remove-targets.patch,
+  +files/1.3-remove-targets.patch, +hamcrest-integration-1.1.ebuild,
+  +hamcrest-integration-1.2.ebuild, +hamcrest-integration-1.3.ebuild,
+  +metadata.xml:
+  new ebuild: hamcrest-integration
