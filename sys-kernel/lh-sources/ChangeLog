@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.13.6 (08 Mar 2014)
+
+  08 Mar 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.13.6.ebuild:
+  Bump to latest linux and genpatches release
+
   06 Mar 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.13.5.ebuild:
   Bump to latest aufs3 release
 
