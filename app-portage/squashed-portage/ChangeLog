@@ -2,8 +2,13 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*squashed-portage-0.14 (17 Mar 2014)
+
+  17 Mar 2014; Justin Lecher <jlec@gentoo.org> +squashed-portage-0.14.ebuild:
+  Version Bump
+
   04 Feb 2014; Justin Lecher <jlec@gentoo.org> Manifest:
-  Update to new tarbal
+  Update to new tarball
 
 *squashed-portage-0.12 (27 Jan 2014)
 
