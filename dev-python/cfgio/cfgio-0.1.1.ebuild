@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_3 )
 
 inherit distutils-r1
 
-DESCRIPTION="This is a sample skeleton ebuild file"
+DESCRIPTION="Python library for reading and writing configuration file formats found on a *nix systems"
 HOMEPAGE="https://github.com/ercpe/cfgio"
 SRC_URI="https://github.com/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
