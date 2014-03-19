@@ -1,0 +1,9 @@
+# ChangeLog for app-admin/gentoo-bootstrap
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gentoo-bootstrap-0.2 (19 Mar 2014)
+
+  19 Mar 2014; Johann Schmitz <ercpe@gentoo.org> +gentoo-bootstrap-0.2.ebuild,
+  -gentoo-bootstrap-0.1.ebuild:
+  Version bump. Dropped x86 due to dep to dev-python/sh
