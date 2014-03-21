@@ -24,7 +24,7 @@ RDEPEND="
 	virtual/python-argparse[${PYTHON_USEDEP}]
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
-DEPEND=""
+DEPEND="app-misc/ca-certificates[cacert]"
 
 RESTRICT="mirror"
 EGIT_NONSHALLOW=true
