@@ -85,6 +85,7 @@ UNIPATCH_LIST="
 	${ARM_PATCH_LIST}
 	${AUFS_PATCH_LIST}
 	${GCCOPT_LIST}
+	"${FILESDIR}"/c2412d91c68426e22add16550f97ae5cd988a159.patch
 "
 
 if [[ ${BFQ} == "true" ]]; then

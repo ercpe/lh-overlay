@@ -1,5 +1,13 @@
 
 
+  22 Mar 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.13.6.ebuild,
+  +files/c2412d91c68426e22add16550f97ae5cd988a159.patch:
+  Add backport patch for audit dmesg lines
+
+  22 Mar 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.13.6.ebuild,
+  +files/c2412d91c68426e22add16550f97ae5cd988a159.patch:
+  Add backport patch for audit dmesg lines
+
 *lh-sources-3.12.14 (20 Mar 2014)
 
   20 Mar 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.12.14.ebuild:
