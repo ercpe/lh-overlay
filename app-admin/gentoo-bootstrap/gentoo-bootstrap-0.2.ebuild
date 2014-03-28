@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_3 )
 
 inherit distutils-r1
 
-DESCRIPTION="TTool to ease the creation of gentoo-based XEN DomUs"
+DESCRIPTION="Tool to ease the creation of gentoo-based XEN DomUs"
 HOMEPAGE="https://github.com/ercpe/gentoo-bootstrap"
 SRC_URI="https://github.com/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 

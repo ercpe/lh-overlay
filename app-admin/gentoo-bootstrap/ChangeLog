@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Mar 2014; Johann Schmitz <ercpe@gentoo.org> gentoo-bootstrap-0.2.ebuild,
+  gentoo-bootstrap-0.3.ebuild:
+  Fixed typo's
+
 *gentoo-bootstrap-0.3 (23 Mar 2014)
 
   23 Mar 2014; Johann Schmitz <ercpe@gentoo.org> +gentoo-bootstrap-0.3.ebuild:
