@@ -23,3 +23,7 @@ RDEPEND="
 	dev-python/simplejson[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
+
+python_test() {
+	nosetest || die
+}
