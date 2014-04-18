@@ -1,0 +1,12 @@
+diff --git a/configure.ac b/configure.ac
+index f8ea0dc..30690e1 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -15,7 +15,6 @@ AC_PROG_AWK
+ AC_PROG_INSTALL
+ AC_PROG_LN_S
+ AC_PROG_MAKE_SET
+-AC_PROG_SYSCONFTOOL
+ AC_LIBTOOL_DLOPEN
+ AM_PROG_LIBTOOL
+ 
