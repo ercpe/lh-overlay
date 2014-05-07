@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.14.3 (07 May 2014)
+
+  07 May 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.14.3.ebuild:
+  Bump to latest genpatches and linux release
+
 *lh-sources-3.14.2 (05 May 2014)
 
   05 May 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.14.2.ebuild:
