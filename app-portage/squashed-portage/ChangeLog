@@ -2,6 +2,12 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*squashed-portage-0.15.1 (11 May 2014)
+
+  11 May 2014; Johann Schmitz <ercpe@gentoo.org>
+  +squashed-portage-0.15.1.ebuild:
+  Version bump of squashed-portage
+
   21 Mar 2014; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Depend on cacert in ca-certificates, #504776
 
@@ -120,4 +126,3 @@
   28 Feb 2010; Justin Lecher (jlec) <jlec@gentoo.org>
   squashed-portage-9999.ebuild:
   First working version
-
