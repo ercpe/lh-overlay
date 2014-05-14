@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="8"
+K_GENPATCHES_VER="7"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 versionator
@@ -15,7 +15,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.13_p20140303
+AUFS_VERSION=3.14_p20140511
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -26,7 +26,7 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 BFQ=true
 
 BFQ_URI_PATCH_MINOR="0"
-BFQ_URI_PATCH_LEVEL="7r2"
+BFQ_URI_PATCH_LEVEL="7r3"
 BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch -> \
@@ -85,6 +85,7 @@ UNIPATCH_LIST="
 	${ARM_PATCH_LIST}
 	${AUFS_PATCH_LIST}
 	${GCCOPT_LIST}
+	"${FILESDIR}"/c2412d91c68426e22add16550f97ae5cd988a159.patch
 "
 
 if [[ ${BFQ} == "true" ]]; then
