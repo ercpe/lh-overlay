@@ -1,5 +1,8 @@
 
 
+  18 May 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.14.4.ebuild:
+  Bump to latest BFQ
+
   14 May 2014; Justin Lecher <jlec@gentoo.org> -lh-sources-3.12.15.ebuild,
   -lh-sources-3.12.16.ebuild, -lh-sources-3.13.5.ebuild,
   -lh-sources-3.13.6.ebuild, -lh-sources-3.13.7.ebuild,
