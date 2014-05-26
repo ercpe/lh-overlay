@@ -9,13 +9,13 @@ K_WANT_GENPATCHES="base extras"
 K_GENPATCHES_VER="7"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
-inherit kernel-2 versionator
+inherit kernel-2 readme.gentoo versionator
 detect_version
 detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.14_p20140511
+AUFS_VERSION=3.14_p20140526
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -117,12 +117,19 @@ src_prepare() {
 	cp "${DISTDIR}"/lh-logo_linux_320_240_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
 }
 
+src_install() {
+	kernel-2_src_install
+	readme.gentoo_create_doc
+}
+
 pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
 	has_version sys-fs/aufs-util || \
 		einfo "In order to use aufs FS you need to install sys-fs/aufs-util"
+
+	readme.gentoo_pkg_postinst
 }
 
 pkg_postrm() {

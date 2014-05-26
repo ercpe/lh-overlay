@@ -1,5 +1,9 @@
 
 
+  26 May 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.14.4.ebuild,
+  +files/README.gentoo:
+  Bump to latest aufs3 release, install additional patches
+
   22 May 2014; Justin Lecher <jlec@gentoo.org> Manifest:
   Fix checksums
 
