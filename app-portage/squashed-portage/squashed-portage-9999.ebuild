@@ -11,7 +11,7 @@ inherit git-r3 multilib prefix python-r1 systemd
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
 SRC_URI=""
-EGIT_REPO_URI="https://repos.j-schmitz.net/git/pub/squashed-portage.git"
+EGIT_REPO_URI="git://repos.j-schmitz.net/squashed-portage.git"
 
 SLOT="0"
 LICENSE="GPL-3"
