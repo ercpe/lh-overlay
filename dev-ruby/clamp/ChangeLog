@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/clamp
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*clamp-0.6.3 (27 May 2014)
+
+  27 May 2014; Johann Schmitz <ercpe@gentoo.org> +clamp-0.6.3.ebuild,
+  +metadata.xml:
+  Added ebuild for stud (dep of logstash)
