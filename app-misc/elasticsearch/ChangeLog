@@ -1,0 +1,12 @@
+# ChangeLog for app-misc/elasticsearch
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*elasticsearch-1.1.1 (27 May 2014)
+*elasticsearch-1.2.0 (27 May 2014)
+
+  27 May 2014; Johann Schmitz <ercpe@gentoo.org> +elasticsearch-1.1.1.ebuild,
+  +elasticsearch-1.2.0.ebuild, +files/elasticsearch.conf,
+  +files/elasticsearch.init, +files/elasticsearch.init2,
+  +files/elasticsearch.service, +metadata.xml:
+  Added (bin) ebuilds for elasticsearch
