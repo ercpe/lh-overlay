@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/metriks
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*metriks-0.9.9.6 (28 May 2014)
+
+  28 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +metriks-0.9.9.6.ebuild:
+  New ebuild for metriks
