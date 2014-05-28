@@ -44,16 +44,17 @@ ruby_add_rdepend "dev-ruby/addressable
 		mail? ( dev-ruby/mail )
 		redis? ( dev-ruby/redis )
 		snmp? ( dev-ruby/snmplib )
-		test? (
-			dev-ruby/rumbster
-			dev-ruby/mocha
-		)
 		twitter? ( dev-ruby/twitter:5 )
 		xml? ( dev-ruby/xml-simple )
 		zeromq? (
 		 	>=dev-ruby/ffi-rzmq-1.0.0
 		)
 		"
+
+ruby_add_bdepend "test? (
+			dev-ruby/rumbster
+			dev-ruby/mocha
+		)"
 #dev-ruby/ruby-insist test only?
 
 RUBY_FAKEGEM_BINWRAP="logstash"
