@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/murmurhash3-ruby
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*murmurhash3-ruby-0.1.4 (28 May 2014)
+
+  28 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +murmurhash3-ruby-0.1.4.ebuild:
+  New ebuild for murmurhash3
