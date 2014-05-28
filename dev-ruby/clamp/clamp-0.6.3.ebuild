@@ -4,7 +4,9 @@
 
 EAPI=5
 
-USE_RUBY="ruby19"
+USE_RUBY="ruby19 ruby20 jruby"
+RUBY_FAKEGEM_RECIPE_DOC="rdoc"
+RUBY_FAKEGEM_RECIPE_TEST=""
 
 inherit ruby-fakegem
 
@@ -15,6 +17,13 @@ LICENSE="BSD"
 
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="examples"
 
-RDEPEND="${DEPEND}"
+all_ruby_install() {
+	all_fakegem_install
+
+	if use examples; then
+		insinto /usr/share/doc/${PF}/examples
+		doins examples/* || die
+	fi
+}
