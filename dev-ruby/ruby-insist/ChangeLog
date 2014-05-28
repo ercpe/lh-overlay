@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/ruby-insist
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ruby-insist-1.0.0 (28 May 2014)
+
+  28 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +ruby-insist-1.0.0.ebuild:
+  New ebuild for ruby-insist
