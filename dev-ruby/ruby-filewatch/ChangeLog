@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/ruby-filewatch
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ruby-filewatch-0.5.0 (29 May 2014)
+
+  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +ruby-filewatch-0.5.0.ebuild:
+  New ebuild for ruby-filewatch
