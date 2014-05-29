@@ -1,0 +1,10 @@
+# ChangeLog for app-misc/ua-parser
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ua-parser-20140529 (29 May 2014)
+
+  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +ua-parser-20140529.ebuild:
+  New ebuild for ua-parser. TODO: Install implementation for the different
+  languages
