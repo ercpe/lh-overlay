@@ -22,9 +22,12 @@ IUSE="aws aqmp gelf http mail redis snmp twitter xml zeromq"
 
 # see https://github.com/elasticsearch/logstash/blob/master/logstash.gemspec
 ruby_add_rdepend "dev-ruby/addressable
+		dev-ruby/avl_tree
 		dev-ruby/awesome_print
 		>=dev-ruby/extlib-0.9.16
+		dev-ruby/filewatch
 		dev-ruby/ffi
+		dev-ruby/geoip
 		dev-ruby/i18n
 		dev-ruby/json
 		dev-ruby/mime-types
@@ -33,6 +36,8 @@ ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/rack
 		dev-ruby/sinatra
 		dev-ruby/treetop
+		dev-ruby/user_agent_parser
+		dev-ruby/ruby-grok
 		dev-ruby/ruby-insist
 		aws? ( dev-ruby/aws-sdk )
 		aqmp? ( >=dev-ruby/bunny-1.1.8 )
@@ -57,6 +62,8 @@ ruby_add_bdepend "test? (
 		)"
 #dev-ruby/ruby-insist test only?
 
+DEPEND="dev-libs/geoip[city]"
+
 RUBY_FAKEGEM_BINWRAP="logstash"
 RUBY_FAKEGEM_EXTRAINSTALL="locales patterns"
 RUBY_FAKEGEM_TASK_DOC=""
@@ -66,8 +73,27 @@ all_ruby_prepare() {
 	rm -v spec/runner_spec.rb \
 			spec/codecs/collectd.rb || die # don't know what the problem is
 	eerror "--> FIXME FIXME FIXME"
+
+	# this one does not work with the databases provided by dev-libs/geoip
+	rm -v spec/filters/geoip.rb \
+	 		spec/inputs/file.rb \
+	 		spec/inputs/gelf.rb || die
+
+	# jruby only
+	rm -v spec/outputs/{elasticsearch_river,elasticsearch}.rb spec/inputs/log4j.rb || die
+
+}
+
+each_ruby_prepare() {
+	# some test cases fail with encoding issues - please cross check
+	find -name "*.rb" | xargs sed -i -e "s/Socket.gethostname/Socket.gethostname.encode('UTF-8')/g" || die
 }
 
 each_ruby_test() {
-	ruby-ng_rspec spec/**/*.rb
+	${RUBY} lib/logstash/runner.rb rspec || die
+}
+
+each_ruby_install() {
+	dosym /usr/share/GeoIP/GeoIPCity.dat $(ruby_fakegem_gemsdir)/gems/${P}/vendor/geoip/GeoLiteCity.dat
+	each_fakegem_install
 }
