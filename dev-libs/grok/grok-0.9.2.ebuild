@@ -25,7 +25,3 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	epatch "${FILESDIR}"/${PV}-*.patch
 }
-
-src_install() {
-	dosym /usr/$(get_libdir)/lib${PN}.so.1 /usr/$(get_libdir)/lib${PN}.so
-}
