@@ -1,0 +1,22 @@
+diff --git a/grok-0.9.2/Makefile b/grok-0.9.2/Makefile
+index adfe869..b20abf2 100644
+--- a/grok-0.9.2/Makefile
++++ b/grok-0.9.2/Makefile
+@@ -162,14 +162,14 @@ cleanver:
+ # Binary creation
+ grok: LDFLAGS+=-levent
+ grok: $(GROKOBJ) conf.tab.o conf.yy.o main.o grok_config.o
+-	$(CC) $(LDFLAGS) $^ -o $@
++	$(CC) $^ $(LDFLAGS) -o $@
+ 
+ discogrok: $(GROKOBJ) discover_main.o
+-	$(CC) $(LDFLAGS) $^ -o $@
++	$(CC) $^ $(LDFLAGS) -o $@
+ 
+ libgrok.$(LIBSUFFIX): 
+ libgrok.$(LIBSUFFIX): $(GROKOBJ) 
+-	$(CC) $(LDFLAGS) -fPIC $(DYNLIBFLAG) $(LIBNAMEFLAG) $^ -o $@
++	$(CC) $^ $(LDFLAGS) -fPIC $(DYNLIBFLAG) $(LIBNAMEFLAG) -o $@
+ 
+ libgrok.$(VERLIBSUFFIX): libgrok.$(LIBSUFFIX);
+ 	ln -s $< $@
