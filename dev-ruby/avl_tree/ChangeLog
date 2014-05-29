@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/avl_tree
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*avl_tree-1.1.3 (29 May 2014)
+
+  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +avl_tree-1.1.3.ebuild,
+  +metadata.xml:
+  New ebuild for avl_tree
