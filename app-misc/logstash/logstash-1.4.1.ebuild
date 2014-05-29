@@ -18,7 +18,7 @@ LICENSE="Apache-2.0"
 
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="aws aqmp gelf http mail redis snmp twitter xml zeromq"
+IUSE=""
 
 # see https://github.com/elasticsearch/logstash/blob/master/logstash.gemspec
 ruby_add_rdepend "dev-ruby/addressable
@@ -39,21 +39,18 @@ ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/user_agent_parser
 		dev-ruby/ruby-grok
 		dev-ruby/ruby-insist
-		aws? ( dev-ruby/aws-sdk )
-		aqmp? ( >=dev-ruby/bunny-1.1.8 )
-		gelf? (
-		 	dev-ruby/gelf
-		 	dev-ruby/gelfd
-		)
-		http? ( dev-ruby/http )
-		mail? ( dev-ruby/mail )
-		redis? ( dev-ruby/redis )
-		snmp? ( dev-ruby/snmplib )
-		twitter? ( dev-ruby/twitter:5 )
-		xml? ( dev-ruby/xml-simple )
-		zeromq? (
-		 	>=dev-ruby/ffi-rzmq-1.0.0
-		)
+
+		dev-ruby/aws-sdk
+		>=dev-ruby/bunny-1.1.8
+		dev-ruby/gelf
+		dev-ruby/gelfd
+		dev-ruby/http
+		dev-ruby/mail
+		dev-ruby/redis
+		dev-ruby/snmplib
+		dev-ruby/twitter:5
+		dev-ruby/xml-simple
+		>=dev-ruby/ffi-rzmq-1.0.0
 		"
 
 ruby_add_bdepend "test? (
