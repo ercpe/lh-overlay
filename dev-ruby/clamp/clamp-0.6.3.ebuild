@@ -6,7 +6,7 @@ EAPI=5
 
 USE_RUBY="ruby19 ruby20 jruby"
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
-RUBY_FAKEGEM_RECIPE_TEST=""
+RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
 inherit ruby-fakegem
 
