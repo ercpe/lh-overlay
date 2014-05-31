@@ -1,0 +1,9 @@
+# ChangeLog for dev-ruby/rantly
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*rantly-0.3.0 (31 May 2014)
+
+  31 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +rantly-0.3.0.ebuild:
+  New ebuild for dev-ruby/rantly
