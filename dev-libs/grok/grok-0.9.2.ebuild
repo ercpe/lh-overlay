@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-DEPEND="dev-libs/tokyocabinet
+DEPEND="dev-db/tokyocabinet
 		>=dev-libs/libevent-1.3
 		>=dev-libs/libpcre-7.6"
 

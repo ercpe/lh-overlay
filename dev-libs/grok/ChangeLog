@@ -2,6 +2,9 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 May 2014; Johann Schmitz <ercpe@gentoo.org> grok-0.9.2.ebuild:
+  Changed dependency to dev-db/toykocabinet - it's already in the tree
+
   29 May 2014; Johann Schmitz <ercpe@gentoo.org> files/0.9.2-Makefile.patch,
   grok-0.9.2.ebuild:
   Fixed installation of grok lib
