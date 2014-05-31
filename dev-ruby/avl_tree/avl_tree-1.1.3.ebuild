@@ -19,6 +19,5 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 each_ruby_test() {
-	[[ "${RUBY}" == *ruby19* ]] || continue
-	each_fakegem_test
+	${RUBY} -I lib test/test_{red_black,avl}_tree.rb || die
 }
