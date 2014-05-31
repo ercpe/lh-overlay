@@ -1,9 +1,0 @@
-# ChangeLog for dev-libs/tokyocabinet
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*tokyocabinet-1.4.48 (29 May 2014)
-
-  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +files/1.4.48-fix-rpath.patch,
-  +metadata.xml, +tokyocabinet-1.4.48.ebuild:
-  New ebuild for tokyocabinet
