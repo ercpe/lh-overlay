@@ -21,10 +21,12 @@ KEYWORDS="~amd64"
 IUSE=""
 
 # see https://github.com/elasticsearch/logstash/blob/master/logstash.gemspec
+
 ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/avl_tree
 		dev-ruby/awesome_print
 		>=dev-ruby/extlib-0.9.16
+		dev-ruby/edn
 		dev-ruby/filewatch
 		dev-ruby/ffi
 		dev-ruby/geoip
@@ -38,8 +40,6 @@ ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/treetop
 		dev-ruby/user_agent_parser
 		dev-ruby/ruby-grok
-		dev-ruby/ruby-insist
-
 		dev-ruby/aws-sdk
 		>=dev-ruby/bunny-1.1.8
 		dev-ruby/gelf
@@ -56,8 +56,8 @@ ruby_add_rdepend "dev-ruby/addressable
 ruby_add_bdepend "test? (
 			dev-ruby/rumbster
 			dev-ruby/mocha
+			dev-ruby/ruby-insist
 		)"
-#dev-ruby/ruby-insist test only?
 
 DEPEND="dev-libs/geoip[city]"
 
@@ -67,8 +67,8 @@ RUBY_FAKEGEM_TASK_DOC=""
 
 all_ruby_prepare() {
 	eerror "--> FIXME FIXME FIXME"
-	rm -v spec/runner_spec.rb \
-			spec/codecs/collectd.rb || die # don't know what the problem is
+	rm -v spec/runner_spec.rb || die
+#			spec/codecs/collectd.rb || die # don't know what the problem is
 	eerror "--> FIXME FIXME FIXME"
 
 	# this one does not work with the databases provided by dev-libs/geoip
