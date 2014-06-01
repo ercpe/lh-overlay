@@ -4,9 +4,9 @@
 
 EAPI=5
 
-USE_RUBY="ruby19 ruby20"
+USE_RUBY="ruby19 ruby20 ruby21"
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
-RUBY_FAKEGEM_RECIPE_TEST=""
+RUBY_FAKEGEM_RECIPE_TEST="rspec"
 
 inherit ruby-fakegem
 
@@ -16,7 +16,11 @@ SRC_URI="https://github.com/relevance/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="MIT"
 
 SLOT="0"
-KEYWORDS="~amd64" # no ~x86 due to parslet
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-ruby_add_rdepend "dev-ruby/parslet"
+ruby_add_rdepend "=dev-ruby/parslet-1.4*"
+
+each_ruby_prepare() {
+	epatch "${FILESDIR}"/${PV}-*.patch
+}

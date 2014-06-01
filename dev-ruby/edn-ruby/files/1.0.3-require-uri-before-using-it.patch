@@ -1,0 +1,10 @@
+diff --git a/edn-ruby-1.0.3/spec/edn/transform_spec.rb b/edn-ruby-1.0.3/spec/edn/transform_spec.rb
+index c7edf00..a2924b8 100644
+--- a/edn-ruby-1.0.3/spec/edn/transform_spec.rb
++++ b/edn-ruby-1.0.3/spec/edn/transform_spec.rb
+@@ -1,4 +1,5 @@
+ require 'spec_helper'
++require 'uri'
+ 
+ describe EDN::Transform do
+   context "integer" do
