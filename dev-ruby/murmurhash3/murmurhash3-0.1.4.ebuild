@@ -6,12 +6,13 @@ EAPI=5
 
 USE_RUBY="ruby19 ruby20 jruby"
 RUBY_FAKEGEM_RECIPE_DOC="rdoc"
+RUBY_S="${PN}-ruby-${PV}"
 
 inherit ruby-fakegem
 
 DESCRIPTION="Ruby implementation of noncriptographic hash Murmur3 (both native and pure ruby)"
 HOMEPAGE="https://github.com/funny-falcon/"
-SRC_URI="https://github.com/funny-falcon/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/funny-falcon/${PN}-ruby/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 
 SLOT="0"

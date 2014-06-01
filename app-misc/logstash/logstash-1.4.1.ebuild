@@ -34,6 +34,7 @@ ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/json
 		dev-ruby/mime-types
 		dev-ruby/msgpack
+		dev-ruby/murmurhash3
 		dev-ruby/pry
 		dev-ruby/rack
 		dev-ruby/sinatra
