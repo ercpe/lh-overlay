@@ -15,7 +15,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.14_p20140526
+AUFS_VERSION=3.14_p20140602
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -119,6 +119,7 @@ src_prepare() {
 
 src_install() {
 	kernel-2_src_install
+	dodoc "${WORKDIR}"/{aufs3-loopback,vfs-ino,tmpfs-ibitmap}.patch
 	readme.gentoo_create_doc
 }
 
@@ -127,7 +128,7 @@ pkg_postinst() {
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
 	has_version sys-fs/aufs-util || \
-		einfo "In order to use aufs FS you need to install sys-fs/aufs-util"
+		elog "In order to use aufs FS you need to install sys-fs/aufs-util"
 
 	readme.gentoo_pkg_postinst
 }
