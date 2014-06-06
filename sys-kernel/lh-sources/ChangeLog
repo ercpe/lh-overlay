@@ -1,5 +1,10 @@
 
 
+*lh-sources-3.14.5-r1 (06 Jun 2014)
+
+  06 Jun 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.14.5-r1.ebuild:
+  Bump to latest genpatches release
+
   03 Jun 2014; Justin Lecher <jlec@gentoo.org> files/README.gentoo:
   Improve formatting of README
 
