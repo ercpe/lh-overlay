@@ -1,0 +1,9 @@
+# ChangeLog for net-analyzer/nagios-check_updates
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*nagios-check_updates-0.1.1 (06 Jun 2014)
+
+  06 Jun 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +nagios-check_updates-0.1.1.ebuild:
+  New ebuild for nagios-check_updates
