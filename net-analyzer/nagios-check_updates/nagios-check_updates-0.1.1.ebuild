@@ -19,8 +19,6 @@ IUSE=""
 
 RDEPEND="app-portage/gentoolkit[${PYTHON_USEDEP}]"
 
-#S="${WORKDIR}"
-
 src_install() {
 	python_foreach_impl python_newscript "src/${PN/nagios-}.py" ${PN/nagios-}
 }

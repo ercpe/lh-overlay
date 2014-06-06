@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Jun 2014; Johann Schmitz <ercpe@gentoo.org>
+  nagios-check_updates-0.1.1.ebuild:
+  Dropped useless lines
+
 *nagios-check_updates-0.1.1 (06 Jun 2014)
 
   06 Jun 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
