@@ -23,14 +23,10 @@ src_install() {
 	doins *.nanorc
 
 	if [[ -f "${EPREFIX}"/etc/nanorc ]]; then
-		sed \
-			-e "/^include \"${EPREFIX//\//\\/}\/usr\/share\/${PN}/d" \
-			"${EPREFIX}"/etc/nanorc > "${T}"/nanorc.system || die
-		for i in *.nanorc; do
-			if ! grep -q ${i} "${T}"/nanorc.system; then
-				echo "include \"${EPREFIX}/usr/share/${PN}/${i}\"" >> "${T}"/nanorc.system
-			fi
-		done
+		cp "${EPREFIX}"/etc/nanorc "${T}"/nanorc.system || die
+		if [[ ! $(grep -q /usr/share/nanorc) ]]; then
+			echo "include \"${EPREFIX}/usr/share/nanorc/*nanorc\"" >> "${T}"/nanorc.system
+		fi
 		insinto /etc
 		newins "${T}"/nanorc.system nanorc
 	fi
