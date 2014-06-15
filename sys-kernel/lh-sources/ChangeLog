@@ -1,5 +1,13 @@
 
 
+  15 Jun 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.15.0.ebuild,
+  -files/lh-sources-3.9-armv6.patch, -files/lh-sources-3.10-armv6.patch,
+  -files/lh-sources-3.11-armv6.patch,
+  -files/lh-sources-3.12.7-mmap-aufs3.patch,
+  -files/lh-sources-3.12-armv6.patch, -files/lh-sources-3.13-armv6.patch,
+  +files/lh-sources-3.15-armv6.patch, -files/a.patch:
+  Fix missing patch and drop old
+
   15 Jun 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.15.0.ebuild:
   Bump to latest aufs3, genpatches and linux release
 
