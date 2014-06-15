@@ -1,5 +1,8 @@
 
 
+  15 Jun 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.15.0.ebuild:
+  Bump to latest aufs3, genpatches and linux release
+
   14 Jun 2014; Justin Lecher <jlec@gentoo.org> ChangeLog:
   Fix renamed patch name in README.gentoo
 
