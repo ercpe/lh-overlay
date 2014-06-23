@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,11 +7,11 @@ EAPI=5
 inherit eutils java-pkg-2 java-ant-2
 
 MY_P="${P}-src"
-UPSTREAM_R="r1499"
+UPSTREAM_R="r1715"
 
 DESCRIPTION="A tool for creating a project schedule by means of Gantt chart and resource load chart."
 HOMEPAGE="http://ganttproject.sourceforge.net/"
-SRC_URI="https://${PN}.googlecode.com/files/${P}-${UPSTREAM_R}-src.zip"
+SRC_URI="https://dl.ganttproject.biz/${P}-${UPSTREAM_R}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
