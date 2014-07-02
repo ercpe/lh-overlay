@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="11"
+K_GENPATCHES_VER="5"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo versionator
@@ -15,7 +15,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=3.14_p20140609
+AUFS_VERSION=3.15_p20140630
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
@@ -26,7 +26,7 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 BFQ=true
 
 BFQ_URI_PATCH_MINOR="0"
-BFQ_URI_PATCH_LEVEL="7r4"
+BFQ_URI_PATCH_LEVEL="7r5"
 BFQ_BASE="http://www.algogroup.unimo.it/people/paolo/disk_sched/patches/${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch -> \
@@ -37,8 +37,9 @@ BFQ_URI="
 		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}.patch1
 	${BFQ_BASE}/README.BFQ -> README-${PV}.BFQ"
 
-GCCOPT_PATCH_LEVEL="391b268db43db7e45acdec900adebb2d1545db9f"
-GCCOPT_URI="https://raw2.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/enable_additional_cpu_optimizations_for_gcc.patch -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
+GCCOPT_PATCH_LEVEL="8883161b98577bd2397dc8616f8e805fb1861be1"
+GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
+GCCOPT_URI="https://raw2.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
@@ -62,6 +63,7 @@ fi
 
 KEYWORDS="~amd64 ~x86"
 IUSE="deblob module vanilla"
+README_GENTOO_SUFFIX="-r1"
 
 PDEPEND=">=sys-fs/aufs-util-3.7"
 
@@ -85,8 +87,8 @@ UNIPATCH_LIST="
 	${ARM_PATCH_LIST}
 	${AUFS_PATCH_LIST}
 	${GCCOPT_LIST}
-	"${FILESDIR}"/c2412d91c68426e22add16550f97ae5cd988a159.patch
 "
+#	"${FILESDIR}"/c2412d91c68426e22add16550f97ae5cd988a159.patch
 
 if [[ ${BFQ} == "true" ]]; then
 	# UNIPATCH_LIST+=" ${BFQ_PATCH_LIST[@]}"
@@ -120,6 +122,7 @@ src_prepare() {
 src_install() {
 	kernel-2_src_install
 	dodoc "${WORKDIR}"/{aufs3-loopback,vfs-ino,tmpfs-idr}.patch
+	docompress -x /usr/share/doc/${PF}/{aufs3-loopback,vfs-ino,tmpfs-idr}.patch
 	readme.gentoo_create_doc
 }
 
