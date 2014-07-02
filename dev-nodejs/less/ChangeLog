@@ -1,0 +1,10 @@
+# ChangeLog for dev-nodejs/less
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*less-1.7.3 (02 Jul 2014)
+
+  02 Jul 2014; Justin Lecher <jlec@gentoo.org> +less-1.7.3.ebuild,
+  +metadata.xml:
+  New package
+
