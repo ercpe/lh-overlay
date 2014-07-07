@@ -20,7 +20,6 @@ IUSE="aufs zsync"
 RDEPEND="
 	dev-python/progressbar[${PYTHON_USEDEP}]
 	sys-fs/squashfs-tools:0
-	virtual/python-argparse[${PYTHON_USEDEP}]
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
 DEPEND=""

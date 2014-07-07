@@ -2,6 +2,13 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Jul 2014; Johann Schmitz <ercpe@gentoo.org> -squashed-portage-0.11.ebuild,
+  -squashed-portage-0.12.ebuild, -squashed-portage-0.13.ebuild,
+  -squashed-portage-0.14.ebuild, -squashed-portage-0.15.1.ebuild,
+  -squashed-portage-0.8.ebuild, -squashed-portage-0.9.ebuild,
+  squashed-portage-0.16.ebuild:
+  Dropped old version; removed dependency to python-argparse
+
   26 May 2014; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Fix repo uri, thanks ercpe making it available
 
