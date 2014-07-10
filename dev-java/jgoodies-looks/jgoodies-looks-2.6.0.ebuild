@@ -17,7 +17,7 @@ HOMEPAGE="http://www.jgoodies.com/"
 SRC_URI="http://www.jgoodies.com/download/libraries/${MY_PN}/${MY_P}.zip"
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="2.0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
