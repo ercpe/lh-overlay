@@ -2,6 +2,9 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Jul 2014; Johann Schmitz <ercpe@gentoo.org> jgoodies-common-1.8.0.ebuild:
+  Reduced ebuild to use java-pkg-simple
+
 *jgoodies-common-1.8.0 (10 Jul 2014)
 
   10 Jul 2014; Johann Schmitz <ercpe@gentoo.org> +jgoodies-common-1.8.0.ebuild,

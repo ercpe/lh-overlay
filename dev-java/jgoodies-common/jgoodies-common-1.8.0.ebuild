@@ -6,7 +6,7 @@ EAPI="5"
 
 JAVA_PKG_IUSE="doc source"
 
-inherit java-pkg-2 java-ant-2
+inherit java-pkg-2 java-pkg-simple
 
 MY_PN="common"
 MY_PV=${PV//./_}
@@ -26,26 +26,12 @@ DEPEND=">=virtual/jdk-1.6
 	app-arch/unzip"
 RDEPEND=">=virtual/jre-1.6"
 
+S="${WORKDIR}"/${P}
+
+JAVA_SRC_DIR="src"
+
 java_prepare() {
-	mkdir src && cd src &&  unzip -qq ../${P}-sources.jar || die
-	find "${S}" -name '*.jar' -exec rm -v {} + || die
-}
-
-src_compile() {
-	mkdir "${S}/classes" || die
-
-	find src -name "*.java" > "${T}/src.list" || die
-	ejavac -encoding ISO-8859-1 -d "${S}/classes" "@${T}/src.list"
-
-	cd "${S}/classes" || die
-	jar -cf "${S}/${PN}.jar" * || die "failed to create jar"
-}
-
-src_install() {
-	java-pkg_dojar ${PN}.jar
-
-	dodoc RELEASE-NOTES.txt README.html || die
-
-	use doc && java-pkg_dohtml -r docs/*
-	use source && java-pkg_dosrc src/com
+	mkdir src || die
+	unzip ${P}-sources.jar -d src || die
+	rm "${S}"/pom.xml "${S}"/*.jar || die
 }
