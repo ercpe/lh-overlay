@@ -37,6 +37,7 @@ EANT_EXTRA_ARGS="-Djdk.home=${JAVA_HOME}"
 java_prepare() {
 	mkdir build/classes -p || die
 	rm -r src/org/pushingpixels/trident/android/ || die
+	epatch "${FILESDIR}"/${PV}-*.patch
 }
 
 src_install() {
