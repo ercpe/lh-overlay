@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/hyphenator
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*hyphenator-0.5.1 (17 Jul 2014)
+
+  17 Jul 2014; Johann Schmitz <ercpe@gentoo.org> +hyphenator-0.5.1.ebuild,
+  +metadata.xml:
+  New ebuild for hyphenator
