@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/readability-score
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*readability-score-1.0 (17 Jul 2014)
+
+  17 Jul 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +readability-score-1.0.ebuild:
+  New ebuild for readability-score
