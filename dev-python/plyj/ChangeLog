@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/plyj
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*plyj-0.0.1_pre20140719 (19 Jul 2014)
+
+  19 Jul 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +plyj-0.0.1_pre20140719.ebuild:
+  New ebuild for plyj
