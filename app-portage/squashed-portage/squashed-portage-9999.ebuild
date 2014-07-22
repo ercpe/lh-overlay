@@ -32,7 +32,7 @@ src_prepare() {
 	eprefixify *
 	sed \
 		-e "s:GENTOOLIBDIR:$(get_libdir):g" \
-		-i get-squashed-portage.bash || die
+		-i get-squashed-portage || die
 
 	if use zsync; then
 		sed \
@@ -42,7 +42,7 @@ src_prepare() {
 }
 
 src_install() {
-	newbin get-squashed-portage.bash get-squashed-portage
+	dobin get-squashed-portage
 
 	python_foreach_impl python_newscript fetch-squashed-portage.py fetch-squashed-portage
 

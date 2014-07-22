@@ -2,6 +2,9 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Jul 2014; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
+  Fix broken live version
+
   22 Jul 2014; Justin Lecher <jlec@gentoo.org> squashed-portage-0.16.ebuild,
   squashed-portage-9999.ebuild:
   Equalize versions
