@@ -67,4 +67,7 @@ pkg_postinst() {
 	einfo " - It is no longer supported to have anything mounted below PORTDIR."
 	einfo "   You are encouraged to set PKGDIR / DISTDIR in /etc/portage/make.conf or make sure you umount/remount"
 	einfo "   the filesystems before starting or stopping the squashed-portage service."
+	echo ""
+	ewarn "The config file location changed"
+	ewarn "please check /etc/${PN}.conf"
 }

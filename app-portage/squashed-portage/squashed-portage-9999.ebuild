@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python{2_6,2_7} )
+PYTHON_COMPAT=( python2_7 )
 
 inherit git-r3 multilib prefix python-r1 systemd
 
@@ -21,7 +21,6 @@ IUSE="aufs zsync"
 RDEPEND="
 	dev-python/progressbar[${PYTHON_USEDEP}]
 	sys-fs/squashfs-tools:0
-	virtual/python-argparse[${PYTHON_USEDEP}]
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
 DEPEND="app-misc/ca-certificates[cacert]"
@@ -33,17 +32,19 @@ src_prepare() {
 	eprefixify *
 	sed \
 		-e "s:GENTOOLIBDIR:$(get_libdir):g" \
-		-i get-squashed-portage || die
-	sed \
-		-e 's:get-squashed-portage:get-squashed-portage -z:g' \
-		-i squashed-portage.init || die
+		-i get-squashed-portage.bash || die
+
+	if use zsync; then
+		sed \
+			-e 's:get-squashed-portage:get-squashed-portage -z:g' \
+			-i squashed-portage.init || die
+	fi
 }
 
 src_install() {
-	dobin get-squashed-portage
+	newbin get-squashed-portage.bash get-squashed-portage
 
-	python_scriptinto /usr/libexec/${PN}/
-	python_foreach_impl python_doscript fetch-squashed-portage.py
+	python_foreach_impl python_newscript fetch-squashed-portage.py fetch-squashed-portage
 
 	newinitd ${PN}.init ${PN}
 	newconfd ${PN}.confd ${PN}
@@ -57,6 +58,18 @@ src_install() {
 }
 
 pkg_postinst() {
+	einfo "Starting with 0.16 some fundamental things have changed:"
+	einfo " - The get-squashed-portage does no longer stop the squashed-portage service. As a result,"
+	einfo "   you have to change your sync to something like:"
+	einfo ""
+	einfo "     /etc/init.d/squashed-portage stop"
+	einfo "     get-squashed-portage"
+	einfo "     /etc/init.d/squashed-portage start"
+	einfo ""
+	einfo " - It is no longer supported to have anything mounted below PORTDIR."
+	einfo "   You are encouraged to set PKGDIR / DISTDIR in /etc/portage/make.conf or make sure you umount/remount"
+	einfo "   the filesystems before starting or stopping the squashed-portage service."
+	echo ""
 	ewarn "The config file location changed"
 	ewarn "please check /etc/${PN}.conf"
 }
