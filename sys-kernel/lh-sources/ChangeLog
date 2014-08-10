@@ -1,5 +1,9 @@
 
 
+  10 Aug 2014; Justin Lecher <jlec@gentoo.org>
+  +files/lh-sources-3.16-armv6.patch:
+  Add missing patch
+
 *lh-sources-3.16.0 (10 Aug 2014)
 
   10 Aug 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.16.0.ebuild:
