@@ -27,7 +27,7 @@ ruby_add_rdepend "dev-ruby/addressable
 		dev-ruby/awesome_print
 		>=dev-ruby/extlib-0.9.16
 		dev-ruby/edn
-		dev-ruby/filewatch
+		dev-ruby/ruby-filewatch
 		dev-ruby/ffi
 		dev-ruby/geoip
 		dev-ruby/i18n
