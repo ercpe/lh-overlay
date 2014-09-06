@@ -1,0 +1,9 @@
+# ChangeLog for dev-java/httpclient
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*httpclient-0.3.3 (06 Sep 2014)
+
+  06 Sep 2014; Johann Schmitz <ercpe@gentoo.org> +httpclient-0.3.3.ebuild,
+  +metadata.xml:
+  Ebuild for httpclient
