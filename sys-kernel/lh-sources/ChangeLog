@@ -1,5 +1,8 @@
 
 
+  23 Sep 2014; Justin Lecher <jlec@gentoo.org> Manifest:
+  Fix checksums of changed files
+
 *lh-sources-3.16.3 (18 Sep 2014)
 
   18 Sep 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.16.3.ebuild:
