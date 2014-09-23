@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="aufs zsync"
 
 RDEPEND="
+	!<sys-apps/openrc-0.13
 	dev-python/progressbar[${PYTHON_USEDEP}]
 	sys-fs/squashfs-tools:0
 	aufs? ( sys-fs/aufs-util )
@@ -32,7 +33,7 @@ src_prepare() {
 	eprefixify *
 	sed \
 		-e "s:GENTOOLIBDIR:$(get_libdir):g" \
-		-i get-squashed-portage || die
+		-i get-squashed-portage.bash || die
 
 	if use zsync; then
 		sed \
@@ -42,7 +43,7 @@ src_prepare() {
 }
 
 src_install() {
-	dobin get-squashed-portage
+	newbin get-squashed-portage.bash get-squashed-portage
 
 	python_foreach_impl python_newscript fetch-squashed-portage.py fetch-squashed-portage
 

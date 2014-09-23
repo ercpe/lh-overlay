@@ -18,12 +18,12 @@ KEYWORDS="~amd64 ~x86"
 IUSE="aufs zsync"
 
 RDEPEND="
-	!<sys-apps/openrc-0.17
+	!<sys-apps/openrc-0.13
 	dev-python/progressbar[${PYTHON_USEDEP}]
 	sys-fs/squashfs-tools:0
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
-DEPEND=""
+DEPEND="app-misc/ca-certificates[cacert]"
 
 RESTRICT="mirror"
 
