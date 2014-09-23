@@ -43,7 +43,7 @@ src_prepare() {
 }
 
 src_install() {
-	newbin get-squashed-portage.bash get-squashed-portage
+	dobin get-squashed-portage
 
 	python_foreach_impl python_newscript fetch-squashed-portage.py fetch-squashed-portage
 
