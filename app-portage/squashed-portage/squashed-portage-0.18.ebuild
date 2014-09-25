@@ -18,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="aufs zsync"
 
 RDEPEND="
-	!<sys-apps/openrc-0.13
 	dev-python/progressbar[${PYTHON_USEDEP}]
 	>=sys-apps/portage-2.2.8
 	sys-fs/squashfs-tools:0
