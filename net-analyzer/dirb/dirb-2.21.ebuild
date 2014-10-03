@@ -25,6 +25,8 @@ src_prepare() {
 
 src_install() {
 	default
+	## FIXME: collision with icu - but i don't know how to rename this thing
+	rm "${D}"/usr/bin/gendict || die
 	insinto /usr/share/${PN}/wordlists
 	doins -r wordlists/*
 }
