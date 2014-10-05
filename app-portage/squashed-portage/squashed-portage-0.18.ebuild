@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit multilib prefix python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
-HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
+HOMEPAGE="http://ercpe.de/projects/squashed-portage"
 SRC_URI="http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
 
 SLOT="0"

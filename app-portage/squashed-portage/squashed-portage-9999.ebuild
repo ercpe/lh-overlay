@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit git-r3 multilib prefix python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
-HOMEPAGE="http://www.j-schmitz.net/projects/squashed-portage/"
+HOMEPAGE="http://ercpe.de/projects/squashed-portage"
 SRC_URI=""
 EGIT_REPO_URI="git://git.j-schmitz.net/squashed-portage.git"
 
