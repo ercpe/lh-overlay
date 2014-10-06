@@ -1,5 +1,8 @@
 
 
+  06 Oct 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.16.4.ebuild:
+  Bump to latest genpatches
+
 *lh-sources-3.16.4 (06 Oct 2014)
 
   06 Oct 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.16.4.ebuild:
