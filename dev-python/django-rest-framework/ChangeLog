@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-rest-framework
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-rest-framework-2.4.3 (12 Oct 2014)
+
+  12 Oct 2014; Johann Schmitz <ercpe@gentoo.org>
+  +django-rest-framework-2.4.3.ebuild:
+  Version bump of django-rest-framework
