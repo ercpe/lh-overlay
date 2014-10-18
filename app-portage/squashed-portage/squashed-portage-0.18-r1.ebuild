@@ -23,7 +23,7 @@ RDEPEND="
 	sys-fs/squashfs-tools:0
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
-DEPEND="app-misc/ca-certificates[cacert]"
+DEPEND="app-misc/ca-certificates"
 
 RESTRICT="mirror"
 
