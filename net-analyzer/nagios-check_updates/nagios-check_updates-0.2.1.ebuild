@@ -14,7 +14,7 @@ SRC_URI="https://repos.j-schmitz.net/gitweb/?p=nagios-check_updates.git;a=snapsh
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="app-portage/gentoolkit[${PYTHON_USEDEP}]"
