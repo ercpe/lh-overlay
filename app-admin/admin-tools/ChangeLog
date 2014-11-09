@@ -2,6 +2,11 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*admin-tools-0.21 (09 Nov 2014)
+
+  09 Nov 2014; Justin Lecher <jlec@gentoo.org> +admin-tools-0.21.ebuild:
+  Verison bUmp
+
 *admin-tools-0.20 (25 May 2014)
 
   25 May 2014; Johann Schmitz <ercpe@gentoo.org> +admin-tools-0.20.ebuild:
