@@ -32,7 +32,7 @@ EGIT_NONSHALLOW=true
 src_prepare() {
 	eprefixify *
 	sed \
-		-e "s:@GENTOOLIBDIR@:$(get_libdir):g" \
+		-e "s:\@GENTOOLIBDIR\@:$(get_libdir):g" \
 		-i get-squashed-portage || die
 
 	if use zsync; then
