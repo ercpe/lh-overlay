@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python3_3 )
 
 inherit distutils-r1 gnome2-utils fdo-mime
 
