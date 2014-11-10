@@ -6,16 +6,15 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit git-r3 multilib prefix python-r1 systemd
+inherit multilib prefix python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://ercpe.de/projects/squashed-portage"
-SRC_URI=""
-EGIT_REPO_URI="git://git.j-schmitz.net/squashed-portage.git"
+SRC_URI="http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="aufs zsync"
 
 RDEPEND="
@@ -24,15 +23,14 @@ RDEPEND="
 	sys-fs/squashfs-tools:0
 	aufs? ( sys-fs/aufs-util )
 	zsync? ( net-misc/zsync )"
-DEPEND="app-misc/ca-certificates[cacert]"
+DEPEND="app-misc/ca-certificates"
 
 RESTRICT="mirror"
-EGIT_NONSHALLOW=true
 
 src_prepare() {
 	eprefixify *
 	sed \
-		-e "s:@GENTOOLIBDIR@:$(get_libdir):g" \
+		-e "s:GENTOOLIBDIR:$(get_libdir):g" \
 		-i get-squashed-portage || die
 
 	if use zsync; then
