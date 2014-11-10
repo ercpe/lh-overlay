@@ -1,0 +1,11 @@
+# ChangeLog for mail-client/mailpile
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*mailpile-9999 (10 Nov 2014)
+*mailpile-0.2 (10 Nov 2014)
+
+  10 Nov 2014; Justin Lecher <jlec@gentoo.org> +mailpile-0.2.ebuild,
+  +mailpile-9999.ebuild, +metadata.xml:
+  New package
+
