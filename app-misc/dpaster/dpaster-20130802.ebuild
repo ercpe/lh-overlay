@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,11 +15,9 @@ SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.t
 LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
 IUSE=""
 
 RDEPEND="
 	dev-python/twill[${PYTHON_USEDEP}]
-	virtual/python-argparse[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}"
