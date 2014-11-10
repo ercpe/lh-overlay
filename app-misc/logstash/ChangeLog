@@ -1,0 +1,8 @@
+# ChangeLog for app-misc/logstash
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2014; Justin Lecher <jlec@gentoo.org> logstash-1.4.1.ebuild,
+  metadata.xml:
+  Fix broken deps
+

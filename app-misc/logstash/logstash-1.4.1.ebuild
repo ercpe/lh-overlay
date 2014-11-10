@@ -22,45 +22,46 @@ IUSE=""
 
 # see https://github.com/elasticsearch/logstash/blob/master/logstash.gemspec
 
-ruby_add_rdepend "dev-ruby/addressable
-		dev-ruby/avl_tree
-		dev-ruby/awesome_print
-		>=dev-ruby/extlib-0.9.16
-		dev-ruby/edn
-		dev-ruby/ruby-filewatch
-		dev-ruby/ffi
-		dev-ruby/geoip
-		dev-ruby/i18n
-		dev-ruby/json
-		dev-ruby/mime-types
-		dev-ruby/msgpack
-		dev-ruby/murmurhash3
-		dev-ruby/pry
-		dev-ruby/rack
-		dev-ruby/sinatra
-		dev-ruby/treetop
-		dev-ruby/user_agent_parser
-		dev-ruby/ruby-grok
-		dev-ruby/aws-sdk
-		>=dev-ruby/bunny-1.1.8
-		dev-ruby/gelf
-		dev-ruby/gelfd
-		dev-ruby/http
-		dev-ruby/mail
-		dev-ruby/redis
-		dev-ruby/snmplib
-		dev-ruby/twitter:5
-		dev-ruby/xml-simple
-		>=dev-ruby/ffi-rzmq-1.0.0
-		"
+ruby_add_rdepend "
+	dev-ruby/addressable
+	dev-ruby/avl_tree
+	dev-ruby/awesome_print
+	>=dev-ruby/extlib-0.9.16
+	dev-ruby/edn
+	dev-ruby/ruby-filewatch
+	dev-ruby/ffi
+	dev-ruby/geoip
+	dev-ruby/i18n
+	dev-ruby/json
+	dev-ruby/mime-types
+	dev-ruby/msgpack
+	dev-ruby/murmurhash3
+	dev-ruby/pry
+	dev-ruby/rack
+	dev-ruby/sinatra
+	dev-ruby/treetop
+	dev-ruby/user_agent_parser
+	dev-ruby/ruby-grok
+	dev-ruby/aws-sdk
+	>=dev-ruby/bunny-1.1.8
+	dev-ruby/gelf
+	dev-ruby/gelfd
+	dev-ruby/http
+	dev-ruby/mail
+	dev-ruby/redis
+	dev-ruby/snmplib
+	dev-ruby/twitter:5
+	dev-ruby/xml-simple
+	>=dev-ruby/ffi-rzmq-1.0.0
+	"
 
-ruby_add_bdepend "test? (
+ruby_add_bdepend "
+	test? (
 			dev-ruby/rumbster
 			dev-ruby/mocha
 			dev-ruby/ruby-insist
-		)"
-
-DEPEND="dev-libs/geoip[city]"
+	)"
+DEPEND="dev-libs/geoip"
 
 RUBY_FAKEGEM_BINWRAP="logstash"
 RUBY_FAKEGEM_EXTRAINSTALL="locales patterns"
