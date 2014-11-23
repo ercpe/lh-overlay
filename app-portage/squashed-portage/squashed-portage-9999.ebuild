@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit git-r3 multilib prefix python-r1 systemd
+inherit git-r3 multilib python-r1 systemd
 
 DESCRIPTION="Tools to handle squashed portage"
 HOMEPAGE="http://ercpe.de/projects/squashed-portage"
@@ -30,7 +30,6 @@ RESTRICT="mirror"
 EGIT_NONSHALLOW=true
 
 src_prepare() {
-	eprefixify *
 	sed \
 		-e "s:\@GENTOOLIBDIR\@:$(get_libdir):g" \
 		-i get-squashed-portage || die
@@ -55,7 +54,7 @@ src_install() {
 
 	systemd_dounit *.service *.mount *.target
 	systemd_dotmpfilesd squashed-portage.tmpfiles.conf
-	use aufs && systemd_newunit usr-portage.mount.aufs usr-portage.mount
+	use aufs && systemd_newunit var-db-portage.mount.aufs var-db-portage.mount
 }
 
 pkg_postinst() {
