@@ -2,6 +2,12 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*elasticsearch-1.4.0 (24 Nov 2014)
+
+  24 Nov 2014; Johann Schmitz <ercpe@gentoo.org> +elasticsearch-1.4.0.ebuild,
+  +files/elasticsearch.init3, +files/elasticsearch.service2:
+  Versio bump of elasticsearch
+
   24 Nov 2014; Johann Schmitz <ercpe@gentoo.org> -elasticsearch-1.1.1.ebuild,
   -elasticsearch-1.2.1.ebuild:
   Dropped old versions
