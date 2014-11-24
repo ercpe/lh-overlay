@@ -1,0 +1,19 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+start() {
+	ebegin "Starting permwatcher"
+	start-stop-daemon --start --exec /usr/bin/permwatcher \
+		--make-pidfile --pidfile /run/permwatcher.pid \
+		--background -- ${PERMWATCHER_ARGS}
+	eend $*
+}
+
+stop() {
+	ebegin "Stopping permwatcher"
+	start-stop-daemon --stop --exec /usr/bin/permwatcher \
+		--pidfile /run/permwatcher.pid
+	eend $*
+}
