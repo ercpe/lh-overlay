@@ -1,0 +1,38 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+LOGSTASH_BIN="/usr/share/logstash/bin/logstash"
+
+start() {
+	checkconfig || return 1
+	ebegin "Starting logstash"
+
+	local args="${LOGSTASH_ARGS}"
+	[[ "${LOGSTASH_CONFIG}" ]] && args+=" -f ${LOGSTASH_CONFIG}"
+
+	export JAVA_OPTS="-Des.path.home=/var/lib/logstash/elasticsearch"
+
+	start-stop-daemon --start --exec ${LOGSTASH_BIN} \
+		--make-pidfile --pidfile /run/logstash.pid \
+		--background --user logstash --group logstash \
+		--chdir /var/lib/logstash  -- ${args}
+	eend $*
+}
+
+stop() {
+	checkconfig || return 1
+	ebegin "Stopping logstash"
+	start-stop-daemon --stop --exec ${LOGSTASH_BIN} \
+		--pidfile /run/logstash.pid --user logstash --group logstash
+	eend $*
+}
+
+checkconfig() {
+	local args="${LOGSTASH_ARGS}"
+	[[ "${LOGSTASH_CONFIG}" ]] && args+=" -f ${LOGSTASH_CONFIG}"
+	export JAVA_OPTS="-Des.path.home=/var/lib/logstash/elasticsearch"
+
+	${LOGSTASH_BIN} agent --configtest ${args}
+}
