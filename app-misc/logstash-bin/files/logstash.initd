@@ -12,6 +12,8 @@ start() {
 	local args="${LOGSTASH_ARGS}"
 	[[ "${LOGSTASH_CONFIG}" ]] && args+=" -f ${LOGSTASH_CONFIG}"
 
+	[[ "${JAVA_VM}" ]] && export JAVA_HOME=$(java-config --select-vm ${JAVA_VM} -o)
+
 	export JAVA_OPTS="-Des.path.home=/var/lib/logstash/elasticsearch"
 
 	start-stop-daemon --start --exec ${LOGSTASH_BIN} \

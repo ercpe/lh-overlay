@@ -1,3 +1,5 @@
 #LOGSTASH_ARGS=""
 #LOGSTASH_CONFIG="/etc/logstash/logstash.conf"
 
+# Name of the gentoo java vm to use instead of the current vm
+# JAVA_VM=
