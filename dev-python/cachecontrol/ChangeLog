@@ -2,6 +2,11 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cachecontrol-0.10.6 (07 Dec 2014)
+
+  07 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +cachecontrol-0.10.6.ebuild:
+  Version bump
+
 *cachecontrol-0.10.3_pre20140802 (02 Aug 2014)
 
   02 Aug 2014; Johann Schmitz <ercpe@gentoo.org>
