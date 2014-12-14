@@ -2,6 +2,12 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*squashed-portage-0.19-r1 (14 Dec 2014)
+
+  14 Dec 2014; Johann Schmitz <ercpe@gentoo.org>
+  +squashed-portage-0.19-r1.ebuild, squashed-portage-0.19.ebuild:
+  Fixed sed command
+
   14 Dec 2014; Johann Schmitz <ercpe@gentoo.org> squashed-portage-0.19.ebuild:
   Stable for x86 and amd64 to resolve error message with newer portage
 
