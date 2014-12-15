@@ -1,5 +1,11 @@
 
 
+*lh-sources-3.18.0 (15 Dec 2014)
+
+  15 Dec 2014; Justin Lecher <jlec@gentoo.org> +lh-sources-3.18.0.ebuild,
+  +files/lh-sources-3.18-armv6.patch:
+  Bump to latest aufs3, genpatches and linux release
+
   10 Dec 2014; Justin Lecher <jlec@gentoo.org> -lh-sources-3.17.4.ebuild,
   +lh-sources-3.17.6.ebuild:
   Bump to latest genpatches and linux release; drop old
