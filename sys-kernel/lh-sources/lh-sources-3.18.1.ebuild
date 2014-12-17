@@ -80,11 +80,7 @@ GCCOPT_LIST=( "${DISTDIR}"/${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch )
 
 BFQ_DOC="${DISTDIR}/README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MINOR}.BFQ"
 
-# http://unicorn.drogon.net/rpi/linux-arm.patch
-ARM_PATCH_LIST="${FILESDIR}/${PN}-${KMAIN_VER}-armv6.patch"
-
 UNIPATCH_LIST="
-	${ARM_PATCH_LIST}
 	${AUFS_PATCH_LIST}
 	${GCCOPT_LIST}
 "
