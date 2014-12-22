@@ -1,5 +1,8 @@
 
 
+  22 Dec 2014; Justin Lecher <jlec@gentoo.org> lh-sources-3.18.1.ebuild:
+  Bump BFQ patch
+
   17 Dec 2014; Justin Lecher <jlec@gentoo.org> -lh-sources-3.17.6.ebuild,
   lh-sources-3.18.1.ebuild, -files/lh-sources-3.16-armv6.patch,
   -files/lh-sources-3.17-armv6.patch, -files/lh-sources-3.18-armv6.patch:
