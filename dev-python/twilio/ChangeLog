@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/twilio
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*twilio-3.6.9 (26 Dec 2014)
+
+  26 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +twilio-3.6.9.ebuild:
+  Ebuild for dev-python/twilio
