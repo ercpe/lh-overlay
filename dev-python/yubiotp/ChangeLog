@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/yubiotp
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yubiotp-0.2.1 (26 Dec 2014)
+
+  26 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +yubiotp-0.2.1.ebuild:
+  Ebuild for yubiotp
