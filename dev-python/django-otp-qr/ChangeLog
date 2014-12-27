@@ -2,6 +2,11 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*django-otp-qr-0.1.1 (27 Dec 2014)
+
+  27 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +django-otp-qr-0.1.1.ebuild:
+  Version bump
+
 *django-otp-qr-0.1.0 (25 Dec 2014)
 
   25 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +django-otp-qr-0.1.0.ebuild,
