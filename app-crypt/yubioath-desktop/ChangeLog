@@ -1,0 +1,9 @@
+# ChangeLog for app-crypt/yubioath-desktop
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yubioath-desktop-0.1.1 (28 Dec 2014)
+
+  28 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +yubioath-desktop-0.1.1.ebuild:
+  New ebuild for yubioath-desktop
