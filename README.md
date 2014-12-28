@@ -1,6 +1,8 @@
 last-hope gentoo portage overlay
 ==========
 
+[![Build Status](https://travis-ci.org/ercpe/lh-overlay.svg?branch=master)](https://travis-ci.org/ercpe/lh-overlay)
+
 A gentoo portage overlay with a set of too exotic, or unusal ebuilds for the sunrise overlay or the main gentoo portage tree.
 Home of the only ebuild for the great mucommander, and several other not well-known tools.
 
