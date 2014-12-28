@@ -1,4 +1,3 @@
 # Justin Lecher <jlec@gentoo.org> (10. Nov 2014)
 # Missing or broken deps
 gnome-extra/gnome-launch-box
-net-im/pyirc-t
