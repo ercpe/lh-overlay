@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-guardian
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-guardian-1.2.4 (30 Dec 2014)
+
+  30 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +django-guardian-1.2.4.ebuild,
+  +metadata.xml:
+  Added ebuild for django-guardian
