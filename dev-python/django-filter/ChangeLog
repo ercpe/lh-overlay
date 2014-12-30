@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-filter
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-filter-0.9.1 (30 Dec 2014)
+
+  30 Dec 2014; Johann Schmitz <ercpe@gentoo.org> +django-filter-0.9.1.ebuild,
+  +metadata.xml:
+  New ebuild for django-filter
