@@ -7,7 +7,7 @@ EAPI=5
 inherit eutils vcs-snapshot
 
 DESCRIPTION="Template for Munin using Twitter Bootstrap 3"
-HOMEPAGE="https://repos.j-schmitz.net/gitweb/?p=munin-b3.git;a=summary"
+HOMEPAGE="https://ercpe.de/projects/munin-b3"
 SRC_URI="https://repos.j-schmitz.net/gitweb/?p=munin-b3.git;a=snapshot;h=63869d9974e307e24bfc60f3f7000a841e05cf4a;sf=tgz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
