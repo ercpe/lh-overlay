@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_3 )
 inherit distutils-r1
 
 DESCRIPTION="Better notifications for Nagios/Icinga"
-HOMEPAGE="https://github.com/ercpe/better-notifications"
+HOMEPAGE="https://ercpe.de/projects/better-notifications"
 SRC_URI="https://github.com/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 
