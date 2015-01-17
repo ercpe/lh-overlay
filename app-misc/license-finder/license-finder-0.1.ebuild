@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python{2_7,3_3} )
 inherit python-r1 vcs-snapshot
 
 DESCRIPTION="Tool to automatically detect FLOSS licenses"
-HOMEPAGE="http://repos.j-schmitz.net/gitweb/?p=license-finder.git;a=summary"
+HOMEPAGE="https://ercpe.de/projects/license-finder"
 SRC_URI="http://repos.j-schmitz.net/gitweb/?p=license-finder.git;a=snapshot;h=c0b69b99a4f6965533a49fce1425cf93593cd77e;sf=tgz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
