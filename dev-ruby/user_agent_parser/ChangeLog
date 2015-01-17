@@ -1,9 +1,0 @@
-# ChangeLog for dev-ruby/user_agent_parser
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*user_agent_parser-2.1.5 (29 May 2014)
-
-  29 May 2014; Johann Schmitz <ercpe@gentoo.org>
-  +user_agent_parser-2.1.5.ebuild:
-  New ebuild for user_agent_parser
