@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_3 )
 inherit distutils-r1
 
 DESCRIPTION="Tool to ease the creation of gentoo-based XEN DomUs"
-HOMEPAGE="https://github.com/ercpe/gentoo-bootstrap"
+HOMEPAGE="https://ercpe.de/projects/gentoo-bootstrap https://github.com/ercpe/gentoo-bootstrap"
 SRC_URI="https://github.com/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
