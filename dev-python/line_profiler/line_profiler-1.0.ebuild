@@ -18,6 +18,6 @@ SLOT="0"
 
 IUSE=""
 
-x_python_test() {
-	"${PYTHON}" -m unittest discover "${S}"/test/ || die "Tests failed with ${EPYTHON}"
+python_test() {
+	"${PYTHON}" -m unittest discover "${S}"/tests/ || die "Tests failed with ${EPYTHON}"
 }
