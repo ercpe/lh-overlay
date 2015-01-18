@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://git.j-schmitz.net/squashed-portage.git"
 
 SLOT="0"
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 KEYWORDS=""
 IUSE="aufs zsync"
 
@@ -32,29 +32,29 @@ EGIT_NONSHALLOW=true
 src_prepare() {
 	sed \
 		-e "s:\@GENTOOLIBDIR\@:$(get_libdir):g" \
-		-i get-squashed-portage || die
+		-i src/get-squashed-portage || die
 
 	if use zsync; then
 		sed \
 			-e 's:get-squashed-portage:get-squashed-portage -z:g' \
-			-i squashed-portage.init || die
+			-i src/squashed-portage.init || die
 	fi
 }
 
 src_install() {
-	dobin get-squashed-portage
+	dobin src/get-squashed-portage
 
-	python_foreach_impl python_newscript fetch-squashed-portage.py fetch-squashed-portage
+	python_foreach_impl python_newscript src/fetch-squashed-portage.py fetch-squashed-portage
 
-	newinitd ${PN}.init ${PN}
-	newconfd ${PN}.confd ${PN}
+	newinitd src/${PN}.init ${PN}
+	newconfd src/${PN}.confd ${PN}
 
 	insinto /etc/
-	doins ${PN}.conf
+	doins src/${PN}.conf
 
-	systemd_dounit *.service *.mount *.target
-	systemd_dotmpfilesd squashed-portage.tmpfiles.conf
-	use aufs && systemd_newunit var-db-portage.mount.aufs var-db-portage.mount
+	systemd_dounit src/{*.service,*.mount,*.target}
+	systemd_dotmpfilesd src/squashed-portage.tmpfiles.conf
+	use aufs && systemd_newunit src/var-db-portage.mount.aufs var-db-portage.mount
 }
 
 pkg_postinst() {
