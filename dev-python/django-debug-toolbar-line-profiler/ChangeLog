@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-debug-toolbar-line-profiler
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-debug-toolbar-line-profiler-0.4.0 (18 Jan 2015)
+
+  18 Jan 2015; Johann Schmitz <ercpe@gentoo.org>
+  +django-debug-toolbar-line-profiler-0.4.0.ebuild, +metadata.xml:
+  New ebuild for django-debug-toolbar-line-profiler
