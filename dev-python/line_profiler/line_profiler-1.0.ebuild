@@ -12,7 +12,7 @@ DESCRIPTION="Line-by-line profiler"
 HOMEPAGE="https://github.com/rkern/line_profiler"
 SRC_URI="mirror://pypi/l/${PN}/${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 

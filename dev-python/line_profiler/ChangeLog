@@ -3,6 +3,9 @@
 # $Header: $
 
   18 Jan 2015; Johann Schmitz <ercpe@gentoo.org> line_profiler-1.0.ebuild:
+  Fixed wrong license
+
+  18 Jan 2015; Johann Schmitz <ercpe@gentoo.org> line_profiler-1.0.ebuild:
   New ebuild for line_profiler
 
 *line_profiler-1.0 (18 Jan 2015)
