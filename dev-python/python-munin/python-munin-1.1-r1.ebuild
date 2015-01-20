@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,9 +17,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="plugins"
 
-DEPEND=""
-RDEPEND="${DEPEND}"
-
 python_prepare_all() {
 	distutils-r1_python_prepare_all
 	# the memcached plugin in the release is broken
@@ -30,7 +27,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 
 	if use plugins; then
-		python_scriptinto /usr/libexec/${PN}
+		python_scriptinto /usr/libexec/munin/plugins
 		python_foreach_impl python_doscript plugins/*
 	fi
 }

@@ -1,6 +1,10 @@
 # ChangeLog for dev-python/python-munin
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 Jan 2015; Justin Lecher <jlec@gentoo.org> -python-munin-1.1.ebuild,
+  python-munin-1.1-r1.ebuild, metadata.xml:
+  Use normal munin plugins location
 
 *python-munin-1.1 (07 Aug 2013)
 
