@@ -1,8 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
+
+PYTHON_COMPAT=( python2_7 )
+
+inherit python-r1
 
 DESCRIPTION="A set of useful tools to make your (gentoo) admin life easier"
 HOMEPAGE="http://www.j-schmitz.net/projects/admin-tools/"
@@ -13,7 +17,9 @@ KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 LICENSE="all-rights-reserved"
 IUSE=""
 
-RDEPEND="
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+RDEPEND="${PYTHON_DEPS}
 	app-portage/eix
 	app-portage/gentoolkit
 	app-admin/lib_users
@@ -22,10 +28,8 @@ DEPEND=""
 
 RESTRICT="mirror"
 
-pkg_setup() {
-	ewarn "This package contains potentially dangerous scripts. Use it with care!"
-}
-
 src_install() {
-	dosbin autounmask regen-meta-flat rebuild-all adduse.py resume-list ps_mem.py update-portage
+	python_scriptinto /usr/sbin
+	python_foreach_impl python_doscript adduse.py resume-list ps_mem.py
+	dosbin autounmask regen-meta-flat rebuild-all update-portage
 }
