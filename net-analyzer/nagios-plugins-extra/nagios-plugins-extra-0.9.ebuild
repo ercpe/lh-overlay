@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ inherit eutils multilib
 
 DESCRIPTION="A set of extra nagios plugins"
 HOMEPAGE="http://www.j-schmitz.net/projects/nagios-plugins-extra/"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="all-rights-reserved"
