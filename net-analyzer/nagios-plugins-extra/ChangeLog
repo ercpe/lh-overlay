@@ -3,6 +3,9 @@
 # $Header: $
 
   27 Jan 2015; Justin Lecher <jlec@gentoo.org> nagios-plugins-extra-0.9.ebuild:
+  Fix quoting
+
+  27 Jan 2015; Justin Lecher <jlec@gentoo.org> nagios-plugins-extra-0.9.ebuild:
   Fix SRC_URI
 
   03 Jul 2013; Justin Lecher <jlec@gentoo.org>

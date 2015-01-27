@@ -39,7 +39,7 @@ TEMPLATES=(
 src_install(){
 	exeinto /usr/$(get_libdir)/nagios/plugins/extra/
 
-	for x in $CHECK_SCRIPTS[@]; do
+	for x in ${CHECK_SCRIPTS[@]}; do
 		inst_check $x
 	done
 
