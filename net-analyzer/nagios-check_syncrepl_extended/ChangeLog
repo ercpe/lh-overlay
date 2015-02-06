@@ -1,0 +1,9 @@
+# ChangeLog for net-analyzer/nagios-check_syncrepl_extended
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*nagios-check_syncrepl_extended-0.1_p20140807 (06 Feb 2015)
+
+  06 Feb 2015; Johann Schmitz <schmitz@cominto.de> +metadata.xml,
+  +nagios-check_syncrepl_extended-0.1_p20140807.ebuild:
+  New ebuild for nagios-check_syncrepl_extended
