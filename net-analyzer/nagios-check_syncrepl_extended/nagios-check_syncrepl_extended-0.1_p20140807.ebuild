@@ -10,7 +10,7 @@ inherit python-r1 vcs-snapshot
 
 DESCRIPTION="Script to check LDAP syncrepl replication"
 HOMEPAGE="http://git.zionetrix.net/git/check_syncrepl_extended"
-SRC_URI="http://git.zionetrix.net/check_syncrepl_extended?a=archive&p=check_syncrepl_extended&h=c55c5e597f759f758455ec85fdd0a9d9b0c4db8b&hb=07048d3e26ea62b4b156b8ff8ffdc538e6689909&t=targz -> ${P}.tar.gz"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
