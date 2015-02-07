@@ -1,5 +1,8 @@
 
 
+  07 Feb 2015; Justin Lecher <jlec@gentoo.org> ChangeLog:
+  Bump to latest aufs3, genpatches and linux release
+
   30 Jan 2015; Justin Lecher <jlec@gentoo.org> -lh-sources-3.18.3.ebuild,
   +lh-sources-3.18.4.ebuild:
   Bump to latest aufs3, genpatches and linux release; drop old
