@@ -1,4 +1,6 @@
 
+  10 Feb 2015; Justin Lecher <jlec@gentoo.org> lh-sources-3.18.6.ebuild:
+  sys-kernel/lh-sources: Fix genpatches version
 
   07 Feb 2015; Justin Lecher <jlec@gentoo.org> ChangeLog:
   Bump to latest aufs3, genpatches and linux release
