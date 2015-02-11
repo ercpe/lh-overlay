@@ -1,0 +1,11 @@
+# ChangeLog for dev-python/pydenticon
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pydenticon-0.2 (11 Feb 2015)
+
+  11 Feb 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +pydenticon-0.2.ebuild:
+  New ebuild for pydenticon  Pydenticon is a small utility library that can be
+  used for deterministically generating identicons based on the hash of provided
+  data.
