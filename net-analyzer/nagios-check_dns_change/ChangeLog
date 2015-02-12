@@ -1,0 +1,10 @@
+# ChangeLog for net-analyzer/nagios-check_dns_change
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*nagios-check_dns_change-0.1 (12 Feb 2015)
+
+  12 Feb 2015; Johann Schmitz <schmitz@cominto.de>
+  +nagios-check_dns_change-0.1.ebuild, +metadata.xml:
+  New ebuild for nagios-check_dns_change
+
