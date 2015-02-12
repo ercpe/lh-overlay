@@ -1,4 +1,10 @@
 
+*lh-sources-3.18.7 (12 Feb 2015)
+
+  12 Feb 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.18.7.ebuild,
+  -lh-sources-3.18.4.ebuild, -lh-sources-3.18.6.ebuild:
+  sys-kernel/lh-sources: Bump to latest genpatches and linux release
+
   10 Feb 2015; Justin Lecher <jlec@gentoo.org> lh-sources-3.18.6.ebuild:
   sys-kernel/lh-sources: Fix genpatches version
 
