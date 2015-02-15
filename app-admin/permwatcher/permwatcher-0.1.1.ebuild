@@ -6,11 +6,11 @@ EAPI=5
 
 PYTHON_COMPAT=( python3_3 )
 
-inherit distutils-r1 vcs-snapshot
+inherit distutils-r1
 
 DESCRIPTION="Linux Filesystem Permissions Watcher"
 HOMEPAGE="https://ercpe.de/projects/permwatcher"
-SRC_URI="https://repos.j-schmitz.net/gitweb/?p=permwatcher.git;a=snapshot;h=c8d1997e720ea88fe7e11c412c78a14296869869;sf=tgz -> ${P}.tar.gz"
+SRC_URI="https://code.not-your-server.de/permwatcher.git/tags/0.1.1.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
@@ -18,6 +18,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/pyinotify[${PYTHON_USEDEP}]"
+
+S="${WORKDIR}"
 
 src_install() {
 	distutils-r1_src_install
