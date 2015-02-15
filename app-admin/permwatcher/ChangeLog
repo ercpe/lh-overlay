@@ -3,6 +3,9 @@
 # $Header: $
 
   15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> permwatcher-0.1.1.ebuild:
+  Use $PV for URL
+
+  15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> permwatcher-0.1.1.ebuild:
   Updated SRC_URI of permwatcher
 
   17 Jan 2015; Johann Schmitz <ercpe@gentoo.org> permwatcher-0.1.1.ebuild:

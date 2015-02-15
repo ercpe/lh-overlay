@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Linux Filesystem Permissions Watcher"
 HOMEPAGE="https://ercpe.de/projects/permwatcher"
-SRC_URI="https://code.not-your-server.de/permwatcher.git/tags/0.1.1.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://code.not-your-server.de/permwatcher.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
