@@ -1,6 +1,10 @@
 # ChangeLog for dev-python/django-otp-qr
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> django-otp-qr-0.1.0.ebuild,
+  django-otp-qr-0.1.1.ebuild:
+  Updated HOMEPAGE and SRC_URI of django-otp-qr
 
 *django-otp-qr-0.1.1 (27 Dec 2014)
 
