@@ -20,5 +20,3 @@ IUSE=""
 
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]
 		dev-python/qrcode[${PYTHON_USEDEP}]"
-
-S="${WORKDIR}"
