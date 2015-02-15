@@ -6,7 +6,7 @@ EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit python-r1 vcs-snapshot
+inherit python-r1
 
 DESCRIPTION="Nagios check to test for changes in DNS records"
 HOMEPAGE="https://ercpe.de/projects/${PN}"
@@ -19,10 +19,12 @@ IUSE=""
 
 RDEPEND="dev-python/dnspython[${PYTHON_USEDEP}]"
 
+#S="${WORKDIR}"
+
 src_prepare() {
-	sed -i '1 i\#!/usr/bin/env python2.7' "${PN/nagios-}.py" || die
+	sed -i '1 i\#!/usr/bin/env python2.7' "${S}/src/${PN/nagios-}.py" || die
 }
 
 src_install() {
-	python_foreach_impl python_newscript "${PN/nagios-}.py" ${PN/nagios-}
+	python_foreach_impl python_newscript "src/${PN/nagios-}.py" ${PN/nagios-}
 }
