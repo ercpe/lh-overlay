@@ -19,8 +19,6 @@ IUSE=""
 
 RDEPEND="dev-python/pyinotify[${PYTHON_USEDEP}]"
 
-S="${WORKDIR}"
-
 src_install() {
 	distutils-r1_src_install
 
