@@ -1,9 +1,0 @@
-# ChangeLog for dev-ruby/ruby-grok
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*ruby-grok-0.10.11 (29 May 2014)
-
-  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
-  +ruby-grok-0.10.11.ebuild:
-  Ebuild for ruby-grok

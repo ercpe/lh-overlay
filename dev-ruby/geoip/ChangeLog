@@ -1,9 +1,0 @@
-# ChangeLog for dev-ruby/geoip
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*geoip-1.4.0 (29 May 2014)
-
-  29 May 2014; Johann Schmitz <ercpe@gentoo.org> +geoip-1.4.0.ebuild,
-  +metadata.xml:
-  New ebuild for dev-ruby/geoip

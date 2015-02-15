@@ -1,9 +1,0 @@
-# ChangeLog for dev-ruby/ruby-ftw
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*ruby-ftw-0.0.39 (28 May 2014)
-
-  28 May 2014; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
-  +ruby-ftw-0.0.39.ebuild:
-  Added ebuild for ruby-ftw
