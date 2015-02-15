@@ -3,6 +3,9 @@
 # $Header: $
 
   15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> license-finder-0.1.ebuild:
+  S="${WORKDIR}" no longer needed
+
+  15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> license-finder-0.1.ebuild:
   Updated SRC_URI of license finder
 
   17 Jan 2015; Johann Schmitz <ercpe@gentoo.org> license-finder-0.1.ebuild:

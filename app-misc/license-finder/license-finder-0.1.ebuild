@@ -18,8 +18,6 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-S="${WORKDIR}"
-
 src_prepare() {
 	sed -i -e '1 s:^.*$:#!/usr/bin/env python:g' src/main.py || die
 }
