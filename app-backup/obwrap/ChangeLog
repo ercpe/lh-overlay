@@ -1,0 +1,9 @@
+# ChangeLog for app-backup/obwrap
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*obwrap-0.1 (19 Feb 2015)
+
+  19 Feb 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +obwrap-0.1.ebuild:
+  New ebuild for obwrap
