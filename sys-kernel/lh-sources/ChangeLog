@@ -1,4 +1,9 @@
 
+*lh-sources-3.19.0 (17 Feb 2015)
+
+  17 Feb 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.19.0.ebuild:
+  sys-kernel/lh-sources: Bump to latest aufs3, genpatches and linux release
+
 *lh-sources-3.18.7 (12 Feb 2015)
 
   12 Feb 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.18.7.ebuild,
