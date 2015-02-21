@@ -19,7 +19,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 src_install() {
-	distutils-r1_src_install
 	python_foreach_impl python_newscript "${S}"/src/${PN}/main.py ${PN}
 
 	insinto /etc/${PN}
