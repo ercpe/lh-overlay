@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="An experimental indexing and search engine for e-mail"
 HOMEPAGE="https://www.mailpile.is/"
-SRC_URI="https://github.com/pagekite/Mailpile/archive/0.2.0.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/pagekite/Mailpile/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="AGPL-3"
