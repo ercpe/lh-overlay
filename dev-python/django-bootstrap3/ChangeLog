@@ -3,6 +3,9 @@
 # $Header: $
 
   18 Mar 2015; Justin Lecher <jlec@gentoo.org> django-bootstrap3-5.1.1.ebuild:
+  dev-python/django-bootstrap3: Add test
+
+  18 Mar 2015; Justin Lecher <jlec@gentoo.org> django-bootstrap3-5.1.1.ebuild:
   dev-python/django-bootstrap3: Add pypy support
 
 *django-bootstrap3-5.1.1 (18 Feb 2015)

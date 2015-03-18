@@ -15,9 +15,11 @@ SRC_URI="https://github.com/dyve/django-bootstrap3/archive/${PV}.tar.gz -> ${P}.
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc"
+IUSE="doc test"
 
-DEPEND="doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
+DEPEND="
+	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
+	test? ( dev-python/coverage[${PYTHON_USEDEP}] )"
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]"
 
 python_compile_all() {
@@ -26,4 +28,8 @@ python_compile_all() {
 		emake html
 		HTML_DOCS=( docs/_build/html/. )
 	fi
+}
+
+python_test() {
+	coverage run --source=bootstrap3 manage.py test || die
 }
