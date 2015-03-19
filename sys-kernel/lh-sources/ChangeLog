@@ -1,4 +1,9 @@
 
+*lh-sources-3.19.2 (19 Mar 2015)
+
+  19 Mar 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.19.2.ebuild:
+  sys-kernel/lh-sources: Bump to latest genpatches and linux release
+
 *lh-sources-3.19.1 (09 Mar 2015)
 
   09 Mar 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.19.1.ebuild:
