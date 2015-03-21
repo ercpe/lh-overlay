@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-macaddress
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-macaddress-1.3.0 (21 Mar 2015)
+
+  21 Mar 2015; Johann Schmitz <ercpe@gentoo.org>
+  +django-macaddress-1.3.0.ebuild, +metadata.xml:
+  New ebuild for django-macaddress
