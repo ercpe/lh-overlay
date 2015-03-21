@@ -15,7 +15,7 @@ SRC_URI="https://github.com/tubaman/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SLOT="0"
 LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE=""
 
 DEPEND="dev-python/netaddr[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]"
