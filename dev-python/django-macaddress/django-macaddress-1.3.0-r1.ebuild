@@ -17,5 +17,13 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-python/netaddr[${PYTHON_USEDEP}]
-		dev-python/django[${PYTHON_USEDEP}]"
+DEPEND="
+	dev-python/netaddr[${PYTHON_USEDEP}]
+	dev-python/django[${PYTHON_USEDEP}]"
+
+python_prepare_all() {
+	sed \
+		-e '/except/s:, e: as e:g' \
+		-i macaddress/fields.py || die
+	distutils-r1_python_prepare_all
+}
