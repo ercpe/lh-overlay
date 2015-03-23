@@ -3,3 +3,6 @@
 
 # Name of the gentoo java vm to use instead of the current vm
 # JAVA_VM=
+
+# Maximum heap size to use.  It's passed to JVM with `-Xmx` option.
+#LS_HEAP_SIZE=128m
