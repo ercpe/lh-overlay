@@ -21,11 +21,7 @@ DEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/django[${PYTHON_USEDEP}]"
 
-PATCHES=( "${FILESDIR}"/${P}-django-1.7-backport )
-
-python_prepare_all() {
-	sed \
-		-e '/except/s:, e: as e:g' \
-		-i macaddress/fields.py || die
-	distutils-r1_python_prepare_all
-}
+PATCHES=(
+	"${FILESDIR}"/${P}-django-1.7-backport.patch
+	"${FILESDIR}"/${P}-python3.patch
+	)
