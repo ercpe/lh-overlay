@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="3"
+K_GENPATCHES_VER="4"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo versionator
@@ -37,9 +37,9 @@ BFQ_URI="
 		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-${KMAIN_VER}.${BFQ_URI_PATCH_MINOR}.patch1
 	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MINOR}.BFQ"
 
-GCCOPT_PATCH_LEVEL=da192988c7cb69709bb70f74f576f1479dce0e1d
+GCCOPT_PATCH_LEVEL=d4f67618772bf873192a77c9fba303d9663d1e65
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
-GCCOPT_URI="https://raw2.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
+GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
 DESCRIPTION="Full sources including the Gentoo patchset, the BFQ patchset and aufs support for the  ${KMAIN_VER} kernel"
 HOMEPAGE="
