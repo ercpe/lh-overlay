@@ -1,4 +1,7 @@
 
+  29 Mar 2015; Justin Lecher <jlec@gentoo.org> lh-sources-3.19.3.ebuild:
+  sys-kernel/lh-sources: Bump to latest aufs3
+
 *lh-sources-3.19.3 (27 Mar 2015)
 
   27 Mar 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-3.19.3.ebuild,
