@@ -13,7 +13,7 @@ HOMEPAGE="http://www.j-schmitz.net/projects/admin-tools/"
 SRC_URI="http://dev.gentoo.org/~jlec/distfiles/${P}.tar.xz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 LICENSE="all-rights-reserved"
 IUSE=""
 
