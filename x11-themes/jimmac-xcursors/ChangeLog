@@ -1,6 +1,9 @@
 # ChangeLog for x11-themes/jimmac-xcursors
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  05 Apr 2015; Johann Schmitz <ercpe@gentoo.org> jimmac-xcursors-0.1.ebuild:
+  After 3 years, we probably can go stable safely
 
   03 Jul 2013; Justin Lecher <jlec@gentoo.org> jimmac-xcursors-0.1.ebuild,
   metadata.xml:
