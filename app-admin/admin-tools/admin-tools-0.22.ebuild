@@ -13,7 +13,7 @@ HOMEPAGE="https://ercpe.de/projects/admin-tools"
 SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.gz"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
 LICENSE="all-rights-reserved"
 IUSE=""
 

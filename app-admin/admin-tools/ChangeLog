@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Apr 2015; Johann Schmitz <ercpe@gentoo.org> admin-tools-0.22.ebuild:
+  Fast stable
+
 *admin-tools-0.22 (05 Apr 2015)
 
   05 Apr 2015; Johann Schmitz <ercpe@gentoo.org> +admin-tools-0.22.ebuild:
