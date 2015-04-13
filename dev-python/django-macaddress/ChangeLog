@@ -2,6 +2,13 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*django-macaddress-1.3.1-r1 (13 Apr 2015)
+
+  13 Apr 2015; Justin Lecher <jlec@gentoo.org>
+  +django-macaddress-1.3.1-r1.ebuild,
+  +files/django-macaddress-1.3.1-python3.patch, -django-macaddress-1.3.1.ebuild:
+  dev-python/django-macaddress: Add back python3 patch
+
 *django-macaddress-1.3.1 (13 Apr 2015)
 
   13 Apr 2015; Justin Lecher <jlec@gentoo.org> +django-macaddress-1.3.1.ebuild:
