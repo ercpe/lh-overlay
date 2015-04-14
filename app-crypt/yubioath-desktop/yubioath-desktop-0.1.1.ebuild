@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,28 +13,27 @@ HOMEPAGE="https://developers.yubico.com/yubioath-desktop/"
 SRC_URI="https://github.com/Yubico/yubioath-desktop/archive/${P}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
-KEYWORDS="~amd64" # missing x86 on dev-python/pyscard
 SLOT="0"
-
+KEYWORDS="~amd64" # missing x86 on dev-python/pyscard
 IUSE=""
 
-DEPEND="dev-python/pyscard[${PYTHON_USEDEP}]
-		dev-python/pbkdf2[${PYTHON_USEDEP}]
-		dev-python/pyside[${PYTHON_USEDEP}]
-		sys-apps/pcsc-lite[${PYTHON_USEDEP}]"
+DEPEND="
+	dev-python/pyscard[${PYTHON_USEDEP}]
+	dev-python/pbkdf2[${PYTHON_USEDEP}]
+	dev-python/pyside[${PYTHON_USEDEP}]
+	sys-apps/pcsc-lite[${PYTHON_USEDEP}]"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
-	sed -i -e "s/if __name__.*/def launch_yubicoauthenticator():/g" yubicoauthenticator/ui_systray.py || die
+	sed \
+		-e "s/if __name__.*/def launch_yubicoauthenticator():/g" \
+		-i yubicoauthenticator/ui_systray.py || die
 
-	echo "#!/usr/bin/env python2" >> "${T}"/${PN}.py
-	echo "from yubicoauthenticator.ui_systray import launch_yubicoauthenticator" >> "${T}"/${PN}.py
-	echo "launch_yubicoauthenticator()" >> "${T}"/${PN}.py
-
-	cat - > "${T}"/${PN}.py <<EOF
-#!/usr/bin/env python2
-from yubicoauthenticator.ui_systray import launch_yubicoauthenticator
-launch_yubicoauthenticator()
-EOF
+	cat >> "${T}"/${PN}.py <<- EOF
+	#!/usr/bin/env python2
+	from yubicoauthenticator.ui_systray import launch_yubicoauthenticator
+	launch_yubicoauthenticator()
+	EOF
 }
 
 python_install_all() {
@@ -46,5 +45,5 @@ python_install_all() {
 }
 
 pkg_postinst() {
-	einfo "${PN} needs a running pcscd to run."
+	elog "${PN} needs a running pcscd to run."
 }
