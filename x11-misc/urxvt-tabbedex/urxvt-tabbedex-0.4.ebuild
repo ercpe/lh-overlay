@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/x11-misc/urxvt-perls/urxvt-perls-2.1.ebuild,v 1.2 2015/02/21 23:23:25 radhermit Exp $
+# $Header: $
 
 EAPI=5
 
