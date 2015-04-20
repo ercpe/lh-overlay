@@ -21,6 +21,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="dev-libs/geoip
+	!dev-python/geoip-python
 	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
 
 S="${WORKDIR}/${MY_PN}-${PV}"
