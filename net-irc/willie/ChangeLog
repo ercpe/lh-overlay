@@ -1,0 +1,9 @@
+# ChangeLog for net-irc/willie
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*willie-5.2.0 (20 Apr 2015)
+
+  20 Apr 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +willie-5.2.0.ebuild:
+  New ebuild for willie
