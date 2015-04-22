@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*django-bootstrap3-5.4.0 (22 Apr 2015)
+
+  22 Apr 2015; Justin Lecher <jlec@gentoo.org> +django-bootstrap3-5.4.0.ebuild:
+  dev-python/django-bootstrap3: Version Bump
+
 *django-bootstrap3-5.3.1 (13 Apr 2015)
 
   13 Apr 2015; Justin Lecher <jlec@gentoo.org> +django-bootstrap3-5.3.1.ebuild:
