@@ -68,9 +68,9 @@ README_GENTOO_SUFFIX="-r1"
 PDEPEND="=sys-fs/aufs-util-4*"
 
 AUFS_PATCH_LIST="
-	"${WORKDIR}"/aufs3-kbuild.patch
-	"${WORKDIR}"/aufs3-base.patch
-	"${WORKDIR}"/aufs3-mmap.patch"
+	"${WORKDIR}"/aufs4-kbuild.patch
+	"${WORKDIR}"/aufs4-base.patch
+	"${WORKDIR}"/aufs4-mmap.patch"
 BFQ_PATCH_LIST=(
 	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-${KMAIN_VER}.patch1
 	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-${KMAIN_VER}.patch1
@@ -97,7 +97,7 @@ src_unpack() {
 		ewarn "You are using USE=vanilla"
 		ewarn "This will drop all support from the gentoo kernel security team"
 	fi
-	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs3-standalone.patch"
+	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs4-standalone.patch"
 	unpack ${AUFS_TARBALL}
 	if [[ ${BFQ} == "true" ]]; then
 		mkdir "${WORKDIR}"/patches || die
@@ -117,8 +117,8 @@ src_prepare() {
 
 src_install() {
 	kernel-2_src_install
-	dodoc "${WORKDIR}"/{aufs3-loopback,vfs-ino,tmpfs-idr}.patch
-	docompress -x /usr/share/doc/${PF}/{aufs3-loopback,vfs-ino,tmpfs-idr}.patch
+	dodoc "${WORKDIR}"/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
+	docompress -x /usr/share/doc/${PF}/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
 	readme.gentoo_create_doc
 }
 
