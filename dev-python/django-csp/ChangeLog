@@ -3,6 +3,9 @@
 # $Header: $
 
   26 Apr 2015; Johann Schmitz <ercpe@gentoo.org> django-csp-2.0.3.ebuild:
+  Updated description
+
+  26 Apr 2015; Johann Schmitz <ercpe@gentoo.org> django-csp-2.0.3.ebuild:
   Fixed url on django-csp
 
 *django-csp-2.0.3 (26 Apr 2015)

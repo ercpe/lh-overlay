@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 python3_{3,4} )
 
 inherit distutils-r1
 
-DESCRIPTION="Bootstrap 3 integration with Django"
+DESCRIPTION="Content Security Policy for Django"
 HOMEPAGE="https://github.com/mozilla/django-csp"
 SRC_URI="https://github.com/mozilla/django-csp/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
