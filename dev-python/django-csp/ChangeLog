@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/django-csp
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*django-csp-2.0.3 (26 Apr 2015)
+
+  26 Apr 2015; Johann Schmitz <ercpe@gentoo.org> +django-csp-2.0.3.ebuild,
+  +metadata.xml:
+  New ebuild for django-csp
