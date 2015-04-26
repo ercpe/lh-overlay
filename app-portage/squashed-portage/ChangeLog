@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Apr 2015; Johann Schmitz <ercpe@gentoo.org>
+  squashed-portage-0.18-r1.ebuild, squashed-portage-0.19-r1.ebuild:
+  Keyworded squashed-portage ebuilds due to kwd on aufs-util
+
   18 Jan 2015; Justin Lecher <jlec@gentoo.org> squashed-portage-9999.ebuild:
   Fix broken live ebuild due to repo rearrangement
 
