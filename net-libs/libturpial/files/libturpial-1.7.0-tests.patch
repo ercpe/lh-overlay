@@ -1,0 +1,22 @@
+From ef1a584bfd5424cb7564ab957a1f8662b59f2879 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Sebasti=C3=A1n=20Magr=C3=AD?= <sebasmagri@gmail.com>
+Date: Thu, 10 Apr 2014 19:56:34 -0430
+Subject: [PATCH] Do not install the tests/ folder to avoid file collisions
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 3bb457a..f3b3bcf 100755
+--- a/setup.py
++++ b/setup.py
+@@ -45,7 +45,7 @@
+         "Topic :: Software Development :: Libraries :: Python Modules"
+     ],
+     include_package_data=True,
+-    packages=find_packages(),
++    packages=find_packages(exclude=['tests']),
+     package_data={
+         'libturpial': ['certs/*']
+     },
