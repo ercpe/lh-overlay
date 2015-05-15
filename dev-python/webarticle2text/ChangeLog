@@ -1,6 +1,11 @@
 # ChangeLog for dev-python/webarticle2text
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*webarticle2text-2.0.1 (15 May 2015)
+
+  15 May 2015; Johann Schmitz <ercpe@gentoo.org> +webarticle2text-2.0.1.ebuild:
+  Version bump of webarticle2text
 
 *webarticle2text-1.2.6_pre20130824 (24 Aug 2013)
 
