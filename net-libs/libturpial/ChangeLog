@@ -1,6 +1,11 @@
 # ChangeLog for net-libs/libturpial
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 May 2015; Justin Lecher <jlec@gentoo.org>
+  +files/libturpial-1.7.0-tests.patch, -libturpial-1.6.0.ebuild,
+  libturpial-1.7.0.ebuild:
+  net-libs/libturpial: Backport fix for potential file collision
 
   09 Apr 2014; Justin Lecher <jlec@gentoo.org> libturpial-1.6.0.ebuild,
   +libturpial-1.7.0.ebuild:
@@ -17,4 +22,3 @@
   12 Feb 2014; Justin Lecher <jlec@gentoo.org> +libturpial-1.6.0.ebuild,
   +metadata.xml:
   New addition
-

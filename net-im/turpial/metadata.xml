@@ -9,9 +9,7 @@
     <email>johann@j-schmitz.net</email>
     <name>Johann Schmitz</name>
   </maintainer>
-  <!--
-	<use>
-		<flag name=''></flag>
-	</use>
--->
+  <use>
+    <flag name="phonon">Enables phonon audio plugin</flag>
+  </use>
 </pkgmetadata>

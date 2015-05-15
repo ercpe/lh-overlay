@@ -1,0 +1,9 @@
+# ChangeLog for app-misc/gnu-pricing
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gnu-pricing-9999 (11 May 2015)
+
+  11 May 2015; Justin Lecher <jlec@gentoo.org> +gnu-pricing-9999.ebuild,
+  +metadata.xml:
+  app-misc/gnu-pricing: New package
