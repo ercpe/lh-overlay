@@ -1,0 +1,9 @@
+# ChangeLog for app-admin/ansible-lookup-ldap
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ansible-lookup-ldap-0_pre20150520 (20 May 2015)
+
+  20 May 2015; Johann Schmitz <schmitz@cominto.de>
+  +ansible-lookup-ldap-0_pre20150520.ebuild, +metadata.xml:
+  New ebuild for ansible-lookup-ldap
