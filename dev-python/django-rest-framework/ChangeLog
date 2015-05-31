@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*django-rest-framework-3.1.2 (31 May 2015)
+
+  31 May 2015; Johann Schmitz <ercpe@gentoo.org>
+  +django-rest-framework-3.1.2.ebuild:
+  Version bump of django-rest-framework
+
 *django-rest-framework-3.1.1 (07 Apr 2015)
 
   07 Apr 2015; Johann Schmitz <ercpe@gentoo.org>
