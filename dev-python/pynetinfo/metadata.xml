@@ -16,5 +16,6 @@
 -->
   <upstream>
     <remote-id type="pypi">pynetinfo</remote-id>
+    <remote-id type="github">ico2/pynetinfo</remote-id>
   </upstream>
 </pkgmetadata>

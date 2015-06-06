@@ -3,6 +3,9 @@
 # $Header: $
 
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/pynetinfo: Add github to remote-id in metadata.xml
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   dev-python/pynetinfo: Add pypi to remote-id in metadata.xml
 
   11 Jun 2013; Justin Lecher <jlec@gentoo.org> pynetinfo-0.2.3.ebuild,
