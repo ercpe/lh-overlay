@@ -16,5 +16,6 @@
 -->
   <upstream>
     <remote-id type="pypi">django-activity-stream</remote-id>
+    <remote-id type="github">justquick/django-activity-stream</remote-id>
   </upstream>
 </pkgmetadata>
