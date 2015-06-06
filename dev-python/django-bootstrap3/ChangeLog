@@ -3,6 +3,9 @@
 # $Header: $
 
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/django-bootstrap3: Add github to remote-id in metadata.xml
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   dev-python/django-bootstrap3: Add pypi to remote-id in metadata.xml
 
 *django-bootstrap3-5.4.0 (22 Apr 2015)
