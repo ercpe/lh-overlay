@@ -9,4 +9,7 @@
     <email>johann@j-schmitz.net</email>
     <name>Johann Schmitz</name>
   </maintainer>
+  <upstream>
+    <remote-id type="github">mmueller/django-database-storage</remote-id>
+  </upstream>
 </pkgmetadata>
