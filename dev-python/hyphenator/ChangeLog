@@ -1,6 +1,9 @@
 # ChangeLog for dev-python/hyphenator
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/hyphenator: Add pypi to remote-id in metadata.xml
 
 *hyphenator-0.5.1 (17 Jul 2014)
 
