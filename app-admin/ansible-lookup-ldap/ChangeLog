@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  app-admin/ansible-lookup-ldap: Add github to remote-id in metadata.xml
+
 *ansible-lookup-ldap-0_pre20150520 (20 May 2015)
 
   20 May 2015; Johann Schmitz <schmitz@cominto.de>
