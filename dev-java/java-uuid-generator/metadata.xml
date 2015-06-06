@@ -9,10 +9,12 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz</name>
 	</maintainer>
-<!--
+	<!--
 	<use>
 		<flag name=''></flag>
 	</use>
 -->
+	<upstream>
+		<remote-id type="github">cowtowncoder/java-uuid-generator</remote-id>
+	</upstream>
 </pkgmetadata>
-
