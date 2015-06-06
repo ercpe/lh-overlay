@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer>
-		<email>johann@j-schmitz.net</email>
-		<name>Johann Schmitz</name>
-	</maintainer>
+  <maintainer>
+    <email>johann@j-schmitz.net</email>
+    <name>Johann Schmitz</name>
+  </maintainer>
+  <upstream>
+    <remote-id type="github">supermihi/pytaglib</remote-id>
+  </upstream>
 </pkgmetadata>

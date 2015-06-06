@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/pytaglib: Add github to remote-id in metadata.xml
+
 *pytaglib-1.0.3 (28 Apr 2015)
 
   28 Apr 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
