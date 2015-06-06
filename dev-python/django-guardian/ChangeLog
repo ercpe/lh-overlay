@@ -1,6 +1,9 @@
 # ChangeLog for dev-python/django-guardian
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/django-guardian: Add github to remote-id in metadata.xml
 
 *django-guardian-1.2.4 (30 Dec 2014)
 
