@@ -1,6 +1,9 @@
 # ChangeLog for dev-python/CairoPlot
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/CairoPlot: Add github to remote-id in metadata.xml
 
   28 Aug 2013; Johann Schmitz <ercpe@gentoo.org> CairoPlot-1.2.ebuild:
   Updated homepage of CairoPlot
