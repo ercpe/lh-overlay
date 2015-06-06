@@ -12,4 +12,7 @@
   <use>
     <flag name="phonon">Enables phonon audio plugin</flag>
   </use>
+  <upstream>
+    <remote-id type="github">satanas/Turpial</remote-id>
+  </upstream>
 </pkgmetadata>
