@@ -3,6 +3,9 @@
 # $Header: $
 
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  dev-python/line_profiler: Add github to remote-id in metadata.xml
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   dev-python/line_profiler: Add pypi to remote-id in metadata.xml
 
   18 Jan 2015; Johann Schmitz <ercpe@gentoo.org> line_profiler-1.0.ebuild:
