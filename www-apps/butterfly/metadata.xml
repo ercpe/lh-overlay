@@ -16,5 +16,6 @@
 -->
   <upstream>
     <remote-id type="pypi">butterfly</remote-id>
+    <remote-id type="github">paradoxxxzero/butterfly</remote-id>
   </upstream>
 </pkgmetadata>

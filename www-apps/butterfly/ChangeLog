@@ -3,6 +3,9 @@
 # $Header: $
 
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  www-apps/butterfly: Add github to remote-id in metadata.xml
+
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   www-apps/butterfly: Add pypi to remote-id in metadata.xml
 
 *butterfly-1.5.6 (06 Nov 2014)
