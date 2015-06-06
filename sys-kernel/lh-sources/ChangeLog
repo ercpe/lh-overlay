@@ -1,4 +1,7 @@
 
+  06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  sys-kernel/lh-sources: Add github to remote-id in metadata.xml
+
 *lh-sources-4.0.4 (18 May 2015)
 
   18 May 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-4.0.4.ebuild,

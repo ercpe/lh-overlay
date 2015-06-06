@@ -13,4 +13,7 @@
     <flag name="deblob">Remove binary blobs from kernel sources to provide libre license compliance.</flag>
     <flag name="module">Patch kernel to allow aufs being build as a module.</flag>
   </use>
+  <upstream>
+    <remote-id type="github">graysky2/kernel_gcc_patch</remote-id>
+  </upstream>
 </pkgmetadata>
