@@ -16,5 +16,6 @@
 	-->
   <upstream>
     <remote-id type="pypi">django-model-utils</remote-id>
+    <remote-id type="github">carljm/django-model-utils</remote-id>
   </upstream>
 </pkgmetadata>
