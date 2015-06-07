@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  app-admin/ansible-ldap: Add bitbucket to remote-id in metadata.xml
+
 *ansible-ldap-0_pre20150225 (22 Apr 2015)
 
   22 Apr 2015; Johann Schmitz <ercpe@gentoo.org>
