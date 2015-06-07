@@ -1,4 +1,10 @@
 
+*lh-sources-4.0.5 (07 Jun 2015)
+
+  07 Jun 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-4.0.5.ebuild,
+  -lh-sources-4.0.4.ebuild:
+  sys-kernel/lh-sources: Bump to latest genpatches and linux release
+
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   sys-kernel/lh-sources: Add github to remote-id in metadata.xml
 
