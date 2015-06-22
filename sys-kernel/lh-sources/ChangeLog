@@ -1,4 +1,7 @@
 
+  22 Jun 2015; Justin Lecher <jlec@gentoo.org> lh-sources-4.0.5.ebuild:
+  sys-kernel/lh-sources: Bump to latest aufs release
+
   08 Jun 2015; Justin Lecher <jlec@gentoo.org> lh-sources-4.0.5.ebuild:
   sys-kernel/lh-sources: Bump to latest aufs release and BFQ
 
