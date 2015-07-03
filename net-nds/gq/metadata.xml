@@ -14,4 +14,7 @@
 		<flag name=''></flag>
 	</use>
 -->
+  <upstream>
+    <remote-id type="sourceforge">gqclient</remote-id>
+  </upstream>
 </pkgmetadata>
