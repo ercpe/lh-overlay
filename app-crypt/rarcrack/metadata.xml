@@ -14,4 +14,7 @@
 		<flag name=''></flag>
 	</use>
 -->
+  <upstream>
+    <remote-id type="sourceforge">rarcrack</remote-id>
+  </upstream>
 </pkgmetadata>
