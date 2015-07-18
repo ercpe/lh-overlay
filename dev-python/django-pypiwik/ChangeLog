@@ -1,6 +1,9 @@
-# ChangeLog for dev-python/pypiwik
+# ChangeLog for dev-python/django-pypiwik
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  18 Jul 2015; Johann Schmitz <ercpe@gentoo.org> django-pypiwik-0.1.1.ebuild:
+  Dropped unused IUSE
 
 *pypiwik-0.1.1 (18 Jul 2015)
 
