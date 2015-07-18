@@ -1,0 +1,9 @@
+# ChangeLog for dev-python/pypiwik
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pypiwik-0.1.1 (18 Jul 2015)
+
+  18 Jul 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +pypiwik-0.1.1.ebuild:
+  New ebuild for pypiwik
