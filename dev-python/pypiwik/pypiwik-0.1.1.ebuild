@@ -19,15 +19,3 @@ IUSE="doc test"
 
 DEPEND=""
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]"
-
-x_python_compile_all() {
-	if use doc; then
-		cd "docs" || die
-		emake html
-		HTML_DOCS=( docs/_build/html/. )
-	fi
-}
-
-x_python_test() {
-	coverage run --source=bootstrap3 manage.py test || die
-}
