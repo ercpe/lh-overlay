@@ -1,9 +1,0 @@
-# ChangeLog for net-misc/osync
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-*osync-1.00 (27 Jul 2015)
-
-  27 Jul 2015; Johann Schmitz <schmitz@cominto.de> +metadata.xml,
-  +osync-1.00.ebuild:
-  New ebuild for osync
