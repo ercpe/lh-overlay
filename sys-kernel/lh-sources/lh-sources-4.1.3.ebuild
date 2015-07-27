@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="3"
+K_GENPATCHES_VER="7"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo versionator
@@ -25,7 +25,7 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 # Set to true, if BFQ needs to apply seperately
 BFQ=true
 
-BFQ_URI_PATCH_MAJOR="0"
+BFQ_URI_PATCH_MAJOR="1"
 BFQ_URI_PATCH_MINOR="0"
 BFQ_URI_PATCH_LEVEL="7r8"
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
