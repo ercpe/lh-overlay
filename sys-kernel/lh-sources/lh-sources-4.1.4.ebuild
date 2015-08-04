@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="7"
+K_GENPATCHES_VER="8"
 K_DEBLOB_AVAILABLE="1"
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo versionator
@@ -36,7 +36,7 @@ BFQ_URI="
 		0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-4.${BFQ_URI_PATCH_MAJOR}.patch1
 	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch -> \
 		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MINOR}.BFQ"
+	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MAJOR}.BFQ"
 
 GCCOPT_PATCH_LEVEL=aab465c93f3c91adf5a2560d84580db662f9fa1c
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
