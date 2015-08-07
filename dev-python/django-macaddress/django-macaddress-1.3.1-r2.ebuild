@@ -25,3 +25,10 @@ PATCHES=(
 	"${FILESDIR}"/${P}-python3.patch
 	"${FILESDIR}"/${P}-mac_eui48.patch
 	)
+
+# Not included
+RESTRICT=test
+
+python_test() {
+	esetup.py test
+}
