@@ -1,4 +1,10 @@
 
+*lh-sources-4.1.5 (11 Aug 2015)
+
+  11 Aug 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-4.1.5.ebuild,
+  -lh-sources-4.1.4.ebuild:
+  sys-kernel/lh-sources: Bump to latest genpatches and linux release
+
 *lh-sources-4.1.4 (04 Aug 2015)
 
   04 Aug 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-4.1.4.ebuild,
