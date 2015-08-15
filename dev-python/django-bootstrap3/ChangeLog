@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
+  django-bootstrap3-4.11.0.ebuild, django-bootstrap3-4.7.0.ebuild,
+  django-bootstrap3-5.0.2.ebuild, django-bootstrap3-5.1.1.ebuild,
+  django-bootstrap3-5.2.0.ebuild, django-bootstrap3-5.3.1.ebuild,
+  django-bootstrap3-5.4.0.ebuild, django-bootstrap3-6.1.0.ebuild:
+  dev-python/django-bootstrap3: Updated ebuild headers and copyrights to match
+  new repoman rules
+
 *django-bootstrap3-6.1.0 (26 Jun 2015)
 
   26 Jun 2015; Justin Lecher <jlec@gentoo.org> +django-bootstrap3-6.1.0.ebuild:
