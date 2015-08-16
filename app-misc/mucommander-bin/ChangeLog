@@ -1,6 +1,10 @@
 # ChangeLog for app-misc/mucommander-bin
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
+  mucommander-bin-0.9.0_pre20130605.ebuild:
+  app-misc/mucommander-bin: Updated ebuild headers to match new $Id$ line
 
   29 Nov 2011; Justin Lecher <jlec@gentoo.org>
   mucommander-bin-0.8.6_pre20110925.ebuild,
@@ -13,4 +17,3 @@
   mucommander-bin-0.8.6_pre20110205.ebuild,
   mucommander-bin-0.8.6_pre20110213.ebuild, metadata.xml:
   Fix Digests and quoting
-
