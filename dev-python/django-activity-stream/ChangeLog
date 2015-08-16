@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*django-activity-stream-0.6.0 (16 Aug 2015)
+
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
+  +django-activity-stream-0.6.0.ebuild:
+  dev-python/django-activity-stream: Version bump to 0.6.0
+
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
   django-activity-stream-0.4.4.ebuild,
   django-activity-stream-0.4.5_beta1.ebuild,
