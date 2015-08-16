@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> obwrap-0.1.1.ebuild,
+  obwrap-0.1.2.ebuild:
+  app-backup/obwrap: Updated ebuild headers to match new $Id$ line
+
   15 Mar 2015; Johann Schmitz <ercpe@gentoo.org> obwrap-0.1.2.ebuild:
   Stable obwrap 0.1.2
 
