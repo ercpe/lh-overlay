@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> django-otp-qr-0.1.0.ebuild,
+  django-otp-qr-0.1.1.ebuild:
+  dev-python/django-otp-qr: Updated ebuild headers to match new $Id$ line
+
   15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> django-otp-qr-0.1.0.ebuild,
   django-otp-qr-0.1.1.ebuild:
   S="${WORKDIR}" no longer needed
