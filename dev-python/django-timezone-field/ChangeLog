@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
+  django-timezone-field-1.2.ebuild:
+  dev-python/django-timezone-field: Updated ebuild headers to match new $Id$
+  line
+
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   dev-python/django-timezone-field: Add github to remote-id in metadata.xml
 
