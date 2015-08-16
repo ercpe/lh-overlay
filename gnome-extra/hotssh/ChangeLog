@@ -1,6 +1,9 @@
 # ChangeLog for gnome-extra/hotssh
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> hotssh-0.2.6.ebuild:
+  gnome-extra/hotssh: Updated ebuild headers to match new $Id$ line
 
   03 Jul 2013; Justin Lecher <jlec@gentoo.org> hotssh-0.2.6.ebuild,
   metadata.xml:
@@ -14,4 +17,3 @@
   01 Sep 2009; Justin Lecher (jlec) <jlec@j-schmitz.net>
   +hotssh-0.2.6.ebuild, +metadata.xml:
   Written by me
-
