@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> cachecontrol-0.10.2.ebuild,
+  cachecontrol-0.10.3_pre20140802.ebuild, cachecontrol-0.10.6.ebuild:
+  dev-python/cachecontrol: Updated ebuild headers to match new $Id$ line
+
   06 Jun 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
   dev-python/cachecontrol: Add github to remote-id in metadata.xml
 
