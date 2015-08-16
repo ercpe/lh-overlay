@@ -9,10 +9,7 @@
 		<remote-id type="github">tomchristie/django-rest-framework</remote-id>
 	</upstream>
 	<use>
-		<flag name="browsable-api">Adds support for browsing the api interface using a web browser</flag>
 		<flag name="oauth">Adds support for authentication via OAuth</flag>
-		<flag name="xml">Adds support for XML responses</flag>
-		<flag name="yaml">Adds support for YAML responses</flag>
 	</use>
 </pkgmetadata>
 
