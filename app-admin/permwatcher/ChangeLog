@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> permwatcher-0.1.1.ebuild:
+  app-admin/permwatcher: Updated ebuild headers to match new $Id$ line
+
   15 Feb 2015; Johann Schmitz <ercpe@gentoo.org> permwatcher-0.1.1.ebuild:
   S="${WORKDIR}" no longer needed
 
