@@ -1,6 +1,9 @@
 # ChangeLog for dev-python/pywhois
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> pywhois-0.1-r13.ebuild:
+  dev-python/pywhois: Updated ebuild headers to match new $Id$ line
 
   11 Jun 2013; Justin Lecher <jlec@gentoo.org> pywhois-0.1-r13.ebuild,
   metadata.xml:
