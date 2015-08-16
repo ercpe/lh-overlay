@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> license-finder-0.1.ebuild:
+  app-misc/license-finder: Updated ebuild headers to match new $Id$ line
+
   26 Jul 2015; Johann Schmitz <ercpe@gentoo.org> license-finder-0.1.ebuild:
   Added python 3.4 to compat
 
