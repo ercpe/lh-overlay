@@ -1,6 +1,9 @@
 # ChangeLog for x11-themes/gion-icon-theme
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/gion-icon-theme/ChangeLog,v 1.1 2010/11/10 14:35:55 ssuominen Exp $
+
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> gion-icon-theme-0.1.2.ebuild:
+  x11-themes/gion-icon-theme: Updated ebuild headers to match new $Id$ line
 
   02 Jul 2013; Justin Lecher <jlec@gentoo.org> gion-icon-theme-0.1.2.ebuild:
   Bump to EAPI=5
@@ -14,4 +17,3 @@
   10 Nov 2010; Samuli Suominen <ssuominen@gentoo.org>
   +gion-icon-theme-0.1.2.ebuild:
   Initial commit.
-
