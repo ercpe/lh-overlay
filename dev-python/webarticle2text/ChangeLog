@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
+  webarticle2text-1.2.6_pre20130817.ebuild,
+  webarticle2text-1.2.6_pre20130824.ebuild, webarticle2text-2.0.1.ebuild:
+  dev-python/webarticle2text: Updated ebuild headers to match new $Id$ line
+
 *webarticle2text-2.0.1 (15 May 2015)
 
   15 May 2015; Johann Schmitz <ercpe@gentoo.org> +webarticle2text-2.0.1.ebuild:
