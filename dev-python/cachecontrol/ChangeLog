@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*cachecontrol-0.11.5 (17 Aug 2015)
+
+  17 Aug 2015; Johann Schmitz <ercpe@gentoo.org> +cachecontrol-0.11.5.ebuild:
+  dev-python/cachecontrol: Version bump to 0.11.5; Added support for python 3.4
+
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> cachecontrol-0.10.2.ebuild,
   cachecontrol-0.10.3_pre20140802.ebuild, cachecontrol-0.10.6.ebuild:
   dev-python/cachecontrol: Updated ebuild headers to match new $Id$ line
