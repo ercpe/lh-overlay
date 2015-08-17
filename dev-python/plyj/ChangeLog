@@ -1,6 +1,6 @@
 # ChangeLog for dev-python/plyj
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> plyj-0.0.1_pre20140719.ebuild:
   dev-python/plyj: Updated ebuild headers to match new $Id$ line

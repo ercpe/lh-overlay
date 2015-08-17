@@ -1,6 +1,6 @@
 # ChangeLog for net-nds/gq
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> gq-1.3.4.ebuild:
   net-nds/gq: Updated ebuild headers to match new $Id$ line

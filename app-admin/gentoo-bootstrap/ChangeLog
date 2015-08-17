@@ -1,6 +1,6 @@
 # ChangeLog for app-admin/gentoo-bootstrap
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> gentoo-bootstrap-0.2.ebuild,
   gentoo-bootstrap-0.3.ebuild:

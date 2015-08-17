@@ -1,6 +1,6 @@
 # ChangeLog for sys-apps/cgroup-helper
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> cgroup-helper-9999.ebuild:
   sys-apps/cgroup-helper: Updated ebuild headers to match new $Id$ line

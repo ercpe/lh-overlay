@@ -1,6 +1,6 @@
 # ChangeLog for sci-chemistry/pjnmr
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> pjnmr-2.0.3.ebuild:
   sci-chemistry/pjnmr: Updated ebuild headers to match new $Id$ line

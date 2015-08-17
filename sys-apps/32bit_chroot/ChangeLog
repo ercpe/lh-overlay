@@ -1,6 +1,6 @@
 # ChangeLog for sys-apps/32bit_chroot
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> 32bit_chroot-0.1.ebuild:
   sys-apps/32bit_chroot: Updated ebuild headers to match new $Id$ line

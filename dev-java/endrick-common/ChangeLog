@@ -1,6 +1,6 @@
 # ChangeLog for dev-java/endrick-common
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> endrick-common-1.7.9.ebuild:
   dev-java/endrick-common: Updated ebuild headers to match new $Id$ line

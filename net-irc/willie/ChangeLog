@@ -1,6 +1,6 @@
 # ChangeLog for net-irc/willie
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> willie-5.2.0.ebuild:
   net-irc/willie: Updated ebuild headers to match new $Id$ line

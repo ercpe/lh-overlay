@@ -1,6 +1,6 @@
 # ChangeLog for app-misc/better-notifications
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
   better-notifications-0.1.4.1.ebuild:

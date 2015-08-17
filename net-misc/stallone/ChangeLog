@@ -1,6 +1,6 @@
 # ChangeLog for net-misc/stallone
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> stallone-0.4.0.ebuild:
   net-misc/stallone: Updated ebuild headers to match new $Id$ line

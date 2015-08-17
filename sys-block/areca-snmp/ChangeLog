@@ -1,6 +1,6 @@
 # ChangeLog for sys-block/areca-snmp
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> areca-snmp-4.1.ebuild:
   sys-block/areca-snmp: Updated ebuild headers to match new $Id$ line
