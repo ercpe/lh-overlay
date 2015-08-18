@@ -1,4 +1,11 @@
 
+*lh-sources-4.1.6 (18 Aug 2015)
+
+  18 Aug 2015; Justin Lecher <jlec@gentoo.org> +lh-sources-4.1.6.ebuild,
+  -lh-sources-4.1.5.ebuild:
+  sys-kernel/lh-sources: sys-kernel/lh-sources: Bump to latest aufs and linux
+  release
+
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> lh-sources-4.1.5.ebuild:
   sys-kernel/lh-sources: Updated ebuild headers to match new $Id$ line
 
