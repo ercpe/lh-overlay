@@ -1,6 +1,6 @@
 # ChangeLog for sci-mathematics/matgen
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> matgen-0.3.ebuild:
   sci-mathematics/matgen: Updated ebuild headers to match new $Id$ line

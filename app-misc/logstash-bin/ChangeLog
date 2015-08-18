@@ -1,6 +1,6 @@
 # ChangeLog for app-misc/logstash-bin
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> logstash-bin-1.4.2.ebuild:
   app-misc/logstash-bin: Updated ebuild headers to match new $Id$ line

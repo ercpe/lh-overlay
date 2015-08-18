@@ -1,6 +1,6 @@
 # ChangeLog for app-misc/dpaster
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> dpaster-20130802.ebuild:
   app-misc/dpaster: Updated ebuild headers to match new $Id$ line

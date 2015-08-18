@@ -1,6 +1,6 @@
 # ChangeLog for net-analyzer/nagios-check_dns_change
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
+# $Id$
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
   nagios-check_dns_change-0.1.ebuild:
