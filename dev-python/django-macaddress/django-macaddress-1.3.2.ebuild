@@ -21,9 +21,11 @@ RDEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/django[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-	dev-python/django-nose[${PYTHON_USEDEP}]
-	dev-python/mock[${PYTHON_USEDEP}]
-	dev-python/nose[${PYTHON_USEDEP}]"
+	test? (
+		dev-python/django-nose[${PYTHON_USEDEP}]
+		dev-python/mock[${PYTHON_USEDEP}]
+		dev-python/nose[${PYTHON_USEDEP}]
+	)"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.3.1-python3.patch
