@@ -1,34 +1,27 @@
-gnome-extra/gnome-nagios-applet:sound You wanna hear sound
-sci-chemistry/cns:aria Support patch for aria
-sci-chemistry/pymol:apbs Pymol apbs plugin support
-sci-chemistry/pymol:shaders Pymol shaders support
-sci-chemistry/pymol-plugins:apbs Pymol apbs plugin support
-sci-chemistry/pymol-plugins:autodock Pymol autodock plugin support
-sci-chemistry/pymol-plugins:cealign Pymol cealign plugin support
-sci-chemistry/pymol-plugins:colorama Pymol colorama plugin support
-sci-chemistry/pymol-plugins:dynmap Pymol dynmap plugin support
-sci-chemistry/pymol-plugins:divscore Pymol divscore plugin support
-sci-chemistry/pymol-plugins:emovie Pymol emovie plugin support
-sci-chemistry/pymol-plugins:helicheck Pymol helicheck plugin support
-sci-chemistry/pymol-plugins:promol Pymol promol plugin support
-sci-chemistry/pymol-plugins:rendering Pymol rendering plugin support
-sci-chemistry/pymol-plugins:resicolor Pymol resicolor plugin support
-sci-chemistry/pymol-plugins:rtools Pymol rtools plugin support
-sci-chemistry/hkl2map-bin:script Installs additional scripts
-sci-chemistry/pymol:shaders Compiles the shaders support in
-sci-chemistry/xds-bin:smp Enable multithreading support
-app-misc/tuxcmd-modules:zip Some zip shit
-app-misc/gnome-commander:iptc Some iptc things
-app-misc/gnome-commander:id3 Some id3 things
-app-misc/gnome-commander:gsf Some gsf things
-app-misc/gnome-commander:iptc Some iptc things
-app-misc/gnome-commander:id3 Some id3 things
-app-misc/gnome-commander:gsf Some gsf things
-media-gfx/natural-gentoo:grub Install grub theme
-net-analyzer/munin-plugins:lighttpd lighttpd plugins support
-net-analyzer/munin-plugins:postfix postfix plugins support
-net-analyzer/munin-plugins:proftpd proftpd plugins support
-net-analyzer/munin-plugins:spamassassin spamassassin plugins support
-net-analyzer/munin-plugins:ntp ntp plugins support
-sys-apps/temerge:stay weis der geier was.
-app-misc/google-desktop:thunderbird thunderbird support
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using egencache *
+
+app-portage/squashed-portage:aufs - Enable write access to PORTDIR via an aufs layer
+app-portage/squashed-portage:zsync - Use alternate zsync based fetcher
+dev-java/log4j:javamail - Adds support for sending mails
+dev-java/log4j:jms - Adds support for jms
+dev-java/log4j:jmx - Adds support for jmx
+dev-java/log4j:jpa - Adds support for various database systems
+dev-java/log4j:servlet - Adds support the servlet-api
+dev-java/log4j:slf4j - Adds support for the Simple Logging Facade for Java
+dev-nodejs/coffee-script:extras - Install extra stuff
+dev-python/django-rest-framework:oauth - Adds support for authentication via OAuth
+dev-python/python-munin:plugins - Install munin plugins beside the lib
+dev-util/mbfl:sudo - use sudo when invoking abi and abu rules
+net-analyzer/nagios-plugins-extra:bind - bind plugin
+net-analyzer/nagios-plugins-extra:fail2ban - fail2ban plugin
+net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
+net-analyzer/nagios-plugins-extra:sensors - sensors plugin
+net-im/turpial:phonon - Enables phonon audio plugin
+sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
+sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
+sys-libs/ncurses:ada - Add bindings for the ADA programming language
+sys-libs/ncurses:tinfo - Build curses library (libncurses) sep from the low-level terminfo library (libtinfo) -- usually needed only for binary packages -- but it is binary compatible in either mode
+sys-libs/ncurses:trace - Enable test trace() support in ncurses calls
+virtual/linux-sources:firmware - Install linux kernel firmware
