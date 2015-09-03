@@ -1,0 +1,9 @@
+# ChangeLog for dev-vcs/git-flow
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Id$
+
+*git-flow-1.8.0 (10 Aug 2015)
+
+  10 Aug 2015; Justin Lecher <jlec@gentoo.org> +git-flow-1.8.0.ebuild,
+  +metadata.xml:
+  dev-vcs/git-flow: Fork from tree to fix bug #538938
