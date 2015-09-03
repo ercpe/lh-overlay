@@ -21,7 +21,4 @@ net-analyzer/nagios-plugins-extra:sensors - sensors plugin
 net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
-sys-libs/ncurses:ada - Add bindings for the ADA programming language
-sys-libs/ncurses:tinfo - Build curses library (libncurses) sep from the low-level terminfo library (libtinfo) -- usually needed only for binary packages -- but it is binary compatible in either mode
-sys-libs/ncurses:trace - Enable test trace() support in ncurses calls
 virtual/linux-sources:firmware - Install linux kernel firmware
