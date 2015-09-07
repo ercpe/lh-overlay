@@ -4,7 +4,9 @@
 
 EAPI=5
 
-inherit eutils multilib
+PYTHON_COMPAT=( python2_7 )
+
+inherit eutils multilib python-single-r1 user
 
 DESCRIPTION="A set of extra nagios plugins"
 HOMEPAGE="http://www.j-schmitz.net/projects/nagios-plugins-extra/"
@@ -36,6 +38,12 @@ TEMPLATES=(
 	check_memory.php check_mysql_snmp.php check_mysql_status.php check_nrpe.cfg
 	check_spamassassin.php check_traffic.php check_amavis_timings.php check_sensors.php )
 
+pkg_setup() {
+	enewgroup nagios
+	enewuser nagios -1 /bin/bash /var/nagios/home nagios
+	python-single-r1_pkg_setup
+}
+
 src_install(){
 	exeinto /usr/$(get_libdir)/nagios/plugins/extra/
 
@@ -47,7 +55,7 @@ src_install(){
 	use bind && inst_check check_bind.sh
 	use sensors && inst_check check_sensors.py
 	if use pnp4nagios; then
-		cd $SP
+		cd $SP || die
 		insinto /usr/share/pnp/templates/
 
 		for x in $TEMPLATES[@]; do
@@ -61,6 +69,7 @@ src_install(){
 
 	dosym /usr/$(get_libdir)/nagios/plugins/utils.sh /usr/$(get_libdir)/nagios/plugins/extra/utils.sh
 	dosym /usr/$(get_libdir)/nagios/plugins/utils.pm /usr/$(get_libdir)/nagios/plugins/extra/utils.pm
+	python_fix_shebang "${ED}"/usr/$(get_libdir)/nagios/plugins/extra/
 }
 
 pkg_postinst() {
