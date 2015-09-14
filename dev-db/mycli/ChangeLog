@@ -1,0 +1,9 @@
+# ChangeLog for dev-db/mycli
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Id$
+
+*mycli-1.4.0 (14 Sep 2015)
+
+  14 Sep 2015; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
+  +mycli-1.4.0.ebuild:
+  dev-db/mycli: New ebuild for https://github.com/dbcli/mycli
