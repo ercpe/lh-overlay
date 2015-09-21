@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="Setup a 32bit chroot as service"
 HOMEPAGE="http://www.j-schmitz.net"
-SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/temerge/${P}.tar.bz2"
+SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
