@@ -7,8 +7,8 @@ EAPI=5
 inherit eutils linux-info
 
 DESCRIPTION="emerge on tmpfs"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/sys-apps/temerge/${P}.tar.bz2"
 HOMEPAGE="http://www.j-schmitz.net"
+SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/temerge/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
