@@ -7,8 +7,8 @@ EAPI=5
 inherit eutils
 
 DESCRIPTION="royale readahead after http://forums.gentoo.org/viewtopic-t-478491-start-0.html"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/sys-apps/readahead-royale/${P}.tar.bz2"
 HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
+SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/temerge/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
