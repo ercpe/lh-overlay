@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="royale readahead after http://forums.gentoo.org/viewtopic-t-478491-start-0.html"
 HOMEPAGE="http://forums.gentoo.org/viewtopic-t-478491.html"
-SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/temerge/${P}.tar.bz2"
+SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
