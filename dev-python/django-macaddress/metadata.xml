@@ -7,5 +7,6 @@
   </maintainer>
   <upstream>
     <remote-id type="github">tubaman/django-macaddress</remote-id>
+    <remote-id type="pypi">django-macaddress</remote-id>
   </upstream>
 </pkgmetadata>
