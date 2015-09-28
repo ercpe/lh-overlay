@@ -15,10 +15,10 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-_AUFS_VERSION=4.1_p20150629
-_AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
+AUFS_VERSION=4.2_p20150928
+AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 # git archive -v --remote=git://git.code.sf.net/p/aufs/aufs3-standalone aufs3.8 > aufs-sources-${AUFS_VERSION}.tar
-_AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
+AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.ppm"
 
@@ -68,7 +68,7 @@ README_GENTOO_SUFFIX="-r1"
 
 PDEPEND="=sys-fs/aufs-util-4*"
 
-_AUFS_PATCH_LIST="
+AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs4-kbuild.patch
 	"${WORKDIR}"/aufs4-base.patch
 	"${WORKDIR}"/aufs4-mmap.patch"
@@ -99,7 +99,7 @@ src_unpack() {
 		ewarn "This will drop all support from the gentoo kernel security team"
 	fi
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs4-standalone.patch"
-#	unpack ${AUFS_TARBALL}
+	unpack ${AUFS_TARBALL}
 	if [[ ${BFQ} == "true" ]]; then
 		mkdir "${WORKDIR}"/patches || die
 		cp ${BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
@@ -107,7 +107,7 @@ src_unpack() {
 	kernel-2_src_unpack
 }
 
-_src_prepare() {
+src_prepare() {
 	if ! use module; then
 		sed -e 's:tristate:bool:g' -i "${WORKDIR}"/fs/aufs/Kconfig || die
 	fi
@@ -118,8 +118,8 @@ _src_prepare() {
 
 src_install() {
 	kernel-2_src_install
-#	dodoc "${WORKDIR}"/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
-#	docompress -x /usr/share/doc/${PF}/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
+	dodoc "${WORKDIR}"/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
+	docompress -x /usr/share/doc/${PF}/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
 	readme.gentoo_create_doc
 }
 
