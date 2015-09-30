@@ -15,5 +15,6 @@
   </use>
   <upstream>
     <remote-id type="github">graysky2/kernel_gcc_patch</remote-id>
+    <remote-id type="sourceforge">aufs</remote-id>
   </upstream>
 </pkgmetadata>
