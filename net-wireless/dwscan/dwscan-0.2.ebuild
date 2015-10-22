@@ -21,6 +21,6 @@ DEPEND=""
 RDEPEND=">=net-wireless/python-wifi-0.3"
 
 src_install() {
-	python_parallel_foreach_impl python_doscript ${PN}
+	python_foreach_impl python_doscript ${PN}
 	dodoc AUTHORS ChangeLog README TODO WISHLIST
 }

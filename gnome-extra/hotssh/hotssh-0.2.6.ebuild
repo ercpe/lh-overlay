@@ -34,6 +34,6 @@ src_configure() {
 }
 
 src_install() {
-	python_parallel_foreach_impl ${PYTHON} ./waf install --destdir="${D}"
+	python_foreach_impl ${PYTHON} ./waf install --destdir="${D}"
 	python_replicate_script "${ED}"/usr/bin/${PN}
 }
