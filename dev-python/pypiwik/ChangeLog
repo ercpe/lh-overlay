@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+*pypiwik-0.1.5.1 (01 Nov 2015)
+
+  01 Nov 2015; Johann Schmitz <ercpe@gentoo.org> +pypiwik-0.1.5.1.ebuild:
+  dev-python/pypiwik: Version bump to 0.1.5.1
+
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> pypiwik-0.1.4.ebuild:
   dev-python/pypiwik: Updated ebuild headers to match new $Id$ line
 

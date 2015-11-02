@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+*fuzzywuzzy-0.7.0 (01 Nov 2015)
+
+  01 Nov 2015; Johann Schmitz <ercpe@gentoo.org> +fuzzywuzzy-0.7.0.ebuild:
+  dev-python/fuzzywuzzy: Version bump to 0.7.0
+
 *fuzzywuzzy-0.6.1 (22 Aug 2015)
 
   22 Aug 2015; Johann Schmitz <ercpe@gentoo.org> +fuzzywuzzy-0.6.1.ebuild,
