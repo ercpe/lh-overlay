@@ -6,7 +6,7 @@ language: python
 python:
     - pypy
 env:
-    - PORTAGE_VER="2.2.23"
+    - PORTAGE_VER="2.2.24"
 before_script:
     - mkdir travis-overlay
     - mv !(travis-overlay) travis-overlay/
@@ -31,6 +31,5 @@ before_script:
 script:
     - ./../spinner.sh "python ../portage-${PORTAGE_VER}/bin/repoman full -d"
 # You can append own scripts after this line
-
 notifications:
     irc: "chat.freenode.net#not-your-server.de"
