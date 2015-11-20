@@ -20,7 +20,7 @@ SLOT="0"
 
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]
 		python_targets_python2_7? ( >=dev-python/python-ldap-2.0[$(python_gen_usedep python2_7)] )
-		!python_targets_python2_7? ( dev-python/pyldap[$(python_gen_usedep python3_3),$(python_gen_usedep python3_4)] )"
+		!python_targets_python2_7? ( dev-python/pyldap[$(python_gen_usedep 'python3*')] )"
 
 DEPEND="app-arch/unzip
 	dev-python/setuptools[${PYTHON_USEDEP}]
