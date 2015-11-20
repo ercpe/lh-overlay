@@ -3,6 +3,9 @@
 # $Id$
 
   20 Nov 2015; Johann Schmitz <ercpe@gentoo.org> django-auth-ldap-1.2.7.ebuild:
+  dev-python/django-auth-ldap: Updated depencies
+
+  20 Nov 2015; Johann Schmitz <ercpe@gentoo.org> django-auth-ldap-1.2.7.ebuild:
   dev-python/django-auth-ldap: Fixed(?) py3 deps
 
 *django-auth-ldap-1.2.7 (20 Nov 2015)
