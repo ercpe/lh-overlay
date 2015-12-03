@@ -18,8 +18,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RDEPEND=">=dev-python/django-1.4.10[${PYTHON_USEDEP}]"
-DEPEND="test? ( dev-python/coverage[${PYTHON_USEDEP}] )"
+DEPEND=""
 
 python_test() {
-	coverage run -a setup.py test || die
+	esetup.py test
 }
