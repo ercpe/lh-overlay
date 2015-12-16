@@ -6,7 +6,7 @@ EAPI=5
 
 inherit subversion
 
-DESCRIPTION="ssl-admin is a tool designed to simplify the management and distribution of SSL certificates"
+DESCRIPTION="A tool designed to simplify the management and distribution of SSL certificates"
 HOMEPAGE="http://www.secure-computing.net/ssl-admin"
 SRC_URI=""
 ESVN_REPO_URI="https://www.secure-computing.net/svn/trunk/ssl-admin/@34"
