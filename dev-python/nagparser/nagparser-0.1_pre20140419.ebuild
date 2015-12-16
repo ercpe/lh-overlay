@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_6,2_7} )
 
 inherit distutils-r1
 
-DESCRIPTION="parser for the Nagios status and object cache files to interact with nagios in real time"
+DESCRIPTION="Parser for the Icinga/Nagios status and object cache files"
 HOMEPAGE="https://github.com/zebpalmer/NagParser"
 SRC_URI="http://dev.gentoo.org/~ercpe/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
