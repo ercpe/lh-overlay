@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+  16 Dec 2015; Johann Schmitz <ercpe@gentoo.org> -fuzzywuzzy-0.6.1.ebuild:
+  dev-python/fuzzywuzzy: Dropped 0.6.1
+
 *fuzzywuzzy-0.8.0 (16 Dec 2015)
 
   16 Dec 2015; Johann Schmitz <ercpe@gentoo.org> +fuzzywuzzy-0.8.0.ebuild:
