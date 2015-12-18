@@ -30,6 +30,10 @@ before_script:
     - cd travis-overlay
 script:
     - ./../spinner.sh "python ../portage-${PORTAGE_VER}/bin/repoman full -d"
-# You can append own scripts after this line
+
 notifications:
     irc: "chat.freenode.net#not-your-server.de"
+        channels: "chat.freenode.net#not-your-server.de"
+        template:
+            - "%{repository} - %{branch} - %{author}: %{commit_subject} - %{message} - Build details : %{build_url}"
+        use_notice: true
