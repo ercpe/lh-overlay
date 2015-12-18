@@ -32,7 +32,7 @@ script:
     - ./../spinner.sh "python ../portage-${PORTAGE_VER}/bin/repoman full -d"
 
 notifications:
-    irc: "chat.freenode.net#not-your-server.de"
+    irc:
         channels: "chat.freenode.net#not-your-server.de"
         template:
             - "%{repository} - %{branch} - %{author}: %{commit_subject} - %{message} - Build details : %{build_url}"
