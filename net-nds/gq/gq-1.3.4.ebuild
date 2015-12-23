@@ -20,9 +20,9 @@ IUSE="kerberos"
 RDEPEND="
 	dev-libs/cyrus-sasl
 	dev-libs/glib:2
-	dev-libs/libgcrypt
+	dev-libs/libgcrypt:0=
 	dev-libs/libxml2
-	dev-libs/openssl
+	dev-libs/openssl:0=
 	gnome-base/libglade:2.0
 	gnome-base/libgnome-keyring
 	net-nds/openldap
