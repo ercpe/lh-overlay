@@ -8,7 +8,7 @@ inherit eutils toolchain-funcs
 
 MY_P="Tisean_${PV}"
 
-DESCRIPTION="Analysis of time series with methods based on the theory of nonliner deterministic dynamical systems"
+DESCRIPTION="Time series alanalytics with theory of nonliner deterministic dynamical systems"
 HOMEPAGE="http://www.mpipks-dresden.mpg.de/%7Etisean/Tisean_3.0.1/index.html"
 SRC_URI="http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
 
