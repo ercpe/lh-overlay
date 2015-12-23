@@ -16,10 +16,10 @@ KEYWORDS=""
 IUSE="test"
 
 RDEPEND="
-	dev-libs/libgcrypt
-	dev-qt/qtcore:4
-	dev-qt/qtdbus:4
-	dev-qt/qtgui:4
+	dev-libs/libgcrypt:0=
+	dev-qt/qtcore:4=
+	dev-qt/qtdbus:4=
+	dev-qt/qtgui:4=
 	x11-libs/libXtst"
 DEPEND="${RDEPEND}
 	test? ( dev-qt/qttest:4 )"
