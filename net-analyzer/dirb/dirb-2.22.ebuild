@@ -10,7 +10,7 @@ MY_P="${PN}${PV/./}"
 
 DESCRIPTION="A Web Content Scanner to look for existing/hidden content"
 HOMEPAGE="http://dirb.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+SRC_URI="mirror://sourceforge/project/${P}/${P}/${PV}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
