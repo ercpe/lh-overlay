@@ -8,7 +8,7 @@ JAVA_PKG_IUSE="doc source"
 
 inherit eutils java-pkg-2 java-ant-2
 
-DESCRIPTION="Alibraries which allows to write modular applications which can run both standalone and inside "
+DESCRIPTION="Modular applications which can run both standalone and inside"
 HOMEPAGE="https://code.google.com/p/eclipsito/"
 SRC_URI="http://dev.gentoo.org/~ercpe/distfiles/${CATEGORY}/${PN}/${P}.tar.bz2"
 
