@@ -22,7 +22,8 @@ IUSE=""
 
 RESTRICT="mirror"
 
-DEPEND=">=virtual/jdk-1.5
+DEPEND="
+	>=virtual/jdk-1.5:*
 	dev-java/java-config"
 RDEPEND="${DEPEND}"
 
