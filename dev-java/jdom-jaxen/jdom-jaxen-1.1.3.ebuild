@@ -6,11 +6,11 @@ EAPI=5
 
 JAVA_PKG_IUSE=""
 
-inherit base java-pkg-2
+inherit java-pkg-2
 
 MY_PN="jdom"
 
-DESCRIPTION="Jaxen binding for jdom."
+DESCRIPTION="Jaxen binding for jdom"
 HOMEPAGE="http://www.jdom.org"
 SRC_URI="http://www.jdom.org/dist/source/${MY_PN}-${PV}.tar.gz"
 
@@ -19,9 +19,10 @@ SLOT="1.1"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-COMMON_DEP="dev-java/jdom:${SLOT}
-			=dev-java/jaxen-1.1*
-			dev-java/saxpath"
+COMMON_DEP="
+	dev-java/jdom:${SLOT}
+	=dev-java/jaxen-1.1*
+	dev-java/saxpath"
 
 RDEPEND=">=virtual/jre-1.4
 		${COMMON_DEP}"
@@ -32,11 +33,11 @@ DEPEND=">=virtual/jdk-1.4
 S="${WORKDIR}/${MY_PN}"
 
 src_compile() {
-	cd "${S}/src/java/org/jdom/xpath/"
-	mv JaxenXPath.java JaxenXPath.java.bak
-	sed 's/SAXPathException/Exception/g' JaxenXPath.java.bak > JaxenXPath.java
+	cd "${S}/src/java/org/jdom/xpath/" || die
+	mv JaxenXPath.java JaxenXPath.java.bak || die
+	sed 's/SAXPathException/Exception/g' JaxenXPath.java.bak > JaxenXPath.java || die
 
-	cd "${S}"
+	cd "${S}" || die
 
 	mkdir -p "${S}/build/org/jdom/xpath" || die "Unable to create dir."
 	ejavac -d "${S}/build/" \
