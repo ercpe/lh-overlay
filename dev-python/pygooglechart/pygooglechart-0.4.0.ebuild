@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Complete Python wrapper for the Google Chart API"
 HOMEPAGE="http://pygooglechart.slowchop.com/ https://pypi.python.org/pypi/pygooglechart/"
-SRC_URI="http://pygooglechart.slowchop.com/files/download/${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-3"
