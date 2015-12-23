@@ -8,7 +8,7 @@ inherit eutils toolchain-funcs
 
 DESCRIPTION="NAT-PMP daemon"
 HOMEPAGE="http://tedp.id.au/stallone/"
-SRC_URI="http://tedp.id.au/stallone/releases/${P}.tar.gz"
+SRC_URI="https://github.com/tedjp/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

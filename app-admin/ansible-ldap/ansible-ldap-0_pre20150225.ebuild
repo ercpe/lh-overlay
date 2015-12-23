@@ -12,7 +12,8 @@ MY_COMMIT_ID="b6f7cf8f3a90"
 
 DESCRIPTION="Ansible modules for manipulating an LDAP directory"
 HOMEPAGE="https://bitbucket.org/psagers/ansible-ldap/overview"
-SRC_URI="https://bitbucket.org/psagers/ansible-ldap/get/${MY_COMMIT_ID}.zip -> ${P}.zip"
+#SRC_URI="https://bitbucket.org/psagers/ansible-ldap/get/${MY_COMMIT_ID}.zip -> ${P}.zip"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.zip"
 
 LICENSE="BSD"
 SLOT="0"

@@ -10,7 +10,7 @@ inherit python-r1
 
 DESCRIPTION="A set of useful tools to make your (gentoo) admin life easier"
 HOMEPAGE="https://ercpe.de/projects/admin-tools"
-SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.gz"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.gz"
 
 SLOT="0"
 KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"

@@ -2,15 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=5
 
 AUTOTOOLS_AUTORECONF=true
 
 inherit autotools-utils
 
 DESCRIPTION="A GTK+-based LDAP client"
-HOMEPAGE="http://www.gq-project.org/"
-SRC_URI="mirror://sourceforge/gqclient/${P}.tar.gz"
+HOMEPAGE="https://sourceforge.net/projects/gqclient/"
+SRC_URI="mirror://sourceforge/project/gqclient/GQ%20Unstable/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

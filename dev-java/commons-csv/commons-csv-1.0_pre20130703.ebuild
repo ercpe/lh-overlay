@@ -10,7 +10,7 @@ inherit eutils java-pkg-2 java-ant-2
 
 DESCRIPTION="Commons CSV reads and writes files in variations of the Comma Separated Value (CSV) format."
 HOMEPAGE="http://commons.apache.org/proper/commons-csv/"
-SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 LICENSE="Apache-2.0"
 SLOT="0"

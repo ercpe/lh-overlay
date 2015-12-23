@@ -8,7 +8,7 @@ inherit eutils linux-info
 
 DESCRIPTION="emerge on tmpfs"
 HOMEPAGE="http://www.j-schmitz.net"
-SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/temerge/${P}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

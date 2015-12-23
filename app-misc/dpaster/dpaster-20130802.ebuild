@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Quick & dirty client interface to to the http://dpaste.com/ pastebin"
 HOMEPAGE="https://github.com/zodman/dpaster"
-SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 LICENSE="WTFPL-2"
 SLOT="0"

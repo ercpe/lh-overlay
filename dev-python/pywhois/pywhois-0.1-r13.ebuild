@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Retrieve WHOIS information of domains"
 HOMEPAGE="http://code.google.com/p/pywhois/"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${PF}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${PF}.tar.bz2"
 
 SLOT="0"
 LICENSE="MIT"

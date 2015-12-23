@@ -8,7 +8,7 @@ inherit eutils
 
 DESCRIPTION="Setup a 32bit chroot as service"
 HOMEPAGE="http://www.j-schmitz.net"
-SRC_URI="https://mirror.not-your-server.de/overlays/last-hope/sys-apps/${PN}/${P}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,11 +21,11 @@ src_install() {
 }
 
 pkg_postinst(){
-	elog
-	einfo "Remember to add 32bit_chroot to the default runlevel"
-	einfo "rc-update add 32bit_chroot default"
-	elog
-	einfo "Use this to chroot"
-	einfo "linux32 chroot CHROOTDIR /bin/bash"
-	elog
+	echo
+	elog "Remember to add 32bit_chroot to the default runlevel"
+	elog "rc-update add 32bit_chroot default"
+	echo
+	elog "Use this to chroot"
+	elog "linux32 chroot CHROOTDIR /bin/bash"
+	echo
 }

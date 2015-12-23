@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Extracts the main article text from a webpage"
 HOMEPAGE="https://github.com/chrisspen/webarticle2text"
-SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 LICENSE="LGPL-3"
 SLOT="0"

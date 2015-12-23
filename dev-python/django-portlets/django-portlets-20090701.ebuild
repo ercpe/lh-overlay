@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="Generic portlets for Django"
 HOMEPAGE="http://code.google.com/p/django-portlets/"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="BSD"

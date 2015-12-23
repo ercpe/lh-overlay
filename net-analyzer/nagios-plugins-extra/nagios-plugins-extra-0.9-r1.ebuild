@@ -10,7 +10,7 @@ inherit eutils multilib python-single-r1 user
 
 DESCRIPTION="A set of extra nagios plugins"
 HOMEPAGE="http://www.j-schmitz.net/projects/nagios-plugins-extra/"
-SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${CATEGORY}/${PN}/${P}.tar.bz2"
+SRC_URI="http://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="all-rights-reserved"

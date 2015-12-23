@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="A set of useful django extensions"
 HOMEPAGE="http://www.j-schmitz.net/projects/django-extras/"
-SRC_URI="http://www.j-schmitz.net/releases/django-extras/${P}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"

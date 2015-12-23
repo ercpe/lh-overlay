@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Init script which sets up the ethernet devices for wakeonlan"
 HOMEPAGE="http://www.j-schmitz.net"
-SRC_URI="http://gentoo.j-schmitz.net/portage-overlay/app-admin/wol-init/${P}.tar.bz2"
+SRC_URI="https://gentoo.j-schmitz.net/overlays/last-hope/${P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
