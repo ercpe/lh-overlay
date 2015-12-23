@@ -14,7 +14,8 @@ KEYWORDS="~amd64 ~arm ~hppa ~ia64 ~x86"
 IUSE="firmware"
 
 DEPEND="firmware? ( sys-kernel/linux-firmware )"
-RDEPEND="|| (
+RDEPEND="
+	|| (
 		sys-kernel/gentoo-sources
 		sys-kernel/vanilla-sources
 		sys-kernel/ck-sources
@@ -27,7 +28,6 @@ RDEPEND="|| (
 		sys-kernel/rsbac-sources
 		sys-kernel/rt-sources
 		sys-kernel/tuxonice-sources
-		sys-kernel/usermode-sources
 		sys-kernel/vserver-sources
 		sys-kernel/xbox-sources
 		sys-kernel/zen-sources
