@@ -9,22 +9,23 @@ inherit eutils toolchain-funcs
 MY_P="Tisean_${PV}"
 
 DESCRIPTION="Time series alanalytics with theory of nonliner deterministic dynamical systems"
-HOMEPAGE="http://www.mpipks-dresden.mpg.de/%7Etisean/Tisean_3.0.1/index.html"
+HOMEPAGE="
+	https://github.com/heggus/Tisean
+	http://www.mpipks-dresden.mpg.de/%7Etisean/Tisean_3.0.1/index.html"
 SRC_URI="http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="gnuplot"
-
-RDEPEND="gnuplot? ( sci-visualization/gnuplot )"
-DEPEND=""
+IUSE=""
 
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	tc-export FC CC
-	epatch "${FILESDIR}"/${PV}-gentoo.patch
+	epatch \
+		"${FILESDIR}"/${PV}-gentoo.patch \
+		"${FILESDIR}"/${P}-backport.patch
 }
 
 src_configure() {
@@ -34,5 +35,9 @@ src_configure() {
 
 src_install() {
 	dodir /usr/bin
-	emake install
+	default
+}
+
+pkg_postinst() {
+	optfeature "plotting support" sci-visualization/gnuplot
 }
