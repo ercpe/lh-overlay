@@ -12,6 +12,7 @@ dev-java/log4j:servlet - Adds support the servlet-api
 dev-java/log4j:slf4j - Adds support for the Simple Logging Facade for Java
 dev-nodejs/coffee-script:extras - Install extra stuff
 dev-python/django-rest-framework:oauth - Adds support for authentication via OAuth
+dev-python/phylter:django - Enables the DjangoBackend
 dev-python/python-munin:plugins - Install munin plugins beside the lib
 dev-util/mbfl:sudo - use sudo when invoking abi and abu rules
 net-analyzer/nagios-plugins-extra:bind - bind plugin
