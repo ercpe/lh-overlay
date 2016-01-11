@@ -6,7 +6,7 @@ EAPI=5
 
 # python 3+ requires dnspython with py3 support, see #484954
 # PYTHON_COMPAT=( python2_7,3_2,3_3 )
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_{3,4} )
 
 inherit distutils-r1
 
@@ -17,10 +17,10 @@ SRC_URI="https://github.com/secynic/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
 IUSE=""
 
 RESTRICT="test" # network-heavy test which provably fail in restricted environments
 
-RDEPEND="dev-python/dnspython[${PYTHON_USEDEP}]
-	dev-python/ipaddr[${PYTHON_USEDEP}]"
+RDEPEND="
+	virtual/python-dnspython[${PYTHON_USEDEP}]
+	virtual/python-ipaddress[${PYTHON_USEDEP}]"
