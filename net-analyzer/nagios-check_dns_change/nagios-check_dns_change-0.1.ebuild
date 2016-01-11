@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="dev-python/dnspython[${PYTHON_USEDEP}]"
+RDEPEND="virtual/python-dnspython[${PYTHON_USEDEP}]"
 
 #S="${WORKDIR}"
 
