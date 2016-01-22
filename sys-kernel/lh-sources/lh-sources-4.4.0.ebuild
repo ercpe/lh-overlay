@@ -27,7 +27,7 @@ BFQ=true
 
 BFQ_URI_PATCH_MAJOR="4"
 BFQ_URI_PATCH_MINOR="0"
-BFQ_URI_PATCH_LEVEL="7r10"
+BFQ_URI_PATCH_LEVEL="7r11"
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch -> \
