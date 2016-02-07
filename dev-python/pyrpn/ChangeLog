@@ -2,6 +2,11 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+*pyrpn-0.1_pre20160207 (07 Feb 2016)
+
+  07 Feb 2016; Johann Schmitz <ercpe@gentoo.org> +pyrpn-0.1_pre20160207.ebuild:
+  dev-python/pyrpn: Version bump
+
 *pyrpn-0.1_pre20160205 (06 Feb 2016)
 
   06 Feb 2016; Johann Schmitz <ercpe@gentoo.org> +metadata.xml,
