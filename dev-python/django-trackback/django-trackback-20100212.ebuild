@@ -18,4 +18,4 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">dev-python/django-1.2[${PYTHON_USEDEP}]"
-DEPEND=""
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
