@@ -17,6 +17,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]
 			dev-python/pypiwik[${PYTHON_USEDEP}]"
