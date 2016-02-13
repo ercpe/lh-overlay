@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
-DEPEND="doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )"
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]"
 
 src_compile() {

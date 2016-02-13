@@ -3,6 +3,10 @@
 # $Id$
 
   13 Feb 2016; Johann Schmitz <ercpe@gentoo.org>
+  django-bootstrap3-4.11.0.ebuild:
+  dev-python/django-bootstrap3: Added missing setuptools
+
+  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org>
   -django-bootstrap3-4.7.0.ebuild, -django-bootstrap3-5.0.2.ebuild,
   -django-bootstrap3-5.1.1.ebuild, -django-bootstrap3-5.2.0.ebuild,
   -django-bootstrap3-5.3.1.ebuild:
