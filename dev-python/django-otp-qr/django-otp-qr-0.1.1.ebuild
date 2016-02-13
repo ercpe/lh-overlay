@@ -20,3 +20,4 @@ IUSE=""
 
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]
 		dev-python/qrcode[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
