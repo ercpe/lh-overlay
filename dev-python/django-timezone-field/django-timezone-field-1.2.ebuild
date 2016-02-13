@@ -17,3 +17,5 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
+
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
