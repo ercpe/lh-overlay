@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND="dev-python/django[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		dev-python/django[${PYTHON_USEDEP}]"
 RDEPEND="${DEPEND}"
 
 python_test() {
