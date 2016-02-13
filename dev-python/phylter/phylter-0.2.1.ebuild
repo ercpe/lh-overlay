@@ -17,10 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test django"
 
-DEPEND="test? (
-	dev-python/mock[${PYTHON_USEDEP}]
-	dev-python/pytest[${PYTHON_USEDEP}]
-)"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		test? (
+			dev-python/mock[${PYTHON_USEDEP}]
+			dev-python/pytest[${PYTHON_USEDEP}]
+		)"
 RDEPEND="django? (
 	dev-python/django[${PYTHON_USEDEP}]
 )"
