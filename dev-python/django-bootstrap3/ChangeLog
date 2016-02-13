@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> django-bootstrap3-6.1.0.ebuild:
+  dev-python/django-bootstrap3: Added missing setuptools
+
   13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> django-bootstrap3-5.4.0.ebuild:
   dev-python/django-bootstrap3: Added missing setuptools
 
