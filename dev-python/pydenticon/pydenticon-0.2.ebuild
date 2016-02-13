@@ -18,7 +18,8 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="test"
 
-DEPEND="dev-python/pillow[${PYTHON_USEDEP}]
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	test? ( dev-python/mock[${PYTHON_USEDEP}] )"
 
 python_test() {
