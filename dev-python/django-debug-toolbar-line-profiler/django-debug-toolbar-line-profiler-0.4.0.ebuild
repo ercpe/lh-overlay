@@ -18,5 +18,6 @@ SLOT="0"
 
 RDEPEND="dev-python/line_profiler[${PYTHON_USEDEP}]
 		dev-python/django-debug-toolbar[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 IUSE=""
