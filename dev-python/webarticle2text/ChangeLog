@@ -1,6 +1,11 @@
 # ChangeLog for dev-python/webarticle2text
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
+
+  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org>
+  webarticle2text-1.2.6_pre20130817.ebuild,
+  webarticle2text-1.2.6_pre20130824.ebuild, webarticle2text-2.0.1.ebuild:
+  dev-python/webarticle2text: Added missing setuptools
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org>
   webarticle2text-1.2.6_pre20130817.ebuild,
