@@ -17,8 +17,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="media-libs/taglib"
-RDEPEND="${DEPEND}"
+CDEPEND="media-libs/taglib"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+RDEPEND="${CDEPEND}"
 
 python_test() {
 	PYTHONPATH="src:${PYTHONPATH}" esetup.py test
