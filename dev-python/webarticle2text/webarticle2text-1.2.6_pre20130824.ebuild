@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+DEPEND=""
 RDEPEND="
 	dev-python/chardet[${PYTHON_USEDEP}]
 	dev-python/pytidylib[${PYTHON_USEDEP}]
