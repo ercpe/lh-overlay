@@ -18,5 +18,3 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 S="${WORKDIR}"/PySensors-${PV}
-
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
