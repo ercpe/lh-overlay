@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RDEPEND=">=dev-python/django-1.4.10[${PYTHON_USEDEP}]"
-DEPEND=""
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 python_test() {
 	esetup.py test
