@@ -21,6 +21,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]"
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+DEPEND=""
 
 S="${WORKDIR}/${MY_P}"

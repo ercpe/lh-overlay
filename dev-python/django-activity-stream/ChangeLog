@@ -1,10 +1,6 @@
 # ChangeLog for dev-python/django-activity-stream
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
-
-  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org>
-  django-activity-stream-0.6.0.ebuild:
-  dev-python/django-activity-stream: Added missing setuptools
 
 *django-activity-stream-0.6.0 (16 Aug 2015)
 
