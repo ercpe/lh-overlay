@@ -28,5 +28,6 @@ DEPEND=">=dev-python/django-1.4.11[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-3.10[${PYTHON_USEDEP}]
 		dev-python/django-guardian[${PYTHON_USEDEP}]
 		dev-python/django-filter[${PYTHON_USEDEP}]
+		dev-python/setuptools[${PYTHON_USEDEP}]
 "
 RESTRICT="test"
