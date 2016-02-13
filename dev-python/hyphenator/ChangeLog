@@ -1,9 +1,6 @@
 # ChangeLog for dev-python/hyphenator
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
-
-  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> hyphenator-0.5.1.ebuild:
-  dev-python/hyphenator: Added missing setuptools
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> hyphenator-0.5.1.ebuild:
   dev-python/hyphenator: Updated ebuild headers to match new $Id$ line
