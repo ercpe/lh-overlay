@@ -22,7 +22,8 @@ CDEPEND=">=dev-python/django-1.2[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]"
 
 RDEPEND="${CDEPEND}"
-DEPEND="test? ( ${CDEPEND} )"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		test? ( ${CDEPEND} )"
 
 python_test() {
 	esetup.py test || die
