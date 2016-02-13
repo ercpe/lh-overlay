@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-DEPEND="test? ( dev-python/mock[${PYTHON_USEDEP}]  )"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		test? ( dev-python/mock[${PYTHON_USEDEP}]  )"
 RDEPEND=""
 
 src_install() {
