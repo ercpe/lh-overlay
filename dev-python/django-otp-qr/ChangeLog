@@ -1,10 +1,6 @@
 # ChangeLog for dev-python/django-otp-qr
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
-
-  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> -django-otp-qr-0.1.0.ebuild,
-  django-otp-qr-0.1.1.ebuild:
-  dev-python/django-otp-qr: Added missing setuptools, dropped old
 
   16 Aug 2015; Johann Schmitz <ercpe@gentoo.org> django-otp-qr-0.1.0.ebuild,
   django-otp-qr-0.1.1.ebuild:
