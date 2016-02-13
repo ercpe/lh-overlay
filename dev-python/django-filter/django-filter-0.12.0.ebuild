@@ -19,4 +19,4 @@ IUSE=""
 
 CDEPEND=">=dev-python/django-1.8[${PYTHON_USEDEP}]"
 RDEPEND="${CDEPEND}"
-DEPEND=""
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"

@@ -2,6 +2,9 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Id$
 
+  13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> django-filter-0.12.0.ebuild:
+  dev-python/django-filter: Added missing setuptools
+
   13 Feb 2016; Johann Schmitz <ercpe@gentoo.org> -django-filter-0.11.0.ebuild:
   dev-python/django-filter: Dropped old
 
