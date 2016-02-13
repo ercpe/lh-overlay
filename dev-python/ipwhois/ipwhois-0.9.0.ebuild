@@ -24,5 +24,3 @@ RESTRICT="test" # network-heavy test which provably fail in restricted environme
 RDEPEND="
 	virtual/python-dnspython[${PYTHON_USEDEP}]
 	virtual/python-ipaddress[${PYTHON_USEDEP}]"
-
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
