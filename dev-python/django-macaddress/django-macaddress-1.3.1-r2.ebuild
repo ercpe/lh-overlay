@@ -17,9 +17,11 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="
+RDEPEND="
 	dev-python/netaddr[${PYTHON_USEDEP}]
 	dev-python/django[${PYTHON_USEDEP}]"
+DEPEND="${RDEPEND}
+		dev-python/setuptools[${PYTHON_USEDEP}]"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-python3.patch
