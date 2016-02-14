@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-inherit git-2
+inherit git-r3
 
 DESCRIPTION="Interrupts 'top-like' utility for Linux"
 HOMEPAGE="https://github.com/kargig/itop"
