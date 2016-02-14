@@ -2,21 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-if [[ ${PV} == 9999* ]]
-then
-	EGIT_REPO_URI="git://github.com/masterzen/mysql-snmp.git"
-	inherit git-2 eutils multilib
-	SRC_URI=""
-	S=${WORKDIR}/${PN}
-else
-	inherit eutils multilib
-	SRC_URI="http://github.com/masterzen/${PN}/tarball/v${PV} -> ${P}.tar.gz"
-fi
+inherit eutils multilib vcs-snapshot
 
 DESCRIPTION="AgentX subagent for net-snmp to get MySQL statistics"
 HOMEPAGE="http://github.com/masterzen/mysql-snmp"
+SRC_URI="http://github.com/masterzen/${PN}/tarball/v${PV} -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -32,15 +24,6 @@ RDEPEND="
 	dev-perl/DBI
 	dev-perl/Unix-Syslog
 	virtual/perl-Getopt-Long"
-
-src_unpack() {
-	if [[ ${PV} == 9999* ]] ; then
-		git_src_unpack
-	else
-		unpack ${A}
-		mv masterzen-mysql-snmp-* ${P}
-	fi
-}
 
 src_install() {
 	# Do not use make install, since it installs the MIB
