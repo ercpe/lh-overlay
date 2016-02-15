@@ -21,5 +21,6 @@ net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
 net-analyzer/nagios-plugins-extra:sensors - sensors plugin
 net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
+sys-kernel/lh-sources:kdbus - Apply the kdbus patch. This also requires the "experimental" use flag.
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
 virtual/linux-sources:firmware - Install linux kernel firmware
