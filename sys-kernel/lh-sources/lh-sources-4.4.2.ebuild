@@ -10,13 +10,13 @@ K_GENPATCHES_VER="4"
 K_DEBLOB_AVAILABLE="0"
 K_KDBUS_AVAILABLE="0"
 UNIPATCH_STRICTORDER=1
-inherit kernel-2 readme.gentoo versionator
+inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
 detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.4_p20160118
+AUFS_VERSION=4.4_p20160219
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
@@ -110,9 +110,13 @@ src_prepare() {
 	if ! use module; then
 		sed -e 's:tristate:bool:g' -i "${WORKDIR}"/fs/aufs/Kconfig || die
 	fi
-	cp -f "${WORKDIR}"/include/uapi/linux/aufs_type.h include/uapi/linux/aufs_type.h || die
-	cp -rf "${WORKDIR}"/{Documentation,fs} . || die
-	cp "${DISTDIR}"/lh-logo_linux_320_240_clut224.ppm drivers/video/logo/logo_linux_clut224.ppm || die
+	cp \
+		"${WORKDIR}"/include/uapi/linux/aufs_type.h \
+		include/uapi/linux/aufs_type.h || die
+	cp -r "${WORKDIR}"/{Documentation,fs} . || die
+	cp \
+		"${DISTDIR}"/lh-logo_linux_320_240_clut224.ppm \
+		drivers/video/logo/logo_linux_clut224.ppm || die
 }
 
 src_install() {
@@ -129,7 +133,7 @@ pkg_postinst() {
 	has_version sys-fs/aufs-util || \
 		elog "In order to use aufs FS you need to install sys-fs/aufs-util"
 
-	readme.gentoo_pkg_postinst
+	readme.gentoo_print_elog
 }
 
 pkg_postrm() {
