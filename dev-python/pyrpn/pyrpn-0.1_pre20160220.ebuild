@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 python3_{3,4,5} pypy )
 
 inherit distutils-r1 vcs-snapshot
 
-GIT_COMMIT="6d13fb53851d5f083d1538685cf70bad0849c208"
+GIT_COMMIT="2c0aae9eb20bea819424f96b25303202063a903c"
 
 DESCRIPTION="Python implementation of a reverse polish notation parser"
 HOMEPAGE="https://ercpe.de/projects/pyrpn"
