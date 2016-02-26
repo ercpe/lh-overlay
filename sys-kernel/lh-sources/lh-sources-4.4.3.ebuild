@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="4"
+K_GENPATCHES_VER=5
 K_DEBLOB_AVAILABLE="0"
 K_KDBUS_AVAILABLE="0"
 UNIPATCH_STRICTORDER=1
@@ -16,7 +16,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.4_p20160219
+AUFS_VERSION=4.4_p20160223
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
