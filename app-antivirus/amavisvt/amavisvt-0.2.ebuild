@@ -27,4 +27,7 @@ src_install() {
 	python_foreach_impl python_newscript "${S}"/amavisvt/__main__.py "amavisvt"
 
 	dodoc "${S}"/amavisvt_example.cfg
+
+	insinto /etc
+	newins ${PN}_example.cfg ${PN}.cfg
 }
