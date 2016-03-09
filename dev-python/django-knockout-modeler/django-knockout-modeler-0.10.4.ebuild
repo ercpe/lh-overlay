@@ -19,3 +19,5 @@ IUSE=""
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="dev-python/django[${PYTHON_USEDEP}]"
+
+PATCHES=( "${FILESDIR}"/remove-fake-models.patch )
