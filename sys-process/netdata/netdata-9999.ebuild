@@ -4,16 +4,23 @@
 
 EAPI=6
 
-inherit autotools git-r3 linux-info systemd user
+inherit linux-info systemd user
+
+if [[ ${PV} == "9999" ]] ; then
+	EGIT_REPO_URI="git://github.com/firehol/${PN}.git"
+	inherit git-r3 autotools
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="http://firehol.org/download/${PN}/releases/v${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 DESCRIPTION="Linux real time system monitoring, done right!"
 HOMEPAGE="https://github.com/firehol/netdata http://netdata.firehol.org/"
-SRC_URI=""
-EGIT_REPO_URI="git://github.com/firehol/${PN}.git"
 
 LICENSE="GPL-3+ MIT BSD"
 SLOT="0"
-KEYWORDS=""
 IUSE="+compression nfacct nodejs"
 
 # most unconditional dependencies are for plugins.d/charts.d.plugin:
@@ -27,8 +34,9 @@ RDEPEND="
 		net-firewall/nfacct
 		net-libs/libmnl
 	)
-	nodejs? ( net-libs/nodejs )
-"
+	nodejs? (
+		net-libs/nodejs
+	)"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
@@ -40,10 +48,6 @@ CONFIG_CHECK="
 
 : ${NETDATA_USER:=netdata}
 
-PATCHES=(
-	"${FILESDIR}"/${P}-gentoo.patch
-)
-
 pkg_setup() {
 	linux-info_pkg_setup
 
@@ -53,13 +57,13 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	eautoreconf
+	[[ ${PV} == "9999" ]] && eautoreconf
 }
 
 src_configure() {
 	econf \
 		--localstatedir=/var \
-		--with-user=${PN} \
+		--with-user=${NETDATA_USER} \
 		$(use_enable nfacct plugin-nfacct) \
 		$(use_with compression zlib)
 }
@@ -67,9 +71,9 @@ src_configure() {
 src_install() {
 	default
 
-	fowners ${PN} /var/log/netdata
+	fowners ${NETDATA_USER} /var/log/netdata
 
-	chown -Rc ${PN} "${ED}"/usr/share/${PN} || die
+	chown -Rc ${NETDATA_USER} "${ED}"/usr/share/${PN} || die
 
 	cat >> "${T}"/${PN}-sysctl <<- EOF
 	kernel.mm.ksm.run = 1
