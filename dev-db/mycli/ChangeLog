@@ -1,0 +1,48 @@
+# ChangeLog for dev-db/mycli
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# (auto-generated from git log)
+
+*mycli-9999 (15 Sep 2015)
+*mycli-1.4.0 (15 Sep 2015)
+
+  15 Sep 2015; Brian Evans <grknight@gentoo.org> +metadata.xml,
+  +mycli-1.4.0.ebuild, +mycli-9999.ebuild:
+  New package, ebuilds by me
+
+  Package-Manager: portage-2.2.20.1
+
+  16 Oct 2015; Justin Lecher <jlec@gentoo.org> metadata.xml:
+  Update remote-ids
+
+  Signed-off-by: Justin Lecher <jlec@gentoo.org>
+
+*mycli-1.5.2 (15 Nov 2015)
+
+  15 Nov 2015; Johann Schmitz <ercpe@gentoo.org> +mycli-1.5.2.ebuild:
+  Version bump to 1.5.2
+
+  Package-Manager: portage-2.2.20.1
+
+*mycli-1.5.2-r1 (21 Jan 2016)
+
+  21 Jan 2016; Brian Evans <grknight@gentoo.org> +mycli-1.5.2-r1.ebuild:
+  Revision bump with missing pycrypto dependency
+
+  Package-Manager: portage-2.2.26
+
+  21 Jan 2016; Brian Evans <grknight@gentoo.org> mycli-9999.ebuild:
+  Bump live version deps to match upstream
+
+  Package-Manager: portage-2.2.26
+
+  24 Jan 2016; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Unify quoting in metadata.xml files for machine processing
+
+  Force unified quoting in all metadata.xml files since lxml does not
+  preserve original use of single and double quotes. Ensuring unified
+  quoting before the process allows distinguishing the GLEP 67-related
+  metadata.xml changes from unrelated quoting changes.
+
+  24 Jan 2016; Michał Górny <mgorny@gentoo.org> metadata.xml:
+  Set appropriate maintainer types in metadata.xml (GLEP 67)
+
