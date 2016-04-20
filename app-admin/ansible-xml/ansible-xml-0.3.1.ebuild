@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 
@@ -22,11 +22,11 @@ IUSE=""
 RDEPEND="app-admin/ansible[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]"
 
-ansible_ldap_install() {
+ansible_xml_install() {
 	python_moduleinto ${PN/-/_}
 	python_domodule "${S}"/library/*
 }
 
 src_install() {
-	python_foreach_impl ansible_ldap_install
+	python_foreach_impl ansible_xml_install
 }
