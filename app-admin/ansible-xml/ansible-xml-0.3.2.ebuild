@@ -8,9 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 
 inherit python-r1 vcs-snapshot
 
-MY_COMMIT_ID="2a3afa05682177b63f62086dbbfb892425b5b4a2"
-
-DESCRIPTION="Ansible LDAP lookup plugin"
+DESCRIPTION="Ansible XML lookup plugin"
 HOMEPAGE="https://github.com/cmprescott/ansible-xml"
 SRC_URI="https://github.com/cmprescott/ansible-xml/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
