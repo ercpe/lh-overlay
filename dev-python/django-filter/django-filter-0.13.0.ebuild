@@ -10,7 +10,7 @@ inherit distutils-r1
 
 DESCRIPTION="A generic system for filtering Django QuerySets based on user selections"
 HOMEPAGE="https://github.com/alex/django-filter https://django-filter.readthedocs.org"
-SRC_URI="https://github.com/alex/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
