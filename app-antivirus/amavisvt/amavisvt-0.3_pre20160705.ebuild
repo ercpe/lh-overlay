@@ -39,6 +39,9 @@ src_install() {
 
 	insinto /etc
 	newins ${PN}_example.cfg ${PN}.cfg
+
+	keepdir /var/lib/${PN}/
+	grep -q amavis /etc/passwd && chown amavis:amavis /var/lib/${PN}/
 }
 
 python_test() {
