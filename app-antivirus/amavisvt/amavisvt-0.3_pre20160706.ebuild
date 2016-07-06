@@ -10,7 +10,7 @@ inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="Virustotal integration for amavisd-new"
 HOMEPAGE="https://code.not-your-server.de/amavisvt.git/"
-SRC_URI="https://github.com/ercpe/amavisvt/archive/2e0ad0577909ca14d49e94530f62bb9c5e5128ca.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://code.not-your-server.de/${PN}.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
