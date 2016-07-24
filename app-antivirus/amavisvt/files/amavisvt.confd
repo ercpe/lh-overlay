@@ -1,0 +1,3 @@
+AMAVISVT_USER="amavis"
+AMAVISVT_GROUP="amavis"
+AMAVISVT_ARGS=""
