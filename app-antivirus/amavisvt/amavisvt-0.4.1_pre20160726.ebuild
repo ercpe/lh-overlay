@@ -22,7 +22,7 @@ PYTHON_REQ_USE="sqlite"
 CDEPEND="dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/python-memcached[${PYTHON_USEDEP}]
 		dev-python/filemagic[${PYTHON_USEDEP}]
-		dev-python/fuzzywuzzy[${PYTHON_USEDEP}]"
+		dev-python/python-levenshtein[${PYTHON_USEDEP}]"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		test? (
 			dev-python/mock[${PYTHON_USEDEP}]
