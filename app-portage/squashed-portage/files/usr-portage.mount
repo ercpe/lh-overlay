@@ -1,0 +1,12 @@
+[Unit]
+Description=Bind squashed portage to /usr/portage
+
+Requires=run-squashfs-portage.mount
+After=run-squashfs-portage.mount
+Before=squashed-portage.target
+
+[Mount]
+What=/run/squashfs/portage
+Where=/usr/portage
+Type=bind
+Options=bind
