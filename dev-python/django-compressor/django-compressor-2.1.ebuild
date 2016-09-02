@@ -21,7 +21,7 @@ SLOT="0"
 
 RDEPEND="
 	>=dev-python/django-1.8[${PYTHON_USEDEP}]
-	>=dev-python/django-appconf-0.4[${PYTHON_USEDEP}]"
+	>=dev-python/django-appconf-1.0[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/versiontools[${PYTHON_USEDEP}]
