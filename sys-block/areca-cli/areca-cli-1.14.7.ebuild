@@ -23,7 +23,7 @@ RESTRICT="strip"
 
 S="${WORKDIR}/linuxcli_${MY_PV}"
 
-QA_PREBUILT=( opt/bin/* )
+QA_PREBUILT="/opt/bin/arccli"
 
 ARCMSR_kernel_info() {
 	cat <<- EOF
