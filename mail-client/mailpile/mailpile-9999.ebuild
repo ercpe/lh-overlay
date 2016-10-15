@@ -11,7 +11,7 @@ inherit distutils-r1 git-r3
 DESCRIPTION="An experimental indexing and search engine for e-mail"
 HOMEPAGE="https://www.mailpile.is/"
 SRC_URI=""
-EGIT_REPO_URI="https://github.com/pagekite/Mailpile.git"
+EGIT_REPO_URI="https://github.com/mailpile/Mailpile.git"
 
 SLOT="0"
 LICENSE="AGPL-3"
@@ -22,9 +22,10 @@ RDEPEND="
 	dev-python/jinja:0[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/markupsafe[${PYTHON_USEDEP}]
+	dev-python/pbr[${PYTHON_USEDEP}]
 	dev-python/pgpdump[${PYTHON_USEDEP}]
+	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pydns:2[${PYTHON_USEDEP}]
-	>=dev-python/selenium-2.40.0[${PYTHON_USEDEP}]
 	mail-filter/spambayes[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}

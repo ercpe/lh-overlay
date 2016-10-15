@@ -10,7 +10,7 @@ inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="An experimental indexing and search engine for e-mail"
 HOMEPAGE="https://www.mailpile.is/"
-SRC_URI="https://github.com/pagekite/Mailpile/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/mailpile/Mailpile/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 LICENSE="AGPL-3"
@@ -23,7 +23,6 @@ RDEPEND="
 	dev-python/markupsafe[${PYTHON_USEDEP}]
 	dev-python/pgpdump[${PYTHON_USEDEP}]
 	dev-python/pydns:2[${PYTHON_USEDEP}]
-	>=dev-python/selenium-2.40.0[${PYTHON_USEDEP}]
 	mail-filter/spambayes[${PYTHON_USEDEP}]
 "
 DEPEND="${RDEPEND}
