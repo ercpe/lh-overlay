@@ -17,7 +17,4 @@ net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
 sys-kernel/lh-sources:kdbus - Apply the kdbus patch. This also requires the "experimental" use flag.
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
-sys-process/netdata:compression - Compress data before sending, reduces traffic
-sys-process/netdata:nfacct - Enable nfacct plugin, requires root
-sys-process/netdata:nodejs - Add nodejs support
 virtual/linux-sources:firmware - Install linux kernel firmware
