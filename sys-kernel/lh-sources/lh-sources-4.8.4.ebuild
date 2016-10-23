@@ -6,7 +6,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=3
+K_GENPATCHES_VER=5
 K_DEBLOB_AVAILABLE="0"
 K_KDBUS_AVAILABLE="0"
 UNIPATCH_STRICTORDER=1
@@ -25,22 +25,24 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 # Set to true, if BFQ needs to apply seperately
 BFQ=true
 
-BFQ_URI_PATCH_MAJOR="7"
+BFQ_URI_PATCH_MAJOR="8"
 BFQ_URI_PATCH_MINOR="0"
 BFQ_URI_PATCH_LEVEL="7r11"
 #BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
-BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v8r3"
+BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v8r4"
 BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch -> \
-		0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch -> \
-		0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for.patch -> \
-		0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	${BFQ_BASE}/0004-block-bfq-turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-into-BFQ-v8r3-for.patch -> \
-		0004-block-bfq-turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-into-BFQ-v8r3-for.patch1
-	"
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-to-be-ported.patch
+	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-to-.patch
+	${BFQ_BASE}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
+"
 #	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MAJOR}.BFQ"
+BFQ_PATCH_LIST=(
+	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
+	"${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-to-be-ported.patch"
+	"${DISTDIR}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-to-.patch"
+	"${DISTDIR}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
+)
 
 GCCOPT_PATCH_LEVEL=e50ee4fe4039e7bc9eae6bd17797de0dd30a087b
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
@@ -76,11 +78,6 @@ AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs4-kbuild.patch
 	"${WORKDIR}"/aufs4-base.patch
 	"${WORKDIR}"/aufs4-mmap.patch"
-BFQ_PATCH_LIST=(
-	"${DISTDIR}"/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	"${DISTDIR}"/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	"${DISTDIR}"/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch1
-	)
 GCCOPT_LIST=( "${DISTDIR}"/${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch )
 
 #BFQ_DOC="${DISTDIR}/README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MINOR}.BFQ"
@@ -96,6 +93,7 @@ if [[ ${BFQ} == "true" ]]; then
 fi
 
 src_unpack() {
+	local p
 	if use vanilla; then
 		unset UNIPATCH_LIST_GENPATCHES UNIPATCH_LIST_DEFAULT
 		ewarn "You are using USE=vanilla"
@@ -105,7 +103,9 @@ src_unpack() {
 	unpack ${AUFS_TARBALL}
 	if [[ ${BFQ} == "true" ]]; then
 		mkdir "${WORKDIR}"/patches || die
-		cp ${BFQ_PATCH_LIST[@]} "${WORKDIR}"/patches || die
+		for p in ${BFQ_PATCH_LIST[@]}; do
+			cp "${p}" "${WORKDIR}"/patches/$(basename ${p})1 || die
+		done
 	fi
 	kernel-2_src_unpack
 }
