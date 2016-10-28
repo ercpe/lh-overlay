@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python3_3 )
+PYTHON_COMPAT=( python3_{3,4} )
 
 inherit distutils-r1
 
@@ -17,10 +17,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-python/cfgio[${PYTHON_USEDEP}]
-		dev-python/sh[${PYTHON_USEDEP}]
-		sys-fs/lvm2
-		app-emulation/xen-tools"
+RDEPEND="
+	dev-python/cfgio[${PYTHON_USEDEP}]
+	dev-python/sh[${PYTHON_USEDEP}]
+	sys-fs/lvm2
+	app-emulation/xen-tools"
 
 src_install() {
 	distutils-r1_src_install
@@ -32,5 +33,5 @@ src_install() {
 	exeinto /usr/share/gentoo-bootstrap
 	doexe tools/chroot-bootstrap.sh
 
-	python_scriptroot=/usr/sbin python_foreach_impl python_newscript ${S}/src/${PN/-/}/main.py gentoo-bootstrap
+	python_scriptroot=/usr/sbin python_foreach_impl python_newscript "${S}"/src/${PN/-/}/main.py gentoo-bootstrap
 }
