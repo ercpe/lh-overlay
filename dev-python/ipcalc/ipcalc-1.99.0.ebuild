@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-PYTHON_COMPAT=( python2_7 python{3_3,3_4,3_5} pypy )
+PYTHON_COMPAT=( python2_7 python{3_4,3_5} pypy )
 
 inherit distutils-r1 vcs-snapshot
 

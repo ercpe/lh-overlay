@@ -4,7 +4,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 ) # ,3_2,3_3,3_4 due to dependency to oauth-plus
+PYTHON_COMPAT=( python2_7 ) # ,3_2,3_4 due to dependency to oauth-plus
 
 inherit distutils-r1
 
