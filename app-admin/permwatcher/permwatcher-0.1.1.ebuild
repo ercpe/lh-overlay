@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python3_3 )
+PYTHON_COMPAT=( python3_{4,5} )
 
 inherit distutils-r1
 
