@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{3,4} )
+PYTHON_COMPAT=( python{2_7,3_4,3_5} pypy )
 
 inherit distutils-r1
 
@@ -24,5 +24,5 @@ RDEPEND="dev-python/pyyaml[${PYTHON_USEDEP}]
 src_install() {
 	distutils-r1_src_install
 
-	python_foreach_impl python_newscript "${S}"/src/${PN/-/}/main.py ${PN}
+	python_foreach_impl python_newscript "${S}"/${PN/-/}/__main__.py "${PN}"
 }
