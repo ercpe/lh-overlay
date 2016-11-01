@@ -19,7 +19,8 @@ IUSE=""
 
 RDEPEND="dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/mako[${PYTHON_USEDEP}]
-		dev-python/ushlex[${PYTHON_USEDEP}]"
+		dev-python/ushlex[${PYTHON_USEDEP}]
+		dev-python/jsonxs[${PYTHON_USEDEP}]"
 
 src_prepare() {
 	default
