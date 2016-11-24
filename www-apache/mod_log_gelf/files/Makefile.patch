@@ -1,0 +1,15 @@
+diff --git a/apache-mod_log_gelf-0.2.0/src/Makefile b/apache-mod_log_gelf-0.2.0/src/Makefile
+index 09b4871..e6a53bf 100644
+--- a/apache-mod_log_gelf-0.2.0/src/Makefile
++++ b/apache-mod_log_gelf-0.2.0/src/Makefile
+@@ -1,5 +1,10 @@
+ builddir=.
+ 
++ifneq (,$(wildcard /usr/lib/apache2/build/special.mk))
++  top_srcdir=/usr/lib/apache2
++  top_builddir=/usr/lib/apache2
++  include /usr/lib64/apache2/build/special.mk
++endif
+ ifneq (,$(wildcard /usr/share/apache2/build/special.mk))
+   top_srcdir=/usr/share/apache2
+   top_builddir=/usr/share/apache2
