@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
+start() {
+	ebegin "Starting fuglu"
+	start-stop-daemon --start --exec /usr/bin/fuglu --background -- ${FUGLU_ARGS}
+	eend $*
+}
+
+stop() {
+	ebegin "Stopping fuglu"
+	start-stop-daemon --stop --exec /usr/bin/fuglu --pidfile "/run/fuglu.pid"
+	eend $*
+}
