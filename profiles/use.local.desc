@@ -6,15 +6,18 @@ app-portage/squashed-portage:aufs - Enable write access to PORTDIR via an aufs l
 app-portage/squashed-portage:zsync - Use alternate zsync based fetcher
 dev-nodejs/coffee-script:extras - Install extra stuff
 dev-python/django-rest-framework:oauth - Adds support for authentication via OAuth
+dev-python/graypy:amqp - Adds support for sending log messages via AMQP
 dev-python/phylter:django - Enables the DjangoBackend
 dev-python/python-munin:plugins - Install munin plugins beside the lib
 dev-util/mbfl:sudo - use sudo when invoking abi and abu rules
+mail-filter/fuglu:clamav - Adds support for ClamAV (runtime dep only)
+mail-filter/fuglu:database - Adds support for databases using sqlalchemy
+mail-filter/fuglu:spamassassin - Adds support for Spamassassin (runtime dep only)
 net-analyzer/nagios-plugins-extra:bind - bind plugin
 net-analyzer/nagios-plugins-extra:fail2ban - fail2ban plugin
 net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
 net-analyzer/nagios-plugins-extra:sensors - sensors plugin
 net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
-sys-kernel/lh-sources:kdbus - Apply the kdbus patch. This also requires the "experimental" use flag.
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
 virtual/linux-sources:firmware - Install linux kernel firmware
