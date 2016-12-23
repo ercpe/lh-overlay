@@ -24,10 +24,9 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 # Set to true, if BFQ needs to apply seperately
 BFQ=true
 
-BFQ_URI_PATCH_MAJOR="8"
+BFQ_URI_PATCH_MAJOR="9"
 BFQ_URI_PATCH_MINOR="0"
-BFQ_URI_PATCH_LEVEL="7r11"
-#BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
+BFQ_URI_PATCH_LEVEL="8r6"
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v8r4"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
@@ -35,6 +34,14 @@ BFQ_URI="
 	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-to-.patch
 	${BFQ_BASE}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
 "
+BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
+BFQ_URI="
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.5.0.patch
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.5.0.patch
+	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch
+	${BFQ_BASE}/0004-Turn-into-BFQ-v8r6-for-4.9.0.patch
+"
+
 #	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MAJOR}.BFQ"
 BFQ_PATCH_LIST=(
 	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
