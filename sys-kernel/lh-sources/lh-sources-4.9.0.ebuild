@@ -50,6 +50,13 @@ BFQ_PATCH_LIST=(
 	"${DISTDIR}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
 )
 
+BFQ_PATCH_LIST=(
+	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.5.0.patch"
+	"${DISTDIR}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.5.0.patch"
+	"${DISTDIR}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch"
+	"${DISTDIR}/0004-Turn-into-BFQ-v8r6-for-4.9.0.patch"
+)
+
 GCCOPT_PATCH_LEVEL=84aad1d8bf5e0c2505b8fb9882394a262a7307e8
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
 GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
