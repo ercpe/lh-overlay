@@ -15,6 +15,13 @@ SRC_URI="https://github.com/severb/graypy/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="amqp"
+IUSE="amqp test"
 
-RDEPENDS="amqp? ( dev-python/amqplib[${PYTHON_USEDEP}] )"
+RDEPEND="amqp? ( dev-python/amqplib[${PYTHON_USEDEP}] )"
+DEPEND="test? (
+		dev-python/pytest[${PYTHON_USEDEP}]
+	)"
+
+python_test() {
+	py.test || die
+}
