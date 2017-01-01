@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -18,8 +18,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="clamav database spamassassin test"
 
-CDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
-		dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
+CDEPEND="dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
 		!dev-python/filemagic[${PYTHON_USEDEP}]
 		dev-python/python-magic[${PYTHON_USEDEP}]
 		dev-python/rarfile[${PYTHON_USEDEP}]
@@ -29,6 +28,7 @@ CDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 		database? ( dev-python/sqlalchemy[${PYTHON_USEDEP}] )"
 
 DEPEND="${CDEPEND}
+		dev-python/setuptools[${PYTHON_USEDEP}]
 		test? (
 			dev-python/nose[${PYTHON_USEDEP}]
 			dev-python/lxml[${PYTHON_USEDEP}]
