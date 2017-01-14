@@ -4,11 +4,11 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_4} pypy )
+PYTHON_COMPAT=( python{2_7,3_{4,5}} pypy )
 
 inherit distutils-r1
 
-DESCRIPTION="Full featured Python package for parsing and generating vCard and vCalendar files"
+DESCRIPTION="Parsing and generating vCard and vCalendar files"
 HOMEPAGE="http://vobject.skyhouseconsulting.com/ https://pypi.python.org/pypi/vobject"
 SRC_URI="https://github.com/eventable/vobject/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="dev-python/python-dateutil[${PYTHON_USEDEP}]
+RDEPEND="
+	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 

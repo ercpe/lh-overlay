@@ -5,7 +5,6 @@
 		<email>johann@j-schmitz.net</email>
 		<name>Johann Schmitz (ercpe)</name>
 	</maintainer>
-
 	<upstream>
 		<remote-id type="pypi">vobject</remote-id>
 		<remote-id type="github">eventable/vobject</remote-id>
