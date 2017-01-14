@@ -2,6 +2,8 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+app-misc/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
+app-misc/lh-sources:module - Patch kernel to allow aufs being build as a module.
 app-portage/squashed-portage:aufs - Enable write access to PORTDIR via an aufs layer
 app-portage/squashed-portage:zsync - Use alternate zsync based fetcher
 dev-nodejs/coffee-script:extras - Install extra stuff
