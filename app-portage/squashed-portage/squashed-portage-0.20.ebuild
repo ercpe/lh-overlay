@@ -30,6 +30,7 @@ RESTRICT="mirror"
 S="${WORKDIR}/${P}/src"
 
 src_prepare() {
+	default
 	eprefixify *
 	sed \
 		-e "s:@GENTOOLIBDIR@:$(get_libdir):g" \
