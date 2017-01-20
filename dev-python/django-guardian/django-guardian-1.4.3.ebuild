@@ -22,4 +22,5 @@ CDEPEND=">=dev-python/django-1.2[${PYTHON_USEDEP}]
 		dev-python/six[${PYTHON_USEDEP}]"
 
 RDEPEND="${CDEPEND}"
-DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+		dev-python/pytest-runner[${PYTHON_USEDEP}]"
