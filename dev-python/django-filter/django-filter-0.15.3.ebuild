@@ -27,6 +27,7 @@ python_test() {
 	${EPYTHON} runtests.py || die
 }
 
-src_install() {
-	rm -r "${S}"/tests
+python_prepare_all() {
+	use test || rm -rvf "${S}"/tests
+	distutils-r1_python_prepare_all
 }
