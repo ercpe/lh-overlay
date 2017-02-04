@@ -14,7 +14,7 @@ SRC_URI="https://code.not-your-server.de/squashed-portage.git/tags/${PV}.tar.gz 
 
 SLOT="0"
 LICENSE="GPL-3"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="aufs zsync"
 
 RDEPEND="
