@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>johann@j-schmitz.net</email>
+        <name>Johann Schmitz</name>
+    </maintainer>
+    <use>
+        <flag name="ceph">Enables CEPH support</flag>
+        <flag name="glusterfs">Enables GlusterFS support</flag>
+        <flag name="jemalloc">Enables jemalloc support</flag>
+        <flag name="xfs">Enables support for XFS</flag>
+        <!--<flag name="zfs">Enables support for ZFS</flag>-->
+    </use>
+    <upstream>
+        <remote-id type="github">nfs-ganesha/nfs-ganesha</remote-id>
+    </upstream>
+</pkgmetadata>
