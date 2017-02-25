@@ -8,4 +8,8 @@
 	<upstream>
 		<remote-id type="github">nfs-ganesha/ntirpc</remote-id>
 	</upstream>
+	<use>
+		<flag name="rpcsec_gss">Enable RPCSEC_GSS support</flag>
+		<flag name="rdma">Add RDMA support</flag>
+	</use>
 </pkgmetadata>
