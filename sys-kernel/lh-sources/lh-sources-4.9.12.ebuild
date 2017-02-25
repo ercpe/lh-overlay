@@ -80,7 +80,7 @@ if [[ ${BFQ} == "true" ]]; then
 fi
 
 KEYWORDS="~amd64 ~x86"
-IUSE="deblob module vanilla"
+IUSE="module vanilla"
 README_GENTOO_SUFFIX="-r1"
 
 PDEPEND="=sys-fs/aufs-util-4*"
