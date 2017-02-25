@@ -27,6 +27,7 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DTIRPC_EPOLL=ON
 		-DUSE_GSS=$(usex rpcsec_gss)
 		-DUSE_RPC_RDMA=$(usex rdma)
 	)
