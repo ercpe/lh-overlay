@@ -17,6 +17,10 @@ net-analyzer/nagios-plugins-extra:bind - bind plugin
 net-analyzer/nagios-plugins-extra:fail2ban - fail2ban plugin
 net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
 net-analyzer/nagios-plugins-extra:sensors - sensors plugin
+net-fs/nfs-ganesha:ceph - Enables CEPH support
+net-fs/nfs-ganesha:glusterfs - Enables GlusterFS support
+net-fs/nfs-ganesha:jemalloc - Enables jemalloc support
+net-fs/nfs-ganesha:xfs - Enables support for XFS
 net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
