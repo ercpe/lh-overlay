@@ -17,11 +17,24 @@ net-analyzer/nagios-plugins-extra:bind - bind plugin
 net-analyzer/nagios-plugins-extra:fail2ban - fail2ban plugin
 net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
 net-analyzer/nagios-plugins-extra:sensors - sensors plugin
-net-fs/nfs-ganesha:ceph - Enables CEPH support
-net-fs/nfs-ganesha:glusterfs - Enables GlusterFS support
-net-fs/nfs-ganesha:jemalloc - Enables jemalloc support
-net-fs/nfs-ganesha:xfs - Enables support for XFS
+net-fs/nfs-ganesha:ganesha_fs_ceph - Enables CEPH support
+net-fs/nfs-ganesha:ganesha_fs_glusterfs - Enables GlusterFS support
+net-fs/nfs-ganesha:ganesha_fs_gpfs - Enables support for GPFS
+net-fs/nfs-ganesha:ganesha_fs_null - Enables support for NULL
+net-fs/nfs-ganesha:ganesha_fs_panfs - Enables support for PanFS
+net-fs/nfs-ganesha:ganesha_fs_proxy - Enables support for PROXY
+net-fs/nfs-ganesha:ganesha_fs_rgw - Enables support for RGW
+net-fs/nfs-ganesha:ganesha_fs_vfs - Enables support for VFS
+net-fs/nfs-ganesha:ganesha_fs_xfs - Enables support for XFS
+net-fs/nfs-ganesha:ganesha_fs_zfs - Enables support for ZFS
+net-fs/nfs-ganesha:gui - Install GUI Admin scripts
+net-fs/nfs-ganesha:nfs3 - Enable NLM/NFSv3 support
+net-fs/nfs-ganesha:nfsidmap - Use of libnfsidmap for name resolution
+net-fs/nfs-ganesha:rdma - Enable rdma storage backend support
+net-fs/nfs-ganesha:tools - Install Admin scripts
+net-fs/nfs-ganesha:vsock - Enable AF_VSOCK listener
 net-im/turpial:phonon - Enables phonon audio plugin
-sys-kernel/lh-sources:deblob - Remove binary blobs from kernel sources to provide libre license compliance.
+net-libs/ntirpc:rdma - Add RDMA support
+net-libs/ntirpc:rpcsec_gss - Enable RPCSEC_GSS support
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
 virtual/linux-sources:firmware - Install linux kernel firmware
