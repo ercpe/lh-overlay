@@ -1,0 +1,9 @@
+# Log file
+# LOG_FILE=/var/log/ganesha.log
+
+# Config file
+# CONFIG_FILE=/etc/ganesha/ganesha.conf
+
+# Log level
+# Defaults to event
+# LOG_LEVEL=NIV_EVENT

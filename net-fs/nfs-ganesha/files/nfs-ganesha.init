@@ -1,0 +1,18 @@
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+: ${LOG_FILE:=/var/log/ganesha.log}
+: ${CONFIG_FILE:=/etc/ganesha/ganesha.conf}
+: ${LOG_LEVEL:=NIV_EVENT}
+
+command=/usr/bin/ganesha.nfsd
+command_args="-L ${LOG_FILE} -f ${CONFIG_FILE} -N ${LOG_LEVEL} -p /run/ganesha.pid"
+pidfile="/run/ganesha.pid"
+
+name="Ganesha NFS server"
+description="NFS-Ganesha is an NFSv3,v4,v4.1 fileserver that runs in user mode on most UNIX/Linux systems"
+
+start_pre(){
+	checkpath --directory /run/ganesha
+}

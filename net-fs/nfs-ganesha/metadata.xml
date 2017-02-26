@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-    <maintainer type="person">
-        <email>johann@j-schmitz.net</email>
-        <name>Johann Schmitz</name>
-    </maintainer>
-    <use>
-        <flag name="ceph">Enables CEPH support</flag>
-        <flag name="glusterfs">Enables GlusterFS support</flag>
-        <flag name="jemalloc">Enables jemalloc support</flag>
-        <flag name="xfs">Enables support for XFS</flag>
-        <!--<flag name="zfs">Enables support for ZFS</flag>-->
-    </use>
-    <upstream>
-        <remote-id type="github">nfs-ganesha/nfs-ganesha</remote-id>
-    </upstream>
+  <maintainer type="person">
+    <email>johann@j-schmitz.net</email>
+    <name>Johann Schmitz</name>
+  </maintainer>
+  <use>
+    <flag name="ganesha_fs_ceph">Enables CEPH support</flag>
+    <flag name="ganesha_fs_glusterfs">Enables GlusterFS support</flag>
+    <flag name="ganesha_fs_gpfs">Enables support for GPFS</flag>
+    <flag name="ganesha_fs_null">Enables support for NULL</flag>
+    <flag name="ganesha_fs_panfs">Enables support for PanFS</flag>
+    <flag name="ganesha_fs_proxy">Enables support for PROXY</flag>
+    <flag name="ganesha_fs_rgw">Enables support for RGW</flag>
+    <flag name="ganesha_fs_vfs">Enables support for VFS</flag>
+    <flag name="ganesha_fs_xfs">Enables support for XFS</flag>
+    <flag name="ganesha_fs_zfs">Enables support for ZFS</flag>
+    <flag name="tools">Install Admin scripts</flag>
+    <flag name="gui">Install GUI Admin scripts</flag>
+    <flag name="nfs3">Enable NLM/NFSv3 support</flag>
+    <flag name="nfsidmap">Use of libnfsidmap for name resolution</flag>
+    <flag name="rdma">Enable rdma storage backend support</flag>
+    <flag name="vsock">Enable AF_VSOCK listener</flag>
+  </use>
+  <upstream>
+    <remote-id type="github">nfs-ganesha/nfs-ganesha</remote-id>
+  </upstream>
 </pkgmetadata>
