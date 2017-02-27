@@ -5,7 +5,7 @@ EAPI=5
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=14
+K_GENPATCHES_VER=2
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -13,7 +13,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.9_p20170220
+AUFS_VERSION=4.10_p20170220
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
@@ -22,9 +22,9 @@ LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.pp
 # Set to true, if BFQ needs to apply seperately
 BFQ=true
 
-BFQ_URI_PATCH_MAJOR="9"
+BFQ_URI_PATCH_MAJOR="10"
 BFQ_URI_PATCH_MINOR="0"
-BFQ_URI_PATCH_LEVEL="8r7"
+BFQ_URI_PATCH_LEVEL="8r8"
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v8r4"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
@@ -34,10 +34,10 @@ BFQ_URI="
 "
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.5.0.patch
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.5.0.patch
+	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch
+	${BFQ_BASE}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.10.0.patch
 	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch
-	${BFQ_BASE}/0004-Turn-into-BFQ-v8r7-for-4.9.0.patch
+	${BFQ_BASE}/0004-Turn-BFQ-v7r11-for-4.10.0-into-BFQ-v8r8-for-4.10.0.patch
 "
 
 #	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MAJOR}.BFQ"
@@ -49,10 +49,10 @@ BFQ_PATCH_LIST=(
 )
 
 BFQ_PATCH_LIST=(
-	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.5.0.patch"
-	"${DISTDIR}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.5.0.patch"
+	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch"
+	"${DISTDIR}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.10.0.patch"
 	"${DISTDIR}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch"
-	"${DISTDIR}/0004-Turn-into-BFQ-v8r7-for-4.9.0.patch"
+	"${DISTDIR}/0004-Turn-BFQ-v7r11-for-4.10.0-into-BFQ-v8r8-for-4.10.0.patch"
 )
 
 GCCOPT_PATCH_LEVEL=7e4c6fb63c8699fe8520633b40792ff49e9af9ad
