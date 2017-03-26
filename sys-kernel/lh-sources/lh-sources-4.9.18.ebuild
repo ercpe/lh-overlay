@@ -5,7 +5,7 @@ EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=18
+K_GENPATCHES_VER=20
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -55,7 +55,7 @@ BFQ_PATCH_LIST=(
 	"${DISTDIR}/0004-Turn-into-BFQ-v8r7-for-4.9.0.patch"
 )
 
-GCCOPT_PATCH_LEVEL=7e4c6fb63c8699fe8520633b40792ff49e9af9ad
+GCCOPT_PATCH_LEVEL=9c91146636de2b0be8162ac3e6c935415f5e7935
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
 GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
