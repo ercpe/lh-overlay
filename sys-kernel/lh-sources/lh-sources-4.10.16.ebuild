@@ -5,7 +5,7 @@ EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=16
+K_GENPATCHES_VER=17
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -25,13 +25,6 @@ BFQ=true
 BFQ_URI_PATCH_MAJOR=10
 BFQ_URI_PATCH_MINOR=0
 BFQ_URI_PATCH_LEVEL=8r11
-BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v8r4"
-BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-to-be-ported.patch
-	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-to-.patch
-	${BFQ_BASE}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch
-"
 BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
 BFQ_URI="
 	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch
@@ -39,14 +32,6 @@ BFQ_URI="
 	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch
 	${BFQ_BASE}/0004-Turn-BFQ-v7r11-for-4.10.0-into-BFQ-v8r11-for-4.10.0.patch
 "
-
-#	${BFQ_BASE}/README.BFQ -> README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MAJOR}.BFQ"
-BFQ_PATCH_LIST=(
-	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v${BFQ_URI_PATCH_LEVEL}-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
-	"${DISTDIR}/0002-block-introduce-the-BFQ-v${BFQ_URI_PATCH_LEVEL}-I-O-sched-to-be-ported.patch"
-	"${DISTDIR}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v${BFQ_URI_PATCH_LEVEL}-to-.patch"
-	"${DISTDIR}/0004-Turn-BFQ-v${BFQ_URI_PATCH_LEVEL}-into-BFQ-v8r4-for-4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}.patch"
-)
 
 BFQ_PATCH_LIST=(
 	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch"
