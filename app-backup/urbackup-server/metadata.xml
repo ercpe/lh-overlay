@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>johann@j-schmitz.net</email>
+		<name>Johann Schmitz</name>
+	</maintainer>
+	<use>
+		<flag name="crypt">Enable encryption support</flag>
+		<flag name="fuse">Enable FUSE support</flag>
+		<flag name="mail">Enable mail support</flag>
+		<flag name="zlib">Enable compression support</flag>
+	</use>
+</pkgmetadata>
