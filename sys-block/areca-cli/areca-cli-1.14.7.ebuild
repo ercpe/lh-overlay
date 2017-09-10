@@ -24,18 +24,16 @@ S="${WORKDIR}/linuxcli_${MY_PV}"
 
 QA_PREBUILT="/opt/bin/arccli"
 
-ARCMSR_kernel_info() {
-	cat <<- EOF
-	The Areace CLI needs a kernel driver (CONFIG_ARCMSR):
-	  Device Drivers --->
-	    SCSI device support --->
-	      SCSI low-level drivers --->
-	         <*>   ARECA (ARC11xx/12xx/13xx/16xx) SATA/SAS RAID Host Adapter
-	EOF
+pkg_setup() {
+	linux-info_pkg_setup
+	if ! linux_config_exists || ! linux_chkconfig_present ARCMSR; then
+		ewarn "The Areca CLI needs a kernel driver (CONFIG_ARCMSR):"
+		ewarn "  Device Drivers --->"
+		ewarn "	SCSI device support --->"
+		ewarn "	  SCSI low-level drivers --->"
+		ewarn "		 <*>   ARECA (ARC11xx/12xx/13xx/16xx) SATA/SAS RAID Host Adapter"
+	fi
 }
-
-CONFIG_CHECK="~ARCMSR"
-ERROR_ARCMSR="$(ARCMSR_kernel_info)"
 
 src_install() {
 	exeinto /opt/bin
