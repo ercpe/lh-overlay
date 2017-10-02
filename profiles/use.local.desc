@@ -2,6 +2,10 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+app-backup/urbackup-server:crypt - Enable encryption support
+app-backup/urbackup-server:fuse - Enable FUSE support
+app-backup/urbackup-server:mail - Enable mail support
+app-backup/urbackup-server:zlib - Enable compression support
 app-portage/squashed-portage:aufs - Enable write access to PORTDIR via an aufs layer
 app-portage/squashed-portage:zsync - Use alternate zsync based fetcher
 dev-nodejs/coffee-script:extras - Install extra stuff
