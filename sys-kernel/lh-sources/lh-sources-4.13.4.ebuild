@@ -5,7 +5,7 @@ EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=17
+K_GENPATCHES_VER=6
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -13,38 +13,17 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.10_p20170410
+AUFS_VERSION=4.13_p20170925
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="http://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
 LOGO_URI="http://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.ppm"
 
-# Set to true, if BFQ needs to apply seperately
-BFQ=true
-
-BFQ_URI_PATCH_MAJOR=10
-BFQ_URI_PATCH_MINOR=0
-BFQ_URI_PATCH_LEVEL=8r11
-BFQ_BASE="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.${BFQ_URI_PATCH_MAJOR}.${BFQ_URI_PATCH_MINOR}-v${BFQ_URI_PATCH_LEVEL}"
-BFQ_URI="
-	${BFQ_BASE}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch
-	${BFQ_BASE}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.10.0.patch
-	${BFQ_BASE}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch
-	${BFQ_BASE}/0004-Turn-BFQ-v7r11-for-4.10.0-into-BFQ-v8r11-for-4.10.0.patch
-"
-
-BFQ_PATCH_LIST=(
-	"${DISTDIR}/0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.10..patch"
-	"${DISTDIR}/0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.10.0.patch"
-	"${DISTDIR}/0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch"
-	"${DISTDIR}/0004-Turn-BFQ-v7r11-for-4.10.0-into-BFQ-v8r11-for-4.10.0.patch"
-)
-
-GCCOPT_PATCH_LEVEL=9c91146636de2b0be8162ac3e6c935415f5e7935
-GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
+GCCOPT_PATCH_LEVEL=720b1c392a2dd956d46407d4b689d3c379ccc107
+GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v4.13+.patch"
 GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
-DESCRIPTION="Full sources including the Gentoo, BFQ and aufs patchset for the 4.${BFQ_URI_PATCH_MAJOR} kernel"
+DESCRIPTION="Full linux kernel sources including the Gentoo and aufs patchset"
 HOMEPAGE="
 	http://dev.gentoo.org/~mpagano/genpatches
 	http://aufs.sourceforge.net/
@@ -59,11 +38,6 @@ SRC_URI="
 	!vanilla? ( ${GENPATCHES_URI} )
 "
 
-if [[ ${BFQ} == "true" ]]; then
-	HOMEPAGE+=" http://algo.ing.unimo.it/people/paolo/disk_sched/"
-	SRC_URI+=" ${BFQ_URI}"
-fi
-
 KEYWORDS="~amd64 ~x86"
 IUSE="module vanilla"
 README_GENTOO_SUFFIX="-r1"
@@ -76,17 +50,10 @@ AUFS_PATCH_LIST="
 	"${WORKDIR}"/aufs4-mmap.patch"
 GCCOPT_LIST=( "${DISTDIR}"/${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch )
 
-#BFQ_DOC="${DISTDIR}/README-v${BFQ_URI_PATCH_LEVEL}-${BFQ_URI_PATCH_MINOR}.BFQ"
-
 UNIPATCH_LIST="
 	${AUFS_PATCH_LIST}
 	${GCCOPT_LIST}
 "
-
-if [[ ${BFQ} == "true" ]]; then
-	# UNIPATCH_LIST+=" ${BFQ_PATCH_LIST[@]}"
-	UNIPATCH_DOCS="${BFQ_DOC}"
-fi
 
 src_unpack() {
 	local p
@@ -97,12 +64,6 @@ src_unpack() {
 	fi
 	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs4-standalone.patch"
 	unpack ${AUFS_TARBALL}
-	if [[ ${BFQ} == "true" ]]; then
-		mkdir "${WORKDIR}"/patches || die
-		for p in ${BFQ_PATCH_LIST[@]}; do
-			cp "${p}" "${WORKDIR}"/patches/$(basename ${p})1 || die
-		done
-	fi
 	kernel-2_src_unpack
 }
 
