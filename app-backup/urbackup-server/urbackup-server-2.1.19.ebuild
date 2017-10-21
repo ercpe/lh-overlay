@@ -16,7 +16,7 @@ IUSE="crypt hardened fuse mail zlib"
 RDEPEND="
 	crypt? ( >=dev-libs/crypto++-5.1 )
 	dev-db/sqlite
-	fuse? ( sys-fs/fuse )
+	fuse? ( sys-fs/fuse:0 )
 	mail? ( >=net-misc/curl-7.2 )
 	zlib? ( sys-libs/zlib )"
 
