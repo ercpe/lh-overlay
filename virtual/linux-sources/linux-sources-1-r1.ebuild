@@ -21,7 +21,6 @@ RDEPEND="|| (
 		sys-kernel/hardened-sources
 		sys-kernel/lh-sources
 		sys-kernel/mips-sources
-		sys-kernel/openvz-sources
 		sys-kernel/pf-sources
 		sys-kernel/rt-sources
 		sys-kernel/tuxonice-sources
