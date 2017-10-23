@@ -16,6 +16,7 @@
     <flag name="ganesha_fs_vfs">Enables support for VFS</flag>
     <flag name="ganesha_fs_xfs">Enables support for XFS</flag>
     <flag name="ganesha_fs_zfs">Enables support for ZFS</flag>
+    <flag name="gssapi">Enable GSSAPI support</flag>
     <flag name="tools">Install Admin scripts</flag>
     <flag name="gui">Install GUI Admin scripts</flag>
     <flag name="nfs3">Enable NLM/NFSv3 support</flag>
