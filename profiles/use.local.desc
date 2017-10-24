@@ -38,7 +38,5 @@ net-fs/nfs-ganesha:rdma - Enable rdma storage backend support
 net-fs/nfs-ganesha:tools - Install Admin scripts
 net-fs/nfs-ganesha:vsock - Enable AF_VSOCK listener
 net-im/turpial:phonon - Enables phonon audio plugin
-net-libs/ntirpc:rdma - Add RDMA support
-net-libs/ntirpc:rpcsec_gss - Enable RPCSEC_GSS support
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
 virtual/linux-sources:firmware - Install linux kernel firmware

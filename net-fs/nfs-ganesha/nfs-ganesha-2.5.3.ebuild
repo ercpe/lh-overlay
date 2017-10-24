@@ -14,7 +14,7 @@ SRC_URI="https://github.com/nfs-ganesha/${PN}/archive/V${PV}.tar.gz -> ${P}.tar.
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dbus debug gui nfs3 nfsidmap rdma tools vsock"
+IUSE="dbus debug gssapi gui nfs3 nfsidmap rdma tools vsock"
 FS_SUPPORT=" vfs ceph gpfs zfs xfs panfs proxy glusterfs null rgw"
 IUSE+=" ${FS_SUPPORT// / ganesha_fs_}"
 
@@ -23,8 +23,8 @@ REQUIRED_USE="gui? ( tools )"
 RDEPEND="
 	dev-libs/jemalloc
 	net-libs/libnfsidmap
-	net-libs/ntirpc[rdma?,rpcsec_gss]
-	virtual/krb5
+	>=net-libs/ntirpc-1.5.3[rdma?,gssapi]
+	gssapi? ( virtual/krb5 )
 	dbus? ( sys-apps/dbus )
 	ganesha_fs_ceph? ( sys-cluster/ceph )
 	ganesha_fs_glusterfs? ( sys-cluster/glusterfs )
@@ -49,10 +49,6 @@ S="${WORKDIR}/${P}/src"
 
 CMAKE_BUILD_TYPE="Release"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-semicolon.patch
-)
-
 src_prepare() {
 	sed \
 		-e "/config_samples/s:doc\/ganesha:doc\/${PF}:g" \
@@ -66,7 +62,7 @@ src_configure() {
 		-DUSE_SYSTEM_NTIRPC=ON
 		-DTIRPC_EPOLL=ON
 		-DKRB5_FIND_COMPONENTS="gssrpc"
-		-DUSE_GSS=ON
+		-DUSE_GSS=$(usex gssapi)
 		-DUSE_DBUS=$(usex dbus)
 		-DUSE_NFSIDMAP=$(usex nfsidmap)
 		-DENABLE_VFS_DEBUG_ACL=$(usex debug)
@@ -112,6 +108,12 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	doinitd "${FILESDIR}"/${PN}.init
-	doconfd "${FILESDIR}"/${PN}.confd
+
+	newinitd "${FILESDIR}"/${PN}.init ${PN}
+	newconfd "${FILESDIR}"/${PN}.confd ${PN}
+
+	if use dbus; then
+		insinto /etc/dbus-1/system.d
+		doins scripts/ganeshactl/org.ganesha.nfsd.conf
+	fi
 }
