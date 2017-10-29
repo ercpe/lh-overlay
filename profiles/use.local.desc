@@ -37,6 +37,5 @@ net-fs/nfs-ganesha:nfsidmap - Use of libnfsidmap for name resolution
 net-fs/nfs-ganesha:rdma - Enable rdma storage backend support
 net-fs/nfs-ganesha:tools - Install Admin scripts
 net-fs/nfs-ganesha:vsock - Enable AF_VSOCK listener
-net-im/turpial:phonon - Enables phonon audio plugin
 sys-kernel/lh-sources:module - Patch kernel to allow aufs being build as a module.
 virtual/linux-sources:firmware - Install linux kernel firmware
