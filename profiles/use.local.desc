@@ -31,6 +31,7 @@ net-fs/nfs-ganesha:ganesha_fs_rgw - Enables support for RGW
 net-fs/nfs-ganesha:ganesha_fs_vfs - Enables support for VFS
 net-fs/nfs-ganesha:ganesha_fs_xfs - Enables support for XFS
 net-fs/nfs-ganesha:ganesha_fs_zfs - Enables support for ZFS
+net-fs/nfs-ganesha:gssapi - Enable GSSAPI support
 net-fs/nfs-ganesha:gui - Install GUI Admin scripts
 net-fs/nfs-ganesha:nfs3 - Enable NLM/NFSv3 support
 net-fs/nfs-ganesha:nfsidmap - Use of libnfsidmap for name resolution
