@@ -1,0 +1,3 @@
+# Configuration file
+TELEGRAF_CONFIG=/etc/telegraf/telegraf.conf
+TELEGRAF_CONFIGDIR=/etc/telegraf/telegraf.d

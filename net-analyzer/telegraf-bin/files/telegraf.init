@@ -1,0 +1,29 @@
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentom Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/${SVCNAME}"
+command_args="--pidfile /run/${SVCNAME}/${SVCNAME}-proc.pid --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/telegraf.d"
+command_user=${SVCNAME}
+command_background=true
+pidfile="/run/${SVCNAME}/${SVCNAME}.pid"
+
+extra_started_commands="reload status"
+
+depend() {
+	use net
+	after bomtmisc
+}
+
+start_pre(){
+	checkpath --directory --owner ${SVCNAME}:${SVCNAME} --mode 0775 \
+	/run/${SVCNAME}
+	ulimit -n 65536
+}
+
+reload() {
+    ebegin "Reloading ${SVCNAME}"
+    start-stop-daemon --signal HUP \
+        --exec "${command}" --pidfile "${pidfile}"
+    eend $?
+}
