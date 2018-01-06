@@ -1,11 +1,11 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=11
+K_GENPATCHES_VER=17
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
