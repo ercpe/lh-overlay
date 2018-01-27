@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -9,7 +9,7 @@ inherit python-r1
 
 DESCRIPTION="Nagios check to test for changes in DNS records"
 HOMEPAGE="https://ercpe.de/projects/${PN}"
-SRC_URI="https://code.not-your-server.de/${PN}.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://git.ercpe.de/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,7 +18,7 @@ IUSE=""
 
 RDEPEND="virtual/python-dnspython[${PYTHON_USEDEP}]"
 
-#S="${WORKDIR}"
+S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	sed -i '1 i\#!/usr/bin/env python2.7' "${S}/src/${PN/nagios-}.py" || die
