@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Linux Filesystem Permissions Watcher"
 HOMEPAGE="https://ercpe.de/projects/permwatcher"
-SRC_URI="https://code.not-your-server.de/permwatcher.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://git.ercpe.de/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
@@ -17,6 +17,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-python/pyinotify[${PYTHON_USEDEP}]"
+
+S="${WORKDIR}/${PN}"
 
 src_install() {
 	distutils-r1_src_install
