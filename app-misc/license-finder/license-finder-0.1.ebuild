@@ -9,13 +9,15 @@ inherit python-r1
 
 DESCRIPTION="Tool to automatically detect FLOSS licenses"
 HOMEPAGE="https://ercpe.de/projects/license-finder"
-SRC_URI="https://code.not-your-server.de/license-finder.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://git.ercpe.de/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 IUSE=""
+
+S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	sed -i -e '1 s:^.*$:#!/usr/bin/env python:g' src/main.py || die
