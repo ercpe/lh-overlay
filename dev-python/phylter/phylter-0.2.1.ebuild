@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
@@ -9,7 +9,7 @@ inherit distutils-r1
 
 DESCRIPTION="Library for a filter DSL in python"
 HOMEPAGE="https://ercpe.de/projects/phylter"
-SRC_URI="https://code.not-your-server.de/phylter.git/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://git.ercpe.de/ercpe/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,9 +21,12 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
 			dev-python/mock[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
 		)"
+
 RDEPEND="django? (
 	dev-python/django[${PYTHON_USEDEP}]
 )"
+
+S="${WORKDIR}/${PN}"
 
 src_test() {
 	make test || die
