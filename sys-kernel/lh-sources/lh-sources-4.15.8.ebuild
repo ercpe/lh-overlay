@@ -5,7 +5,7 @@ EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=20
+K_GENPATCHES_VER=11
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -13,13 +13,13 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.14_p20171127
+AUFS_VERSION=4.15_p20180219
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="https://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
 LOGO_URI="https://dev.gentoo.org/~jlec/distfiles/lh-logo_linux_320_240_clut224.ppm"
 
-GCCOPT_PATCH_LEVEL=720b1c392a2dd956d46407d4b689d3c379ccc107
+GCCOPT_PATCH_LEVEL=ff4899b8eb0ed1db975ad7b11a68b3fd25920937
 GCCOPT_PATCH_NAME="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v4.13+.patch"
 GCCOPT_URI="https://raw.github.com/graysky2/kernel_gcc_patch/${GCCOPT_PATCH_LEVEL}/${GCCOPT_PATCH_NAME} -> ${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch"
 GCCOPT_HOMEPAGE="https://github.com/graysky2/kernel_gcc_patch"
