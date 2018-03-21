@@ -11,9 +11,7 @@ env:
 before_install:
     - sudo apt-get -qq update
 install:
-    - pip install lxml<4.2
-    - type python
-    - python -V
+    - pip install "lxml<4.2"
 before_script:
     - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
     - mkdir -p travis-overlay /etc/portage /usr/portage/distfiles
