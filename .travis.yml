@@ -12,6 +12,8 @@ before_install:
     - sudo apt-get -qq update
     - pip install lxml
 before_script:
+    - type python
+    - python -c "import lxml; print lxml.__version__"
     - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
     - mkdir -p travis-overlay /etc/portage /usr/portage/distfiles
     - mv !(travis-overlay) travis-overlay/
