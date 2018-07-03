@@ -13,7 +13,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=4.17_p20180611
+AUFS_VERSION=4.17_p20180702
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="https://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
