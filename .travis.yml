@@ -11,7 +11,7 @@ env:
 before_install:
     - sudo apt-get -qq update
 install:
-    - pip install "lxml<4.2"
+    - pip install "lxml<4.2" PyYAML
 before_script:
     - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
     - mkdir -p travis-overlay /etc/portage /usr/portage/distfiles
