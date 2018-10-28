@@ -18,7 +18,6 @@
     <flag name="ganesha_fs_zfs">Enables support for ZFS</flag>
     <flag name="gssapi">Enable GSSAPI support</flag>
     <flag name="tools">Install Admin scripts</flag>
-    <flag name="gui">Install GUI Admin scripts</flag>
     <flag name="nfs3">Enable NLM/NFSv3 support</flag>
     <flag name="nfsidmap">Use of libnfsidmap for name resolution</flag>
     <flag name="rdma">Enable rdma storage backend support</flag>

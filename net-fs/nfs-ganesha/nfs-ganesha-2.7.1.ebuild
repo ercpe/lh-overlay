@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -14,11 +14,9 @@ SRC_URI="https://github.com/nfs-ganesha/${PN}/archive/V${PV}.tar.gz -> ${P}.tar.
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dbus debug gssapi gui nfs3 nfsidmap rdma tools vsock"
+IUSE="dbus debug gssapi nfs3 nfsidmap rdma tools vsock"
 FS_SUPPORT=" vfs ceph gpfs zfs xfs panfs proxy glusterfs null rgw"
 IUSE+=" ${FS_SUPPORT// / ganesha_fs_}"
-
-REQUIRED_USE="gui? ( tools )"
 
 RDEPEND="
 	dev-libs/jemalloc
@@ -30,10 +28,6 @@ RDEPEND="
 	ganesha_fs_glusterfs? ( sys-cluster/glusterfs )
 	ganesha_fs_xfs? ( sys-fs/xfsprogs )
 	ganesha_fs_zfs? ( sys-fs/zfs )
-	gui? (
-		${PYTHON_DEPS}
-		dev-python/PyQt4[${PYTHON_USEDEP},X]
-	)
 	tools? (
 		${PYTHON_DEPS}
 		dev-python/pygobject:2[${PYTHON_USEDEP}]
@@ -76,7 +70,6 @@ src_configure() {
 		-DUSE_NLM=$(usex nfs3)
 		-DUSE_VSOCK=$(usex vsock)
 		-DUSE_ADMIN_TOOLS=$(usex tools)
-		-DUSE_GUI_ADMIN_TOOLS=$(usex gui)
 
 		-DUSE_FSAL_CEPH=$(usex ganesha_fs_ceph)
 		-DUSE_FSAL_GLUSTER=$(usex ganesha_fs_glusterfs)
