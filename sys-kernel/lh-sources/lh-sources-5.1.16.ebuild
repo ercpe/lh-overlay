@@ -45,9 +45,9 @@ README_GENTOO_SUFFIX="-r1"
 PDEPEND="=sys-fs/aufs-util-4*"
 
 AUFS_PATCH_LIST="
-	"${WORKDIR}"/aufs4-kbuild.patch
-	"${WORKDIR}"/aufs4-base.patch
-	"${WORKDIR}"/aufs4-mmap.patch"
+	"${WORKDIR}"/aufs5-kbuild.patch
+	"${WORKDIR}"/aufs5-base.patch
+	"${WORKDIR}"/aufs5-mmap.patch"
 GCCOPT_LIST=( "${DISTDIR}"/${PN}-kernel-${GCCOPT_PATCH_LEVEL}.patch )
 
 UNIPATCH_LIST="
@@ -62,7 +62,7 @@ src_unpack() {
 		ewarn "You are using USE=vanilla"
 		ewarn "This will drop all support from the gentoo kernel security team"
 	fi
-	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs4-standalone.patch"
+	use module && UNIPATCH_LIST+=" "${WORKDIR}"/aufs5-standalone.patch"
 	unpack ${AUFS_TARBALL}
 	kernel-2_src_unpack
 }
@@ -83,8 +83,8 @@ src_prepare() {
 
 src_install() {
 	kernel-2_src_install
-	dodoc "${WORKDIR}"/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
-	docompress -x /usr/share/doc/${PF}/{aufs4-loopback,vfs-ino,tmpfs-idr}.patch
+	dodoc "${WORKDIR}"/{aufs5-loopback,vfs-ino,tmpfs-idr}.patch
+	docompress -x /usr/share/doc/${PF}/{aufs5-loopback,vfs-ino,tmpfs-idr}.patch
 	readme.gentoo_create_doc
 }
 
