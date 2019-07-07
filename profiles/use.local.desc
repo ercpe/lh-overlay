@@ -2,23 +2,8 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
-app-backup/urbackup-server:crypt - Enable encryption support
-app-backup/urbackup-server:fuse - Enable FUSE support
-app-backup/urbackup-server:mail - Enable mail support
-app-backup/urbackup-server:zlib - Enable compression support
 dev-nodejs/coffee-script:extras - Install extra stuff
-dev-python/django-rest-framework:oauth - Adds support for authentication via OAuth
-dev-python/graypy:amqp - Adds support for sending log messages via AMQP
-dev-python/phylter:django - Enables the DjangoBackend
-dev-python/python-munin:plugins - Install munin plugins beside the lib
 dev-util/mbfl:sudo - use sudo when invoking abi and abu rules
-mail-filter/fuglu:clamav - Adds support for ClamAV (runtime dep only)
-mail-filter/fuglu:database - Adds support for databases using sqlalchemy
-mail-filter/fuglu:spamassassin - Adds support for Spamassassin (runtime dep only)
-net-analyzer/nagios-plugins-extra:bind - bind plugin
-net-analyzer/nagios-plugins-extra:fail2ban - fail2ban plugin
-net-analyzer/nagios-plugins-extra:pnp4nagios - pnp4nagios plugin
-net-analyzer/nagios-plugins-extra:sensors - sensors plugin
 net-fs/nfs-ganesha:ganesha_fs_ceph - Enables CEPH support
 net-fs/nfs-ganesha:ganesha_fs_glusterfs - Enables GlusterFS support
 net-fs/nfs-ganesha:ganesha_fs_gpfs - Enables support for GPFS
