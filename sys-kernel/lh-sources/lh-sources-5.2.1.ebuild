@@ -5,7 +5,7 @@ EAPI=6
 
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER=12
+K_GENPATCHES_VER=2
 UNIPATCH_STRICTORDER=1
 inherit kernel-2 readme.gentoo-r1 versionator
 detect_version
@@ -13,7 +13,7 @@ detect_arch
 
 KMAIN_VER=$(get_version_component_range 1-2)
 
-AUFS_VERSION=5.1_p20190610
+AUFS_VERSION=5.2_p20190715
 AUFS_TARBALL="aufs-sources-${AUFS_VERSION}.tar.xz"
 AUFS_URI="https://dev.gentoo.org/~jlec/distfiles/${AUFS_TARBALL}"
 
