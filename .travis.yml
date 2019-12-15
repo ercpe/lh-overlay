@@ -7,11 +7,10 @@ cache: pip
 python:
     - pypy
 env:
-    - PORTAGE_VER="2.3.77"
+    - PORTAGE_VER="2.3.80"
 before_install:
     - sudo apt-get -qq update
-install:
-    - pip install "lxml<4.2" PyYAML
+    - pip install lxml pyyaml
 before_script:
     - sudo chmod a+rwX /etc/passwd /etc/group /etc /var /var/cache
     - mkdir -p travis-overlay /etc/portage /var/cache/distfiles /var/db/repos/gentoo
